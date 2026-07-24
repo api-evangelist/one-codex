@@ -1,0 +1,601 @@
+openapi: 3.1.0
+info:
+  description: The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.
+  title: One Codex API (v1) Account Classifications API
+  version: v1
+servers:
+- url: https://app.onecodex.com
+security:
+- apiKeyAuth: []
+tags:
+- name: Classifications
+paths:
+  /api/v1/classifications:
+    get:
+      operationId: get_classifications_instances
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/classifications'
+                type: array
+          description: OK
+      summary: GET classifications instances
+      tags:
+      - Classifications
+  /api/v1/classifications/public:
+    get:
+      operationId: get_classifications_instances_public
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/classifications'
+                type: array
+          description: OK
+      summary: GET classifications instances_public
+      tags:
+      - Classifications
+  /api/v1/classifications/{id}:
+    get:
+      operationId: get_classifications_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/classifications'
+          description: OK
+      summary: GET classifications
+      tags:
+      - Classifications
+  /api/v1/classifications/{id}/cancel:
+    post:
+      operationId: post_classifications_cancel
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/classifications'
+          description: OK
+      summary: POST classifications cancel
+      tags:
+      - Classifications
+  /api/v1/classifications/{id}/file_details:
+    get:
+      operationId: get_classifications_file_details
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  files:
+                    description: A list of output files.
+                    items:
+                      properties:
+                        filename:
+                          description: The filename of the output file.
+                          title: Filename
+                          type: string
+                        filepath:
+                          description: The full file path.
+                          title: Filepath
+                          type: string
+                        size:
+                          description: File size in bytes.
+                          minimum: 0
+                          title: Size
+                          type: integer
+                        url:
+                          description: Pre-signed download URL.
+                          title: Url
+                          type: string
+                      required:
+                      - filename
+                      - filepath
+                      - size
+                      - url
+                      title: AnalysisFileDetailsSchema
+                      type: object
+                    title: Files
+                    type: array
+                required:
+                - files
+                title: AnalysisFileDetailsResponse
+                type: object
+          description: OK
+      summary: GET classifications file_details
+      tags:
+      - Classifications
+  /api/v1/classifications/{id}/files:
+    delete:
+      operationId: delete_classifications_files
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+      summary: DELETE classifications files
+      tags:
+      - Classifications
+    get:
+      operationId: get_classifications_files
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                description: A mapping of filenames to download URLs.
+                type: object
+          description: OK
+      summary: GET classifications files
+      tags:
+      - Classifications
+  /api/v1/classifications/{id}/logs:
+    get:
+      operationId: get_classifications_logs
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: tail
+        required: false
+        schema:
+          anyOf:
+          - minimum: 1
+            type: integer
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          description: OK
+      summary: GET classifications logs
+      tags:
+      - Classifications
+  /api/v1/classifications/{id}/raw_results:
+    get:
+      operationId: get_classifications_raw_results
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  host_tax_ids:
+                    items:
+                      type: string
+                    title: Host Tax Ids
+                    type: array
+                  n_reads:
+                    minimum: 1
+                    title: N Reads
+                    type: integer
+                  table:
+                    items:
+                      properties:
+                        abundance:
+                          anyOf:
+                          - maximum: 1.01
+                            minimum: 0.0
+                            type: number
+                          - type: 'null'
+                          title: Abundance
+                        abundance_w_children:
+                          anyOf:
+                          - maximum: 1.01
+                            minimum: 0.0
+                            type: number
+                          - type: 'null'
+                          title: Abundance W Children
+                        n_kmers:
+                          minimum: 0
+                          title: N Kmers
+                          type: integer
+                        n_unique_kmers:
+                          minimum: 0
+                          title: N Unique Kmers
+                          type: integer
+                        name:
+                          title: Name
+                          type: string
+                        parent_tax_id:
+                          anyOf:
+                          - type: string
+                          - type: 'null'
+                          title: Parent Tax Id
+                        rank:
+                          title: Rank
+                          type: string
+                        readcount:
+                          minimum: 0
+                          title: Readcount
+                          type: integer
+                        readcount_w_children:
+                          minimum: 0
+                          title: Readcount W Children
+                          type: integer
+                        tax_id:
+                          title: Tax Id
+                          type: string
+                        unfiltered_readcount:
+                          anyOf:
+                          - minimum: 0
+                            type: integer
+                          - type: 'null'
+                          default: null
+                          title: Unfiltered Readcount
+                        unfiltered_readcount_w_children:
+                          anyOf:
+                          - minimum: 0
+                            type: integer
+                          - type: 'null'
+                          default: null
+                          title: Unfiltered Readcount W Children
+                      required:
+                      - abundance
+                      - abundance_w_children
+                      - n_kmers
+                      - n_unique_kmers
+                      - name
+                      - parent_tax_id
+                      - rank
+                      - readcount
+                      - readcount_w_children
+                      - tax_id
+                      title: _TaxonomicResultsRaw
+                      type: object
+                    title: Table
+                    type: array
+                required:
+                - host_tax_ids
+                - n_reads
+                - table
+                title: ClassificationRawResultsResponse
+                type: object
+          description: OK
+      summary: GET classifications raw_results
+      tags:
+      - Classifications
+  /api/v1/classifications/{id}/readlevel:
+    get:
+      operationId: get_classifications_readlevel
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  url:
+                    description: Pre-signed download URL.
+                    title: Url
+                    type: string
+                required:
+                - url
+                title: ClassificationReadLevelResponse
+                type: object
+          description: OK
+      summary: GET classifications readlevel
+      tags:
+      - Classifications
+  /api/v1/classifications/{id}/rerun:
+    post:
+      operationId: post_classifications_rerun
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/classifications'
+          description: OK
+      summary: POST classifications rerun
+      tags:
+      - Classifications
+  /api/v1/classifications/{id}/results:
+    get:
+      operationId: get_classifications_results
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  host_tax_ids:
+                    items:
+                      type: string
+                    title: Host Tax Ids
+                    type: array
+                  n_reads:
+                    minimum: 1
+                    title: N Reads
+                    type: integer
+                  table:
+                    items:
+                      properties:
+                        abundance:
+                          anyOf:
+                          - maximum: 1.01
+                            minimum: 0.0
+                            type: number
+                          - type: 'null'
+                          title: Abundance
+                        abundance_w_children:
+                          anyOf:
+                          - maximum: 1.01
+                            minimum: 0.0
+                            type: number
+                          - type: 'null'
+                          title: Abundance W Children
+                        name:
+                          title: Name
+                          type: string
+                        parent_tax_id:
+                          anyOf:
+                          - type: string
+                          - type: 'null'
+                          title: Parent Tax Id
+                        rank:
+                          title: Rank
+                          type: string
+                        readcount:
+                          minimum: 0
+                          title: Readcount
+                          type: integer
+                        readcount_w_children:
+                          minimum: 0
+                          title: Readcount W Children
+                          type: integer
+                        tax_id:
+                          title: Tax Id
+                          type: string
+                        unfiltered_readcount:
+                          anyOf:
+                          - minimum: 0
+                            type: integer
+                          - type: 'null'
+                          default: null
+                          title: Unfiltered Readcount
+                        unfiltered_readcount_w_children:
+                          anyOf:
+                          - minimum: 0
+                            type: integer
+                          - type: 'null'
+                          default: null
+                          title: Unfiltered Readcount W Children
+                      required:
+                      - abundance
+                      - abundance_w_children
+                      - name
+                      - parent_tax_id
+                      - rank
+                      - readcount
+                      - readcount_w_children
+                      - tax_id
+                      title: _TaxonomicResults
+                      type: object
+                    title: Table
+                    type: array
+                required:
+                - host_tax_ids
+                - n_reads
+                - table
+                title: ClassificationResultsResponse
+                type: object
+          description: OK
+      summary: GET classifications results
+      tags:
+      - Classifications
+components:
+  schemas:
+    classifications:
+      properties:
+        $uri:
+          example: /api/v1/classifications/0d77065796f8d173
+          pattern: ^/api/v1/classifications/[a-f0-9]{16}$
+          readOnly: true
+          title: $Uri
+          type: string
+        complete:
+          default: false
+          title: Complete
+          type: boolean
+        created_at:
+          description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+          format: date-time
+          title: Created At
+          type: string
+        error_msg:
+          anyOf:
+          - maxLength: 255
+            type: string
+          - type: 'null'
+          default: null
+          description: The error message from the analysis, if it failed.
+          title: Error Msg
+        job:
+          description: 'A reference to the versioned job underlying the analysis, e.g., `{"$ref": "/api/v1/jobs/d512cb556241440f"}`.'
+          properties:
+            $ref:
+              example: /api/v1/jobs/a1b2c3d4e5f67890
+              format: uri
+              pattern: ^/api/v1/jobs/[a-f0-9]{16}$
+              type: string
+          title: jobs
+          type: object
+        job_args:
+          additionalProperties: true
+          default: {}
+          description: The arguments passed into this analysis (can be `null`).
+          title: Job Args
+          type: object
+        results_uri:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: URI for direct download of results
+          title: Results Uri
+        sample:
+          description: 'A reference to the sample underlying the analysis, e.g., `{"$ref": "/api/v1/sample/0ee172af60e84f61"}`.'
+          properties:
+            $ref:
+              example: /api/v1/samples/a1b2c3d4e5f67890
+              format: uri
+              pattern: ^/api/v1/samples/[a-f0-9]{16}$
+              type: string
+          title: samples
+          type: object
+        success:
+          default: false
+          title: Success
+          type: boolean
+        updated_at:
+          anyOf:
+          - format: date-time
+            type: string
+          - type: 'null'
+          default: null
+          description: Timestamp for when the object was last updated on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+          title: Updated At
+      required:
+      - $uri
+      - created_at
+      - job
+      - results_uri
+      - sample
+      title: classifications
+      type: object
+  securitySchemes:
+    apiKeyAuth:
+      in: header
+      name: X-API-Key
+      type: apiKey

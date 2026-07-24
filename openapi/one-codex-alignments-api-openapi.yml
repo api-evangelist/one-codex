@@ -1,0 +1,471 @@
+openapi: 3.1.0
+info:
+  description: The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.
+  title: One Codex API (v1) Account Alignments API
+  version: v1
+servers:
+- url: https://app.onecodex.com
+security:
+- apiKeyAuth: []
+tags:
+- name: Alignments
+paths:
+  /api/v1/alignments:
+    get:
+      operationId: get_alignments_instances
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/alignments'
+                type: array
+          description: OK
+      summary: GET alignments instances
+      tags:
+      - Alignments
+  /api/v1/alignments/public:
+    get:
+      operationId: get_alignments_instances_public
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/alignments'
+                type: array
+          description: OK
+      summary: GET alignments instances_public
+      tags:
+      - Alignments
+  /api/v1/alignments/{id}:
+    get:
+      operationId: get_alignments_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/alignments'
+          description: OK
+      summary: GET alignments
+      tags:
+      - Alignments
+  /api/v1/alignments/{id}/cancel:
+    post:
+      operationId: post_alignments_cancel
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/alignments'
+          description: OK
+      summary: POST alignments cancel
+      tags:
+      - Alignments
+  /api/v1/alignments/{id}/file_details:
+    get:
+      operationId: get_alignments_file_details
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  files:
+                    description: A list of output files.
+                    items:
+                      properties:
+                        filename:
+                          description: The filename of the output file.
+                          title: Filename
+                          type: string
+                        filepath:
+                          description: The full file path.
+                          title: Filepath
+                          type: string
+                        size:
+                          description: File size in bytes.
+                          minimum: 0
+                          title: Size
+                          type: integer
+                        url:
+                          description: Pre-signed download URL.
+                          title: Url
+                          type: string
+                      required:
+                      - filename
+                      - filepath
+                      - size
+                      - url
+                      title: AnalysisFileDetailsSchema
+                      type: object
+                    title: Files
+                    type: array
+                required:
+                - files
+                title: AnalysisFileDetailsResponse
+                type: object
+          description: OK
+      summary: GET alignments file_details
+      tags:
+      - Alignments
+  /api/v1/alignments/{id}/files:
+    delete:
+      operationId: delete_alignments_files
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+      summary: DELETE alignments files
+      tags:
+      - Alignments
+    get:
+      operationId: get_alignments_files
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                description: A mapping of filenames to download URLs.
+                type: object
+          description: OK
+      summary: GET alignments files
+      tags:
+      - Alignments
+  /api/v1/alignments/{id}/logs:
+    get:
+      operationId: get_alignments_logs
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: tail
+        required: false
+        schema:
+          anyOf:
+          - minimum: 1
+            type: integer
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          description: OK
+      summary: GET alignments logs
+      tags:
+      - Alignments
+  /api/v1/alignments/{id}/rerun:
+    post:
+      operationId: post_alignments_rerun
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/alignments'
+          description: OK
+      summary: POST alignments rerun
+      tags:
+      - Alignments
+  /api/v1/alignments/{id}/results:
+    get:
+      operationId: get_alignments_results
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  assembly_accession:
+                    anyOf:
+                    - type: string
+                    - type: 'null'
+                    default: null
+                    title: Assembly Accession
+                  assembly_id:
+                    title: Assembly Id
+                    type: string
+                  average_coverage:
+                    title: Average Coverage
+                    type: number
+                  average_identity:
+                    title: Average Identity
+                    type: number
+                  coverage:
+                    properties:
+                      binned_depths:
+                        items:
+                          properties:
+                            contig_id:
+                              title: Contig Id
+                              type: string
+                            depths:
+                              items:
+                                type: integer
+                              title: Depths
+                              type: array
+                            length:
+                              minimum: 1
+                              title: Length
+                              type: integer
+                          required:
+                          - contig_id
+                          - depths
+                          - length
+                          title: _BinnedDepth
+                          type: object
+                        title: Binned Depths
+                        type: array
+                      binned_window_width:
+                        title: Binned Window Width
+                        type: string
+                    required:
+                    - binned_depths
+                    - binned_window_width
+                    title: _Coverage
+                    type: object
+                  genome_id:
+                    anyOf:
+                    - type: string
+                    - type: 'null'
+                    default: null
+                    title: Genome Id
+                  genome_name:
+                    anyOf:
+                    - type: string
+                    - type: 'null'
+                    default: null
+                    title: Genome Name
+                  genome_taxon_id:
+                    anyOf:
+                    - type: string
+                    - type: 'null'
+                    default: null
+                    title: Genome Taxon Id
+                  genome_taxon_name:
+                    anyOf:
+                    - type: string
+                    - type: 'null'
+                    default: null
+                    title: Genome Taxon Name
+                  median_depth:
+                    title: Median Depth
+                    type: number
+                  n_mapped:
+                    anyOf:
+                    - type: integer
+                    - type: 'null'
+                    default: null
+                    title: N Mapped
+                  n_reads:
+                    anyOf:
+                    - type: integer
+                    - type: 'null'
+                    default: null
+                    title: N Reads
+                required:
+                - assembly_id
+                - average_coverage
+                - average_identity
+                - coverage
+                - median_depth
+                title: AlignmentResultsResponse
+                type: object
+          description: OK
+      summary: GET alignments results
+      tags:
+      - Alignments
+components:
+  schemas:
+    alignments:
+      properties:
+        $uri:
+          example: /api/v1/alignments/0d77065796f8d173
+          pattern: ^/api/v1/alignments/[a-f0-9]{16}$
+          readOnly: true
+          title: $Uri
+          type: string
+        complete:
+          default: false
+          title: Complete
+          type: boolean
+        created_at:
+          description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+          format: date-time
+          title: Created At
+          type: string
+        error_msg:
+          anyOf:
+          - maxLength: 255
+            type: string
+          - type: 'null'
+          default: null
+          description: The error message from the analysis, if it failed.
+          title: Error Msg
+        job:
+          description: 'A reference to the versioned job underlying the analysis, e.g., `{"$ref": "/api/v1/jobs/d512cb556241440f"}`.'
+          properties:
+            $ref:
+              example: /api/v1/jobs/a1b2c3d4e5f67890
+              format: uri
+              pattern: ^/api/v1/jobs/[a-f0-9]{16}$
+              type: string
+          title: jobs
+          type: object
+        job_args:
+          additionalProperties: true
+          default: {}
+          description: The arguments passed into this analysis (can be `null`).
+          title: Job Args
+          type: object
+        sample:
+          description: 'A reference to the sample underlying the analysis, e.g., `{"$ref": "/api/v1/sample/0ee172af60e84f61"}`.'
+          properties:
+            $ref:
+              example: /api/v1/samples/a1b2c3d4e5f67890
+              format: uri
+              pattern: ^/api/v1/samples/[a-f0-9]{16}$
+              type: string
+          title: samples
+          type: object
+        success:
+          default: false
+          title: Success
+          type: boolean
+        updated_at:
+          anyOf:
+          - format: date-time
+            type: string
+          - type: 'null'
+          default: null
+          description: Timestamp for when the object was last updated on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+          title: Updated At
+      required:
+      - $uri
+      - created_at
+      - job
+      - sample
+      title: alignments
+      type: object
+  securitySchemes:
+    apiKeyAuth:
+      in: header
+      name: X-API-Key
+      type: apiKey

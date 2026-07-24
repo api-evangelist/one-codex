@@ -1,0 +1,1033 @@
+openapi: 3.1.0
+info:
+  description: The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.
+  title: One Codex API (v1) Account Jobs API
+  version: v1
+servers:
+- url: https://app.onecodex.com
+security:
+- apiKeyAuth: []
+tags:
+- name: Jobs
+paths:
+  /api/v1/jobs:
+    get:
+      operationId: get_jobs_instances
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/jobs'
+                type: array
+          description: OK
+      summary: GET jobs instances
+      tags:
+      - Jobs
+    post:
+      operationId: post_jobs_instances
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                arguments_schema:
+                  anyOf:
+                  - items:
+                      properties:
+                        description:
+                          anyOf:
+                          - type: string
+                          - type: 'null'
+                          default: null
+                          title: Description
+                        fa_icon:
+                          anyOf:
+                          - type: string
+                          - type: 'null'
+                          default: null
+                          title: Fa Icon
+                        fields:
+                          items:
+                            properties:
+                              choices:
+                                anyOf:
+                                - items:
+                                    anyOf:
+                                    - type: string
+                                    - type: integer
+                                    - type: number
+                                    - type: boolean
+                                  type: array
+                                - type: 'null'
+                                default: null
+                                title: Choices
+                              default:
+                                anyOf:
+                                - {}
+                                - type: 'null'
+                                default: null
+                                title: Default
+                              description:
+                                anyOf:
+                                - type: string
+                                - type: 'null'
+                                default: null
+                                title: Description
+                              env_name:
+                                default: ''
+                                title: Env Name
+                                type: string
+                              fa_icon:
+                                anyOf:
+                                - type: string
+                                - type: 'null'
+                                default: null
+                                title: Fa Icon
+                              help_text:
+                                anyOf:
+                                - type: string
+                                - type: 'null'
+                                default: null
+                                title: Help Text
+                              name:
+                                title: Name
+                                type: string
+                              pattern:
+                                anyOf:
+                                - type: string
+                                - type: 'null'
+                                default: null
+                                title: Pattern
+                              required:
+                                default: false
+                                title: Required
+                                type: boolean
+                              type:
+                                anyOf:
+                                - enum:
+                                  - string
+                                  - regex
+                                  - integer
+                                  - number
+                                  - boolean
+                                  - enum
+                                  - sample_id
+                                  - genome_id
+                                  - classified_sample_id
+                                  - assembly_id
+                                  - ref_assembly_by_tax_id
+                                  - genome_tax_id
+                                  title: FieldType
+                                  type: string
+                                - items:
+                                    enum:
+                                    - string
+                                    - regex
+                                    - integer
+                                    - number
+                                    - boolean
+                                    - enum
+                                    - sample_id
+                                    - genome_id
+                                    - classified_sample_id
+                                    - assembly_id
+                                    - ref_assembly_by_tax_id
+                                    - genome_tax_id
+                                    title: FieldType
+                                    type: string
+                                  type: array
+                                title: Type
+                            required:
+                            - name
+                            - type
+                            title: Field
+                            type: object
+                          title: Fields
+                          type: array
+                        title:
+                          anyOf:
+                          - type: string
+                          - type: 'null'
+                          default: null
+                          title: Title
+                      title: FieldGroup
+                      type: object
+                    type: array
+                  - type: 'null'
+                  default: null
+                  description: 'The schema for the arguments to parametrize this job. Each field is exposed in the script as `$ARGS_<UPPER_NAME>`. Example: `[{"fields": [{"name": "min_quality", "type": "integer"}, {"name": "adapter", "type": "string"}]}]`. The input sample is not a parameter; it is passed separately at run time'
+                  title: Arguments Schema
+                assets:
+                  anyOf:
+                  - items:
+                      properties:
+                        $ref:
+                          example: /api/v1/assets/a1b2c3d4e5f67890
+                          format: uri
+                          pattern: ^/api/v1/assets/[a-f0-9]{16}$
+                          type: string
+                      type: object
+                    type: array
+                  - type: 'null'
+                  default: null
+                  description: An optional list of assets associated with this job
+                  title: Assets
+                cpu:
+                  anyOf:
+                  - type: number
+                  - type: 'null'
+                  default: null
+                  description: The number of CPU cores used for this job, set only for shell script jobs
+                  title: Cpu
+                dependencies:
+                  anyOf:
+                  - items:
+                      properties:
+                        job:
+                          description: Parent job to use as a dependency
+                          properties:
+                            $ref:
+                              example: /api/v1/jobs/a1b2c3d4e5f67890
+                              format: uri
+                              pattern: ^/api/v1/jobs/[a-f0-9]{16}$
+                              type: string
+                          type: object
+                        output_dir:
+                          description: Directory into which to download the parent run results (must be relative, will be appended to /out directory)
+                          title: Output Dir
+                          type: string
+                      required:
+                      - job
+                      - output_dir
+                      title: JobDependencySchema
+                      type: object
+                    type: array
+                  - type: 'null'
+                  default: null
+                  description: Optional job dependencies for this job. If provided, will be triggered automatically when this job is run
+                  title: Dependencies
+                description:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  description: The human-readable description of the job. Supports markdown
+                  title: Description
+                image_uri:
+                  description: 'Fully qualified, publicly available OCI image URI containing every tool the script uses. Examples: `docker.io/biocontainers/fastqc:v0.11.9_cv8`, `docker.io/library/python:3.12`. Don''t use Docker Hub shorthand forms such as `python:3.12` or `python/3.12`'
+                  minLength: 1
+                  title: Image Uri
+                  type: string
+                inject_bearer_token:
+                  default: false
+                  description: Whether to inject the user's One Codex bearer token into the analysis job, exposed as $ONE_CODEX_BEARER_TOKEN
+                  title: Inject Bearer Token
+                  type: boolean
+                job_type:
+                  default: shell_script
+                  description: Whether this is a shell script or a Nextflow job
+                  enum:
+                  - shell_script
+                  - nextflow
+                  title: AnalysisJobType
+                  type: string
+                name:
+                  description: The human-readable name of the job
+                  minLength: 1
+                  title: Name
+                  type: string
+                ram_gb:
+                  anyOf:
+                  - type: number
+                  - type: 'null'
+                  default: null
+                  description: The amount of RAM used for this job in GB, set only for shell script jobs
+                  title: Ram Gb
+                repository:
+                  anyOf:
+                  - properties:
+                      tag:
+                        anyOf:
+                        - type: string
+                        - type: 'null'
+                        default: null
+                        description: The git tag to use for this repository
+                        title: Tag
+                      url:
+                        description: The URL of the git repository
+                        title: Url
+                        type: string
+                    required:
+                    - url
+                    title: RepositorySchema
+                    type: object
+                  - type: 'null'
+                  default: null
+                  description: The git repository that this job runs against
+                script:
+                  description: The script to be executed, runs as non-root user
+                  minLength: 1
+                  title: Script
+                  type: string
+                storage_gb:
+                  anyOf:
+                  - type: number
+                  - type: 'null'
+                  default: null
+                  description: The amount of storage used for this job in GB, set only for shell script jobs
+                  title: Storage Gb
+              required:
+              - image_uri
+              - name
+              - script
+              title: CreateJobSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jobs'
+          description: OK
+      summary: POST jobs instances
+      tags:
+      - Jobs
+  /api/v1/jobs/{id}:
+    get:
+      operationId: get_jobs_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jobs'
+          description: OK
+      summary: GET jobs
+      tags:
+      - Jobs
+    patch:
+      operationId: patch_jobs_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                arguments_schema:
+                  anyOf:
+                  - items:
+                      properties:
+                        description:
+                          anyOf:
+                          - type: string
+                          - type: 'null'
+                          default: null
+                          title: Description
+                        fa_icon:
+                          anyOf:
+                          - type: string
+                          - type: 'null'
+                          default: null
+                          title: Fa Icon
+                        fields:
+                          items:
+                            properties:
+                              choices:
+                                anyOf:
+                                - items:
+                                    anyOf:
+                                    - type: string
+                                    - type: integer
+                                    - type: number
+                                    - type: boolean
+                                  type: array
+                                - type: 'null'
+                                default: null
+                                title: Choices
+                              default:
+                                anyOf:
+                                - {}
+                                - type: 'null'
+                                default: null
+                                title: Default
+                              description:
+                                anyOf:
+                                - type: string
+                                - type: 'null'
+                                default: null
+                                title: Description
+                              env_name:
+                                default: ''
+                                title: Env Name
+                                type: string
+                              fa_icon:
+                                anyOf:
+                                - type: string
+                                - type: 'null'
+                                default: null
+                                title: Fa Icon
+                              help_text:
+                                anyOf:
+                                - type: string
+                                - type: 'null'
+                                default: null
+                                title: Help Text
+                              name:
+                                title: Name
+                                type: string
+                              pattern:
+                                anyOf:
+                                - type: string
+                                - type: 'null'
+                                default: null
+                                title: Pattern
+                              required:
+                                default: false
+                                title: Required
+                                type: boolean
+                              type:
+                                anyOf:
+                                - enum:
+                                  - string
+                                  - regex
+                                  - integer
+                                  - number
+                                  - boolean
+                                  - enum
+                                  - sample_id
+                                  - genome_id
+                                  - classified_sample_id
+                                  - assembly_id
+                                  - ref_assembly_by_tax_id
+                                  - genome_tax_id
+                                  title: FieldType
+                                  type: string
+                                - items:
+                                    enum:
+                                    - string
+                                    - regex
+                                    - integer
+                                    - number
+                                    - boolean
+                                    - enum
+                                    - sample_id
+                                    - genome_id
+                                    - classified_sample_id
+                                    - assembly_id
+                                    - ref_assembly_by_tax_id
+                                    - genome_tax_id
+                                    title: FieldType
+                                    type: string
+                                  type: array
+                                title: Type
+                            required:
+                            - name
+                            - type
+                            title: Field
+                            type: object
+                          title: Fields
+                          type: array
+                        title:
+                          anyOf:
+                          - type: string
+                          - type: 'null'
+                          default: null
+                          title: Title
+                      title: FieldGroup
+                      type: object
+                    type: array
+                  - type: 'null'
+                  default: null
+                  description: 'The schema for the arguments to parametrize this job. Each field is exposed in the script as `$ARGS_<UPPER_NAME>`. Example: `[{"fields": [{"name": "min_quality", "type": "integer"}, {"name": "adapter", "type": "string"}]}]`. The input sample is not a parameter; it is passed separately at run time'
+                  title: Arguments Schema
+                assets:
+                  anyOf:
+                  - items:
+                      properties:
+                        $ref:
+                          example: /api/v1/assets/a1b2c3d4e5f67890
+                          format: uri
+                          pattern: ^/api/v1/assets/[a-f0-9]{16}$
+                          type: string
+                      type: object
+                    type: array
+                  - type: 'null'
+                  default: null
+                  description: An optional list of assets associated with this job
+                  title: Assets
+                autorun_on_org_sample_upload:
+                  anyOf:
+                  - type: boolean
+                  - type: 'null'
+                  default: null
+                  description: Whether to automatically run this job on every newly uploaded sample in the user's organization. Only available to organization admins on published jobs.
+                  title: Autorun On Org Sample Upload
+                cpu:
+                  anyOf:
+                  - type: number
+                  - type: 'null'
+                  default: null
+                  description: The number of CPU cores used for this job, set only for shell script jobs
+                  title: Cpu
+                dependencies:
+                  anyOf:
+                  - items:
+                      properties:
+                        job:
+                          description: Parent job to use as a dependency
+                          properties:
+                            $ref:
+                              example: /api/v1/jobs/a1b2c3d4e5f67890
+                              format: uri
+                              pattern: ^/api/v1/jobs/[a-f0-9]{16}$
+                              type: string
+                          type: object
+                        output_dir:
+                          description: Directory into which to download the parent run results (must be relative, will be appended to /out directory)
+                          title: Output Dir
+                          type: string
+                      required:
+                      - job
+                      - output_dir
+                      title: JobDependencySchema
+                      type: object
+                    type: array
+                  - type: 'null'
+                  default: null
+                  description: Optional job dependencies for this job. If provided, will be triggered automatically when this job is run
+                  title: Dependencies
+                description:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  description: The human-readable description of the job. Supports markdown
+                  title: Description
+                image_uri:
+                  anyOf:
+                  - minLength: 1
+                    type: string
+                  - type: 'null'
+                  default: null
+                  description: 'Fully qualified, publicly available OCI image URI containing every tool the script uses. Examples: `docker.io/biocontainers/fastqc:v0.11.9_cv8`, `docker.io/library/python:3.12`. Don''t use Docker Hub shorthand forms such as `python:3.12` or `python/3.12`'
+                  title: Image Uri
+                inject_bearer_token:
+                  anyOf:
+                  - type: boolean
+                  - type: 'null'
+                  default: null
+                  description: Whether to inject the user's One Codex bearer token into the analysis job, exposed as $ONE_CODEX_BEARER_TOKEN
+                  title: Inject Bearer Token
+                name:
+                  anyOf:
+                  - minLength: 1
+                    type: string
+                  - type: 'null'
+                  default: null
+                  description: The human-readable name of the job
+                  title: Name
+                ram_gb:
+                  anyOf:
+                  - type: number
+                  - type: 'null'
+                  default: null
+                  description: The amount of RAM used for this job in GB, set only for shell script jobs
+                  title: Ram Gb
+                repository:
+                  anyOf:
+                  - properties:
+                      tag:
+                        anyOf:
+                        - type: string
+                        - type: 'null'
+                        default: null
+                        description: The git tag to use for this repository
+                        title: Tag
+                      url:
+                        description: The URL of the git repository
+                        title: Url
+                        type: string
+                    required:
+                    - url
+                    title: RepositorySchema
+                    type: object
+                  - type: 'null'
+                  default: null
+                  description: The git repository that this job runs against
+                script:
+                  anyOf:
+                  - minLength: 1
+                    type: string
+                  - type: 'null'
+                  default: null
+                  description: The script to be executed, runs as non-root user
+                  title: Script
+                storage_gb:
+                  anyOf:
+                  - type: number
+                  - type: 'null'
+                  default: null
+                  description: The amount of storage used for this job in GB, set only for shell script jobs
+                  title: Storage Gb
+              title: UpdateJobSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/jobs'
+          description: OK
+      summary: PATCH jobs
+      tags:
+      - Jobs
+  /api/v1/jobs/{id}/details:
+    get:
+      operationId: get_jobs_details
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  arguments_schema:
+                    anyOf:
+                    - items:
+                        properties:
+                          description:
+                            anyOf:
+                            - type: string
+                            - type: 'null'
+                            default: null
+                            title: Description
+                          fa_icon:
+                            anyOf:
+                            - type: string
+                            - type: 'null'
+                            default: null
+                            title: Fa Icon
+                          fields:
+                            items:
+                              properties:
+                                choices:
+                                  anyOf:
+                                  - items:
+                                      anyOf:
+                                      - type: string
+                                      - type: integer
+                                      - type: number
+                                      - type: boolean
+                                    type: array
+                                  - type: 'null'
+                                  default: null
+                                  title: Choices
+                                default:
+                                  anyOf:
+                                  - {}
+                                  - type: 'null'
+                                  default: null
+                                  title: Default
+                                description:
+                                  anyOf:
+                                  - type: string
+                                  - type: 'null'
+                                  default: null
+                                  title: Description
+                                env_name:
+                                  default: ''
+                                  title: Env Name
+                                  type: string
+                                fa_icon:
+                                  anyOf:
+                                  - type: string
+                                  - type: 'null'
+                                  default: null
+                                  title: Fa Icon
+                                help_text:
+                                  anyOf:
+                                  - type: string
+                                  - type: 'null'
+                                  default: null
+                                  title: Help Text
+                                name:
+                                  title: Name
+                                  type: string
+                                pattern:
+                                  anyOf:
+                                  - type: string
+                                  - type: 'null'
+                                  default: null
+                                  title: Pattern
+                                required:
+                                  default: false
+                                  title: Required
+                                  type: boolean
+                                type:
+                                  anyOf:
+                                  - enum:
+                                    - string
+                                    - regex
+                                    - integer
+                                    - number
+                                    - boolean
+                                    - enum
+                                    - sample_id
+                                    - genome_id
+                                    - classified_sample_id
+                                    - assembly_id
+                                    - ref_assembly_by_tax_id
+                                    - genome_tax_id
+                                    title: FieldType
+                                    type: string
+                                  - items:
+                                      enum:
+                                      - string
+                                      - regex
+                                      - integer
+                                      - number
+                                      - boolean
+                                      - enum
+                                      - sample_id
+                                      - genome_id
+                                      - classified_sample_id
+                                      - assembly_id
+                                      - ref_assembly_by_tax_id
+                                      - genome_tax_id
+                                      title: FieldType
+                                      type: string
+                                    type: array
+                                  title: Type
+                              required:
+                              - name
+                              - type
+                              title: Field
+                              type: object
+                            title: Fields
+                            type: array
+                          title:
+                            anyOf:
+                            - type: string
+                            - type: 'null'
+                            default: null
+                            title: Title
+                        title: FieldGroup
+                        type: object
+                      type: array
+                    - type: 'null'
+                    default: null
+                    description: 'The schema for the arguments to parametrize this job. Each field is exposed in the script as `$ARGS_<UPPER_NAME>`. Example: `[{"fields": [{"name": "min_quality", "type": "integer"}, {"name": "adapter", "type": "string"}]}]`. The input sample is not a parameter; it is passed separately at run time'
+                    title: Arguments Schema
+                  assets:
+                    anyOf:
+                    - items:
+                        properties:
+                          $ref:
+                            example: /api/v1/assets/a1b2c3d4e5f67890
+                            format: uri
+                            pattern: ^/api/v1/assets/[a-f0-9]{16}$
+                            type: string
+                        type: object
+                      type: array
+                    - type: 'null'
+                    default: null
+                    description: An optional list of assets associated with this job
+                    title: Assets
+                  autorun_on_org_sample_upload:
+                    description: Whether this job runs automatically on every newly uploaded sample in the user's organization.
+                    title: Autorun On Org Sample Upload
+                    type: boolean
+                  cpu:
+                    anyOf:
+                    - type: number
+                    - type: 'null'
+                    default: null
+                    description: The number of CPU cores used for this job, set only for shell script jobs
+                    title: Cpu
+                  dependencies:
+                    anyOf:
+                    - items:
+                        properties:
+                          job:
+                            description: Parent job to use as a dependency
+                            properties:
+                              $ref:
+                                example: /api/v1/jobs/a1b2c3d4e5f67890
+                                format: uri
+                                pattern: ^/api/v1/jobs/[a-f0-9]{16}$
+                                type: string
+                            type: object
+                          output_dir:
+                            description: Directory into which to download the parent run results (must be relative, will be appended to /out directory)
+                            title: Output Dir
+                            type: string
+                        required:
+                        - job
+                        - output_dir
+                        title: JobDependencySchema
+                        type: object
+                      type: array
+                    - type: 'null'
+                    default: null
+                    description: Optional job dependencies for this job. If provided, will be triggered automatically when this job is run
+                    title: Dependencies
+                  description:
+                    anyOf:
+                    - type: string
+                    - type: 'null'
+                    default: null
+                    description: The human-readable description of the job. Supports markdown
+                    title: Description
+                  image_uri:
+                    description: Fully qualified OCI image URI used to run the job.
+                    title: Image Uri
+                    type: string
+                  inject_bearer_token:
+                    description: Whether the user's One Codex bearer token is injected into the analysis job as $ONE_CODEX_BEARER_TOKEN.
+                    title: Inject Bearer Token
+                    type: boolean
+                  job_type:
+                    description: Whether this is a shell script or a Nextflow job.
+                    enum:
+                    - shell_script
+                    - nextflow
+                    title: AnalysisJobType
+                    type: string
+                  ram_gb:
+                    anyOf:
+                    - type: number
+                    - type: 'null'
+                    default: null
+                    description: The amount of RAM used for this job in GB, set only for shell script jobs
+                    title: Ram Gb
+                  repository:
+                    anyOf:
+                    - properties:
+                        tag:
+                          anyOf:
+                          - type: string
+                          - type: 'null'
+                          default: null
+                          description: The git tag to use for this repository
+                          title: Tag
+                        url:
+                          description: The URL of the git repository
+                          title: Url
+                          type: string
+                      required:
+                      - url
+                      title: RepositorySchema
+                      type: object
+                    - type: 'null'
+                    default: null
+                    description: The git repository that this job runs against
+                  script:
+                    description: The script that is executed when the job runs.
+                    title: Script
+                    type: string
+                  storage_gb:
+                    anyOf:
+                    - type: number
+                    - type: 'null'
+                    default: null
+                    description: The amount of storage used for this job in GB, set only for shell script jobs
+                    title: Storage Gb
+                required:
+                - autorun_on_org_sample_upload
+                - image_uri
+                - inject_bearer_token
+                - job_type
+                - script
+                title: JobDetailsSchema
+                type: object
+          description: OK
+      summary: GET jobs details
+      tags:
+      - Jobs
+  /api/v1/jobs/{id}/run:
+    post:
+      operationId: post_jobs_run
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                dependencies:
+                  anyOf:
+                  - items:
+                      properties:
+                        analysis:
+                          description: Parent run to use as a dependency
+                          properties:
+                            $ref:
+                              example: /api/v1/analyses/a1b2c3d4e5f67890
+                              format: uri
+                              pattern: ^/api/v1/analyses/[a-f0-9]{16}$
+                              type: string
+                          type: object
+                        download_path:
+                          anyOf:
+                          - pattern: '[^/].*'
+                            type: string
+                          - type: 'null'
+                          default: null
+                          description: Directory into which to download the parent run (must be relative)
+                          title: Download Path
+                      required:
+                      - analysis
+                      title: DependencyOverrideSchema
+                      type: object
+                    type: array
+                  - type: 'null'
+                  default: null
+                  description: Override the analysis dependencies for this run with provided dependencies
+                  title: Dependencies
+                job_args:
+                  anyOf:
+                  - additionalProperties: true
+                    type: object
+                  - type: 'null'
+                  title: Job Args
+                populate_default_arguments:
+                  anyOf:
+                  - type: boolean
+                  - type: 'null'
+                  default: true
+                  title: Populate Default Arguments
+                sample:
+                  properties:
+                    $ref:
+                      example: /api/v1/samples/a1b2c3d4e5f67890
+                      format: uri
+                      pattern: ^/api/v1/samples/[a-f0-9]{16}$
+                      type: string
+                  type: object
+              required:
+              - job_args
+              - sample
+              title: JobRunAnalysisSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  $ref:
+                    example: /api/v1/analyses/a1b2c3d4e5f67890
+                    format: uri
+                    pattern: ^/api/v1/analyses/[a-f0-9]{16}$
+                    type: string
+                type: object
+          description: OK
+      summary: POST jobs run
+      tags:
+      - Jobs
+components:
+  schemas:
+    jobs:
+      properties:
+        $uri:
+          example: /api/v1/jobs/0d77065796f8d173
+          pattern: ^/api/v1/jobs/[a-f0-9]{16}$
+          readOnly: true
+          title: $Uri
+          type: string
+        analysis_type:
+          description: The type of analysis. See [the analysis resource](/api/analysis-resource) for more details.
+          title: Analysis Type
+          type: string
+        created_at:
+          description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+          format: date-time
+          title: Created At
+          type: string
+        job_args_schema:
+          additionalProperties: true
+          description: The JSON schema for the arguments taken by the job (can be an empty object, i.e., `{}`).
+          title: Job Args Schema
+          type: object
+        name:
+          description: The name of the job (this is displayed in the dropdown on the analysis page of the One Codex web application).
+          title: Name
+          type: string
+        public:
+          description: Whether the job is publicly available. For most jobs this will be `true`. Custom, private jobs are also available, and will only be visible to users whose samples (or samples shared with them) have been analyzed using that job.
+          title: Public
+          type: boolean
+      required:
+      - $uri
+      - analysis_type
+      - created_at
+      - job_args_schema
+      - name
+      - public
+      title: jobs
+      type: object
+  securitySchemes:
+    apiKeyAuth:
+      in: header
+      name: X-API-Key
+      type: apiKey

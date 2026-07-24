@@ -1,0 +1,438 @@
+openapi: 3.1.0
+info:
+  description: The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.
+  title: One Codex API (v1) Account Documents API
+  version: v1
+servers:
+- url: https://app.onecodex.com
+security:
+- apiKeyAuth: []
+tags:
+- name: Documents
+paths:
+  /api/v1/documents:
+    get:
+      operationId: get_documents_instances
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/documents'
+                type: array
+          description: OK
+      summary: GET documents instances
+      tags:
+      - Documents
+  /api/v1/documents/confirm_upload:
+    post:
+      operationId: post_documents_instances_confirm_upload
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                document_id:
+                  description: The `document_id` returned by `/documents/init_upload`. Note that the document will not be accessible via `/documents/<id>` until the upload is confirmed.
+                  title: Document Id
+                  type: string
+              required:
+              - document_id
+              title: DocumentConfirmUploadSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  document:
+                    description: A reference to the uploaded document.
+                    properties:
+                      $ref:
+                        example: /api/v1/documents/a1b2c3d4e5f67890
+                        format: uri
+                        pattern: ^/api/v1/documents/[a-f0-9]{16}$
+                        type: string
+                    type: object
+                  message:
+                    description: A success or error message.
+                    title: Message
+                    type: string
+                  success:
+                    description: Whether the upload was successful.
+                    title: Success
+                    type: boolean
+                required:
+                - document
+                - message
+                - success
+                title: DocumentConfirmUploadResponse
+                type: object
+          description: OK
+      summary: POST documents instances_confirm_upload
+      tags:
+      - Documents
+  /api/v1/documents/init_multipart_upload:
+    post:
+      operationId: post_documents_instances_init_multipart_upload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  callback_url:
+                    title: Callback Url
+                    type: string
+                  file_id:
+                    title: File Id
+                    type: string
+                  import_as_document:
+                    title: Import As Document
+                    type: boolean
+                  s3_bucket:
+                    title: S3 Bucket
+                    type: string
+                  upload_aws_access_key_id:
+                    title: Upload Aws Access Key Id
+                    type: string
+                  upload_aws_secret_access_key:
+                    title: Upload Aws Secret Access Key
+                    type: string
+                required:
+                - callback_url
+                - file_id
+                - import_as_document
+                - s3_bucket
+                - upload_aws_access_key_id
+                - upload_aws_secret_access_key
+                title: DocumentInitMultipartUploadResponse
+                type: object
+          description: OK
+      summary: Start a multipart upload directly to S3.
+      tags:
+      - Documents
+  /api/v1/documents/init_upload:
+    post:
+      operationId: post_documents_instances_init_upload
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                filename:
+                  description: The filename of the document to be uploaded, optionally gzipped (and ending in `.gz` or `.gzip`). Filenames should only contain alphanumeric characters, dashes, underscores, and periods.
+                  title: Filename
+                  type: string
+                size:
+                  description: The size of the file in bytes.
+                  minimum: 1
+                  title: Size
+                  type: integer
+              required:
+              - filename
+              - size
+              title: DocumentInitUploadSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  additional_fields:
+                    additionalProperties: true
+                    description: Additional fields to include in the upload.
+                    title: Additional Fields
+                    type: object
+                  document_id:
+                    description: The `document_id` of the uploaded document.
+                    title: Document Id
+                    type: string
+                  upload_url:
+                    description: The URL to POST the document to.
+                    title: Upload Url
+                    type: string
+                required:
+                - additional_fields
+                - document_id
+                - upload_url
+                title: DocumentInitUploadResponse
+                type: object
+          description: OK
+      summary: Deprecated in favour of init_multipart_upload
+      tags:
+      - Documents
+  /api/v1/documents/{id}:
+    delete:
+      operationId: delete_documents_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+      summary: DELETE documents
+      tags:
+      - Documents
+    get:
+      operationId: get_documents_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/documents'
+          description: OK
+      summary: GET documents
+      tags:
+      - Documents
+  /api/v1/documents/{id}/add_user:
+    post:
+      operationId: post_documents_add_user
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                user:
+                  properties:
+                    $ref:
+                      example: /api/v1/users/a1b2c3d4e5f67890
+                      format: uri
+                      pattern: ^/api/v1/users/[a-f0-9]{16}$
+                      type: string
+                  type: object
+              required:
+              - user
+              title: DocumentAddUserSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/documents'
+          description: OK
+      summary: POST documents add_user
+      tags:
+      - Documents
+  /api/v1/documents/{id}/download_uri:
+    post:
+      operationId: post_documents_download_uri
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  download_uri:
+                    description: The presigned download URL.
+                    title: Download Uri
+                    type: string
+                  expires_in_hours:
+                    description: The number of hours the download URL will be valid.
+                    title: Expires In Hours
+                    type: integer
+                required:
+                - download_uri
+                - expires_in_hours
+                title: DocumentDownloadSchema
+                type: object
+          description: OK
+      summary: POST documents download_uri
+      tags:
+      - Documents
+  /api/v1/documents/{id}/remove_user:
+    post:
+      operationId: post_documents_remove_user
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                user:
+                  properties:
+                    $ref:
+                      example: /api/v1/users/a1b2c3d4e5f67890
+                      format: uri
+                      pattern: ^/api/v1/users/[a-f0-9]{16}$
+                      type: string
+                  type: object
+              required:
+              - user
+              title: DocumentAddUserSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/documents'
+          description: OK
+      summary: POST documents remove_user
+      tags:
+      - Documents
+  /api/v1/documents/{id}/rename:
+    patch:
+      operationId: patch_documents_rename
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                filename:
+                  title: Filename
+                  type: string
+              required:
+              - filename
+              title: DocumentRenameSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/documents'
+          description: OK
+      summary: PATCH documents rename
+      tags:
+      - Documents
+components:
+  schemas:
+    documents:
+      properties:
+        $uri:
+          example: /api/v1/documents/0d77065796f8d173
+          pattern: ^/api/v1/documents/[a-f0-9]{16}$
+          readOnly: true
+          title: $Uri
+          type: string
+        created_at:
+          description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+          format: date-time
+          title: Created At
+          type: string
+        downloaders:
+          description: An (optionally empty) array of references to users that the document has been shared with. These users are able to download (but not modify) the document.
+          items:
+            properties:
+              $ref:
+                example: /api/v1/users/a1b2c3d4e5f67890
+                format: uri
+                pattern: ^/api/v1/users/[a-f0-9]{16}$
+                type: string
+            title: users
+            type: object
+          title: Downloaders
+          type: array
+        filename:
+          description: The document filename (e.g., "report.pdf")
+          title: Filename
+          type: string
+        size:
+          anyOf:
+          - minimum: 1
+            type: integer
+          - type: 'null'
+          description: The size of the document in bytes.
+          title: Size
+        uploader:
+          description: 'A reference to the user that uploaded and owns the document, e.g., `{"$ref": "/api/v1/users/5891ee65711c4d5e"}`. Only owners can modify a document (with some exceptions in the case of organization accounts configured for multiple users - please [contact us](mailto:support@onecodex.com) if you''d like to discuss this use case).'
+          properties:
+            $ref:
+              example: /api/v1/users/a1b2c3d4e5f67890
+              format: uri
+              pattern: ^/api/v1/users/[a-f0-9]{16}$
+              type: string
+          title: users
+          type: object
+      required:
+      - $uri
+      - created_at
+      - downloaders
+      - filename
+      - size
+      - uploader
+      title: documents
+      type: object
+  securitySchemes:
+    apiKeyAuth:
+      in: header
+      name: X-API-Key
+      type: apiKey

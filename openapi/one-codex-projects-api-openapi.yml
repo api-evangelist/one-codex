@@ -1,0 +1,437 @@
+openapi: 3.1.0
+info:
+  description: The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.
+  title: One Codex API (v1) Account Projects API
+  version: v1
+servers:
+- url: https://app.onecodex.com
+security:
+- apiKeyAuth: []
+tags:
+- name: Projects
+paths:
+  /api/v1/projects:
+    get:
+      operationId: get_projects_instances
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/projects'
+                type: array
+          description: OK
+      summary: GET projects instances
+      tags:
+      - Projects
+    post:
+      operationId: post_projects_instances
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                description:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  title: Description
+                name:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  title: Name
+                project_name:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  title: Project Name
+              title: ProjectPatchSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects'
+          description: OK
+      summary: POST projects instances
+      tags:
+      - Projects
+  /api/v1/projects/public:
+    get:
+      operationId: get_projects_instances_public
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/projects'
+                type: array
+          description: OK
+      summary: GET projects instances_public
+      tags:
+      - Projects
+  /api/v1/projects/{id}:
+    delete:
+      operationId: delete_projects_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: OK
+      summary: DELETE projects
+      tags:
+      - Projects
+    get:
+      operationId: get_projects_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects'
+          description: OK
+      summary: GET projects
+      tags:
+      - Projects
+    patch:
+      operationId: patch_projects_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                description:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  title: Description
+                name:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  title: Name
+                project_name:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  title: Project Name
+              title: ProjectPatchSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects'
+          description: OK
+      summary: PATCH projects
+      tags:
+      - Projects
+  /api/v1/projects/{id}/add_user:
+    post:
+      operationId: post_projects_add_user
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                permissions:
+                  items:
+                    type: string
+                  title: Permissions
+                  type: array
+                user:
+                  properties:
+                    $ref:
+                      example: /api/v1/users/a1b2c3d4e5f67890
+                      format: uri
+                      pattern: ^/api/v1/users/[a-f0-9]{16}$
+                      type: string
+                  type: object
+              required:
+              - permissions
+              - user
+              title: ProjectAddUserSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          description: OK
+      summary: POST projects add_user
+      tags:
+      - Projects
+  /api/v1/projects/{id}/change_sharing:
+    post:
+      operationId: post_projects_change_sharing
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                public:
+                  default: false
+                  description: Whether the project is public.
+                  title: Public
+                  type: boolean
+              title: ProjectChangeSharingSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/projects'
+          description: OK
+      summary: POST projects change_sharing
+      tags:
+      - Projects
+  /api/v1/projects/{id}/members:
+    get:
+      operationId: get_projects_members
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    permissions:
+                      items:
+                        type: string
+                      title: Permissions
+                      type: array
+                    user:
+                      properties:
+                        $ref:
+                          example: /api/v1/users/a1b2c3d4e5f67890
+                          format: uri
+                          pattern: ^/api/v1/users/[a-f0-9]{16}$
+                          type: string
+                      type: object
+                  required:
+                  - permissions
+                  - user
+                  title: ProjectGetMembersSchema
+                  type: object
+                type: array
+          description: OK
+      summary: GET projects members
+      tags:
+      - Projects
+  /api/v1/projects/{id}/remove_user:
+    post:
+      operationId: post_projects_remove_user
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                user:
+                  properties:
+                    $ref:
+                      example: /api/v1/users/a1b2c3d4e5f67890
+                      format: uri
+                      pattern: ^/api/v1/users/[a-f0-9]{16}$
+                      type: string
+                  type: object
+              required:
+              - user
+              title: ProjectRemoveUserSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          description: OK
+      summary: POST projects remove_user
+      tags:
+      - Projects
+components:
+  schemas:
+    projects:
+      properties:
+        $uri:
+          example: /api/v1/projects/0d77065796f8d173
+          pattern: ^/api/v1/projects/[a-f0-9]{16}$
+          readOnly: true
+          title: $Uri
+          type: string
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          title: Description
+        external_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          example: PRJ-2024-001
+          title: External Id
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          title: Name
+        owner:
+          properties:
+            $ref:
+              example: /api/v1/users/a1b2c3d4e5f67890
+              format: uri
+              pattern: ^/api/v1/users/[a-f0-9]{16}$
+              type: string
+          title: users
+          type: object
+        permissions:
+          items:
+            type: string
+          title: Permissions
+          type: array
+        project_name:
+          anyOf:
+          - maxLength: 15
+            minLength: 3
+            pattern: ^[a-zA-Z0-9_-]{3,15}$
+            type: string
+          - type: 'null'
+          title: Project Name
+        public:
+          default: false
+          title: Public
+          type: boolean
+      required:
+      - $uri
+      - owner
+      - permissions
+      - project_name
+      title: projects
+      type: object
+  securitySchemes:
+    apiKeyAuth:
+      in: header
+      name: X-API-Key
+      type: apiKey

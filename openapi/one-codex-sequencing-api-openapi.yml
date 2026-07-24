@@ -1,0 +1,284 @@
+openapi: 3.1.0
+info:
+  description: The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.
+  title: One Codex API (v1) Account Sequencing API
+  version: v1
+servers:
+- url: https://app.onecodex.com
+security:
+- apiKeyAuth: []
+tags:
+- name: Sequencing
+paths:
+  /api/v1/sequencing/batches:
+    get:
+      operationId: get_sequencing_instances_batches
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/sequencing_batches'
+                type: array
+          description: OK
+      summary: GET sequencing instances_batches
+      tags:
+      - Sequencing
+  /api/v1/sequencing/batches/register:
+    post:
+      operationId: post_sequencing_instances_batches_register
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                batch_name:
+                  description: A human-readable name for the sequencing batch.
+                  maxLength: 100
+                  minLength: 1
+                  title: Batch Name
+                  type: string
+                return_tracking_numbers:
+                  description: One or more tracking numbers associated with the sample shipment(s) to the lab.
+                  items:
+                    type: string
+                  maxItems: 100
+                  minItems: 1
+                  title: Return Tracking Numbers
+                  type: array
+                  uniqueItems: true
+                samples:
+                  description: The tube barcodes, specimen type, and sequencing depth for each sample to be sequenced.
+                  items:
+                    properties:
+                      sequencing_depth:
+                        enum:
+                        - Standard
+                        - Deep
+                        title: SequencingDepth
+                        type: string
+                      specimen_type:
+                        enum:
+                        - Human stool
+                        - Microbial cell culture
+                        title: SpecimenType
+                        type: string
+                      tube_barcode:
+                        title: Tube Barcode
+                        type: string
+                    required:
+                    - sequencing_depth
+                    - specimen_type
+                    - tube_barcode
+                    title: _RegisterSampleSchema
+                    type: object
+                  maxItems: 5000
+                  minItems: 1
+                  title: Samples
+                  type: array
+              required:
+              - batch_name
+              - return_tracking_numbers
+              - samples
+              title: SequencingBatchRegisterSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  batch:
+                    $ref: '#/components/schemas/sequencing_batches'
+                    description: The sequencing batch object that was created.
+                  samples:
+                    description: The sample object associated with the tube barcode. This will be in an `awaiting_data` state until the lab has finished processing the physical sample.
+                    items:
+                      properties:
+                        sample:
+                          description: The sample object associated with the tube barcode. Note this may be in a pending upload state if the lab has not finished processing the physical sample.
+                          properties:
+                            $ref:
+                              example: /api/v1/samples/a1b2c3d4e5f67890
+                              format: uri
+                              pattern: ^/api/v1/samples/[a-f0-9]{16}$
+                              type: string
+                          type: object
+                        tube_barcode:
+                          description: The tube barcode for the sample sent to the lab.
+                          title: Tube Barcode
+                          type: string
+                      required:
+                      - sample
+                      - tube_barcode
+                      title: _TubeAndSampleSchema
+                      type: object
+                    title: Samples
+                    type: array
+                required:
+                - batch
+                - samples
+                title: SequencingBatchRegisterResponse
+                type: object
+          description: OK
+      summary: POST sequencing instances_batches_register
+      tags:
+      - Sequencing
+  /api/v1/sequencing/batches/{id}:
+    get:
+      operationId: get_sequencing_batches
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/sequencing_batches'
+          description: OK
+      summary: GET sequencing batches
+      tags:
+      - Sequencing
+  /api/v1/sequencing/batches/{id}/samples:
+    get:
+      operationId: get_sequencing_batches_samples
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    sample:
+                      description: The sample object associated with the tube barcode. Note this may be in a pending upload state if the lab has not finished processing the physical sample.
+                      properties:
+                        $ref:
+                          example: /api/v1/samples/a1b2c3d4e5f67890
+                          format: uri
+                          pattern: ^/api/v1/samples/[a-f0-9]{16}$
+                          type: string
+                      type: object
+                    tube_barcode:
+                      description: The tube barcode for the sample sent to the lab.
+                      title: Tube Barcode
+                      type: string
+                  required:
+                  - sample
+                  - tube_barcode
+                  title: SequencingBatchSamplesResponse
+                  type: object
+                type: array
+          description: OK
+      summary: GET sequencing batches_samples
+      tags:
+      - Sequencing
+components:
+  schemas:
+    sequencing_batches:
+      properties:
+        $uri:
+          example: /api/v1/sequencing/batches/0d77065796f8d173
+          pattern: ^/api/v1/sequencing/batches/[a-f0-9]{16}$
+          readOnly: true
+          title: $Uri
+          type: string
+        batch_number:
+          description: A unique batch number.
+          title: Batch Number
+          type: string
+        created_at:
+          description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+          format: date-time
+          title: Created At
+          type: string
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          description: A human-readable name for the sequencing batch.
+          title: Name
+        owner:
+          description: The user that created the sequencing batch.
+          properties:
+            $ref:
+              example: /api/v1/users/a1b2c3d4e5f67890
+              format: uri
+              pattern: ^/api/v1/users/[a-f0-9]{16}$
+              type: string
+          title: users
+          type: object
+        status:
+          description: The current status of the sequencing batch.
+          enum:
+          - registered
+          - shipped_to_lab
+          - received_at_lab
+          - extracting
+          - preparing_library
+          - sequencing
+          - quality_control
+          - done
+          - canceled
+          title: Status
+          type: string
+      required:
+      - $uri
+      - batch_number
+      - created_at
+      - name
+      - owner
+      - status
+      title: sequencing/batches
+      type: object
+  securitySchemes:
+    apiKeyAuth:
+      in: header
+      name: X-API-Key
+      type: apiKey

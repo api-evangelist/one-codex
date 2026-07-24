@@ -1,0 +1,456 @@
+openapi: 3.1.0
+info:
+  description: The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.
+  title: One Codex API (v1) Account Taxa API
+  version: v1
+servers:
+- url: https://app.onecodex.com
+security:
+- apiKeyAuth: []
+tags:
+- name: Taxa
+paths:
+  /api/v1/taxa:
+    get:
+      operationId: get_taxa_instances
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    $uri:
+                      example: /api/v1/taxa/0d77065796f8d173
+                      pattern: ^/api/v1/taxa/[a-f0-9]{16}$
+                      readOnly: true
+                      title: $Uri
+                      type: string
+                    created_at:
+                      description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+                      format: date-time
+                      title: Created At
+                      type: string
+                    name:
+                      anyOf:
+                      - type: string
+                      - type: 'null'
+                      title: Name
+                    parent:
+                      anyOf:
+                      - properties:
+                          $ref:
+                            example: /api/v1/taxa/a1b2c3d4e5f67890
+                            format: uri
+                            pattern: ^/api/v1/taxa/[a-f0-9]{16}$
+                            type: string
+                        type: object
+                      - type: 'null'
+                    rank:
+                      anyOf:
+                      - type: string
+                      - type: 'null'
+                      title: Rank
+                    taxon_id:
+                      title: Taxon Id
+                      type: string
+                  required:
+                  - $uri
+                  - created_at
+                  - name
+                  - parent
+                  - rank
+                  - taxon_id
+                  title: taxa
+                  type: object
+                type: array
+          description: OK
+      summary: GET taxa instances
+      tags:
+      - Taxa
+  /api/v1/taxa/{id}:
+    get:
+      operationId: get_taxa_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  $uri:
+                    example: /api/v1/taxa/0d77065796f8d173
+                    pattern: ^/api/v1/taxa/[a-f0-9]{16}$
+                    readOnly: true
+                    title: $Uri
+                    type: string
+                  created_at:
+                    description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+                    format: date-time
+                    title: Created At
+                    type: string
+                  name:
+                    anyOf:
+                    - type: string
+                    - type: 'null'
+                    title: Name
+                  parent:
+                    anyOf:
+                    - properties:
+                        $ref:
+                          example: /api/v1/taxa/a1b2c3d4e5f67890
+                          format: uri
+                          pattern: ^/api/v1/taxa/[a-f0-9]{16}$
+                          type: string
+                      type: object
+                    - type: 'null'
+                  rank:
+                    anyOf:
+                    - type: string
+                    - type: 'null'
+                    title: Rank
+                  taxon_id:
+                    title: Taxon Id
+                    type: string
+                required:
+                - $uri
+                - created_at
+                - name
+                - parent
+                - rank
+                - taxon_id
+                title: taxa
+                type: object
+          description: OK
+      summary: GET taxa
+      tags:
+      - Taxa
+  /api/v1/taxa/{id}/genomes:
+    get:
+      operationId: get_taxa_genomes
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    $uri:
+                      example: /api/v1/genomes/0d77065796f8d173
+                      pattern: ^/api/v1/genomes/[a-f0-9]{16}$
+                      readOnly: true
+                      title: $Uri
+                      type: string
+                    assemblies:
+                      items:
+                        properties:
+                          $ref:
+                            example: /api/v1/assemblies/a1b2c3d4e5f67890
+                            format: uri
+                            pattern: ^/api/v1/assemblies/[a-f0-9]{16}$
+                            type: string
+                        title: assemblies
+                        type: object
+                      title: Assemblies
+                      type: array
+                    created_at:
+                      description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+                      format: date-time
+                      title: Created At
+                      type: string
+                    description:
+                      anyOf:
+                      - type: string
+                      - type: 'null'
+                      title: Description
+                    name:
+                      anyOf:
+                      - type: string
+                      - type: 'null'
+                      title: Name
+                    primary_assembly:
+                      anyOf:
+                      - properties:
+                          $ref:
+                            example: /api/v1/assemblies/a1b2c3d4e5f67890
+                            format: uri
+                            pattern: ^/api/v1/assemblies/[a-f0-9]{16}$
+                            type: string
+                        title: assemblies
+                        type: object
+                      - type: 'null'
+                      title: Primary Assembly
+                    tags:
+                      items:
+                        properties:
+                          $ref:
+                            example: /api/v1/tags/a1b2c3d4e5f67890
+                            format: uri
+                            pattern: ^/api/v1/tags/[a-f0-9]{16}$
+                            type: string
+                        title: tags
+                        type: object
+                      title: Tags
+                      type: array
+                    taxon:
+                      properties:
+                        $ref:
+                          example: /api/v1/taxa/a1b2c3d4e5f67890
+                          format: uri
+                          pattern: ^/api/v1/taxa/[a-f0-9]{16}$
+                          type: string
+                      title: taxa
+                      type: object
+                  required:
+                  - $uri
+                  - assemblies
+                  - created_at
+                  - description
+                  - name
+                  - primary_assembly
+                  - tags
+                  - taxon
+                  title: genomes
+                  type: object
+                type: array
+          description: OK
+      summary: GET taxa genomes
+      tags:
+      - Taxa
+  /api/v1/taxa/{id}/parents:
+    get:
+      operationId: get_taxa_parents
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    $uri:
+                      example: /api/v1/taxa/0d77065796f8d173
+                      pattern: ^/api/v1/taxa/[a-f0-9]{16}$
+                      readOnly: true
+                      title: $Uri
+                      type: string
+                    created_at:
+                      description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+                      format: date-time
+                      title: Created At
+                      type: string
+                    name:
+                      anyOf:
+                      - type: string
+                      - type: 'null'
+                      title: Name
+                    parent:
+                      anyOf:
+                      - properties:
+                          $ref:
+                            example: /api/v1/taxa/a1b2c3d4e5f67890
+                            format: uri
+                            pattern: ^/api/v1/taxa/[a-f0-9]{16}$
+                            type: string
+                        type: object
+                      - type: 'null'
+                    rank:
+                      anyOf:
+                      - type: string
+                      - type: 'null'
+                      title: Rank
+                    taxon_id:
+                      title: Taxon Id
+                      type: string
+                  required:
+                  - $uri
+                  - created_at
+                  - name
+                  - parent
+                  - rank
+                  - taxon_id
+                  title: taxa
+                  type: object
+                type: array
+          description: OK
+      summary: GET taxa parents
+      tags:
+      - Taxa
+  /api/v1/taxa/{id}/reference_assembly:
+    get:
+      operationId: get_taxa_reference_assembly
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  $uri:
+                    example: /api/v1/assemblies/0d77065796f8d173
+                    pattern: ^/api/v1/assemblies/[a-f0-9]{16}$
+                    readOnly: true
+                    title: $Uri
+                    type: string
+                  created_at:
+                    description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+                    format: date-time
+                    title: Created At
+                    type: string
+                  filename:
+                    anyOf:
+                    - type: string
+                    - type: 'null'
+                    title: Filename
+                  genome:
+                    anyOf:
+                    - properties:
+                        $ref:
+                          example: /api/v1/genomes/a1b2c3d4e5f67890
+                          format: uri
+                          pattern: ^/api/v1/genomes/[a-f0-9]{16}$
+                          type: string
+                      type: object
+                    - type: 'null'
+                  input_samples:
+                    anyOf:
+                    - items:
+                        properties:
+                          $ref:
+                            example: /api/v1/samples/a1b2c3d4e5f67890
+                            format: uri
+                            pattern: ^/api/v1/samples/[a-f0-9]{16}$
+                            type: string
+                        title: samples
+                        type: object
+                      type: array
+                    - type: 'null'
+                    title: Input Samples
+                  job:
+                    anyOf:
+                    - properties:
+                        $ref:
+                          example: /api/v1/jobs/a1b2c3d4e5f67890
+                          format: uri
+                          pattern: ^/api/v1/jobs/[a-f0-9]{16}$
+                          type: string
+                      title: jobs
+                      type: object
+                    - type: 'null'
+                    title: Job
+                  owner:
+                    properties:
+                      $ref:
+                        example: /api/v1/users/a1b2c3d4e5f67890
+                        format: uri
+                        pattern: ^/api/v1/users/[a-f0-9]{16}$
+                        type: string
+                    title: users
+                    type: object
+                  primary_annotation_set:
+                    anyOf:
+                    - properties:
+                        $ref:
+                          example: /api/v1/annotation_sets/a1b2c3d4e5f67890
+                          format: uri
+                          pattern: ^/api/v1/annotation_sets/[a-f0-9]{16}$
+                          type: string
+                      type: object
+                    - type: 'null'
+                  size:
+                    anyOf:
+                    - type: integer
+                    - type: 'null'
+                    title: Size
+                  visibility:
+                    description: 'Enum for the v1 API `visibility` attribute.
+
+
+                      Note: this is legacy and only exists for backwards-compatibility in the public v1 API.'
+                    enum:
+                    - public
+                    - shared
+                    - private
+                    - importing
+                    - awaiting data
+                    title: ApiV1Visibility
+                    type: string
+                required:
+                - $uri
+                - created_at
+                - filename
+                - genome
+                - input_samples
+                - job
+                - owner
+                - primary_annotation_set
+                - size
+                - visibility
+                title: assemblies
+                type: object
+          description: OK
+      summary: GET taxa reference_assembly
+      tags:
+      - Taxa
+components:
+  securitySchemes:
+    apiKeyAuth:
+      in: header
+      name: X-API-Key
+      type: apiKey

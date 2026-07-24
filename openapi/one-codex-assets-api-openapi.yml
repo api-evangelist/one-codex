@@ -1,0 +1,419 @@
+openapi: 3.1.0
+info:
+  description: The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.
+  title: One Codex API (v1) Account Assets API
+  version: v1
+servers:
+- url: https://app.onecodex.com
+security:
+- apiKeyAuth: []
+tags:
+- name: Assets
+paths:
+  /api/v1/assets:
+    get:
+      operationId: get_assets_instances
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  properties:
+                    $uri:
+                      example: /api/v1/assets/0d77065796f8d173
+                      pattern: ^/api/v1/assets/[a-f0-9]{16}$
+                      readOnly: true
+                      title: $Uri
+                      type: string
+                    created_at:
+                      description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+                      format: date-time
+                      title: Created At
+                      type: string
+                    filename:
+                      description: The asset filename.
+                      title: Filename
+                      type: string
+                    name:
+                      description: A display name for the asset. Defaults to the filename if not provided at upload time.
+                      title: Name
+                      type: string
+                    size:
+                      anyOf:
+                      - type: integer
+                      - type: 'null'
+                      default: null
+                      description: The size of the uploaded file in bytes.
+                      title: Size
+                    status:
+                      description: The status of the asset. `importing` while the file is being copied to One Codex storage, `available` once the asset is ready to use, and `failed` if the import did not succeed.
+                      enum:
+                      - importing
+                      - available
+                      - failed
+                      title: AssetStatus
+                      type: string
+                    uploader:
+                      description: A reference to the user that uploaded the asset. Assets are shared with all members of the uploader's organization, and may only be modified or deleted by organization editors, admins, or owners.
+                      properties:
+                        $ref:
+                          example: /api/v1/users/a1b2c3d4e5f67890
+                          format: uri
+                          pattern: ^/api/v1/users/[a-f0-9]{16}$
+                          type: string
+                      title: users
+                      type: object
+                  required:
+                  - $uri
+                  - created_at
+                  - filename
+                  - name
+                  - status
+                  - uploader
+                  title: assets
+                  type: object
+                type: array
+          description: OK
+      summary: GET assets instances
+      tags:
+      - Assets
+  /api/v1/assets/confirm_multipart_upload:
+    post:
+      operationId: post_assets_instances_confirm_multipart_upload
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                filename:
+                  description: The filename of the uploaded asset. Filenames should only contain alphanumeric characters, dashes, underscores, and periods.
+                  title: Filename
+                  type: string
+                name:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  description: An optional display name for the asset. Defaults to `filename` if not provided.
+                  title: Name
+                s3_path:
+                  description: The `s3://` URI where the multipart upload was completed (built from `s3_bucket` and `file_id` returned by `/assets/init_multipart_upload`).
+                  title: S3 Path
+                  type: string
+              required:
+              - filename
+              - s3_path
+              title: AssetConfirmMultipartUploadSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  asset_id:
+                    description: The asset ID of the newly created asset. The asset will be in the `importing` status until its contents have been copied to One Codex storage.
+                    title: Asset Id
+                    type: string
+                required:
+                - asset_id
+                title: AssetConfirmMultipartUploadResponse
+                type: object
+          description: OK
+      summary: POST assets instances_confirm_multipart_upload
+      tags:
+      - Assets
+  /api/v1/assets/init_multipart_upload:
+    post:
+      operationId: post_assets_instances_init_multipart_upload
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  callback_url:
+                    description: The relative URL to POST to after the multipart upload completes in order to confirm the upload and create the asset.
+                    title: Callback Url
+                    type: string
+                  file_id:
+                    description: A unique identifier for the multipart upload. Use as the object storage key prefix when uploading file parts.
+                    title: File Id
+                    type: string
+                  s3_bucket:
+                    description: The object storage bucket to which file parts should be uploaded.
+                    title: S3 Bucket
+                    type: string
+                  upload_aws_access_key_id:
+                    description: An AWS access key ID with permission to upload to `s3_bucket`.
+                    title: Upload Aws Access Key Id
+                    type: string
+                  upload_aws_secret_access_key:
+                    description: The AWS secret access key paired with `upload_aws_access_key_id`.
+                    title: Upload Aws Secret Access Key
+                    type: string
+                required:
+                - callback_url
+                - file_id
+                - s3_bucket
+                - upload_aws_access_key_id
+                - upload_aws_secret_access_key
+                title: AssetInitMultipartUploadResponse
+                type: object
+          description: OK
+      summary: POST assets instances_init_multipart_upload
+      tags:
+      - Assets
+  /api/v1/assets/{id}:
+    delete:
+      operationId: delete_assets_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+      summary: DELETE assets
+      tags:
+      - Assets
+    get:
+      operationId: get_assets_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  $uri:
+                    example: /api/v1/assets/0d77065796f8d173
+                    pattern: ^/api/v1/assets/[a-f0-9]{16}$
+                    readOnly: true
+                    title: $Uri
+                    type: string
+                  created_at:
+                    description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+                    format: date-time
+                    title: Created At
+                    type: string
+                  filename:
+                    description: The asset filename.
+                    title: Filename
+                    type: string
+                  name:
+                    description: A display name for the asset. Defaults to the filename if not provided at upload time.
+                    title: Name
+                    type: string
+                  size:
+                    anyOf:
+                    - type: integer
+                    - type: 'null'
+                    default: null
+                    description: The size of the uploaded file in bytes.
+                    title: Size
+                  status:
+                    description: The status of the asset. `importing` while the file is being copied to One Codex storage, `available` once the asset is ready to use, and `failed` if the import did not succeed.
+                    enum:
+                    - importing
+                    - available
+                    - failed
+                    title: AssetStatus
+                    type: string
+                  uploader:
+                    description: A reference to the user that uploaded the asset. Assets are shared with all members of the uploader's organization, and may only be modified or deleted by organization editors, admins, or owners.
+                    properties:
+                      $ref:
+                        example: /api/v1/users/a1b2c3d4e5f67890
+                        format: uri
+                        pattern: ^/api/v1/users/[a-f0-9]{16}$
+                        type: string
+                    title: users
+                    type: object
+                required:
+                - $uri
+                - created_at
+                - filename
+                - name
+                - status
+                - uploader
+                title: assets
+                type: object
+          description: OK
+      summary: GET assets
+      tags:
+      - Assets
+    patch:
+      operationId: patch_assets_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                name:
+                  description: A new display name for the asset.
+                  title: Name
+                  type: string
+              required:
+              - name
+              title: AssetUpdateSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  $uri:
+                    example: /api/v1/assets/0d77065796f8d173
+                    pattern: ^/api/v1/assets/[a-f0-9]{16}$
+                    readOnly: true
+                    title: $Uri
+                    type: string
+                  created_at:
+                    description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+                    format: date-time
+                    title: Created At
+                    type: string
+                  filename:
+                    description: The asset filename.
+                    title: Filename
+                    type: string
+                  name:
+                    description: A display name for the asset. Defaults to the filename if not provided at upload time.
+                    title: Name
+                    type: string
+                  size:
+                    anyOf:
+                    - type: integer
+                    - type: 'null'
+                    default: null
+                    description: The size of the uploaded file in bytes.
+                    title: Size
+                  status:
+                    description: The status of the asset. `importing` while the file is being copied to One Codex storage, `available` once the asset is ready to use, and `failed` if the import did not succeed.
+                    enum:
+                    - importing
+                    - available
+                    - failed
+                    title: AssetStatus
+                    type: string
+                  uploader:
+                    description: A reference to the user that uploaded the asset. Assets are shared with all members of the uploader's organization, and may only be modified or deleted by organization editors, admins, or owners.
+                    properties:
+                      $ref:
+                        example: /api/v1/users/a1b2c3d4e5f67890
+                        format: uri
+                        pattern: ^/api/v1/users/[a-f0-9]{16}$
+                        type: string
+                    title: users
+                    type: object
+                required:
+                - $uri
+                - created_at
+                - filename
+                - name
+                - status
+                - uploader
+                title: assets
+                type: object
+          description: OK
+      summary: PATCH assets
+      tags:
+      - Assets
+  /api/v1/assets/{id}/download_uri:
+    post:
+      operationId: post_assets_download_uri
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  download_uri:
+                    description: A pre-signed download link for the asset file.
+                    title: Download Uri
+                    type: string
+                  expires_at:
+                    description: The timestamp when the presigned download URL expires, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+                    format: date-time
+                    title: Expires At
+                    type: string
+                  expires_in_hours:
+                    description: The number of hours for which `download_uri` is valid.
+                    title: Expires In Hours
+                    type: integer
+                required:
+                - download_uri
+                - expires_at
+                - expires_in_hours
+                title: AssetDownloadUriSchema
+                type: object
+          description: OK
+      summary: POST assets download_uri
+      tags:
+      - Assets
+components:
+  securitySchemes:
+    apiKeyAuth:
+      in: header
+      name: X-API-Key
+      type: apiKey

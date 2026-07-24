@@ -1,0 +1,1647 @@
+openapi: 3.1.0
+info:
+  description: The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.
+  title: One Codex API (v1) Account Samples API
+  version: v1
+servers:
+- url: https://app.onecodex.com
+security:
+- apiKeyAuth: []
+tags:
+- name: Samples
+paths:
+  /api/v1/samples:
+    get:
+      operationId: get_samples_instances
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/samples'
+                type: array
+          description: OK
+      summary: GET samples instances
+      tags:
+      - Samples
+  /api/v1/samples/cancel_upload:
+    post:
+      operationId: post_samples_instances_cancel_upload
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                sample_id:
+                  title: Sample Id
+                  type: string
+              required:
+              - sample_id
+              title: SampleCancelUploadSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    description: A detailed success or failure message.
+                    title: Message
+                    type: string
+                  success:
+                    description: Whether the upload was successfully cancelled.
+                    title: Success
+                    type: boolean
+                required:
+                - message
+                - success
+                title: SampleCancelUploadResponse
+                type: object
+          description: OK
+      summary: POST samples instances_cancel_upload
+      tags:
+      - Samples
+  /api/v1/samples/confirm_upload:
+    post:
+      operationId: post_samples_instances_confirm_upload
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                sample_id:
+                  title: Sample Id
+                  type: string
+                upload_type:
+                  const: standard
+                  default: standard
+                  title: Upload Type
+                  type: string
+              required:
+              - sample_id
+              title: SampleConfirmUploadSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  message:
+                    description: A detailed success or failure message.
+                    title: Message
+                    type: string
+                  sample:
+                    description: A reference to the `$uri` of the uploaded sample.
+                    properties:
+                      $ref:
+                        example: /api/v1/samples/a1b2c3d4e5f67890
+                        format: uri
+                        pattern: ^/api/v1/samples/[a-f0-9]{16}$
+                        type: string
+                    type: object
+                  success:
+                    description: Whether the upload was successful.
+                    title: Success
+                    type: boolean
+                required:
+                - message
+                - sample
+                - success
+                title: SampleConfirmUploadResponse
+                type: object
+          description: OK
+      summary: POST samples instances_confirm_upload
+      tags:
+      - Samples
+  /api/v1/samples/import:
+    post:
+      operationId: post_samples_instances_import
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                import_type:
+                  const: url
+                  default: url
+                  title: Import Type
+                  type: string
+                metadata:
+                  anyOf:
+                  - properties:
+                      custom:
+                        anyOf:
+                        - additionalProperties: true
+                          type: object
+                        - type: 'null'
+                        description: 'Arbitrary metadata is supported as part of a custom object. custom has two constraints: (1) it must have a depth of one (i.e., no nested records); and (2) only strings, numbers, boolean, and null values are supported as values. Example: `{"lab_tech": "Linus Pauling", "amplicon_scheme": "V3-V4"}`'
+                        title: Custom
+                      date_collected:
+                        anyOf:
+                        - format: date-time
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: Timestamp for when the sample was collected.
+                        title: Date Collected
+                      date_sequenced:
+                        anyOf:
+                        - format: date-time
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: Timestamp for when the sample was sequenced.
+                        title: Date Sequenced
+                      description:
+                        anyOf:
+                        - type: string
+                        - type: 'null'
+                        default: null
+                        title: Description
+                      external_sample_id:
+                        anyOf:
+                        - type: string
+                        - type: 'null'
+                        default: null
+                        description: An arbitrary external sample ID, e.g., an ID in a LIMS. Up to 60 characters.
+                        example: LIMS-2024-00123
+                        title: External Sample Id
+                      library_type:
+                        anyOf:
+                        - description: 'Allowed types of SampleMetadata.library_type. Also used to populate
+
+                            form dropdown in the front-end'
+                          enum:
+                          - WGS
+                          - Targeted/16S
+                          - Other
+                          title: SequencingLibraryType
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: An enum with the sample library type.
+                      location_lat:
+                        anyOf:
+                        - maximum: 90.0
+                          minimum: -90.0
+                          type: number
+                        - type: 'null'
+                        default: null
+                        description: The latitude `(-90.0-90.0)` of the sample location. By convention, we recommend using this for the location in which the physical specimen was collected.
+                        title: Location Lat
+                      location_lon:
+                        anyOf:
+                        - maximum: 180
+                          minimum: -180
+                          type: number
+                        - type: 'null'
+                        default: null
+                        description: The longitude `(-180.0-180.0)` of the sample location.
+                        title: Location Lon
+                      location_string:
+                        anyOf:
+                        - maxLength: 255
+                          type: string
+                        - type: 'null'
+                        default: null
+                        title: Location String
+                      name:
+                        anyOf:
+                        - maxLength: 255
+                          type: string
+                        - type: 'null'
+                        default: null
+                        title: Name
+                      platform:
+                        anyOf:
+                        - description: Allowed values of SampleMetadata.platform.
+                          enum:
+                          - 454 sequencing
+                          - 454 GS FLX
+                          - 454 GS FLX Titanium
+                          - Illumina
+                          - Illumina Genome Analyzer II
+                          - Illumina HiSeq
+                          - Illumina HiSeq 1500
+                          - Illumina HiSeq 2000
+                          - Illumina HiSeq 2500
+                          - Illumina HiSeq 3000
+                          - Illumina HiSeq 4000
+                          - Illumina HiSeq X
+                          - Illumina iSeq 100
+                          - Illumina MiniSeq
+                          - Illumina MiSeq
+                          - Illumina NextSeq
+                          - Illumina NextSeq 500
+                          - Illumina NextSeq 550
+                          - Illumina NovaSeq
+                          - Illumina NovaSeq 5000
+                          - Illumina NovaSeq 6000
+                          - BGISEQ
+                          - BGISEQ 50
+                          - Element
+                          - Element AVITI
+                          - Ion
+                          - Ion S5
+                          - Ion S5 XL
+                          - Ion PGM
+                          - Ion Proton
+                          - Ion Torrent
+                          - Oxford Nanopore
+                          - Oxford Nanopore GridION X5
+                          - Oxford Nanopore MinION
+                          - Oxford Nanopore PromethION
+                          - PacBio
+                          - PacBio RS II
+                          - PacBio Sequel
+                          - PacBio Sequel II System
+                          - PacBio Revio
+                          - PacBio Onso
+                          - SOLiD
+                          - Solexa Genome Analyzer
+                          - Sanger
+                          - Other
+                          title: SequencingPlatform
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: An enum with the name of the sequencing platform.
+                      sample_type:
+                        anyOf:
+                        - description: 'Allowed values for SampleMetadata.sample_type.  Used to populate values in
+
+                            the front-end dropdown'
+                          enum:
+                          - Isolate
+                          - Metagenomic
+                          - Other
+                          title: SequencingSampleType
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: An enum with the sample type.
+                      starred:
+                        anyOf:
+                        - type: boolean
+                        - type: 'null'
+                        default: false
+                        description: Whether the sample has been starred by the user within the One Codex web application.
+                        title: Starred
+                    title: InlineMetadata
+                    type: object
+                  - type: 'null'
+                  default: null
+                paired_uri:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  title: Paired Uri
+                project:
+                  anyOf:
+                  - properties:
+                      $ref:
+                        example: /api/v1/projects/a1b2c3d4e5f67890
+                        format: uri
+                        pattern: ^/api/v1/projects/[a-f0-9]{16}$
+                        type: string
+                    type: object
+                  - type: 'null'
+                  default: null
+                tags:
+                  default: []
+                  items:
+                    properties:
+                      name:
+                        description: The tag label or name. Name must be 30 characters or fewer.
+                        maxLength: 30
+                        title: Name
+                        type: string
+                    required:
+                    - name
+                    title: InlineTag
+                    type: object
+                  title: Tags
+                  type: array
+                uri:
+                  title: Uri
+                  type: string
+              required:
+              - uri
+              title: SampleImportSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/samples'
+          description: OK
+      summary: POST samples instances_import
+      tags:
+      - Samples
+  /api/v1/samples/init_multipart_upload:
+    post:
+      operationId: post_samples_instances_init_multipart_upload
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                external_sample_id:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  title: External Sample Id
+                filename:
+                  pattern: ^[\w\.]+[\w\-\.\[\]\(\)\{\} ]*\.[\w\.]+$
+                  title: Filename
+                  type: string
+                interleaved:
+                  anyOf:
+                  - type: boolean
+                  - type: 'null'
+                  default: false
+                  title: Interleaved
+                metadata:
+                  anyOf:
+                  - properties:
+                      custom:
+                        anyOf:
+                        - additionalProperties: true
+                          type: object
+                        - type: 'null'
+                        description: 'Arbitrary metadata is supported as part of a custom object. custom has two constraints: (1) it must have a depth of one (i.e., no nested records); and (2) only strings, numbers, boolean, and null values are supported as values. Example: `{"lab_tech": "Linus Pauling", "amplicon_scheme": "V3-V4"}`'
+                        title: Custom
+                      date_collected:
+                        anyOf:
+                        - format: date-time
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: Timestamp for when the sample was collected.
+                        title: Date Collected
+                      date_sequenced:
+                        anyOf:
+                        - format: date-time
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: Timestamp for when the sample was sequenced.
+                        title: Date Sequenced
+                      description:
+                        anyOf:
+                        - type: string
+                        - type: 'null'
+                        default: null
+                        title: Description
+                      external_sample_id:
+                        anyOf:
+                        - type: string
+                        - type: 'null'
+                        default: null
+                        description: An arbitrary external sample ID, e.g., an ID in a LIMS. Up to 60 characters.
+                        example: LIMS-2024-00123
+                        title: External Sample Id
+                      library_type:
+                        anyOf:
+                        - description: 'Allowed types of SampleMetadata.library_type. Also used to populate
+
+                            form dropdown in the front-end'
+                          enum:
+                          - WGS
+                          - Targeted/16S
+                          - Other
+                          title: SequencingLibraryType
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: An enum with the sample library type.
+                      location_lat:
+                        anyOf:
+                        - maximum: 90.0
+                          minimum: -90.0
+                          type: number
+                        - type: 'null'
+                        default: null
+                        description: The latitude `(-90.0-90.0)` of the sample location. By convention, we recommend using this for the location in which the physical specimen was collected.
+                        title: Location Lat
+                      location_lon:
+                        anyOf:
+                        - maximum: 180
+                          minimum: -180
+                          type: number
+                        - type: 'null'
+                        default: null
+                        description: The longitude `(-180.0-180.0)` of the sample location.
+                        title: Location Lon
+                      location_string:
+                        anyOf:
+                        - maxLength: 255
+                          type: string
+                        - type: 'null'
+                        default: null
+                        title: Location String
+                      name:
+                        anyOf:
+                        - maxLength: 255
+                          type: string
+                        - type: 'null'
+                        default: null
+                        title: Name
+                      platform:
+                        anyOf:
+                        - description: Allowed values of SampleMetadata.platform.
+                          enum:
+                          - 454 sequencing
+                          - 454 GS FLX
+                          - 454 GS FLX Titanium
+                          - Illumina
+                          - Illumina Genome Analyzer II
+                          - Illumina HiSeq
+                          - Illumina HiSeq 1500
+                          - Illumina HiSeq 2000
+                          - Illumina HiSeq 2500
+                          - Illumina HiSeq 3000
+                          - Illumina HiSeq 4000
+                          - Illumina HiSeq X
+                          - Illumina iSeq 100
+                          - Illumina MiniSeq
+                          - Illumina MiSeq
+                          - Illumina NextSeq
+                          - Illumina NextSeq 500
+                          - Illumina NextSeq 550
+                          - Illumina NovaSeq
+                          - Illumina NovaSeq 5000
+                          - Illumina NovaSeq 6000
+                          - BGISEQ
+                          - BGISEQ 50
+                          - Element
+                          - Element AVITI
+                          - Ion
+                          - Ion S5
+                          - Ion S5 XL
+                          - Ion PGM
+                          - Ion Proton
+                          - Ion Torrent
+                          - Oxford Nanopore
+                          - Oxford Nanopore GridION X5
+                          - Oxford Nanopore MinION
+                          - Oxford Nanopore PromethION
+                          - PacBio
+                          - PacBio RS II
+                          - PacBio Sequel
+                          - PacBio Sequel II System
+                          - PacBio Revio
+                          - PacBio Onso
+                          - SOLiD
+                          - Solexa Genome Analyzer
+                          - Sanger
+                          - Other
+                          title: SequencingPlatform
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: An enum with the name of the sequencing platform.
+                      sample_type:
+                        anyOf:
+                        - description: 'Allowed values for SampleMetadata.sample_type.  Used to populate values in
+
+                            the front-end dropdown'
+                          enum:
+                          - Isolate
+                          - Metagenomic
+                          - Other
+                          title: SequencingSampleType
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: An enum with the sample type.
+                      starred:
+                        anyOf:
+                        - type: boolean
+                        - type: 'null'
+                        default: false
+                        description: Whether the sample has been starred by the user within the One Codex web application.
+                        title: Starred
+                    title: InlineMetadata
+                    type: object
+                  - type: 'null'
+                  default: null
+                paired_end_filename:
+                  anyOf:
+                  - pattern: ^[\w\.]+[\w\-\.\[\]\(\)\{\} ]*\.[\w\.]+$
+                    type: string
+                  - type: 'null'
+                  default: null
+                  title: Paired End Filename
+                project:
+                  anyOf:
+                  - properties:
+                      $ref:
+                        example: /api/v1/projects/a1b2c3d4e5f67890
+                        format: uri
+                        pattern: ^/api/v1/projects/[a-f0-9]{16}$
+                        type: string
+                    type: object
+                  - type: 'null'
+                  default: null
+                sample_id:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  title: Sample Id
+                tags:
+                  default: []
+                  items:
+                    properties:
+                      name:
+                        description: The tag label or name. Name must be 30 characters or fewer.
+                        maxLength: 30
+                        title: Name
+                        type: string
+                    required:
+                    - name
+                    title: InlineTag
+                    type: object
+                  title: Tags
+                  type: array
+              required:
+              - filename
+              title: SampleInitMultipartUploadSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  callback_url:
+                    title: Callback Url
+                    type: string
+                  file_id:
+                    title: File Id
+                    type: string
+                  paired_end_file_id:
+                    anyOf:
+                    - type: string
+                    - type: 'null'
+                    title: Paired End File Id
+                  s3_bucket:
+                    title: S3 Bucket
+                    type: string
+                  sample_id:
+                    title: Sample Id
+                    type: string
+                  upload_aws_access_key_id:
+                    title: Upload Aws Access Key Id
+                    type: string
+                  upload_aws_secret_access_key:
+                    title: Upload Aws Secret Access Key
+                    type: string
+                required:
+                - callback_url
+                - file_id
+                - paired_end_file_id
+                - s3_bucket
+                - sample_id
+                - upload_aws_access_key_id
+                - upload_aws_secret_access_key
+                title: SampleInitMultipartUploadResponse
+                type: object
+          description: OK
+      summary: Start a multipart upload directly to S3.
+      tags:
+      - Samples
+  /api/v1/samples/init_upload:
+    post:
+      operationId: post_samples_instances_init_upload
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                external_sample_id:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  description: An optional external sample ID (see the Metadata resource) to match against pre-uploaded samples. Returns a 400 if no matching sample is found.
+                  title: External Sample Id
+                filename:
+                  description: The filename of the sample to be uploaded. FASTA and FASTQ records, optionally gzipped (and ending in .gz or .gzip) are supported. Filenames should only contain alphanumeric characters, dashes, underscores, and periods.
+                  pattern: ^[\w\.]+[\w\-\.\[\]\(\)\{\} ]*\.[\w\.]+$
+                  title: Filename
+                  type: string
+                interleaved:
+                  anyOf:
+                  - type: boolean
+                  - type: 'null'
+                  default: null
+                  description: Whether the file is interleaved (true) or not (false).
+                  title: Interleaved
+                metadata:
+                  anyOf:
+                  - properties:
+                      custom:
+                        anyOf:
+                        - additionalProperties: true
+                          type: object
+                        - type: 'null'
+                        description: 'Arbitrary metadata is supported as part of a custom object. custom has two constraints: (1) it must have a depth of one (i.e., no nested records); and (2) only strings, numbers, boolean, and null values are supported as values. Example: `{"lab_tech": "Linus Pauling", "amplicon_scheme": "V3-V4"}`'
+                        title: Custom
+                      date_collected:
+                        anyOf:
+                        - format: date-time
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: Timestamp for when the sample was collected.
+                        title: Date Collected
+                      date_sequenced:
+                        anyOf:
+                        - format: date-time
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: Timestamp for when the sample was sequenced.
+                        title: Date Sequenced
+                      description:
+                        anyOf:
+                        - type: string
+                        - type: 'null'
+                        default: null
+                        title: Description
+                      external_sample_id:
+                        anyOf:
+                        - type: string
+                        - type: 'null'
+                        default: null
+                        description: An arbitrary external sample ID, e.g., an ID in a LIMS. Up to 60 characters.
+                        example: LIMS-2024-00123
+                        title: External Sample Id
+                      library_type:
+                        anyOf:
+                        - description: 'Allowed types of SampleMetadata.library_type. Also used to populate
+
+                            form dropdown in the front-end'
+                          enum:
+                          - WGS
+                          - Targeted/16S
+                          - Other
+                          title: SequencingLibraryType
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: An enum with the sample library type.
+                      location_lat:
+                        anyOf:
+                        - maximum: 90.0
+                          minimum: -90.0
+                          type: number
+                        - type: 'null'
+                        default: null
+                        description: The latitude `(-90.0-90.0)` of the sample location. By convention, we recommend using this for the location in which the physical specimen was collected.
+                        title: Location Lat
+                      location_lon:
+                        anyOf:
+                        - maximum: 180
+                          minimum: -180
+                          type: number
+                        - type: 'null'
+                        default: null
+                        description: The longitude `(-180.0-180.0)` of the sample location.
+                        title: Location Lon
+                      location_string:
+                        anyOf:
+                        - maxLength: 255
+                          type: string
+                        - type: 'null'
+                        default: null
+                        title: Location String
+                      name:
+                        anyOf:
+                        - maxLength: 255
+                          type: string
+                        - type: 'null'
+                        default: null
+                        title: Name
+                      platform:
+                        anyOf:
+                        - description: Allowed values of SampleMetadata.platform.
+                          enum:
+                          - 454 sequencing
+                          - 454 GS FLX
+                          - 454 GS FLX Titanium
+                          - Illumina
+                          - Illumina Genome Analyzer II
+                          - Illumina HiSeq
+                          - Illumina HiSeq 1500
+                          - Illumina HiSeq 2000
+                          - Illumina HiSeq 2500
+                          - Illumina HiSeq 3000
+                          - Illumina HiSeq 4000
+                          - Illumina HiSeq X
+                          - Illumina iSeq 100
+                          - Illumina MiniSeq
+                          - Illumina MiSeq
+                          - Illumina NextSeq
+                          - Illumina NextSeq 500
+                          - Illumina NextSeq 550
+                          - Illumina NovaSeq
+                          - Illumina NovaSeq 5000
+                          - Illumina NovaSeq 6000
+                          - BGISEQ
+                          - BGISEQ 50
+                          - Element
+                          - Element AVITI
+                          - Ion
+                          - Ion S5
+                          - Ion S5 XL
+                          - Ion PGM
+                          - Ion Proton
+                          - Ion Torrent
+                          - Oxford Nanopore
+                          - Oxford Nanopore GridION X5
+                          - Oxford Nanopore MinION
+                          - Oxford Nanopore PromethION
+                          - PacBio
+                          - PacBio RS II
+                          - PacBio Sequel
+                          - PacBio Sequel II System
+                          - PacBio Revio
+                          - PacBio Onso
+                          - SOLiD
+                          - Solexa Genome Analyzer
+                          - Sanger
+                          - Other
+                          title: SequencingPlatform
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: An enum with the name of the sequencing platform.
+                      sample_type:
+                        anyOf:
+                        - description: 'Allowed values for SampleMetadata.sample_type.  Used to populate values in
+
+                            the front-end dropdown'
+                          enum:
+                          - Isolate
+                          - Metagenomic
+                          - Other
+                          title: SequencingSampleType
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: An enum with the sample type.
+                      starred:
+                        anyOf:
+                        - type: boolean
+                        - type: 'null'
+                        default: false
+                        description: Whether the sample has been starred by the user within the One Codex web application.
+                        title: Starred
+                    title: InlineMetadata
+                    type: object
+                  - type: 'null'
+                  default: null
+                  description: An optional metadata object to be added to the sample.
+                paired_end_filename:
+                  anyOf:
+                  - pattern: ^[\w\.]+[\w\-\.\[\]\(\)\{\} ]*\.[\w\.]+$
+                    type: string
+                  - type: 'null'
+                  default: null
+                  description: Optional filename for paired end uploads.
+                  title: Paired End Filename
+                project:
+                  anyOf:
+                  - properties:
+                      $ref:
+                        example: /api/v1/projects/a1b2c3d4e5f67890
+                        format: uri
+                        pattern: ^/api/v1/projects/[a-f0-9]{16}$
+                        type: string
+                    title: projects
+                    type: object
+                  - type: 'null'
+                  default: null
+                  description: An optional project into which to upload the sample.
+                  title: Project
+                sample_id:
+                  anyOf:
+                  - type: string
+                  - type: 'null'
+                  default: null
+                  description: An optional sample ID to match against pre-uploaded samples. Returns a 400 if no matching sample is found.
+                  title: Sample Id
+                size:
+                  anyOf:
+                  - minimum: 0
+                    type: integer
+                  - type: 'null'
+                  default: null
+                  description: The size of the file in bytes.
+                  title: Size
+                tags:
+                  default: []
+                  description: An array of tags to be added to the sample.
+                  items:
+                    properties:
+                      name:
+                        description: The tag label or name. Name must be 30 characters or fewer.
+                        maxLength: 30
+                        title: Name
+                        type: string
+                    required:
+                    - name
+                    title: InlineTag
+                    type: object
+                  title: Tags
+                  type: array
+                upload_type:
+                  const: standard
+                  default: standard
+                  description: The type of upload to initiate. Currently only standard uploads are supported via the init_upload route.
+                  title: Upload Type
+                  type: string
+              required:
+              - filename
+              title: SampleInitUploadSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  additional_fields:
+                    additionalProperties: true
+                    default: {}
+                    description: Additional fields to include in the object storage POST request.
+                    title: Additional Fields
+                    type: object
+                  fallback_options:
+                    anyOf:
+                    - additionalProperties: true
+                      type: object
+                    - type: 'null'
+                    default: null
+                    description: Fallback options for the upload. Please contact support for help as needed.
+                    title: Fallback Options
+                  paired_end_additional_fields:
+                    anyOf:
+                    - additionalProperties: true
+                      type: object
+                    - type: 'null'
+                    default: {}
+                    description: Additional fields to include in the object storage POST request for the paired end file (optional).
+                    title: Paired End Additional Fields
+                  paired_end_upload_url:
+                    anyOf:
+                    - type: string
+                    - type: 'null'
+                    default: null
+                    description: Object storage location to POST the paired end file to (optional).
+                    title: Paired End Upload Url
+                  sample_id:
+                    description: The sample ID. Use to confirm the upload.
+                    title: Sample Id
+                    type: string
+                  upload_url:
+                    description: Object storage location to POST the file to.
+                    title: Upload Url
+                    type: string
+                required:
+                - sample_id
+                - upload_url
+                title: SampleInitUploadResponse
+                type: object
+          description: OK
+      summary: POST samples instances_init_upload
+      tags:
+      - Samples
+  /api/v1/samples/organization:
+    get:
+      operationId: get_samples_instances_organization
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/samples'
+                type: array
+          description: OK
+      summary: GET samples instances_organization
+      tags:
+      - Samples
+  /api/v1/samples/preupload:
+    post:
+      operationId: post_samples_instances_preupload
+      requestBody:
+        content:
+          application/json:
+            schema:
+              properties:
+                metadata:
+                  anyOf:
+                  - properties:
+                      custom:
+                        anyOf:
+                        - additionalProperties: true
+                          type: object
+                        - type: 'null'
+                        description: 'Arbitrary metadata is supported as part of a custom object. custom has two constraints: (1) it must have a depth of one (i.e., no nested records); and (2) only strings, numbers, boolean, and null values are supported as values. Example: `{"lab_tech": "Linus Pauling", "amplicon_scheme": "V3-V4"}`'
+                        title: Custom
+                      date_collected:
+                        anyOf:
+                        - format: date-time
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: Timestamp for when the sample was collected.
+                        title: Date Collected
+                      date_sequenced:
+                        anyOf:
+                        - format: date-time
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: Timestamp for when the sample was sequenced.
+                        title: Date Sequenced
+                      description:
+                        anyOf:
+                        - type: string
+                        - type: 'null'
+                        default: null
+                        title: Description
+                      external_sample_id:
+                        anyOf:
+                        - type: string
+                        - type: 'null'
+                        default: null
+                        description: An arbitrary external sample ID, e.g., an ID in a LIMS. Up to 60 characters.
+                        example: LIMS-2024-00123
+                        title: External Sample Id
+                      library_type:
+                        anyOf:
+                        - description: 'Allowed types of SampleMetadata.library_type. Also used to populate
+
+                            form dropdown in the front-end'
+                          enum:
+                          - WGS
+                          - Targeted/16S
+                          - Other
+                          title: SequencingLibraryType
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: An enum with the sample library type.
+                      location_lat:
+                        anyOf:
+                        - maximum: 90.0
+                          minimum: -90.0
+                          type: number
+                        - type: 'null'
+                        default: null
+                        description: The latitude `(-90.0-90.0)` of the sample location. By convention, we recommend using this for the location in which the physical specimen was collected.
+                        title: Location Lat
+                      location_lon:
+                        anyOf:
+                        - maximum: 180
+                          minimum: -180
+                          type: number
+                        - type: 'null'
+                        default: null
+                        description: The longitude `(-180.0-180.0)` of the sample location.
+                        title: Location Lon
+                      location_string:
+                        anyOf:
+                        - maxLength: 255
+                          type: string
+                        - type: 'null'
+                        default: null
+                        title: Location String
+                      name:
+                        anyOf:
+                        - maxLength: 255
+                          type: string
+                        - type: 'null'
+                        default: null
+                        title: Name
+                      platform:
+                        anyOf:
+                        - description: Allowed values of SampleMetadata.platform.
+                          enum:
+                          - 454 sequencing
+                          - 454 GS FLX
+                          - 454 GS FLX Titanium
+                          - Illumina
+                          - Illumina Genome Analyzer II
+                          - Illumina HiSeq
+                          - Illumina HiSeq 1500
+                          - Illumina HiSeq 2000
+                          - Illumina HiSeq 2500
+                          - Illumina HiSeq 3000
+                          - Illumina HiSeq 4000
+                          - Illumina HiSeq X
+                          - Illumina iSeq 100
+                          - Illumina MiniSeq
+                          - Illumina MiSeq
+                          - Illumina NextSeq
+                          - Illumina NextSeq 500
+                          - Illumina NextSeq 550
+                          - Illumina NovaSeq
+                          - Illumina NovaSeq 5000
+                          - Illumina NovaSeq 6000
+                          - BGISEQ
+                          - BGISEQ 50
+                          - Element
+                          - Element AVITI
+                          - Ion
+                          - Ion S5
+                          - Ion S5 XL
+                          - Ion PGM
+                          - Ion Proton
+                          - Ion Torrent
+                          - Oxford Nanopore
+                          - Oxford Nanopore GridION X5
+                          - Oxford Nanopore MinION
+                          - Oxford Nanopore PromethION
+                          - PacBio
+                          - PacBio RS II
+                          - PacBio Sequel
+                          - PacBio Sequel II System
+                          - PacBio Revio
+                          - PacBio Onso
+                          - SOLiD
+                          - Solexa Genome Analyzer
+                          - Sanger
+                          - Other
+                          title: SequencingPlatform
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: An enum with the name of the sequencing platform.
+                      sample_type:
+                        anyOf:
+                        - description: 'Allowed values for SampleMetadata.sample_type.  Used to populate values in
+
+                            the front-end dropdown'
+                          enum:
+                          - Isolate
+                          - Metagenomic
+                          - Other
+                          title: SequencingSampleType
+                          type: string
+                        - type: 'null'
+                        default: null
+                        description: An enum with the sample type.
+                      starred:
+                        anyOf:
+                        - type: boolean
+                        - type: 'null'
+                        default: false
+                        description: Whether the sample has been starred by the user within the One Codex web application.
+                        title: Starred
+                    title: InlineMetadata
+                    type: object
+                  - type: 'null'
+                  default: null
+                project:
+                  anyOf:
+                  - properties:
+                      $ref:
+                        example: /api/v1/projects/a1b2c3d4e5f67890
+                        format: uri
+                        pattern: ^/api/v1/projects/[a-f0-9]{16}$
+                        type: string
+                    type: object
+                  - type: 'null'
+                  default: null
+                  description: An optional project.
+                tags:
+                  default: []
+                  items:
+                    properties:
+                      name:
+                        description: The tag label or name. Name must be 30 characters or fewer.
+                        maxLength: 30
+                        title: Name
+                        type: string
+                    required:
+                    - name
+                    title: InlineTag
+                    type: object
+                  title: Tags
+                  type: array
+              title: SampleInitPreuploadSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  sample_id:
+                    description: The sample ID. Use to confirm the upload.
+                    title: Sample Id
+                    type: string
+                required:
+                - sample_id
+                title: SampleInitPreuploadResponse
+                type: object
+          description: OK
+      summary: POST samples instances_preupload
+      tags:
+      - Samples
+  /api/v1/samples/public:
+    get:
+      operationId: get_samples_instances_public
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/samples'
+                type: array
+          description: OK
+      summary: GET samples instances_public
+      tags:
+      - Samples
+  /api/v1/samples/{id}:
+    delete:
+      operationId: delete_samples_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+      summary: DELETE samples
+      tags:
+      - Samples
+    get:
+      operationId: get_samples_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/samples'
+          description: OK
+      summary: GET samples
+      tags:
+      - Samples
+    patch:
+      operationId: patch_samples_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              additionalProperties: false
+              properties:
+                project:
+                  anyOf:
+                  - properties:
+                      $ref:
+                        example: /api/v1/projects/a1b2c3d4e5f67890
+                        format: uri
+                        pattern: ^/api/v1/projects/[a-f0-9]{16}$
+                        type: string
+                    type: object
+                  - $ref: '#/components/schemas/projects'
+                  - type: 'null'
+                  default: null
+                  title: Project
+                tags:
+                  anyOf:
+                  - items:
+                      properties:
+                        $ref:
+                          example: /api/v1/tags/a1b2c3d4e5f67890
+                          format: uri
+                          pattern: ^/api/v1/tags/[a-f0-9]{16}$
+                          type: string
+                      type: object
+                    type: array
+                  - items:
+                      properties:
+                        name:
+                          description: The tag label or name. Name must be 30 characters or fewer.
+                          maxLength: 30
+                          title: Name
+                          type: string
+                      required:
+                      - name
+                      title: InlineTag
+                      type: object
+                    type: array
+                  default: []
+                  title: Tags
+                visibility:
+                  default: private
+                  description: 'Enum for the v1 API `visibility` attribute.
+
+
+                    Note: this is legacy and only exists for backwards-compatibility in the public v1 API.'
+                  enum:
+                  - public
+                  - shared
+                  - private
+                  - importing
+                  - awaiting data
+                  title: ApiV1Visibility
+                  type: string
+              title: SampleUpdateSchema
+              type: object
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/samples'
+          description: OK
+      summary: PATCH samples
+      tags:
+      - Samples
+  /api/v1/samples/{id}/download_uri:
+    post:
+      operationId: post_samples_download_uri
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  download_uri:
+                    description: A pre-signed download link.
+                    title: Download Uri
+                    type: string
+                  expires_in_hours:
+                    description: The number of hours for which `download_uri` is valid.
+                    title: Expires In Hours
+                    type: integer
+                required:
+                - download_uri
+                - expires_in_hours
+                title: SampleDownloadUriSchema
+                type: object
+          description: OK
+      summary: POST samples download_uri
+      tags:
+      - Samples
+components:
+  schemas:
+    projects:
+      properties:
+        $uri:
+          example: /api/v1/projects/0d77065796f8d173
+          pattern: ^/api/v1/projects/[a-f0-9]{16}$
+          readOnly: true
+          title: $Uri
+          type: string
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          title: Description
+        external_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          example: PRJ-2024-001
+          title: External Id
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          title: Name
+        owner:
+          properties:
+            $ref:
+              example: /api/v1/users/a1b2c3d4e5f67890
+              format: uri
+              pattern: ^/api/v1/users/[a-f0-9]{16}$
+              type: string
+          title: users
+          type: object
+        permissions:
+          items:
+            type: string
+          title: Permissions
+          type: array
+        project_name:
+          anyOf:
+          - maxLength: 15
+            minLength: 3
+            pattern: ^[a-zA-Z0-9_-]{3,15}$
+            type: string
+          - type: 'null'
+          title: Project Name
+        public:
+          default: false
+          title: Public
+          type: boolean
+      required:
+      - $uri
+      - owner
+      - permissions
+      - project_name
+      title: projects
+      type: object
+    samples:
+      properties:
+        $uri:
+          example: /api/v1/samples/0d77065796f8d173
+          pattern: ^/api/v1/samples/[a-f0-9]{16}$
+          readOnly: true
+          title: $Uri
+          type: string
+        created_at:
+          description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+          format: date-time
+          title: Created At
+          type: string
+        error_msg:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          description: An error message if the sample failed to upload, import, or validate.
+          title: Error Msg
+        filename:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          description: The sample filename.
+          title: Filename
+        metadata:
+          description: A metadata object.
+          properties:
+            $ref:
+              example: /api/v1/metadata/a1b2c3d4e5f67890
+              format: uri
+              pattern: ^/api/v1/metadata/[a-f0-9]{16}$
+              type: string
+          title: metadata
+          type: object
+        owner:
+          description: The owner of the sample.
+          properties:
+            $ref:
+              example: /api/v1/users/a1b2c3d4e5f67890
+              format: uri
+              pattern: ^/api/v1/users/[a-f0-9]{16}$
+              type: string
+          title: users
+          type: object
+        primary_classification:
+          anyOf:
+          - properties:
+              $ref:
+                example: /api/v1/classifications/a1b2c3d4e5f67890
+                format: uri
+                pattern: ^/api/v1/classifications/[a-f0-9]{16}$
+                type: string
+            title: classifications
+            type: object
+          - type: 'null'
+          description: A reference to a Classification for the sample. This will typically be the [One Codex Database](https://docs.onecodex.com/en/articles/3761205-one-codex-database) or [Targeted Loci Database](https://docs.onecodex.com/en/articles/3754219-targeted-loci-database) results as appropriate. Note that samples will not have a `primary_classification` while they are still importing or being uploaded.
+          title: Primary Classification
+        project:
+          anyOf:
+          - properties:
+              $ref:
+                example: /api/v1/projects/a1b2c3d4e5f67890
+                format: uri
+                pattern: ^/api/v1/projects/[a-f0-9]{16}$
+                type: string
+            title: projects
+            type: object
+          - properties:
+              $ref:
+                example: /api/v1/projects/a1b2c3d4e5f67890
+                format: uri
+                pattern: ^/api/v1/projects/[a-f0-9]{16}$
+                type: string
+            type: object
+          - type: 'null'
+          default: null
+          description: The project the sample belongs to (optional).
+          title: Project
+        size:
+          anyOf:
+          - type: integer
+          - type: 'null'
+          default: null
+          description: The size of the uploaded file in bytes.
+          title: Size
+        status:
+          description: 'Enum for user-facing data status.
+
+
+            This is a subset of `DataStatus` for the `status` attribute in the APIs.'
+          enum:
+          - awaiting_data
+          - importing
+          - validating
+          - failed_validation
+          - available
+          - deleted
+          title: UserFacingDataStatus
+          type: string
+        tags:
+          default: []
+          description: An (optionally empty) array of references to Tags describing the sample. Tags are an additional unstructured organizational tool that complement Projects and Metadata records.
+          items:
+            properties:
+              $ref:
+                example: /api/v1/tags/a1b2c3d4e5f67890
+                format: uri
+                pattern: ^/api/v1/tags/[a-f0-9]{16}$
+                type: string
+            title: tags
+            type: object
+          title: Tags
+          type: array
+        updated_at:
+          anyOf:
+          - format: date-time
+            type: string
+          - type: 'null'
+          default: null
+          description: Timestamp for when the object was last updated on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+          title: Updated At
+        visibility:
+          description: 'Enum for the v1 API `visibility` attribute.
+
+
+            Note: this is legacy and only exists for backwards-compatibility in the public v1 API.'
+          enum:
+          - public
+          - shared
+          - private
+          - importing
+          - awaiting data
+          title: ApiV1Visibility
+          type: string
+      required:
+      - $uri
+      - created_at
+      - metadata
+      - owner
+      - primary_classification
+      - status
+      - visibility
+      title: samples
+      type: object
+  securitySchemes:
+    apiKeyAuth:
+      in: header
+      name: X-API-Key
+      type: apiKey

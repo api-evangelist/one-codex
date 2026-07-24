@@ -1,0 +1,449 @@
+openapi: 3.1.0
+info:
+  description: The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.
+  title: One Codex API (v1) Account Mlsts API
+  version: v1
+servers:
+- url: https://app.onecodex.com
+security:
+- apiKeyAuth: []
+tags:
+- name: Mlsts
+paths:
+  /api/v1/mlsts:
+    get:
+      operationId: get_mlsts_instances
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/mlsts'
+                type: array
+          description: OK
+      summary: GET mlsts instances
+      tags:
+      - Mlsts
+  /api/v1/mlsts/public:
+    get:
+      operationId: get_mlsts_instances_public
+      parameters:
+      - description: Page number. Defaults to 1. See Pagination for more details.
+        in: query
+        name: page
+        required: false
+        schema:
+          default: 1
+          format: int32
+          type: integer
+      - description: Number of requested paginated records. Defaults to 50. See Pagination for more details.
+        in: query
+        name: per_page
+        required: false
+        schema:
+          default: 50
+          format: int32
+          type: integer
+      - description: 'Optional Mongo-style JSON sort clause, e.g., `sort={"created_at": true}` to sort by created_at (descending)'
+        in: query
+        name: sort
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      - description: 'Optional Mongo-style JSON filter clause, e.g., `where={"$uri": {"$eq": "/api/v1/samples/0ee172af60e84f61"}}`'
+        in: query
+        name: where
+        required: false
+        schema:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                items:
+                  $ref: '#/components/schemas/mlsts'
+                type: array
+          description: OK
+      summary: GET mlsts instances_public
+      tags:
+      - Mlsts
+  /api/v1/mlsts/{id}:
+    get:
+      operationId: get_mlsts_self
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mlsts'
+          description: OK
+      summary: GET mlsts
+      tags:
+      - Mlsts
+  /api/v1/mlsts/{id}/cancel:
+    post:
+      operationId: post_mlsts_cancel
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mlsts'
+          description: OK
+      summary: POST mlsts cancel
+      tags:
+      - Mlsts
+  /api/v1/mlsts/{id}/file_details:
+    get:
+      operationId: get_mlsts_file_details
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  files:
+                    description: A list of output files.
+                    items:
+                      properties:
+                        filename:
+                          description: The filename of the output file.
+                          title: Filename
+                          type: string
+                        filepath:
+                          description: The full file path.
+                          title: Filepath
+                          type: string
+                        size:
+                          description: File size in bytes.
+                          minimum: 0
+                          title: Size
+                          type: integer
+                        url:
+                          description: Pre-signed download URL.
+                          title: Url
+                          type: string
+                      required:
+                      - filename
+                      - filepath
+                      - size
+                      - url
+                      title: AnalysisFileDetailsSchema
+                      type: object
+                    title: Files
+                    type: array
+                required:
+                - files
+                title: AnalysisFileDetailsResponse
+                type: object
+          description: OK
+      summary: GET mlsts file_details
+      tags:
+      - Mlsts
+  /api/v1/mlsts/{id}/files:
+    delete:
+      operationId: delete_mlsts_files
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: No Content
+      summary: DELETE mlsts files
+      tags:
+      - Mlsts
+    get:
+      operationId: get_mlsts_files
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                description: A mapping of filenames to download URLs.
+                type: object
+          description: OK
+      summary: GET mlsts files
+      tags:
+      - Mlsts
+  /api/v1/mlsts/{id}/logs:
+    get:
+      operationId: get_mlsts_logs
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      - in: query
+        name: tail
+        required: false
+        schema:
+          anyOf:
+          - minimum: 1
+            type: integer
+          - type: 'null'
+          default: null
+      responses:
+        '200':
+          description: OK
+      summary: GET mlsts logs
+      tags:
+      - Mlsts
+  /api/v1/mlsts/{id}/rerun:
+    post:
+      operationId: post_mlsts_rerun
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/mlsts'
+          description: OK
+      summary: POST mlsts rerun
+      tags:
+      - Mlsts
+  /api/v1/mlsts/{id}/results:
+    get:
+      operationId: get_mlsts_results
+      parameters:
+      - in: path
+        name: id
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                properties:
+                  mlstResults:
+                    properties:
+                      results:
+                        items:
+                          properties:
+                            alleles:
+                              items:
+                                properties:
+                                  allele:
+                                    title: Allele
+                                    type: integer
+                                  gene:
+                                    title: Gene
+                                    type: string
+                                required:
+                                - allele
+                                - gene
+                                title: _MlstAllele
+                                type: object
+                              title: Alleles
+                              type: array
+                            metadata:
+                              items:
+                                additionalProperties: true
+                                type: object
+                              title: Metadata
+                              type: array
+                            st:
+                              title: St
+                              type: integer
+                          required:
+                          - alleles
+                          - metadata
+                          - st
+                          title: _MlstResult
+                          type: object
+                        title: Results
+                        type: array
+                      summary:
+                        properties:
+                          complete_match:
+                            title: Complete Match
+                            type: boolean
+                          mlst:
+                            anyOf:
+                            - type: integer
+                            - type: 'null'
+                            default: null
+                            title: Mlst
+                          n_alleles_matched:
+                            title: N Alleles Matched
+                            type: integer
+                          n_alleles_total:
+                            title: N Alleles Total
+                            type: integer
+                        required:
+                        - complete_match
+                        - n_alleles_matched
+                        - n_alleles_total
+                        title: _MlstSummary
+                        type: object
+                    required:
+                    - results
+                    - summary
+                    title: _MlstResults
+                    type: object
+                  panelResults:
+                    title: Panelresults
+                required:
+                - mlstResults
+                - panelResults
+                title: MlstResultsResponse
+                type: object
+          description: OK
+      summary: GET mlsts results
+      tags:
+      - Mlsts
+components:
+  schemas:
+    mlsts:
+      properties:
+        $uri:
+          example: /api/v1/mlsts/0d77065796f8d173
+          pattern: ^/api/v1/mlsts/[a-f0-9]{16}$
+          readOnly: true
+          title: $Uri
+          type: string
+        complete:
+          default: false
+          title: Complete
+          type: boolean
+        created_at:
+          description: Timestamp for when the object was created on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+          format: date-time
+          title: Created At
+          type: string
+        error_msg:
+          anyOf:
+          - maxLength: 255
+            type: string
+          - type: 'null'
+          default: null
+          description: The error message from the analysis, if it failed.
+          title: Error Msg
+        job:
+          description: 'A reference to the versioned job underlying the analysis, e.g., `{"$ref": "/api/v1/jobs/d512cb556241440f"}`.'
+          properties:
+            $ref:
+              example: /api/v1/jobs/a1b2c3d4e5f67890
+              format: uri
+              pattern: ^/api/v1/jobs/[a-f0-9]{16}$
+              type: string
+          title: jobs
+          type: object
+        job_args:
+          additionalProperties: true
+          default: {}
+          description: The arguments passed into this analysis (can be `null`).
+          title: Job Args
+          type: object
+        sample:
+          description: 'A reference to the sample underlying the analysis, e.g., `{"$ref": "/api/v1/sample/0ee172af60e84f61"}`.'
+          properties:
+            $ref:
+              example: /api/v1/samples/a1b2c3d4e5f67890
+              format: uri
+              pattern: ^/api/v1/samples/[a-f0-9]{16}$
+              type: string
+          title: samples
+          type: object
+        success:
+          default: false
+          title: Success
+          type: boolean
+        updated_at:
+          anyOf:
+          - format: date-time
+            type: string
+          - type: 'null'
+          default: null
+          description: Timestamp for when the object was last updated on the One Codex platform, encoded as a [RFC 3339](https://www.ietf.org/rfc/rfc3339.txt) timestamp.
+          title: Updated At
+      required:
+      - $uri
+      - created_at
+      - job
+      - sample
+      title: mlsts
+      type: object
+  securitySchemes:
+    apiKeyAuth:
+      in: header
+      name: X-API-Key
+      type: apiKey
