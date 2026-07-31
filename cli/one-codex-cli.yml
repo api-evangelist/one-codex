@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.onecodex.com/api-reference/command-line-interface.md ; https://github.com/onecodex/onecodex
+name: onecodex
+binary: onecodex
+repo: https://github.com/onecodex/onecodex
+license: MIT
+install:
+  - pip install onecodex
+  - pip install 'onecodex[all]'   # + Jupyter/IPython notebook extensions
+requires: Python 3.10+
+authentication:
+  - onecodex login   # interactive; stores API key
+  - env var ONE_CODEX_API_KEY
+commands:
+  - group: login / logout
+    purpose: Authenticate the CLI via API key or username/password.
+  - group: upload
+    purpose: Upload FASTA/FASTQ sequence files as Samples (with multipart support).
+  - group: samples
+    purpose: List, retrieve, and manage samples.
+  - group: analyses / classifications / panels
+    purpose: Retrieve analysis results (classifications, panels, alignments).
+  - group: documents
+    purpose: Upload and manage arbitrary documents.
+  - group: scripts
+    purpose: Run custom bioinformatics workflows/jobs from the command line.
+notebook_extension: >-
+  The [all] extra adds One Codex integration for IPython/Jupyter interactive analysis
+  and data visualization.

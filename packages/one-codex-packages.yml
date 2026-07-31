@@ -1,0 +1,17 @@
+generated: '2026-07-20'
+method: searched
+source: https://pypi.org/project/onecodex/
+packages:
+  - language: python
+    registry: pypi
+    name: onecodex
+    url: https://pypi.org/project/onecodex/
+    install: pip install onecodex
+    version: 1.1.0
+    official: true
+    notes: >-
+      Official One Codex Python client library AND command-line interface for the
+      One Codex v1 API. Requires Python 3.10+. `pip install 'onecodex[all]'` adds
+      IPython/Jupyter notebook extensions and data-visualization features.
+    repo: https://github.com/onecodex/onecodex
+    license: MIT

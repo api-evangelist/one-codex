@@ -1,0 +1,29 @@
+generated: '2026-07-20'
+method: searched
+source: live probes of /.well-known/ on One Codex hosts
+hosts:
+  - host: https://app.onecodex.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /.well-known/openid-configuration
+        status: 404
+      - path: /.well-known/oauth-authorization-server
+        status: 404
+      - path: /.well-known/api-catalog
+        status: 404
+      - path: /.well-known/ai-plugin.json
+        status: 404
+  - host: https://developer.onecodex.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+  - host: https://onecodex.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+notes: >-
+  No /.well-known/ discovery documents are published on any One Codex host as of the
+  probe date. The API uses static API-key auth (X-API-Key header), so there is no
+  OIDC/OAuth authorization-server metadata to advertise. A responsible-disclosure
+  program exists at security@onecodex.com but is not surfaced via security.txt.

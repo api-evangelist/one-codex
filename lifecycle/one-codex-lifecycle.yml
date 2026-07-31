@@ -1,0 +1,18 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.onecodex.com/ ; https://status.onecodex.com
+versioning:
+  scheme: uri-path
+  current: v1
+  base: https://app.onecodex.com/api/v1/
+  notes: All Jobs on the One Codex platform are strictly versioned for reproducibility.
+deprecation:
+  policy_url: null
+  sunset_header: false
+  notes: No formal deprecation policy or RFC 8594 Sunset/Deprecation header support was found in the docs.
+sla:
+  url: null
+  uptime_target: null
+status_page: https://status.onecodex.com
+status_page_provider: Atlassian Statuspage (onecodex.statuspage.io)
+deprecated_operations: []

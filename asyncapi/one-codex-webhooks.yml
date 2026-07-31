@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.onecodex.com/api-reference/checking-webhook-signatures.md
+spec_type: Webhooks
+surface: >-
+  One Codex delivers server-to-server webhooks and exposes a Webhook + Event resource
+  in the API (get_webhooks_instances, get_webhooks_self, get_events_instances,
+  get_events_self). Webhook deliveries are signed so receivers can verify authenticity.
+signature:
+  header: X-OneCodex-Signature
+  algorithm: HMAC-SHA256
+  format: 't=<unix-timestamp>,v1=<signature>'
+  signed_payload: timestamp + "." + raw request body
+  signing_secret: defaults to the account API key
+  scheme_version: v1 (only scheme currently defined)
+verification_steps:
+  - Extract the timestamp (t=) and signature (v1=) from the X-OneCodex-Signature header.
+  - Concatenate the timestamp and the raw request payload with a '.' to form the signed payload.
+  - Compute the expected HMAC-SHA256 over the signed payload using the signing secret.
+  - Constant-time compare the expected signature against the received v1 signature.
+event_resource:
+  list: get_events_instances
+  get: get_events_self
+  notes: >-
+    Events represent platform activity (e.g. analysis completion). The Python client
+    is planned to add Event object parsing. Specific event-type names are not
+    enumerated in the public docs.
+asyncapi_spec: null
+notes: >-
+  No AsyncAPI document is published. This artifact captures the webhook/event surface
+  so the provider is credited for event delivery (type Webhooks).

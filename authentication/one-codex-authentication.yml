@@ -1,0 +1,15 @@
+generated: '2026-07-20'
+method: derived
+source: openapi/one-codex-openapi-original.json
+summary:
+  types:
+  - apiKey
+  api_key_in:
+  - header
+schemes:
+- name: apiKeyAuth
+  type: apiKey
+  in: header
+  parameter: X-API-Key
+  sources:
+  - openapi/one-codex-openapi-original.json

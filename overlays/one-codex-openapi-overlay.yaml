@@ -1,0 +1,27 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for One Codex API (v1)
+  version: 1.0.0
+extends: openapi/one-codex-openapi-original.json
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-20'
+      x-apievangelist-provider: one-codex
+      x-apievangelist-notes: >-
+        One Codex microbial genomics API. API-key auth (X-API-Key). Offset pagination
+        (page/per_page + Link + X-Total-Count). 10 req/s rate limit. HMAC-SHA256 signed
+        webhooks (X-OneCodex-Signature). See conventions/one-codex-conventions.yml.
+  - target: $.servers
+    update:
+      - url: https://app.onecodex.com
+        description: One Codex production API (base path /api/v1).
+  - target: $.info
+    update:
+      x-apievangelist-artifacts:
+        authentication: authentication/one-codex-authentication.yml
+        conventions: conventions/one-codex-conventions.yml
+        errors: errors/one-codex-problem-types.yml
+        lifecycle: lifecycle/one-codex-lifecycle.yml
+        webhooks: asyncapi/one-codex-webhooks.yml
+        data_model: data-model/one-codex-data-model.yml

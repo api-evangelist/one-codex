@@ -1,0 +1,16 @@
+generated: '2026-07-20'
+method: generated
+source: openapi/one-codex-openapi-original.json
+skills:
+  - file: one-codex-upload-and-classify.md
+    name: Upload a sample and get its taxonomic classification
+    api: openapi/one-codex-openapi-original.json
+    operations: [post_samples_instances_init_upload, post_samples_instances_confirm_upload, get_samples_self, get_classifications_instances, get_classifications_self, get_classifications_results]
+  - file: one-codex-run-job-on-sample.md
+    name: Run a versioned job/workflow on a sample and collect analysis output
+    api: openapi/one-codex-openapi-original.json
+    operations: [get_jobs_instances, get_jobs_self, post_jobs_run, get_analyses_self, get_analyses_file_details, get_analyses_results]
+  - file: one-codex-organize-project.md
+    name: Organize samples into a project and share it
+    api: openapi/one-codex-openapi-original.json
+    operations: [post_projects_instances, post_tags_instances, patch_samples_self, post_projects_add_user, get_projects_members]

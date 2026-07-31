@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.onecodex.com/ ; openapi/one-codex-openapi-original.json
+standards:
+  - id: openapi-3.1
+    conforms: true
+    evidence: Provider publishes an OpenAPI 3.1.0 document at developer.onecodex.com/openapi.json.
+  - id: json-schema
+    conforms: true
+    evidence: API is self-described using JSON Schema (per Getting Started docs).
+  - id: hipaa
+    conforms: true
+    evidence: >-
+      One Codex advertises HIPAA compliance support with audit logging on its platform
+      pages; used by clinical laboratories for regulated microbiome workflows.
+  - id: oauth2
+    conforms: false
+    evidence: API uses static API-key auth (X-API-Key), not OAuth2.
+  - id: oidc
+    conforms: false
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Errors use a {message,status} envelope, not application/problem+json.
+  - id: rfc8594-sunset
+    conforms: false
+    evidence: No Sunset/Deprecation header support documented.
+  - id: pagination-link-header
+    conforms: true
+    evidence: GitHub-style Link header + X-Total-Count on collection endpoints.
+  - id: webhook-hmac-signatures
+    conforms: true
+    evidence: Webhooks signed with HMAC-SHA256 via X-OneCodex-Signature header.

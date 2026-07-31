@@ -1,8 +1,30 @@
 aid: one-codex
 name: One Codex
-description: One Codex is a company surfaced as a portfolio company of dcvc and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  One Codex is a microbial genomics data platform for fast, reproducible microbiome
+  sequencing and analysis. Its cloud platform pairs the "world's largest microbial
+  reference database" with automated shotgun and amplicon pipelines, sample management,
+  and collaboration for academic institutions, biotech companies, and clinical
+  laboratories. Beyond the web application, One Codex exposes a RESTful JSON API
+  (self-described with JSON Schema) covering samples, analyses, classifications,
+  panels, alignments, MLST, functional profiles, jobs/workflows, projects, metadata,
+  tags, documents, sequencing batches, events, and webhooks — plus an official
+  `onecodex` Python client and CLI. The company also offers a Genome Library and
+  end-to-end microbiome sequencing services. One Codex is a portfolio company of DCVC.
 url: https://raw.githubusercontent.com/api-evangelist/one-codex/refs/heads/main/apis.yml
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://www.onecodex.com/wp-content/uploads/2019/03/one-codex-logo.png
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
@@ -11,12 +33,393 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Genomics
+- Microbiome
+- Bioinformatics
+- Metagenomics
+- Life Sciences
+- Sequencing
+- Healthcare
+- Data Platform
+- API
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+apis:
+- aid: one-codex:one-codex-account-api
+  name: One Codex Account API
+  description: The Account API from One Codex — 1 operation(s) for account.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Account
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-account-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-alignments-api
+  name: One Codex Alignments API
+  description: The Alignments API from One Codex — 9 operation(s) for alignments.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Alignments
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-alignments-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-analyses-api
+  name: One Codex Analyses API
+  description: The Analyses API from One Codex — 9 operation(s) for analyses.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Analyses
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-analyses-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-annotation-sets-api
+  name: One Codex Annotation Sets API
+  description: The Annotation Sets API from One Codex — 4 operation(s) for annotation sets.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Annotation Sets
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-annotation-sets-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-assemblies-api
+  name: One Codex Assemblies API
+  description: The Assemblies API from One Codex — 3 operation(s) for assemblies.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Assemblies
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-assemblies-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-assets-api
+  name: One Codex Assets API
+  description: The Assets API from One Codex — 5 operation(s) for assets.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Assets
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-assets-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-classifications-api
+  name: One Codex Classifications API
+  description: The Classifications API from One Codex — 11 operation(s) for classifications.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Classifications
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-classifications-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-controls-api
+  name: One Codex Controls API
+  description: The Controls API from One Codex — 9 operation(s) for controls.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Controls
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-controls-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-documents-api
+  name: One Codex Documents API
+  description: The Documents API from One Codex — 9 operation(s) for documents.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Documents
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-documents-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-events-api
+  name: One Codex Events API
+  description: The Events API from One Codex — 2 operation(s) for events.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Events
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-events-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-functional-profiles-api
+  name: One Codex Functional Profiles API
+  description: The Functional Profiles API from One Codex — 10 operation(s) for functional profiles.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Functional Profiles
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-functional-profiles-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-genomes-api
+  name: One Codex Genomes API
+  description: The Genomes API from One Codex — 2 operation(s) for genomes.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Genomes
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-genomes-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-jobs-api
+  name: One Codex Jobs API
+  description: The Jobs API from One Codex — 4 operation(s) for jobs.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Jobs
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-jobs-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-metadata-api
+  name: One Codex Metadata API
+  description: The Metadata API from One Codex — 2 operation(s) for metadata.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Metadata
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-metadata-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-mlsts-api
+  name: One Codex Mlsts API
+  description: The Mlsts API from One Codex — 9 operation(s) for mlsts.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Mlsts
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-mlsts-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-panels-api
+  name: One Codex Panels API
+  description: The Panels API from One Codex — 9 operation(s) for panels.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Panels
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-panels-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-projects-api
+  name: One Codex Projects API
+  description: The Projects API from One Codex — 7 operation(s) for projects.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Projects
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-projects-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-reports-api
+  name: One Codex Reports API
+  description: The Reports API from One Codex — 9 operation(s) for reports.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Reports
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-reports-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-samples-api
+  name: One Codex Samples API
+  description: The Samples API from One Codex — 11 operation(s) for samples.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Samples
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-samples-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-sequencing-api
+  name: One Codex Sequencing API
+  description: The Sequencing API from One Codex — 4 operation(s) for sequencing.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Sequencing
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-sequencing-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-tags-api
+  name: One Codex Tags API
+  description: The Tags API from One Codex — 2 operation(s) for tags.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Tags
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-tags-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-taxa-api
+  name: One Codex Taxa API
+  description: The Taxa API from One Codex — 5 operation(s) for taxa.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Taxa
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-taxa-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-users-api
+  name: One Codex Users API
+  description: The Users API from One Codex — 2 operation(s) for users.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Users
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-users-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-webhooks-api
+  name: One Codex Webhooks API
+  description: The Webhooks API from One Codex — 2 operation(s) for webhooks.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Webhooks
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-webhooks-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+- aid: one-codex:one-codex-workflows-api
+  name: One Codex Workflows API
+  description: The Workflows API from One Codex — 9 operation(s) for workflows.
+  humanURL: https://developer.onecodex.com/
+  baseURL: https://app.onecodex.com/api/v1/
+  tags:
+  - Workflows
+  properties:
+  - type: OpenAPI
+    url: openapi/one-codex-workflows-api-openapi.yml
+  - type: Authentication
+    url: authentication/one-codex-authentication.yml
+common:
+- type: DeveloperPortal
+  url: https://developer.onecodex.com/
+- type: Documentation
+  url: https://developer.onecodex.com/api-reference/api-documentation
+- type: APIReference
+  url: https://developer.onecodex.com/api-reference/
+- type: GettingStarted
+  url: https://developer.onecodex.com/api-reference/getting-started
+- type: Website
+  url: https://www.onecodex.com/
+- type: SignUp
+  url: https://app.onecodex.com/login
+- type: Pricing
+  url: https://www.onecodex.com/pricing
+- type: Blog
+  url: https://www.onecodex.com/blog
+- type: TermsOfService
+  url: https://www.onecodex.com/legal/terms-of-use
+- type: PrivacyPolicy
+  url: https://www.onecodex.com/legal/privacy-20221018
+- type: GitHubOrganization
+  url: https://github.com/onecodex
+- type: StatusPage
+  url: https://status.onecodex.com
+- type: Compliance
+  url: https://www.onecodex.com/security
+- type: OpenAPI
+  url: openapi/one-codex-openapi-original.json
+- type: Overlay
+  url: overlays/one-codex-openapi-overlay.yaml
+- type: Authentication
+  url: authentication/one-codex-authentication.yml
+- type: AgenticAccess
+  url: agentic-access/one-codex-agentic-access.yml
+- type: DomainSecurity
+  url: security/one-codex-domain-security.yml
+- type: VulnerabilityDisclosure
+  url: security/one-codex-vulnerability-disclosure.yml
+- type: Security
+  url: https://www.onecodex.com/security
+- type: Packages
+  url: packages/one-codex-packages.yml
+- type: SDKs
+  url: packages/one-codex-packages.yml
+- type: CLI
+  url: cli/one-codex-cli.yml
+- type: MCPServer
+  url: mcp/one-codex-mcp.yml
+- type: LLMsTxt
+  url: llms/one-codex-llms.txt
+- type: WellKnown
+  url: well-known/one-codex-well-known.yml
+- type: Conventions
+  url: conventions/one-codex-conventions.yml
+- type: ErrorCatalog
+  url: errors/one-codex-problem-types.yml
+- type: Lifecycle
+  url: lifecycle/one-codex-lifecycle.yml
+- type: Conformance
+  url: conformance/one-codex-conformance.yml
+- type: DataModel
+  url: data-model/one-codex-data-model.yml
+- type: Webhooks
+  url: asyncapi/one-codex-webhooks.yml
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 18
+  pass: local-v1

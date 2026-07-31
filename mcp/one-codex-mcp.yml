@@ -1,0 +1,522 @@
+generated: '2026-07-20'
+method: derived
+status: candidate
+source: openapi/one-codex-openapi-original.json
+server:
+  name: one-codex
+  transport: http
+  url: null
+notes: No official hosted/remote One Codex MCP server was found. Candidate tool list derived one-per-operation
+  from the OpenAPI 3.1 spec (170 operations). The official `onecodex` Python client is the supported programmatic
+  surface.
+tools:
+- name: get_account_instances
+  description: GET account instances
+  source_operation: openapi/one-codex-openapi-original.json#get_account_instances
+- name: get_alignments_instances
+  description: GET alignments instances
+  source_operation: openapi/one-codex-openapi-original.json#get_alignments_instances
+- name: get_alignments_instances_public
+  description: GET alignments instances_public
+  source_operation: openapi/one-codex-openapi-original.json#get_alignments_instances_public
+- name: get_alignments_self
+  description: GET alignments
+  source_operation: openapi/one-codex-openapi-original.json#get_alignments_self
+- name: post_alignments_cancel
+  description: POST alignments cancel
+  source_operation: openapi/one-codex-openapi-original.json#post_alignments_cancel
+- name: get_alignments_file_details
+  description: GET alignments file_details
+  source_operation: openapi/one-codex-openapi-original.json#get_alignments_file_details
+- name: delete_alignments_files
+  description: DELETE alignments files
+  source_operation: openapi/one-codex-openapi-original.json#delete_alignments_files
+- name: get_alignments_files
+  description: GET alignments files
+  source_operation: openapi/one-codex-openapi-original.json#get_alignments_files
+- name: get_alignments_logs
+  description: GET alignments logs
+  source_operation: openapi/one-codex-openapi-original.json#get_alignments_logs
+- name: post_alignments_rerun
+  description: POST alignments rerun
+  source_operation: openapi/one-codex-openapi-original.json#post_alignments_rerun
+- name: get_alignments_results
+  description: GET alignments results
+  source_operation: openapi/one-codex-openapi-original.json#get_alignments_results
+- name: get_analyses_instances
+  description: GET analyses instances
+  source_operation: openapi/one-codex-openapi-original.json#get_analyses_instances
+- name: get_analyses_instances_public
+  description: GET analyses instances_public
+  source_operation: openapi/one-codex-openapi-original.json#get_analyses_instances_public
+- name: get_analyses_self
+  description: GET analyses
+  source_operation: openapi/one-codex-openapi-original.json#get_analyses_self
+- name: post_analyses_cancel
+  description: POST analyses cancel
+  source_operation: openapi/one-codex-openapi-original.json#post_analyses_cancel
+- name: get_analyses_file_details
+  description: GET analyses file_details
+  source_operation: openapi/one-codex-openapi-original.json#get_analyses_file_details
+- name: delete_analyses_files
+  description: DELETE analyses files
+  source_operation: openapi/one-codex-openapi-original.json#delete_analyses_files
+- name: get_analyses_files
+  description: GET analyses files
+  source_operation: openapi/one-codex-openapi-original.json#get_analyses_files
+- name: get_analyses_logs
+  description: GET analyses logs
+  source_operation: openapi/one-codex-openapi-original.json#get_analyses_logs
+- name: post_analyses_rerun
+  description: POST analyses rerun
+  source_operation: openapi/one-codex-openapi-original.json#post_analyses_rerun
+- name: get_analyses_results
+  description: GET analyses results
+  source_operation: openapi/one-codex-openapi-original.json#get_analyses_results
+- name: get_annotation_sets_instances
+  description: GET annotation_sets instances
+  source_operation: openapi/one-codex-openapi-original.json#get_annotation_sets_instances
+- name: get_annotation_sets_self
+  description: GET annotation_sets
+  source_operation: openapi/one-codex-openapi-original.json#get_annotation_sets_self
+- name: post_annotation_sets_download_csv
+  description: POST annotation_sets download_csv
+  source_operation: openapi/one-codex-openapi-original.json#post_annotation_sets_download_csv
+- name: post_annotation_sets_download_uri
+  description: POST annotation_sets download_uri
+  source_operation: openapi/one-codex-openapi-original.json#post_annotation_sets_download_uri
+- name: get_assemblies_instances
+  description: GET assemblies instances
+  source_operation: openapi/one-codex-openapi-original.json#get_assemblies_instances
+- name: get_assemblies_self
+  description: GET assemblies
+  source_operation: openapi/one-codex-openapi-original.json#get_assemblies_self
+- name: post_assemblies_download_uri
+  description: POST assemblies download_uri
+  source_operation: openapi/one-codex-openapi-original.json#post_assemblies_download_uri
+- name: get_assets_instances
+  description: GET assets instances
+  source_operation: openapi/one-codex-openapi-original.json#get_assets_instances
+- name: post_assets_instances_confirm_multipart_upload
+  description: POST assets instances_confirm_multipart_upload
+  source_operation: openapi/one-codex-openapi-original.json#post_assets_instances_confirm_multipart_upload
+- name: post_assets_instances_init_multipart_upload
+  description: POST assets instances_init_multipart_upload
+  source_operation: openapi/one-codex-openapi-original.json#post_assets_instances_init_multipart_upload
+- name: delete_assets_self
+  description: DELETE assets
+  source_operation: openapi/one-codex-openapi-original.json#delete_assets_self
+- name: get_assets_self
+  description: GET assets
+  source_operation: openapi/one-codex-openapi-original.json#get_assets_self
+- name: patch_assets_self
+  description: PATCH assets
+  source_operation: openapi/one-codex-openapi-original.json#patch_assets_self
+- name: post_assets_download_uri
+  description: POST assets download_uri
+  source_operation: openapi/one-codex-openapi-original.json#post_assets_download_uri
+- name: get_classifications_instances
+  description: GET classifications instances
+  source_operation: openapi/one-codex-openapi-original.json#get_classifications_instances
+- name: get_classifications_instances_public
+  description: GET classifications instances_public
+  source_operation: openapi/one-codex-openapi-original.json#get_classifications_instances_public
+- name: get_classifications_self
+  description: GET classifications
+  source_operation: openapi/one-codex-openapi-original.json#get_classifications_self
+- name: post_classifications_cancel
+  description: POST classifications cancel
+  source_operation: openapi/one-codex-openapi-original.json#post_classifications_cancel
+- name: get_classifications_file_details
+  description: GET classifications file_details
+  source_operation: openapi/one-codex-openapi-original.json#get_classifications_file_details
+- name: delete_classifications_files
+  description: DELETE classifications files
+  source_operation: openapi/one-codex-openapi-original.json#delete_classifications_files
+- name: get_classifications_files
+  description: GET classifications files
+  source_operation: openapi/one-codex-openapi-original.json#get_classifications_files
+- name: get_classifications_logs
+  description: GET classifications logs
+  source_operation: openapi/one-codex-openapi-original.json#get_classifications_logs
+- name: get_classifications_raw_results
+  description: GET classifications raw_results
+  source_operation: openapi/one-codex-openapi-original.json#get_classifications_raw_results
+- name: get_classifications_readlevel
+  description: GET classifications readlevel
+  source_operation: openapi/one-codex-openapi-original.json#get_classifications_readlevel
+- name: post_classifications_rerun
+  description: POST classifications rerun
+  source_operation: openapi/one-codex-openapi-original.json#post_classifications_rerun
+- name: get_classifications_results
+  description: GET classifications results
+  source_operation: openapi/one-codex-openapi-original.json#get_classifications_results
+- name: get_controls_instances
+  description: GET controls instances
+  source_operation: openapi/one-codex-openapi-original.json#get_controls_instances
+- name: get_controls_instances_public
+  description: GET controls instances_public
+  source_operation: openapi/one-codex-openapi-original.json#get_controls_instances_public
+- name: get_controls_self
+  description: GET controls
+  source_operation: openapi/one-codex-openapi-original.json#get_controls_self
+- name: post_controls_cancel
+  description: POST controls cancel
+  source_operation: openapi/one-codex-openapi-original.json#post_controls_cancel
+- name: get_controls_file_details
+  description: GET controls file_details
+  source_operation: openapi/one-codex-openapi-original.json#get_controls_file_details
+- name: delete_controls_files
+  description: DELETE controls files
+  source_operation: openapi/one-codex-openapi-original.json#delete_controls_files
+- name: get_controls_files
+  description: GET controls files
+  source_operation: openapi/one-codex-openapi-original.json#get_controls_files
+- name: get_controls_logs
+  description: GET controls logs
+  source_operation: openapi/one-codex-openapi-original.json#get_controls_logs
+- name: post_controls_rerun
+  description: POST controls rerun
+  source_operation: openapi/one-codex-openapi-original.json#post_controls_rerun
+- name: get_controls_results
+  description: GET controls results
+  source_operation: openapi/one-codex-openapi-original.json#get_controls_results
+- name: get_documents_instances
+  description: GET documents instances
+  source_operation: openapi/one-codex-openapi-original.json#get_documents_instances
+- name: post_documents_instances_confirm_upload
+  description: POST documents instances_confirm_upload
+  source_operation: openapi/one-codex-openapi-original.json#post_documents_instances_confirm_upload
+- name: post_documents_instances_init_multipart_upload
+  description: Start a multipart upload directly to S3.
+  source_operation: openapi/one-codex-openapi-original.json#post_documents_instances_init_multipart_upload
+- name: post_documents_instances_init_upload
+  description: Deprecated in favour of init_multipart_upload
+  source_operation: openapi/one-codex-openapi-original.json#post_documents_instances_init_upload
+- name: delete_documents_self
+  description: DELETE documents
+  source_operation: openapi/one-codex-openapi-original.json#delete_documents_self
+- name: get_documents_self
+  description: GET documents
+  source_operation: openapi/one-codex-openapi-original.json#get_documents_self
+- name: post_documents_add_user
+  description: POST documents add_user
+  source_operation: openapi/one-codex-openapi-original.json#post_documents_add_user
+- name: post_documents_download_uri
+  description: POST documents download_uri
+  source_operation: openapi/one-codex-openapi-original.json#post_documents_download_uri
+- name: post_documents_remove_user
+  description: POST documents remove_user
+  source_operation: openapi/one-codex-openapi-original.json#post_documents_remove_user
+- name: patch_documents_rename
+  description: PATCH documents rename
+  source_operation: openapi/one-codex-openapi-original.json#patch_documents_rename
+- name: get_events_instances
+  description: GET events instances
+  source_operation: openapi/one-codex-openapi-original.json#get_events_instances
+- name: get_events_self
+  description: GET events
+  source_operation: openapi/one-codex-openapi-original.json#get_events_self
+- name: get_functional_profiles_instances
+  description: GET functional_profiles instances
+  source_operation: openapi/one-codex-openapi-original.json#get_functional_profiles_instances
+- name: get_functional_profiles_instances_public
+  description: GET functional_profiles instances_public
+  source_operation: openapi/one-codex-openapi-original.json#get_functional_profiles_instances_public
+- name: get_functional_profiles_self
+  description: GET functional_profiles
+  source_operation: openapi/one-codex-openapi-original.json#get_functional_profiles_self
+- name: post_functional_profiles_cancel
+  description: POST functional_profiles cancel
+  source_operation: openapi/one-codex-openapi-original.json#post_functional_profiles_cancel
+- name: get_functional_profiles_file_details
+  description: GET functional_profiles file_details
+  source_operation: openapi/one-codex-openapi-original.json#get_functional_profiles_file_details
+- name: delete_functional_profiles_files
+  description: DELETE functional_profiles files
+  source_operation: openapi/one-codex-openapi-original.json#delete_functional_profiles_files
+- name: get_functional_profiles_files
+  description: GET functional_profiles files
+  source_operation: openapi/one-codex-openapi-original.json#get_functional_profiles_files
+- name: get_functional_profiles_filtered_results
+  description: GET functional_profiles filtered_results
+  source_operation: openapi/one-codex-openapi-original.json#get_functional_profiles_filtered_results
+- name: get_functional_profiles_logs
+  description: GET functional_profiles logs
+  source_operation: openapi/one-codex-openapi-original.json#get_functional_profiles_logs
+- name: post_functional_profiles_rerun
+  description: POST functional_profiles rerun
+  source_operation: openapi/one-codex-openapi-original.json#post_functional_profiles_rerun
+- name: get_functional_profiles_results
+  description: GET functional_profiles results
+  source_operation: openapi/one-codex-openapi-original.json#get_functional_profiles_results
+- name: get_genomes_instances
+  description: GET genomes instances
+  source_operation: openapi/one-codex-openapi-original.json#get_genomes_instances
+- name: get_genomes_self
+  description: GET genomes
+  source_operation: openapi/one-codex-openapi-original.json#get_genomes_self
+- name: get_jobs_instances
+  description: GET jobs instances
+  source_operation: openapi/one-codex-openapi-original.json#get_jobs_instances
+- name: post_jobs_instances
+  description: POST jobs instances
+  source_operation: openapi/one-codex-openapi-original.json#post_jobs_instances
+- name: get_jobs_self
+  description: GET jobs
+  source_operation: openapi/one-codex-openapi-original.json#get_jobs_self
+- name: patch_jobs_self
+  description: PATCH jobs
+  source_operation: openapi/one-codex-openapi-original.json#patch_jobs_self
+- name: get_jobs_details
+  description: GET jobs details
+  source_operation: openapi/one-codex-openapi-original.json#get_jobs_details
+- name: post_jobs_run
+  description: POST jobs run
+  source_operation: openapi/one-codex-openapi-original.json#post_jobs_run
+- name: get_metadata_instances
+  description: GET metadata instances
+  source_operation: openapi/one-codex-openapi-original.json#get_metadata_instances
+- name: get_metadata_self
+  description: GET metadata
+  source_operation: openapi/one-codex-openapi-original.json#get_metadata_self
+- name: patch_metadata_self
+  description: PATCH metadata
+  source_operation: openapi/one-codex-openapi-original.json#patch_metadata_self
+- name: get_mlsts_instances
+  description: GET mlsts instances
+  source_operation: openapi/one-codex-openapi-original.json#get_mlsts_instances
+- name: get_mlsts_instances_public
+  description: GET mlsts instances_public
+  source_operation: openapi/one-codex-openapi-original.json#get_mlsts_instances_public
+- name: get_mlsts_self
+  description: GET mlsts
+  source_operation: openapi/one-codex-openapi-original.json#get_mlsts_self
+- name: post_mlsts_cancel
+  description: POST mlsts cancel
+  source_operation: openapi/one-codex-openapi-original.json#post_mlsts_cancel
+- name: get_mlsts_file_details
+  description: GET mlsts file_details
+  source_operation: openapi/one-codex-openapi-original.json#get_mlsts_file_details
+- name: delete_mlsts_files
+  description: DELETE mlsts files
+  source_operation: openapi/one-codex-openapi-original.json#delete_mlsts_files
+- name: get_mlsts_files
+  description: GET mlsts files
+  source_operation: openapi/one-codex-openapi-original.json#get_mlsts_files
+- name: get_mlsts_logs
+  description: GET mlsts logs
+  source_operation: openapi/one-codex-openapi-original.json#get_mlsts_logs
+- name: post_mlsts_rerun
+  description: POST mlsts rerun
+  source_operation: openapi/one-codex-openapi-original.json#post_mlsts_rerun
+- name: get_mlsts_results
+  description: GET mlsts results
+  source_operation: openapi/one-codex-openapi-original.json#get_mlsts_results
+- name: get_panels_instances
+  description: GET panels instances
+  source_operation: openapi/one-codex-openapi-original.json#get_panels_instances
+- name: get_panels_instances_public
+  description: GET panels instances_public
+  source_operation: openapi/one-codex-openapi-original.json#get_panels_instances_public
+- name: get_panels_self
+  description: GET panels
+  source_operation: openapi/one-codex-openapi-original.json#get_panels_self
+- name: post_panels_cancel
+  description: POST panels cancel
+  source_operation: openapi/one-codex-openapi-original.json#post_panels_cancel
+- name: get_panels_file_details
+  description: GET panels file_details
+  source_operation: openapi/one-codex-openapi-original.json#get_panels_file_details
+- name: delete_panels_files
+  description: DELETE panels files
+  source_operation: openapi/one-codex-openapi-original.json#delete_panels_files
+- name: get_panels_files
+  description: GET panels files
+  source_operation: openapi/one-codex-openapi-original.json#get_panels_files
+- name: get_panels_logs
+  description: GET panels logs
+  source_operation: openapi/one-codex-openapi-original.json#get_panels_logs
+- name: post_panels_rerun
+  description: POST panels rerun
+  source_operation: openapi/one-codex-openapi-original.json#post_panels_rerun
+- name: get_panels_results
+  description: GET panels results
+  source_operation: openapi/one-codex-openapi-original.json#get_panels_results
+- name: get_projects_instances
+  description: GET projects instances
+  source_operation: openapi/one-codex-openapi-original.json#get_projects_instances
+- name: post_projects_instances
+  description: POST projects instances
+  source_operation: openapi/one-codex-openapi-original.json#post_projects_instances
+- name: get_projects_instances_public
+  description: GET projects instances_public
+  source_operation: openapi/one-codex-openapi-original.json#get_projects_instances_public
+- name: delete_projects_self
+  description: DELETE projects
+  source_operation: openapi/one-codex-openapi-original.json#delete_projects_self
+- name: get_projects_self
+  description: GET projects
+  source_operation: openapi/one-codex-openapi-original.json#get_projects_self
+- name: patch_projects_self
+  description: PATCH projects
+  source_operation: openapi/one-codex-openapi-original.json#patch_projects_self
+- name: post_projects_add_user
+  description: POST projects add_user
+  source_operation: openapi/one-codex-openapi-original.json#post_projects_add_user
+- name: post_projects_change_sharing
+  description: POST projects change_sharing
+  source_operation: openapi/one-codex-openapi-original.json#post_projects_change_sharing
+- name: get_projects_members
+  description: GET projects members
+  source_operation: openapi/one-codex-openapi-original.json#get_projects_members
+- name: post_projects_remove_user
+  description: POST projects remove_user
+  source_operation: openapi/one-codex-openapi-original.json#post_projects_remove_user
+- name: get_reports_instances
+  description: GET reports instances
+  source_operation: openapi/one-codex-openapi-original.json#get_reports_instances
+- name: get_reports_instances_public
+  description: GET reports instances_public
+  source_operation: openapi/one-codex-openapi-original.json#get_reports_instances_public
+- name: get_reports_self
+  description: GET reports
+  source_operation: openapi/one-codex-openapi-original.json#get_reports_self
+- name: post_reports_cancel
+  description: POST reports cancel
+  source_operation: openapi/one-codex-openapi-original.json#post_reports_cancel
+- name: get_reports_file_details
+  description: GET reports file_details
+  source_operation: openapi/one-codex-openapi-original.json#get_reports_file_details
+- name: delete_reports_files
+  description: DELETE reports files
+  source_operation: openapi/one-codex-openapi-original.json#delete_reports_files
+- name: get_reports_files
+  description: GET reports files
+  source_operation: openapi/one-codex-openapi-original.json#get_reports_files
+- name: get_reports_logs
+  description: GET reports logs
+  source_operation: openapi/one-codex-openapi-original.json#get_reports_logs
+- name: post_reports_rerun
+  description: POST reports rerun
+  source_operation: openapi/one-codex-openapi-original.json#post_reports_rerun
+- name: get_reports_results
+  description: GET reports results
+  source_operation: openapi/one-codex-openapi-original.json#get_reports_results
+- name: get_samples_instances
+  description: GET samples instances
+  source_operation: openapi/one-codex-openapi-original.json#get_samples_instances
+- name: post_samples_instances_cancel_upload
+  description: POST samples instances_cancel_upload
+  source_operation: openapi/one-codex-openapi-original.json#post_samples_instances_cancel_upload
+- name: post_samples_instances_confirm_upload
+  description: POST samples instances_confirm_upload
+  source_operation: openapi/one-codex-openapi-original.json#post_samples_instances_confirm_upload
+- name: post_samples_instances_import
+  description: POST samples instances_import
+  source_operation: openapi/one-codex-openapi-original.json#post_samples_instances_import
+- name: post_samples_instances_init_multipart_upload
+  description: Start a multipart upload directly to S3.
+  source_operation: openapi/one-codex-openapi-original.json#post_samples_instances_init_multipart_upload
+- name: post_samples_instances_init_upload
+  description: POST samples instances_init_upload
+  source_operation: openapi/one-codex-openapi-original.json#post_samples_instances_init_upload
+- name: get_samples_instances_organization
+  description: GET samples instances_organization
+  source_operation: openapi/one-codex-openapi-original.json#get_samples_instances_organization
+- name: post_samples_instances_preupload
+  description: POST samples instances_preupload
+  source_operation: openapi/one-codex-openapi-original.json#post_samples_instances_preupload
+- name: get_samples_instances_public
+  description: GET samples instances_public
+  source_operation: openapi/one-codex-openapi-original.json#get_samples_instances_public
+- name: delete_samples_self
+  description: DELETE samples
+  source_operation: openapi/one-codex-openapi-original.json#delete_samples_self
+- name: get_samples_self
+  description: GET samples
+  source_operation: openapi/one-codex-openapi-original.json#get_samples_self
+- name: patch_samples_self
+  description: PATCH samples
+  source_operation: openapi/one-codex-openapi-original.json#patch_samples_self
+- name: post_samples_download_uri
+  description: POST samples download_uri
+  source_operation: openapi/one-codex-openapi-original.json#post_samples_download_uri
+- name: get_sequencing_instances_batches
+  description: GET sequencing instances_batches
+  source_operation: openapi/one-codex-openapi-original.json#get_sequencing_instances_batches
+- name: post_sequencing_instances_batches_register
+  description: POST sequencing instances_batches_register
+  source_operation: openapi/one-codex-openapi-original.json#post_sequencing_instances_batches_register
+- name: get_sequencing_batches
+  description: GET sequencing batches
+  source_operation: openapi/one-codex-openapi-original.json#get_sequencing_batches
+- name: get_sequencing_batches_samples
+  description: GET sequencing batches_samples
+  source_operation: openapi/one-codex-openapi-original.json#get_sequencing_batches_samples
+- name: get_tags_instances
+  description: GET tags instances
+  source_operation: openapi/one-codex-openapi-original.json#get_tags_instances
+- name: post_tags_instances
+  description: POST tags instances
+  source_operation: openapi/one-codex-openapi-original.json#post_tags_instances
+- name: get_tags_self
+  description: GET tags
+  source_operation: openapi/one-codex-openapi-original.json#get_tags_self
+- name: get_taxa_instances
+  description: GET taxa instances
+  source_operation: openapi/one-codex-openapi-original.json#get_taxa_instances
+- name: get_taxa_self
+  description: GET taxa
+  source_operation: openapi/one-codex-openapi-original.json#get_taxa_self
+- name: get_taxa_genomes
+  description: GET taxa genomes
+  source_operation: openapi/one-codex-openapi-original.json#get_taxa_genomes
+- name: get_taxa_parents
+  description: GET taxa parents
+  source_operation: openapi/one-codex-openapi-original.json#get_taxa_parents
+- name: get_taxa_reference_assembly
+  description: GET taxa reference_assembly
+  source_operation: openapi/one-codex-openapi-original.json#get_taxa_reference_assembly
+- name: get_users_instances
+  description: GET users instances
+  source_operation: openapi/one-codex-openapi-original.json#get_users_instances
+- name: get_users_self
+  description: GET users
+  source_operation: openapi/one-codex-openapi-original.json#get_users_self
+- name: get_webhooks_instances
+  description: GET webhooks instances
+  source_operation: openapi/one-codex-openapi-original.json#get_webhooks_instances
+- name: get_webhooks_self
+  description: GET webhooks
+  source_operation: openapi/one-codex-openapi-original.json#get_webhooks_self
+- name: get_workflows_instances
+  description: GET workflows instances
+  source_operation: openapi/one-codex-openapi-original.json#get_workflows_instances
+- name: get_workflows_instances_public
+  description: GET workflows instances_public
+  source_operation: openapi/one-codex-openapi-original.json#get_workflows_instances_public
+- name: get_workflows_self
+  description: GET workflows
+  source_operation: openapi/one-codex-openapi-original.json#get_workflows_self
+- name: post_workflows_cancel
+  description: POST workflows cancel
+  source_operation: openapi/one-codex-openapi-original.json#post_workflows_cancel
+- name: get_workflows_file_details
+  description: GET workflows file_details
+  source_operation: openapi/one-codex-openapi-original.json#get_workflows_file_details
+- name: delete_workflows_files
+  description: DELETE workflows files
+  source_operation: openapi/one-codex-openapi-original.json#delete_workflows_files
+- name: get_workflows_files
+  description: GET workflows files
+  source_operation: openapi/one-codex-openapi-original.json#get_workflows_files
+- name: get_workflows_logs
+  description: GET workflows logs
+  source_operation: openapi/one-codex-openapi-original.json#get_workflows_logs
+- name: post_workflows_rerun
+  description: POST workflows rerun
+  source_operation: openapi/one-codex-openapi-original.json#post_workflows_rerun
+- name: get_workflows_results
+  description: GET workflows results
+  source_operation: openapi/one-codex-openapi-original.json#get_workflows_results

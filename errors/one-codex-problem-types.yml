@@ -1,0 +1,54 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.onecodex.com/api-reference/errors.md
+format: json
+envelope:
+  description: >-
+    Errors return a JSON body with a `message` string describing the failure and a
+    `status` integer echoing the HTTP status code. Not RFC 9457 problem+json.
+  example: '{"message": "error details...", "status": 401}'
+  fields:
+    - name: message
+      type: string
+      description: Human-readable detail on why the request failed.
+    - name: status
+      type: integer
+      description: The HTTP status code, echoed in the body.
+problems:
+  - status: 400
+    title: Bad Request
+    meaning: Client error with invalid parameters.
+  - status: 401
+    title: Unauthorized
+    meaning: Authentication credentials missing or invalid.
+  - status: 403
+    title: Forbidden
+    meaning: Authenticated user lacks the required permissions.
+  - status: 404
+    title: Not Found
+    meaning: The requested resource does not exist.
+  - status: 405
+    title: Method Not Allowed
+    meaning: HTTP method not supported for this resource.
+  - status: 409
+    title: Conflict
+    meaning: Request conflicts with the current resource state.
+  - status: 412
+    title: Precondition Failed
+    meaning: Request preconditions were not met.
+  - status: 429
+    title: Too Many Requests
+    meaning: Rate limit exceeded (10 requests/second across all routes).
+  - status: 500
+    title: Internal Server Error
+    meaning: Server-side error during processing.
+  - status: 503
+    title: Service Unavailable
+    meaning: Service temporarily unavailable.
+success_codes:
+  - {status: 200, title: Success}
+  - {status: 201, title: Created}
+  - {status: 202, title: Accepted}
+  - {status: 204, title: No Content}
+  - {status: 302, title: Redirect}
+  - {status: 304, title: Not Modified}

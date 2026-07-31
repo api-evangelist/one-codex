@@ -1,0 +1,57 @@
+generated: '2026-07-20'
+method: searched
+source: https://developer.onecodex.com/api-reference/
+api_base: https://app.onecodex.com/api/v1/
+architecture: >-
+  RESTful JSON API, self-described using JSON Schema. HTTPS-only. Objects reference
+  each other by resource id ($ref links in the OpenAPI schemas).
+authentication:
+  style: api-key
+  schemes:
+    - name: X-API-Key header
+      example: 'curl https://app.onecodex.com/api/v1/schema -H "X-API-Key: $ONE_CODEX_API_KEY"'
+    - name: HTTP Basic (API key as username, empty password)
+      example: 'curl https://app.onecodex.com/api/v1/schema -u $ONE_CODEX_API_KEY:'
+  jwt: Server-side JWT auth is supported; Settings-page JWT generation is planned.
+  docs: https://developer.onecodex.com/api-reference/authentication.md
+  see_also: authentication/one-codex-authentication.yml
+idempotency:
+  supported: false
+  notes: >-
+    No Idempotency-Key header or idempotent-retry contract is documented. Writes are
+    ordinary POST/PATCH/DELETE without a documented safe-retry key.
+pagination:
+  style: offset
+  model: GitHub-style
+  params:
+    - {name: page, description: Page number to retrieve.}
+    - {name: per_page, description: Items per page.}
+  response_headers:
+    - {name: Link, description: 'Links to self, next, previous, first, last pages with rel attributes.'}
+    - {name: X-Total-Count, description: Total number of items across all pages.}
+  docs: https://developer.onecodex.com/api-reference/pagination.md
+rate_limiting:
+  limit: 10 requests per second
+  scope: shared across all API routes per client
+  exceeded_status: 429
+  headers: none documented
+  guidance: implement exponential backoff
+  docs: https://developer.onecodex.com/api-reference/rate-limits.md
+error_envelope:
+  shape: '{"message": <string>, "status": <int>}'
+  see_also: errors/one-codex-problem-types.yml
+webhooks:
+  signature_header: X-OneCodex-Signature
+  algorithm: HMAC-SHA256
+  format: 't=<unix-timestamp>,v1=<signature>'
+  signed_payload: 'concatenate timestamp + "." + raw request body'
+  signing_secret: defaults to the account API key
+  docs: https://developer.onecodex.com/api-reference/checking-webhook-signatures.md
+  see_also: asyncapi/one-codex-webhooks.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  jobs: All Jobs on the platform are strictly versioned for reproducibility.
+uploads:
+  model: multipart / init-confirm two-phase upload for Samples, Documents, and Assets.
+  docs: https://developer.onecodex.com/api-reference/uploading-samples.md
