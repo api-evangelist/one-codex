@@ -379,7 +379,7 @@ common:
 - type: Compliance
   url: https://www.onecodex.com/security
 - type: OpenAPI
-  url: openapi/one-codex-openapi-original.json
+  url: openapi/_original/one-codex-openapi-original.json
 - type: Overlay
   url: overlays/one-codex-openapi-overlay.yaml
 - type: Authentication
