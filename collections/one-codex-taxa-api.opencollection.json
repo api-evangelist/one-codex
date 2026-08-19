@@ -1,0 +1,135 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "One Codex API (v1) Account Taxa API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Taxa",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET taxa instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/taxa",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Defaults to 1. See Pagination for more details."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
+              }
+            ]
+          },
+          "docs": "GET taxa instances"
+        },
+        {
+          "info": {
+            "name": "GET taxa",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/taxa/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET taxa"
+        },
+        {
+          "info": {
+            "name": "GET taxa genomes",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/taxa/:id/genomes",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET taxa genomes"
+        },
+        {
+          "info": {
+            "name": "GET taxa parents",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/taxa/:id/parents",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET taxa parents"
+        },
+        {
+          "info": {
+            "name": "GET taxa reference_assembly",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/taxa/:id/reference_assembly",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET taxa reference_assembly"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

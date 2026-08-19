@@ -1,0 +1,249 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "One Codex API (v1) Account Panels API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Panels",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET panels instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/panels",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Defaults to 1. See Pagination for more details."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
+              }
+            ]
+          },
+          "docs": "GET panels instances"
+        },
+        {
+          "info": {
+            "name": "GET panels instances_public",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/panels/public",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Defaults to 1. See Pagination for more details."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
+              }
+            ]
+          },
+          "docs": "GET panels instances_public"
+        },
+        {
+          "info": {
+            "name": "GET panels",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/panels/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET panels"
+        },
+        {
+          "info": {
+            "name": "POST panels cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.onecodex.com/api/v1/panels/:id/cancel",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "POST panels cancel"
+        },
+        {
+          "info": {
+            "name": "GET panels file_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/panels/:id/file_details",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET panels file_details"
+        },
+        {
+          "info": {
+            "name": "GET panels files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/panels/:id/files",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET panels files"
+        },
+        {
+          "info": {
+            "name": "DELETE panels files",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.onecodex.com/api/v1/panels/:id/files",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DELETE panels files"
+        },
+        {
+          "info": {
+            "name": "GET panels logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/panels/:id/logs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tail",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET panels logs"
+        },
+        {
+          "info": {
+            "name": "POST panels rerun",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.onecodex.com/api/v1/panels/:id/rerun",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "POST panels rerun"
+        },
+        {
+          "info": {
+            "name": "GET panels results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/panels/:id/results",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET panels results"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

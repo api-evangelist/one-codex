@@ -1,0 +1,267 @@
+{
+  "item": [
+    {
+      "id": "74593de2-9cc1-4538-920a-c5c6e345c2f5",
+      "name": "Genomes",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "dcb07659-4900-4cde-a467-346320cc9f1c",
+          "name": "GET genomes instances",
+          "request": {
+            "name": "GET genomes instances",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "genomes"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Defaults to 1. See Pagination for more details."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "50",
+                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
+                },
+                {
+                  "disabled": false,
+                  "key": "where",
+                  "value": "<string>",
+                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0dfd7765-094a-4545-98b1-d4cfe05ebc17",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "genomes"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "where",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"$uri\": \"/api/v1/genomes/0d77065796f8d173\",\n    \"assemblies\": [\n      {\n        \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n      },\n      {\n        \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n      }\n    ],\n    \"created_at\": \"1954-11-25T05:54:26.527Z\",\n    \"description\": \"string\",\n    \"name\": \"string\",\n    \"primary_assembly\": {\n      \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n    },\n    \"tags\": [\n      {\n        \"$ref\": \"/api/v1/tags/a1b2c3d4e5f67890\"\n      },\n      {\n        \"$ref\": \"/api/v1/tags/a1b2c3d4e5f67890\"\n      }\n    ],\n    \"taxon\": {\n      \"$ref\": \"/api/v1/taxa/a1b2c3d4e5f67890\"\n    }\n  },\n  {\n    \"$uri\": \"/api/v1/genomes/0d77065796f8d173\",\n    \"assemblies\": [\n      {\n        \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n      },\n      {\n        \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n      }\n    ],\n    \"created_at\": \"1977-10-11T18:02:04.129Z\",\n    \"description\": \"string\",\n    \"name\": \"string\",\n    \"primary_assembly\": {\n      \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n    },\n    \"tags\": [\n      {\n        \"$ref\": \"/api/v1/tags/a1b2c3d4e5f67890\"\n      },\n      {\n        \"$ref\": \"/api/v1/tags/a1b2c3d4e5f67890\"\n      }\n    ],\n    \"taxon\": {\n      \"$ref\": \"/api/v1/taxa/a1b2c3d4e5f67890\"\n    }\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f526078-b052-4646-a9f7-0f44ad5dc73f",
+          "name": "GET genomes",
+          "request": {
+            "name": "GET genomes",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "genomes",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7c9fc567-82f1-451a-9d54-96f4b25996e2",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "genomes",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$uri\": \"/api/v1/genomes/0d77065796f8d173\",\n  \"assemblies\": [\n    {\n      \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n    },\n    {\n      \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n    }\n  ],\n  \"created_at\": \"1971-08-23T05:41:03.179Z\",\n  \"description\": \"string\",\n  \"name\": \"string\",\n  \"primary_assembly\": {\n    \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n  },\n  \"tags\": [\n    {\n      \"$ref\": \"/api/v1/tags/a1b2c3d4e5f67890\"\n    },\n    {\n      \"$ref\": \"/api/v1/tags/a1b2c3d4e5f67890\"\n    }\n  ],\n  \"taxon\": {\n    \"$ref\": \"/api/v1/taxa/a1b2c3d4e5f67890\"\n  }\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.onecodex.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "ca26da4b-38f2-4202-8f2f-c77852235dd7",
+    "name": "One Codex API (v1) Account Genomes API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+      "type": "text/plain"
+    }
+  }
+}

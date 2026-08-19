@@ -1,0 +1,1429 @@
+{
+  "item": [
+    {
+      "id": "dcbd2058-3761-46b3-8094-440e86800d4b",
+      "name": "Samples",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "4d9606d0-3ed4-4cb9-b82d-082ca5a93037",
+          "name": "GET samples instances",
+          "request": {
+            "name": "GET samples instances",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "samples"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Defaults to 1. See Pagination for more details."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "50",
+                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
+                },
+                {
+                  "disabled": false,
+                  "key": "where",
+                  "value": "<string>",
+                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "d67fa182-5555-4e78-a75c-44af673bddef",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "samples"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "where",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"$uri\": \"/api/v1/samples/0d77065796f8d173\",\n    \"created_at\": \"2001-01-12T04:22:33.873Z\",\n    \"metadata\": {\n      \"$ref\": \"/api/v1/metadata/a1b2c3d4e5f67890\"\n    },\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"primary_classification\": {\n      \"$ref\": \"/api/v1/classifications/a1b2c3d4e5f67890\"\n    },\n    \"status\": \"importing\",\n    \"visibility\": \"private\",\n    \"error_msg\": \"string\",\n    \"filename\": \"string\",\n    \"project\": {\n      \"$ref\": \"/api/v1/projects/a1b2c3d4e5f67890\"\n    },\n    \"size\": 7778,\n    \"updated_at\": \"1997-03-23T10:05:48.062Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/samples/0d77065796f8d173\",\n    \"created_at\": \"2009-12-01T09:11:07.495Z\",\n    \"metadata\": {\n      \"$ref\": \"/api/v1/metadata/a1b2c3d4e5f67890\"\n    },\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"primary_classification\": {\n      \"$ref\": \"/api/v1/classifications/a1b2c3d4e5f67890\"\n    },\n    \"status\": \"available\",\n    \"visibility\": \"awaiting data\",\n    \"error_msg\": \"string\",\n    \"filename\": \"string\",\n    \"project\": {\n      \"$ref\": \"/api/v1/projects/a1b2c3d4e5f67890\"\n    },\n    \"size\": 4734,\n    \"updated_at\": \"1962-01-03T23:28:43.683Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "788f50b8-12e1-4be2-881b-67751da6be1e",
+          "name": "POST samples instances_cancel_upload",
+          "request": {
+            "name": "POST samples instances_cancel_upload",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "samples",
+                "cancel_upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sample_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c481b9ef-8c87-4395-86e3-1acee6263c4f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "samples",
+                    "cancel_upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sample_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2002f51b-3a83-4f17-ae69-00c19be80275",
+          "name": "POST samples instances_confirm_upload",
+          "request": {
+            "name": "POST samples instances_confirm_upload",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "samples",
+                "confirm_upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"sample_id\": \"<string>\",\n  \"upload_type\": \"standard\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "cf7bd7e8-f906-4bc2-a82a-3dbe003375d8",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "samples",
+                    "confirm_upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"sample_id\": \"<string>\",\n  \"upload_type\": \"standard\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"message\": \"string\",\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"success\": false\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9b7ff042-3fe3-442b-8412-a803259ec357",
+          "name": "POST samples instances_import",
+          "request": {
+            "name": "POST samples instances_import",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "samples",
+                "import"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"uri\": \"<string>\",\n  \"import_type\": \"url\",\n  \"metadata\": {\n    \"custom\": {\n      \"key_0\": 9059\n    },\n    \"date_collected\": \"<dateTime>\",\n    \"date_sequenced\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"external_sample_id\": \"<string>\",\n    \"library_type\": \"<string>\",\n    \"location_lat\": \"<number>\",\n    \"location_lon\": \"<number>\",\n    \"location_string\": \"<string>\",\n    \"name\": \"<string>\",\n    \"platform\": \"<string>\",\n    \"sample_type\": \"<string>\",\n    \"starred\": \"<boolean>\"\n  },\n  \"paired_uri\": \"<string>\",\n  \"project\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "deea44dd-27ff-4597-89df-fce2ee6db122",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "samples",
+                    "import"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"uri\": \"<string>\",\n  \"import_type\": \"url\",\n  \"metadata\": {\n    \"custom\": {\n      \"key_0\": 6442.901908656352\n    },\n    \"date_collected\": \"<dateTime>\",\n    \"date_sequenced\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"external_sample_id\": \"<string>\",\n    \"library_type\": \"<string>\",\n    \"location_lat\": \"<number>\",\n    \"location_lon\": \"<number>\",\n    \"location_string\": \"<string>\",\n    \"name\": \"<string>\",\n    \"platform\": \"<string>\",\n    \"sample_type\": \"<string>\",\n    \"starred\": \"<boolean>\"\n  },\n  \"paired_uri\": \"<string>\",\n  \"project\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$uri\": \"/api/v1/samples/0d77065796f8d173\",\n  \"created_at\": \"2009-01-20T14:06:53.705Z\",\n  \"metadata\": {\n    \"$ref\": \"/api/v1/metadata/a1b2c3d4e5f67890\"\n  },\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  },\n  \"primary_classification\": {\n    \"$ref\": \"/api/v1/classifications/a1b2c3d4e5f67890\"\n  },\n  \"status\": \"awaiting_data\",\n  \"visibility\": \"importing\",\n  \"error_msg\": \"string\",\n  \"filename\": \"string\",\n  \"project\": {\n    \"$ref\": \"/api/v1/projects/a1b2c3d4e5f67890\"\n  },\n  \"size\": 670,\n  \"updated_at\": \"2006-01-05T22:46:56.087Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8ddb192d-86ad-4730-a562-08df26cc8e32",
+          "name": "Start a multipart upload directly to S3.",
+          "request": {
+            "name": "Start a multipart upload directly to S3.",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "samples",
+                "init_multipart_upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filename\": \"<string>\",\n  \"external_sample_id\": \"<string>\",\n  \"interleaved\": \"<boolean>\",\n  \"metadata\": {\n    \"custom\": {\n      \"key_0\": 588.1025821500452,\n      \"key_1\": true\n    },\n    \"date_collected\": \"<dateTime>\",\n    \"date_sequenced\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"external_sample_id\": \"<string>\",\n    \"library_type\": \"<string>\",\n    \"location_lat\": \"<number>\",\n    \"location_lon\": \"<number>\",\n    \"location_string\": \"<string>\",\n    \"name\": \"<string>\",\n    \"platform\": \"<string>\",\n    \"sample_type\": \"<string>\",\n    \"starred\": \"<boolean>\"\n  },\n  \"paired_end_filename\": \"<string>\",\n  \"project\": {\n    \"$ref\": \"<uri>\"\n  },\n  \"sample_id\": \"<string>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "c562021e-87f3-4b24-a2a0-1c9cf7d38876",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "samples",
+                    "init_multipart_upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filename\": \"<string>\",\n  \"external_sample_id\": \"<string>\",\n  \"interleaved\": \"<boolean>\",\n  \"metadata\": {\n    \"custom\": {\n      \"key_0\": \"string\",\n      \"key_1\": 1606.3996059942153\n    },\n    \"date_collected\": \"<dateTime>\",\n    \"date_sequenced\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"external_sample_id\": \"<string>\",\n    \"library_type\": \"<string>\",\n    \"location_lat\": \"<number>\",\n    \"location_lon\": \"<number>\",\n    \"location_string\": \"<string>\",\n    \"name\": \"<string>\",\n    \"platform\": \"<string>\",\n    \"sample_type\": \"<string>\",\n    \"starred\": \"<boolean>\"\n  },\n  \"paired_end_filename\": \"<string>\",\n  \"project\": {\n    \"$ref\": \"<uri>\"\n  },\n  \"sample_id\": \"<string>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"callback_url\": \"string\",\n  \"file_id\": \"string\",\n  \"paired_end_file_id\": \"string\",\n  \"s3_bucket\": \"string\",\n  \"sample_id\": \"string\",\n  \"upload_aws_access_key_id\": \"string\",\n  \"upload_aws_secret_access_key\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "16c7a0b6-657c-47aa-97c2-684e3025c48f",
+          "name": "POST samples instances_init_upload",
+          "request": {
+            "name": "POST samples instances_init_upload",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "samples",
+                "init_upload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"filename\": \"<string>\",\n  \"external_sample_id\": \"<string>\",\n  \"interleaved\": \"<boolean>\",\n  \"metadata\": {\n    \"custom\": {\n      \"key_0\": 6539,\n      \"key_1\": true\n    },\n    \"date_collected\": \"<dateTime>\",\n    \"date_sequenced\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"external_sample_id\": \"<string>\",\n    \"library_type\": \"<string>\",\n    \"location_lat\": \"<number>\",\n    \"location_lon\": \"<number>\",\n    \"location_string\": \"<string>\",\n    \"name\": \"<string>\",\n    \"platform\": \"<string>\",\n    \"sample_type\": \"<string>\",\n    \"starred\": \"<boolean>\"\n  },\n  \"paired_end_filename\": \"<string>\",\n  \"project\": {\n    \"$ref\": \"<uri>\"\n  },\n  \"sample_id\": \"<string>\",\n  \"size\": \"<integer>\",\n  \"upload_type\": \"standard\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "8f5c19d8-fb50-4d3f-aea2-ca880e3b5e09",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "samples",
+                    "init_upload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"filename\": \"<string>\",\n  \"external_sample_id\": \"<string>\",\n  \"interleaved\": \"<boolean>\",\n  \"metadata\": {\n    \"custom\": {\n      \"key_0\": \"string\"\n    },\n    \"date_collected\": \"<dateTime>\",\n    \"date_sequenced\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"external_sample_id\": \"<string>\",\n    \"library_type\": \"<string>\",\n    \"location_lat\": \"<number>\",\n    \"location_lon\": \"<number>\",\n    \"location_string\": \"<string>\",\n    \"name\": \"<string>\",\n    \"platform\": \"<string>\",\n    \"sample_type\": \"<string>\",\n    \"starred\": \"<boolean>\"\n  },\n  \"paired_end_filename\": \"<string>\",\n  \"project\": {\n    \"$ref\": \"<uri>\"\n  },\n  \"sample_id\": \"<string>\",\n  \"size\": \"<integer>\",\n  \"upload_type\": \"standard\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sample_id\": \"string\",\n  \"upload_url\": \"string\",\n  \"additional_fields\": {},\n  \"fallback_options\": {\n    \"key_0\": true\n  },\n  \"paired_end_additional_fields\": {\n    \"key_0\": true,\n    \"key_1\": 3568\n  },\n  \"paired_end_upload_url\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1c97ba74-88b1-4ba3-bac5-44fca5b9f1dc",
+          "name": "GET samples instances_organization",
+          "request": {
+            "name": "GET samples instances_organization",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "samples",
+                "organization"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Defaults to 1. See Pagination for more details."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "50",
+                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
+                },
+                {
+                  "disabled": false,
+                  "key": "where",
+                  "value": "<string>",
+                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b7b9cd79-9dc9-4234-aa19-04d9f1416d5f",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "samples",
+                    "organization"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "where",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"$uri\": \"/api/v1/samples/0d77065796f8d173\",\n    \"created_at\": \"2001-01-12T04:22:33.873Z\",\n    \"metadata\": {\n      \"$ref\": \"/api/v1/metadata/a1b2c3d4e5f67890\"\n    },\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"primary_classification\": {\n      \"$ref\": \"/api/v1/classifications/a1b2c3d4e5f67890\"\n    },\n    \"status\": \"importing\",\n    \"visibility\": \"private\",\n    \"error_msg\": \"string\",\n    \"filename\": \"string\",\n    \"project\": {\n      \"$ref\": \"/api/v1/projects/a1b2c3d4e5f67890\"\n    },\n    \"size\": 7778,\n    \"updated_at\": \"1997-03-23T10:05:48.062Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/samples/0d77065796f8d173\",\n    \"created_at\": \"2009-12-01T09:11:07.495Z\",\n    \"metadata\": {\n      \"$ref\": \"/api/v1/metadata/a1b2c3d4e5f67890\"\n    },\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"primary_classification\": {\n      \"$ref\": \"/api/v1/classifications/a1b2c3d4e5f67890\"\n    },\n    \"status\": \"available\",\n    \"visibility\": \"awaiting data\",\n    \"error_msg\": \"string\",\n    \"filename\": \"string\",\n    \"project\": {\n      \"$ref\": \"/api/v1/projects/a1b2c3d4e5f67890\"\n    },\n    \"size\": 4734,\n    \"updated_at\": \"1962-01-03T23:28:43.683Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "7b88f0e9-1b6e-4c21-917b-622046932b0b",
+          "name": "POST samples instances_preupload",
+          "request": {
+            "name": "POST samples instances_preupload",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "samples",
+                "preupload"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"metadata\": {\n    \"custom\": {\n      \"key_0\": 5836.209103999178,\n      \"key_1\": 7252\n    },\n    \"date_collected\": \"<dateTime>\",\n    \"date_sequenced\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"external_sample_id\": \"<string>\",\n    \"library_type\": \"<string>\",\n    \"location_lat\": \"<number>\",\n    \"location_lon\": \"<number>\",\n    \"location_string\": \"<string>\",\n    \"name\": \"<string>\",\n    \"platform\": \"<string>\",\n    \"sample_type\": \"<string>\",\n    \"starred\": \"<boolean>\"\n  },\n  \"project\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "d381b112-77b7-448c-94db-b7c1e311260a",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "samples",
+                    "preupload"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"metadata\": {\n    \"custom\": {\n      \"key_0\": \"string\"\n    },\n    \"date_collected\": \"<dateTime>\",\n    \"date_sequenced\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"external_sample_id\": \"<string>\",\n    \"library_type\": \"<string>\",\n    \"location_lat\": \"<number>\",\n    \"location_lon\": \"<number>\",\n    \"location_string\": \"<string>\",\n    \"name\": \"<string>\",\n    \"platform\": \"<string>\",\n    \"sample_type\": \"<string>\",\n    \"starred\": \"<boolean>\"\n  },\n  \"project\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"sample_id\": \"string\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f80e958-a44f-4249-bc5d-a742dc14cdcc",
+          "name": "GET samples instances_public",
+          "request": {
+            "name": "GET samples instances_public",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "samples",
+                "public"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "disabled": false,
+                  "key": "page",
+                  "value": "1",
+                  "description": "Page number. Defaults to 1. See Pagination for more details."
+                },
+                {
+                  "disabled": false,
+                  "key": "per_page",
+                  "value": "50",
+                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
+                },
+                {
+                  "disabled": false,
+                  "key": "sort",
+                  "value": "<string>",
+                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
+                },
+                {
+                  "disabled": false,
+                  "key": "where",
+                  "value": "<string>",
+                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
+                }
+              ],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b3c50d01-ac00-4072-8917-ecb98f979335",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "samples",
+                    "public"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "page",
+                      "value": "1"
+                    },
+                    {
+                      "key": "per_page",
+                      "value": "50"
+                    },
+                    {
+                      "key": "sort",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "where",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "[\n  {\n    \"$uri\": \"/api/v1/samples/0d77065796f8d173\",\n    \"created_at\": \"2001-01-12T04:22:33.873Z\",\n    \"metadata\": {\n      \"$ref\": \"/api/v1/metadata/a1b2c3d4e5f67890\"\n    },\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"primary_classification\": {\n      \"$ref\": \"/api/v1/classifications/a1b2c3d4e5f67890\"\n    },\n    \"status\": \"importing\",\n    \"visibility\": \"private\",\n    \"error_msg\": \"string\",\n    \"filename\": \"string\",\n    \"project\": {\n      \"$ref\": \"/api/v1/projects/a1b2c3d4e5f67890\"\n    },\n    \"size\": 7778,\n    \"updated_at\": \"1997-03-23T10:05:48.062Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/samples/0d77065796f8d173\",\n    \"created_at\": \"2009-12-01T09:11:07.495Z\",\n    \"metadata\": {\n      \"$ref\": \"/api/v1/metadata/a1b2c3d4e5f67890\"\n    },\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"primary_classification\": {\n      \"$ref\": \"/api/v1/classifications/a1b2c3d4e5f67890\"\n    },\n    \"status\": \"available\",\n    \"visibility\": \"awaiting data\",\n    \"error_msg\": \"string\",\n    \"filename\": \"string\",\n    \"project\": {\n      \"$ref\": \"/api/v1/projects/a1b2c3d4e5f67890\"\n    },\n    \"size\": 4734,\n    \"updated_at\": \"1962-01-03T23:28:43.683Z\"\n  }\n]",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0f109053-a745-4f1e-a3ee-404e2d754c5d",
+          "name": "DELETE samples",
+          "request": {
+            "name": "DELETE samples",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "samples",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "4dbe585a-bacb-461a-846a-b0874468e613",
+              "name": "No Content",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "samples",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "22632517-0939-4a6c-80fe-dab9132eafd9",
+          "name": "GET samples",
+          "request": {
+            "name": "GET samples",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "samples",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6f7e2f63-83fe-4e09-9644-0230a9193538",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "samples",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$uri\": \"/api/v1/samples/0d77065796f8d173\",\n  \"created_at\": \"2009-01-20T14:06:53.705Z\",\n  \"metadata\": {\n    \"$ref\": \"/api/v1/metadata/a1b2c3d4e5f67890\"\n  },\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  },\n  \"primary_classification\": {\n    \"$ref\": \"/api/v1/classifications/a1b2c3d4e5f67890\"\n  },\n  \"status\": \"awaiting_data\",\n  \"visibility\": \"importing\",\n  \"error_msg\": \"string\",\n  \"filename\": \"string\",\n  \"project\": {\n    \"$ref\": \"/api/v1/projects/a1b2c3d4e5f67890\"\n  },\n  \"size\": 670,\n  \"updated_at\": \"2006-01-05T22:46:56.087Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "20b9c2e7-0a08-4826-aa5a-142f5d21e710",
+          "name": "PATCH samples",
+          "request": {
+            "name": "PATCH samples",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "samples",
+                ":id"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "PATCH",
+            "auth": null,
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"project\": {\n    \"$ref\": \"<uri>\"\n  },\n  \"tags\": [\n    {\n      \"$ref\": \"<uri>\"\n    },\n    {\n      \"$ref\": \"<uri>\"\n    }\n  ],\n  \"visibility\": \"private\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "9a5cfc6d-91ff-4ba6-acf4-d7d5cfc49cd7",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "samples",
+                    ":id"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "PATCH",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"project\": {\n    \"$ref\": \"<uri>\"\n  },\n  \"tags\": [\n    {\n      \"$ref\": \"<uri>\"\n    },\n    {\n      \"$ref\": \"<uri>\"\n    }\n  ],\n  \"visibility\": \"private\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"$uri\": \"/api/v1/samples/0d77065796f8d173\",\n  \"created_at\": \"2009-01-20T14:06:53.705Z\",\n  \"metadata\": {\n    \"$ref\": \"/api/v1/metadata/a1b2c3d4e5f67890\"\n  },\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  },\n  \"primary_classification\": {\n    \"$ref\": \"/api/v1/classifications/a1b2c3d4e5f67890\"\n  },\n  \"status\": \"awaiting_data\",\n  \"visibility\": \"importing\",\n  \"error_msg\": \"string\",\n  \"filename\": \"string\",\n  \"project\": {\n    \"$ref\": \"/api/v1/projects/a1b2c3d4e5f67890\"\n  },\n  \"size\": 670,\n  \"updated_at\": \"2006-01-05T22:46:56.087Z\"\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "db396ef0-92ac-4362-80ca-c42407e5fadd",
+          "name": "POST samples download_uri",
+          "request": {
+            "name": "POST samples download_uri",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "v1",
+                "samples",
+                ":id",
+                "download_uri"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "id",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "6762c127-a036-4592-842c-75997f601613",
+              "name": "OK",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "v1",
+                    "samples",
+                    ":id",
+                    "download_uri"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "id",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "X-API-Key",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"download_uri\": \"string\",\n  \"expires_in_hours\": 8685\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://app.onecodex.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "X-API-Key"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "7e1af8ae-6565-4b57-b65d-ad71b734aff3",
+    "name": "One Codex API (v1) Account Samples API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+      "type": "text/plain"
+    }
+  }
+}

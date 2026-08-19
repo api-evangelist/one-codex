@@ -1,0 +1,282 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "One Codex API (v1) Account Functional Profiles API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Functional Profiles",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET functional_profiles instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/functional_profiles",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Defaults to 1. See Pagination for more details."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
+              }
+            ]
+          },
+          "docs": "GET functional_profiles instances"
+        },
+        {
+          "info": {
+            "name": "GET functional_profiles instances_public",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/functional_profiles/public",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Defaults to 1. See Pagination for more details."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
+              }
+            ]
+          },
+          "docs": "GET functional_profiles instances_public"
+        },
+        {
+          "info": {
+            "name": "GET functional_profiles",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/functional_profiles/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET functional_profiles"
+        },
+        {
+          "info": {
+            "name": "POST functional_profiles cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.onecodex.com/api/v1/functional_profiles/:id/cancel",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "POST functional_profiles cancel"
+        },
+        {
+          "info": {
+            "name": "GET functional_profiles file_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/functional_profiles/:id/file_details",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET functional_profiles file_details"
+        },
+        {
+          "info": {
+            "name": "GET functional_profiles files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/functional_profiles/:id/files",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET functional_profiles files"
+        },
+        {
+          "info": {
+            "name": "DELETE functional_profiles files",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.onecodex.com/api/v1/functional_profiles/:id/files",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DELETE functional_profiles files"
+        },
+        {
+          "info": {
+            "name": "GET functional_profiles filtered_results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/functional_profiles/:id/filtered_results",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "functional_group",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "metric",
+                "value": "",
+                "type": "query"
+              },
+              {
+                "name": "taxa_stratified",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET functional_profiles filtered_results"
+        },
+        {
+          "info": {
+            "name": "GET functional_profiles logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/functional_profiles/:id/logs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tail",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET functional_profiles logs"
+        },
+        {
+          "info": {
+            "name": "POST functional_profiles rerun",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.onecodex.com/api/v1/functional_profiles/:id/rerun",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "POST functional_profiles rerun"
+        },
+        {
+          "info": {
+            "name": "GET functional_profiles results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/functional_profiles/:id/results",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET functional_profiles results"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

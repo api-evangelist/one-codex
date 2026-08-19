@@ -1,0 +1,285 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "One Codex API (v1) Account Classifications API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Classifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET classifications instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/classifications",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Defaults to 1. See Pagination for more details."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
+              }
+            ]
+          },
+          "docs": "GET classifications instances"
+        },
+        {
+          "info": {
+            "name": "GET classifications instances_public",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/classifications/public",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Defaults to 1. See Pagination for more details."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
+              }
+            ]
+          },
+          "docs": "GET classifications instances_public"
+        },
+        {
+          "info": {
+            "name": "GET classifications",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/classifications/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET classifications"
+        },
+        {
+          "info": {
+            "name": "POST classifications cancel",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.onecodex.com/api/v1/classifications/:id/cancel",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "POST classifications cancel"
+        },
+        {
+          "info": {
+            "name": "GET classifications file_details",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/classifications/:id/file_details",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET classifications file_details"
+        },
+        {
+          "info": {
+            "name": "GET classifications files",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/classifications/:id/files",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET classifications files"
+        },
+        {
+          "info": {
+            "name": "DELETE classifications files",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.onecodex.com/api/v1/classifications/:id/files",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DELETE classifications files"
+        },
+        {
+          "info": {
+            "name": "GET classifications logs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/classifications/:id/logs",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "tail",
+                "value": "",
+                "type": "query"
+              }
+            ]
+          },
+          "docs": "GET classifications logs"
+        },
+        {
+          "info": {
+            "name": "GET classifications raw_results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/classifications/:id/raw_results",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET classifications raw_results"
+        },
+        {
+          "info": {
+            "name": "GET classifications readlevel",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/classifications/:id/readlevel",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET classifications readlevel"
+        },
+        {
+          "info": {
+            "name": "POST classifications rerun",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.onecodex.com/api/v1/classifications/:id/rerun",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "POST classifications rerun"
+        },
+        {
+          "info": {
+            "name": "GET classifications results",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/classifications/:id/results",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET classifications results"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

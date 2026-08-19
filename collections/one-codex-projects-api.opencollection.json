@@ -1,0 +1,257 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "One Codex API (v1) Account Projects API",
+    "version": "v1"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "X-API-Key",
+      "value": "{{X-API-Key}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Projects",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "GET projects instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/projects",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Defaults to 1. See Pagination for more details."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
+              }
+            ]
+          },
+          "docs": "GET projects instances"
+        },
+        {
+          "info": {
+            "name": "POST projects instances",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.onecodex.com/api/v1/projects",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "POST projects instances"
+        },
+        {
+          "info": {
+            "name": "GET projects instances_public",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/projects/public",
+            "params": [
+              {
+                "name": "page",
+                "value": "",
+                "type": "query",
+                "description": "Page number. Defaults to 1. See Pagination for more details."
+              },
+              {
+                "name": "per_page",
+                "value": "",
+                "type": "query",
+                "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
+              },
+              {
+                "name": "sort",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
+              },
+              {
+                "name": "where",
+                "value": "",
+                "type": "query",
+                "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
+              }
+            ]
+          },
+          "docs": "GET projects instances_public"
+        },
+        {
+          "info": {
+            "name": "GET projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET projects"
+        },
+        {
+          "info": {
+            "name": "PATCH projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "PATCH",
+            "url": "https://app.onecodex.com/api/v1/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "PATCH projects"
+        },
+        {
+          "info": {
+            "name": "DELETE projects",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://app.onecodex.com/api/v1/projects/:id",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "DELETE projects"
+        },
+        {
+          "info": {
+            "name": "POST projects add_user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.onecodex.com/api/v1/projects/:id/add_user",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "POST projects add_user"
+        },
+        {
+          "info": {
+            "name": "POST projects change_sharing",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.onecodex.com/api/v1/projects/:id/change_sharing",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "POST projects change_sharing"
+        },
+        {
+          "info": {
+            "name": "GET projects members",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://app.onecodex.com/api/v1/projects/:id/members",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "GET projects members"
+        },
+        {
+          "info": {
+            "name": "POST projects remove_user",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://app.onecodex.com/api/v1/projects/:id/remove_user",
+            "params": [
+              {
+                "name": "id",
+                "value": "",
+                "type": "path"
+              }
+            ],
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "POST projects remove_user"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
