@@ -44,6 +44,16 @@ tags:
 - Sequencing
 - Healthcare
 - Data Platform
+tags_raw:
+- Company
+- Genomics
+- Microbiome
+- Bioinformatics
+- Metagenomics
+- Life Sciences
+- Sequencing
+- Healthcare
+- Data Platform
 - API
 maintainers:
 - FN: Kin Lane
@@ -165,6 +175,8 @@ apis:
   humanURL: https://developer.onecodex.com/
   baseURL: https://app.onecodex.com/api/v1/
   tags:
+  - Event
+  tags_raw:
   - Events
   properties:
   - type: OpenAPI
@@ -201,6 +213,8 @@ apis:
   humanURL: https://developer.onecodex.com/
   baseURL: https://app.onecodex.com/api/v1/
   tags:
+  - Job
+  tags_raw:
   - Jobs
   properties:
   - type: OpenAPI
@@ -249,6 +263,8 @@ apis:
   humanURL: https://developer.onecodex.com/
   baseURL: https://app.onecodex.com/api/v1/
   tags:
+  - Project
+  tags_raw:
   - Projects
   properties:
   - type: OpenAPI
@@ -321,6 +337,8 @@ apis:
   humanURL: https://developer.onecodex.com/
   baseURL: https://app.onecodex.com/api/v1/
   tags:
+  - User
+  tags_raw:
   - Users
   properties:
   - type: OpenAPI
@@ -333,6 +351,8 @@ apis:
   humanURL: https://developer.onecodex.com/
   baseURL: https://app.onecodex.com/api/v1/
   tags:
+  - Webhook
+  tags_raw:
   - Webhooks
   properties:
   - type: OpenAPI
