@@ -164,6 +164,8 @@ apis:
   humanURL: https://developer.onecodex.com/
   baseURL: https://app.onecodex.com/api/v1/
   tags:
+  - Control
+  tags_raw:
   - Controls
   properties:
   - type: OpenAPI
