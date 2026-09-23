@@ -1,7 +1,7 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   description: The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.
-  title: One Codex API (v1) Account Tags API
+  title: One Codex API (v1) Tags API
   version: v1
 servers:
 - url: https://app.onecodex.com
