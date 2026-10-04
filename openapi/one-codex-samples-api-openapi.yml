@@ -1433,6 +1433,66 @@ paths:
       - Samples
 components:
   schemas:
+    projects:
+      properties:
+        $uri:
+          example: /api/v1/projects/0d77065796f8d173
+          pattern: ^/api/v1/projects/[a-f0-9]{16}$
+          readOnly: true
+          title: $Uri
+          type: string
+        description:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          title: Description
+        external_id:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          example: PRJ-2024-001
+          title: External Id
+        name:
+          anyOf:
+          - type: string
+          - type: 'null'
+          default: null
+          title: Name
+        owner:
+          properties:
+            $ref:
+              example: /api/v1/users/a1b2c3d4e5f67890
+              format: uri
+              pattern: ^/api/v1/users/[a-f0-9]{16}$
+              type: string
+          title: users
+          type: object
+        permissions:
+          items:
+            type: string
+          title: Permissions
+          type: array
+        project_name:
+          anyOf:
+          - maxLength: 15
+            minLength: 3
+            pattern: ^[a-zA-Z0-9_-]{3,15}$
+            type: string
+          - type: 'null'
+          title: Project Name
+        public:
+          default: false
+          title: Public
+          type: boolean
+      required:
+      - $uri
+      - owner
+      - permissions
+      - project_name
+      title: projects
+      type: object
     samples:
       properties:
         $uri:
@@ -1579,66 +1639,6 @@ components:
       - status
       - visibility
       title: samples
-      type: object
-    projects:
-      properties:
-        $uri:
-          example: /api/v1/projects/0d77065796f8d173
-          pattern: ^/api/v1/projects/[a-f0-9]{16}$
-          readOnly: true
-          title: $Uri
-          type: string
-        description:
-          anyOf:
-          - type: string
-          - type: 'null'
-          default: null
-          title: Description
-        external_id:
-          anyOf:
-          - type: string
-          - type: 'null'
-          default: null
-          example: PRJ-2024-001
-          title: External Id
-        name:
-          anyOf:
-          - type: string
-          - type: 'null'
-          default: null
-          title: Name
-        owner:
-          properties:
-            $ref:
-              example: /api/v1/users/a1b2c3d4e5f67890
-              format: uri
-              pattern: ^/api/v1/users/[a-f0-9]{16}$
-              type: string
-          title: users
-          type: object
-        permissions:
-          items:
-            type: string
-          title: Permissions
-          type: array
-        project_name:
-          anyOf:
-          - maxLength: 15
-            minLength: 3
-            pattern: ^[a-zA-Z0-9_-]{3,15}$
-            type: string
-          - type: 'null'
-          title: Project Name
-        public:
-          default: false
-          title: Public
-          type: boolean
-      required:
-      - $uri
-      - owner
-      - permissions
-      - project_name
-      title: projects
       type: object
   securitySchemes:
     apiKeyAuth:
