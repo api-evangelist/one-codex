@@ -1,0 +1,12 @@
+{
+ "url": "https://developer.onecodex.com/openapi.json",
+ "requested_url": "https://developer.onecodex.com/openapi.json",
+ "status": 200,
+ "content_type": "application/json",
+ "bytes": 497882,
+ "sha256": "2219bc34e03ca57a26134c2f2ddbf6f822f7cb320ba05828774639e9911fa6e2",
+ "fetched_at": "2026-10-04",
+ "fetched_by": "APIEvangelist-Harvest/1.0 (+https://apievangelist.com)",
+ "match": "equivalent",
+ "note": "Re-fetched from the provider by verify-openapi-sources.py; the provider's current document describes the same operations (Jaccard 0.994), but the bytes differ, so the archive is an earlier or reformatted copy."
+}
