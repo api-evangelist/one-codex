@@ -46,7 +46,7 @@ x-tier: stub
 x-tier-reason: portfolio-lead
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-10-06'
 tags:
 - Company
 - Genomics
@@ -387,6 +387,10 @@ apis:
   - type: Authentication
     url: authentication/one-codex-authentication.yml
 common:
+- url: https://www.onecodex.com/blog/
+  type: Blog
+- url: https://www.onecodex.com/blog/index.xml
+  type: BlogRSS
 - type: DeveloperPortal
   url: https://developer.onecodex.com/
 - type: Documentation
