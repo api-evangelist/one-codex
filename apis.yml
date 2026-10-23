@@ -387,6 +387,8 @@ apis:
   - type: Authentication
     url: authentication/one-codex-authentication.yml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/one-codex/overview
 - url: https://www.onecodex.com/blog/
   type: Blog
 - url: https://www.onecodex.com/blog/index.xml
