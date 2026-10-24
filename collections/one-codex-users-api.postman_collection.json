@@ -1,241 +1,261 @@
 {
+  "info": {
+    "_postman_id": "87936b7e-83b3-49d4-8a27-a1b9e3638a9c",
+    "name": "One Codex API (v1) Users API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:08:40.000Z",
+    "updatedAt": "2026-10-21T20:08:40.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-87936b7e-83b3-49d4-8a27-a1b9e3638a9c"
+  },
   "item": [
     {
-      "id": "3af85f8f-6936-4b0e-83e2-16f6127969fd",
-      "name": "Users",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "df79e7ed-add9-43e9-8b0b-52fb0207bcb4",
-          "name": "GET users instances",
-          "request": {
-            "name": "GET users instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "users"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "3d28fa53-b5de-40ff-a9d5-dde6e20f344c",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "users"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "users",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "GET users",
+                      "id": "2ae3e193-3d8b-467d-bc60-62d0d0a01cac",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/users/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "users",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0f716a31-ae3b-4ab0-a587-7b9ea879ca30",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "571dfb09-6045-4eb4-990c-77efc8660c97",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/users/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "users",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/users/36a21cd8b3a54b94\",\n  \"email\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:08:40.000Z",
+                          "updatedAt": "2026-10-21T20:08:40.000Z",
+                          "uid": "35240-571dfb09-6045-4eb4-990c-77efc8660c97"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:08:40.000Z",
+                      "updatedAt": "2026-10-21T20:08:40.000Z",
+                      "uid": "35240-2ae3e193-3d8b-467d-bc60-62d0d0a01cac"
                     }
                   ],
-                  "variable": []
+                  "id": "378d04b2-8bb2-486f-ae2e-b73705f8c798",
+                  "createdAt": "2026-10-21T20:08:40.000Z",
+                  "updatedAt": "2026-10-21T20:08:40.000Z",
+                  "uid": "35240-378d04b2-8bb2-486f-ae2e-b73705f8c798"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                {
+                  "name": "GET users instances",
+                  "id": "c9f27dc1-2ffa-4e9d-aa8b-13afff3f8caf",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/users/0d77065796f8d173\",\n    \"email\": \"string\"\n  },\n  {\n    \"$uri\": \"/api/v1/users/0d77065796f8d173\",\n    \"email\": \"string\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d7d06e54-c596-4b6d-b970-fbc9f5f5e9a4",
-          "name": "GET users",
-          "request": {
-            "name": "GET users",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "users",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "5870a129-6812-4d1e-a9d0-7e5b7dc9335c",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "users",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/users?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "users"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "response": [
+                    {
+                      "id": "6edcc846-e045-4081-9115-04be3ade54c9",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/users?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "users"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/users/6e00f88376b10e9c\",\n    \"email\": \"<string>\"\n  },\n  {\n    \"$uri\": \"/api/v1/users/342f6ce1ed56f032\",\n    \"email\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-10-21T20:08:40.000Z",
+                      "updatedAt": "2026-10-21T20:08:40.000Z",
+                      "uid": "35240-6edcc846-e045-4081-9115-04be3ade54c9"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:08:40.000Z",
+                  "updatedAt": "2026-10-21T20:08:40.000Z",
+                  "uid": "35240-c9f27dc1-2ffa-4e9d-aa8b-13afff3f8caf"
                 }
               ],
-              "body": "{\n  \"$uri\": \"/api/v1/users/0d77065796f8d173\",\n  \"email\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "7e8fcd1d-9cdd-4112-838e-2e655407abb8",
+              "createdAt": "2026-10-21T20:08:40.000Z",
+              "updatedAt": "2026-10-21T20:08:40.000Z",
+              "uid": "35240-7e8fcd1d-9cdd-4112-838e-2e655407abb8"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "da707cfc-6fe4-4305-9ccb-e3b30239edf4",
+          "createdAt": "2026-10-21T20:08:40.000Z",
+          "updatedAt": "2026-10-21T20:08:40.000Z",
+          "uid": "35240-da707cfc-6fe4-4305-9ccb-e3b30239edf4"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "3781ed7d-1a60-41f9-a259-1caabc9c1908",
+      "createdAt": "2026-10-21T20:08:40.000Z",
+      "updatedAt": "2026-10-21T20:08:40.000Z",
+      "uid": "35240-3781ed7d-1a60-41f9-a259-1caabc9c1908"
     }
   ],
   "auth": {
@@ -243,25 +263,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "1d18246e-36b1-4023-ac4c-9df82879d5b1",
-    "name": "One Codex API (v1) Account Users API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

@@ -1,439 +1,465 @@
 {
+  "info": {
+    "_postman_id": "aec3e774-d0d8-4fd2-9d1a-393eb36c10f6",
+    "name": "One Codex API (v1) Annotation Sets API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:06:25.000Z",
+    "updatedAt": "2026-10-21T20:06:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-aec3e774-d0d8-4fd2-9d1a-393eb36c10f6"
+  },
   "item": [
     {
-      "id": "4eb38cb8-b4ad-419a-b318-a644ef51f6a4",
-      "name": "Annotation Sets",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "2ff1680d-90ef-4b15-bf35-8f479ad34071",
-          "name": "GET annotation_sets instances",
-          "request": {
-            "name": "GET annotation_sets instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "annotation_sets"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "c91b9359-29d6-43fe-aba3-899844294b2f",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "annotation_sets"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "annotation_sets",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
+                      "name": "download_csv",
+                      "item": [
+                        {
+                          "name": "POST annotation_sets download_csv",
+                          "id": "d661e01d-e742-4fb7-8ea5-25409772735f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/annotation_sets/:id/download_csv",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "annotation_sets",
+                                ":id",
+                                "download_csv"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "59ce3166-20f2-4590-ba5b-b57db5a29d86",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "7ec6c5aa-8cee-440c-8132-701ae01f0d01",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/annotation_sets/:id/download_csv",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "annotation_sets",
+                                    ":id",
+                                    "download_csv"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"download_uri\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:06:26.000Z",
+                              "updatedAt": "2026-10-21T20:06:26.000Z",
+                              "uid": "35240-7ec6c5aa-8cee-440c-8132-701ae01f0d01"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:26.000Z",
+                          "updatedAt": "2026-10-21T20:06:26.000Z",
+                          "uid": "35240-d661e01d-e742-4fb7-8ea5-25409772735f"
+                        }
+                      ],
+                      "id": "36aa0251-feca-487e-beb8-24a6bd6839aa",
+                      "createdAt": "2026-10-21T20:06:26.000Z",
+                      "updatedAt": "2026-10-21T20:06:26.000Z",
+                      "uid": "35240-36aa0251-feca-487e-beb8-24a6bd6839aa"
                     },
                     {
-                      "key": "per_page",
-                      "value": "50"
+                      "name": "download_uri",
+                      "item": [
+                        {
+                          "name": "POST annotation_sets download_uri",
+                          "id": "b76f1e6d-6f72-4d9c-a7ed-e4170e5da022",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/annotation_sets/:id/download_uri",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "annotation_sets",
+                                ":id",
+                                "download_uri"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4675b779-bef3-4a81-8d7d-bf39fcfb22ce",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "bb024592-9bb8-4248-bde3-d5472ff8376b",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/annotation_sets/:id/download_uri",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "annotation_sets",
+                                    ":id",
+                                    "download_uri"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"download_uri\": \"<string>\",\n  \"expires_in_hours\": \"<integer>\",\n  \"save_as_filename\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:06:26.000Z",
+                              "updatedAt": "2026-10-21T20:06:26.000Z",
+                              "uid": "35240-bb024592-9bb8-4248-bde3-d5472ff8376b"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:26.000Z",
+                          "updatedAt": "2026-10-21T20:06:26.000Z",
+                          "uid": "35240-b76f1e6d-6f72-4d9c-a7ed-e4170e5da022"
+                        }
+                      ],
+                      "id": "e7e56c8f-29f9-45af-82af-0fc42217fdcc",
+                      "createdAt": "2026-10-21T20:06:26.000Z",
+                      "updatedAt": "2026-10-21T20:06:26.000Z",
+                      "uid": "35240-e7e56c8f-29f9-45af-82af-0fc42217fdcc"
                     },
                     {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "GET annotation_sets",
+                      "id": "ba77ee62-1c54-4f94-a214-1f493973f4cb",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/annotation_sets/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "annotation_sets",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "6a8f05d2-a5d1-46e7-9705-bc188bbaf986",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "bead9639-1786-4548-ac5c-cbf2fdc1ca1e",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/annotation_sets/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "annotation_sets",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/annotation_sets/88844bcdbeb2df5f\",\n  \"assembly\": {\n    \"$ref\": \"/api/v1/assemblies/928062c5f0b1d49a\"\n  },\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/f34cfe8f16369f36\"\n  }\n}",
+                          "createdAt": "2026-10-21T20:06:26.000Z",
+                          "updatedAt": "2026-10-21T20:06:26.000Z",
+                          "uid": "35240-bead9639-1786-4548-ac5c-cbf2fdc1ca1e"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:26.000Z",
+                      "updatedAt": "2026-10-21T20:06:26.000Z",
+                      "uid": "35240-ba77ee62-1c54-4f94-a214-1f493973f4cb"
                     }
                   ],
-                  "variable": []
+                  "id": "cb59e22a-3484-4235-bf1d-f8207dd5a0b8",
+                  "createdAt": "2026-10-21T20:06:26.000Z",
+                  "updatedAt": "2026-10-21T20:06:26.000Z",
+                  "uid": "35240-cb59e22a-3484-4235-bf1d-f8207dd5a0b8"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                {
+                  "name": "GET annotation_sets instances",
+                  "id": "2064762b-19ba-4461-a352-d8278c928269",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/annotation_sets/0d77065796f8d173\",\n    \"assembly\": {\n      \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n    },\n    \"created_at\": \"1986-12-17T21:10:10.443Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    }\n  },\n  {\n    \"$uri\": \"/api/v1/annotation_sets/0d77065796f8d173\",\n    \"assembly\": {\n      \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n    },\n    \"created_at\": \"1962-01-31T18:57:52.739Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    }\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f7e2160b-c4c8-47bf-a56b-17a08fda5ebf",
-          "name": "GET annotation_sets",
-          "request": {
-            "name": "GET annotation_sets",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "annotation_sets",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "af789008-0be6-4e85-bcf5-a15d63319fba",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "annotation_sets",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/annotation_sets?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "annotation_sets"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/annotation_sets/0d77065796f8d173\",\n  \"assembly\": {\n    \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n  },\n  \"created_at\": \"2023-04-02T02:05:37.019Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "77354315-37a2-44ae-9650-460bd897cc47",
-          "name": "POST annotation_sets download_csv",
-          "request": {
-            "name": "POST annotation_sets download_csv",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "annotation_sets",
-                ":id",
-                "download_csv"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "91f32b99-3981-4373-a0ac-44a9422e0369",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "annotation_sets",
-                    ":id",
-                    "download_csv"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                      "id": "48a4421d-0d13-4bde-a543-8c60663cdec2",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/annotation_sets?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "annotation_sets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/annotation_sets/4874201c80b52cf1\",\n    \"assembly\": {\n      \"$ref\": \"/api/v1/assemblies/bed35c16ca3e8dd5\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/bf073d4aafe5225d\"\n    }\n  },\n  {\n    \"$uri\": \"/api/v1/annotation_sets/9aadeaa8a85d552a\",\n    \"assembly\": {\n      \"$ref\": \"/api/v1/assemblies/1ecc507ccf20624d\"\n    },\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/8b36145c2ead4f93\"\n    }\n  }\n]",
+                      "createdAt": "2026-10-21T20:06:26.000Z",
+                      "updatedAt": "2026-10-21T20:06:26.000Z",
+                      "uid": "35240-48a4421d-0d13-4bde-a543-8c60663cdec2"
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  ],
+                  "createdAt": "2026-10-21T20:06:26.000Z",
+                  "updatedAt": "2026-10-21T20:06:26.000Z",
+                  "uid": "35240-2064762b-19ba-4461-a352-d8278c928269"
                 }
               ],
-              "body": "{\n  \"download_uri\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "edddf820-a135-429f-b4d5-ae7d52d1fa4e",
+              "createdAt": "2026-10-21T20:06:26.000Z",
+              "updatedAt": "2026-10-21T20:06:26.000Z",
+              "uid": "35240-edddf820-a135-429f-b4d5-ae7d52d1fa4e"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1b9cf0a1-3917-4de0-a448-28af2eedc2d6",
-          "name": "POST annotation_sets download_uri",
-          "request": {
-            "name": "POST annotation_sets download_uri",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "annotation_sets",
-                ":id",
-                "download_uri"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "84787550-f932-4484-8754-d000901cc951",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "annotation_sets",
-                    ":id",
-                    "download_uri"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"download_uri\": \"string\",\n  \"expires_in_hours\": 6933,\n  \"save_as_filename\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "f0c9d913-3c74-421e-a57c-32501f1ac7df",
+          "createdAt": "2026-10-21T20:06:26.000Z",
+          "updatedAt": "2026-10-21T20:06:26.000Z",
+          "uid": "35240-f0c9d913-3c74-421e-a57c-32501f1ac7df"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "2b08c6e3-e58c-4883-8ed0-57e77af226d1",
+      "createdAt": "2026-10-21T20:06:26.000Z",
+      "updatedAt": "2026-10-21T20:06:26.000Z",
+      "uid": "35240-2b08c6e3-e58c-4883-8ed0-57e77af226d1"
     }
   ],
   "auth": {
@@ -441,25 +467,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "90fde6f0-8f82-43f8-b312-99df569a6645",
-    "name": "One Codex API (v1) Account Annotation Sets API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

@@ -1,361 +1,391 @@
 {
+  "info": {
+    "_postman_id": "8f92632e-5fd5-467c-9e2e-0729083d3417",
+    "name": "One Codex API (v1) Assemblies API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:06:36.000Z",
+    "updatedAt": "2026-10-21T20:06:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-8f92632e-5fd5-467c-9e2e-0729083d3417"
+  },
   "item": [
     {
-      "id": "99ab81c8-4bc8-429d-8528-537d2bd0a591",
-      "name": "Assemblies",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "68164df1-9e61-4de7-a89a-399865796a09",
-          "name": "GET assemblies instances",
-          "request": {
-            "name": "GET assemblies instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "assemblies"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "df72879c-7d95-4995-9c98-ef3379abd642",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "assemblies"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "assemblies",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
+                      "name": "download_uri",
+                      "item": [
+                        {
+                          "name": "POST assemblies download_uri",
+                          "id": "0a080923-824f-453f-8da6-22831483e9f8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"original_format\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/assemblies/:id/download_uri",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "assemblies",
+                                ":id",
+                                "download_uri"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "69de5134-3363-42bb-a3bc-6000821d0e8f",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "4272c8b4-e9c6-4c0e-84bf-bc9a6c95c94d",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"original_format\": false\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/assemblies/:id/download_uri",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "assemblies",
+                                    ":id",
+                                    "download_uri"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"download_uri\": \"<string>\",\n  \"expires_in_hours\": \"<integer>\",\n  \"save_as_filename\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:06:37.000Z",
+                              "updatedAt": "2026-10-21T20:06:37.000Z",
+                              "uid": "35240-4272c8b4-e9c6-4c0e-84bf-bc9a6c95c94d"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:36.000Z",
+                          "updatedAt": "2026-10-21T20:06:36.000Z",
+                          "uid": "35240-0a080923-824f-453f-8da6-22831483e9f8"
+                        }
+                      ],
+                      "id": "cef2300f-d161-4839-9d68-edfc5d1fe6f1",
+                      "createdAt": "2026-10-21T20:06:36.000Z",
+                      "updatedAt": "2026-10-21T20:06:36.000Z",
+                      "uid": "35240-cef2300f-d161-4839-9d68-edfc5d1fe6f1"
                     },
                     {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "GET assemblies",
+                      "id": "407f2ace-dc17-4683-986b-b55f0d217efa",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/assemblies/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "assemblies",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "a00e2644-f916-48a5-bdc9-72fa8abeb3a3",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2d62c086-a6c4-4297-8cf2-00bb0195e9eb",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/assemblies/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "assemblies",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/assemblies/9e8f73b624fbd6e6\",\n  \"created_at\": \"<dateTime>\",\n  \"filename\": \"<string>\",\n  \"genome\": {\n    \"$ref\": \"/api/v1/genomes/ba7ab3e91c8e5d2e\"\n  },\n  \"input_samples\": [\n    {\n      \"$ref\": \"/api/v1/samples/2124404a772d6180\"\n    },\n    {\n      \"$ref\": \"/api/v1/samples/c1b745e92ed619b9\"\n    }\n  ],\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/eb04ba7144650cfe\"\n  },\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/2bc5d50c14e7540f\"\n  },\n  \"primary_annotation_set\": {\n    \"$ref\": \"/api/v1/annotation_sets/54489209001613ca\"\n  },\n  \"size\": \"<integer>\",\n  \"visibility\": \"private\"\n}",
+                          "createdAt": "2026-10-21T20:06:37.000Z",
+                          "updatedAt": "2026-10-21T20:06:37.000Z",
+                          "uid": "35240-2d62c086-a6c4-4297-8cf2-00bb0195e9eb"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:36.000Z",
+                      "updatedAt": "2026-10-21T20:06:36.000Z",
+                      "uid": "35240-407f2ace-dc17-4683-986b-b55f0d217efa"
                     }
                   ],
-                  "variable": []
+                  "id": "0b09ec31-ab35-4099-a291-0407d89a226e",
+                  "createdAt": "2026-10-21T20:06:36.000Z",
+                  "updatedAt": "2026-10-21T20:06:36.000Z",
+                  "uid": "35240-0b09ec31-ab35-4099-a291-0407d89a226e"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "GET assemblies instances",
+                  "id": "3251e8f0-8429-44bc-b7dd-3eb6434f8b08",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/assemblies?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "assemblies"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "74441f38-eae1-44fa-87bf-9674875b0e07",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/assemblies?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "assemblies"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/assemblies/e76f52ef0f178d1f\",\n    \"created_at\": \"<dateTime>\",\n    \"filename\": \"<string>\",\n    \"genome\": {\n      \"$ref\": \"/api/v1/genomes/a187188a193828a4\"\n    },\n    \"input_samples\": [\n      {\n        \"$ref\": \"/api/v1/samples/54f74357f9c5fb2b\"\n      },\n      {\n        \"$ref\": \"/api/v1/samples/99d5a7448e32e27e\"\n      }\n    ],\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/e4c2942dc3c2aeba\"\n    },\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/4e5530c7dded0346\"\n    },\n    \"primary_annotation_set\": {\n      \"$ref\": \"/api/v1/annotation_sets/05da95c63c2ccd1e\"\n    },\n    \"size\": \"<integer>\",\n    \"visibility\": \"public\"\n  },\n  {\n    \"$uri\": \"/api/v1/assemblies/7c9ddfd22e04f220\",\n    \"created_at\": \"<dateTime>\",\n    \"filename\": \"<string>\",\n    \"genome\": {\n      \"$ref\": \"/api/v1/genomes/2770f76602249923\"\n    },\n    \"input_samples\": [\n      {\n        \"$ref\": \"/api/v1/samples/8df3c62e683cbcb4\"\n      },\n      {\n        \"$ref\": \"/api/v1/samples/784941871ce91ec1\"\n      }\n    ],\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/8077c19ae3584a36\"\n    },\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/0151fd5d083cec99\"\n    },\n    \"primary_annotation_set\": {\n      \"$ref\": \"/api/v1/annotation_sets/a5b8dbf58279bd1d\"\n    },\n    \"size\": \"<integer>\",\n    \"visibility\": \"importing\"\n  }\n]",
+                      "createdAt": "2026-10-21T20:06:37.000Z",
+                      "updatedAt": "2026-10-21T20:06:37.000Z",
+                      "uid": "35240-74441f38-eae1-44fa-87bf-9674875b0e07"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:06:36.000Z",
+                  "updatedAt": "2026-10-21T20:06:36.000Z",
+                  "uid": "35240-3251e8f0-8429-44bc-b7dd-3eb6434f8b08"
                 }
               ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/assemblies/0d77065796f8d173\",\n    \"created_at\": \"2002-03-13T05:39:04.199Z\",\n    \"filename\": \"string\",\n    \"genome\": {\n      \"$ref\": \"/api/v1/genomes/a1b2c3d4e5f67890\"\n    },\n    \"input_samples\": [\n      {\n        \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n      },\n      {\n        \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n      }\n    ],\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"primary_annotation_set\": {\n      \"$ref\": \"/api/v1/annotation_sets/a1b2c3d4e5f67890\"\n    },\n    \"size\": 8493,\n    \"visibility\": \"importing\"\n  },\n  {\n    \"$uri\": \"/api/v1/assemblies/0d77065796f8d173\",\n    \"created_at\": \"1957-02-18T03:41:02.299Z\",\n    \"filename\": \"string\",\n    \"genome\": {\n      \"$ref\": \"/api/v1/genomes/a1b2c3d4e5f67890\"\n    },\n    \"input_samples\": [\n      {\n        \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n      },\n      {\n        \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n      }\n    ],\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"primary_annotation_set\": {\n      \"$ref\": \"/api/v1/annotation_sets/a1b2c3d4e5f67890\"\n    },\n    \"size\": 5635,\n    \"visibility\": \"public\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "598dacee-5a85-4c2b-a425-5d82f1be302b",
+              "createdAt": "2026-10-21T20:06:36.000Z",
+              "updatedAt": "2026-10-21T20:06:36.000Z",
+              "uid": "35240-598dacee-5a85-4c2b-a425-5d82f1be302b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "49f66e45-61b1-4d45-b46d-43613af8a702",
-          "name": "GET assemblies",
-          "request": {
-            "name": "GET assemblies",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "assemblies",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "cab7093d-7bd5-406d-9697-9a7aa870b315",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "assemblies",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/assemblies/0d77065796f8d173\",\n  \"created_at\": \"1961-08-03T18:14:52.286Z\",\n  \"filename\": \"string\",\n  \"genome\": {\n    \"$ref\": \"/api/v1/genomes/a1b2c3d4e5f67890\"\n  },\n  \"input_samples\": [\n    {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    }\n  ],\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  },\n  \"primary_annotation_set\": {\n    \"$ref\": \"/api/v1/annotation_sets/a1b2c3d4e5f67890\"\n  },\n  \"size\": 2080,\n  \"visibility\": \"public\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "8af197b3-9c9b-476d-857b-8e90550253e2",
-          "name": "POST assemblies download_uri",
-          "request": {
-            "name": "POST assemblies download_uri",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "assemblies",
-                ":id",
-                "download_uri"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"original_format\": false\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "ad74d773-e3bd-43db-a787-813b82d05f72",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "assemblies",
-                    ":id",
-                    "download_uri"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"original_format\": false\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"download_uri\": \"string\",\n  \"expires_in_hours\": 7737,\n  \"save_as_filename\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "282f1073-a06b-4f83-ab2f-2009ce495b7b",
+          "createdAt": "2026-10-21T20:06:36.000Z",
+          "updatedAt": "2026-10-21T20:06:36.000Z",
+          "uid": "35240-282f1073-a06b-4f83-ab2f-2009ce495b7b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "91cc35bb-4c66-4ccc-a66b-4d5ee240a825",
+      "createdAt": "2026-10-21T20:06:36.000Z",
+      "updatedAt": "2026-10-21T20:06:36.000Z",
+      "uid": "35240-91cc35bb-4c66-4ccc-a66b-4d5ee240a825"
     }
   ],
   "auth": {
@@ -363,25 +393,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "8cc0893b-0118-4e7c-8b4b-15553c752136",
-    "name": "One Codex API (v1) Account Assemblies API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

@@ -1,1168 +1,1201 @@
 {
+  "info": {
+    "_postman_id": "ea48d60a-130c-4db4-a43c-616421f9f6a3",
+    "name": "One Codex API (v1) Functional Profiles API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:07:19.000Z",
+    "updatedAt": "2026-10-21T20:07:19.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ea48d60a-130c-4db4-a43c-616421f9f6a3"
+  },
   "item": [
     {
-      "id": "7d4c224a-a3ea-4fcf-8c09-d4e92e0dd85f",
-      "name": "Functional Profiles",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "7e40161d-89c1-427e-a83a-c8798662671d",
-          "name": "GET functional_profiles instances",
-          "request": {
-            "name": "GET functional_profiles instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "functional_profiles"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "1b124c9e-12e8-43ce-a738-56a79904223c",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "functional_profiles"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "functional_profiles",
+              "item": [
+                {
+                  "name": "public",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "GET functional_profiles instances_public",
+                      "id": "a46a6965-f389-4702-8157-4d80dbf874c0",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/functional_profiles/public?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "functional_profiles",
+                            "public"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "42046476-a625-4d4b-9af1-a312bde0d4ee",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/functional_profiles/public?page=1&per_page=50&sort=<string>&where=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "functional_profiles",
+                                "public"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Page number. Defaults to 1. See Pagination for more details.",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                                  "key": "per_page",
+                                  "value": "50"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                                  "key": "sort",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                                  "key": "where",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"$uri\": \"/api/v1/functional_profiles/22c20c7fa8abec8b\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/c180ea29c85ff697\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/2a7cc1645a7cea09\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"$uri\": \"/api/v1/functional_profiles/2fead68e5262b35f\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/2dcf34608624cc99\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/90c3e02dc24a6924\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                          "createdAt": "2026-10-21T20:07:20.000Z",
+                          "updatedAt": "2026-10-21T20:07:20.000Z",
+                          "uid": "35240-42046476-a625-4d4b-9af1-a312bde0d4ee"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:20.000Z",
+                      "updatedAt": "2026-10-21T20:07:20.000Z",
+                      "uid": "35240-a46a6965-f389-4702-8157-4d80dbf874c0"
                     }
                   ],
-                  "variable": []
+                  "id": "b48b29db-6146-481a-b850-64cd6f5b89ef",
+                  "createdAt": "2026-10-21T20:07:20.000Z",
+                  "updatedAt": "2026-10-21T20:07:20.000Z",
+                  "uid": "35240-b48b29db-6146-481a-b850-64cd6f5b89ef"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "cancel",
+                      "item": [
+                        {
+                          "name": "POST functional_profiles cancel",
+                          "id": "4c7073c1-2904-400e-a5c4-c2f0abfb3fb5",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "functional_profiles",
+                                ":id",
+                                "cancel"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "703d3f4d-0fd1-43b1-b525-323cd40b2b6d",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "d228438a-11d1-43eb-bc3b-6aeb8fd77244",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "functional_profiles",
+                                    ":id",
+                                    "cancel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/functional_profiles/b1b0c1916ccdf94a\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/cacc097eb4a4c0e5\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/9d98aa0dd0be3a47\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-21T20:07:20.000Z",
+                              "updatedAt": "2026-10-21T20:07:20.000Z",
+                              "uid": "35240-d228438a-11d1-43eb-bc3b-6aeb8fd77244"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:20.000Z",
+                          "updatedAt": "2026-10-21T20:07:20.000Z",
+                          "uid": "35240-4c7073c1-2904-400e-a5c4-c2f0abfb3fb5"
+                        }
+                      ],
+                      "id": "08ef2237-a999-43d7-9eef-f46a6399df54",
+                      "createdAt": "2026-10-21T20:07:20.000Z",
+                      "updatedAt": "2026-10-21T20:07:20.000Z",
+                      "uid": "35240-08ef2237-a999-43d7-9eef-f46a6399df54"
                     },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                    {
+                      "name": "file_details",
+                      "item": [
+                        {
+                          "name": "GET functional_profiles file_details",
+                          "id": "f79aa311-308a-4cd4-b9b0-147b9d56047a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/file_details",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "functional_profiles",
+                                ":id",
+                                "file_details"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "5e828254-f428-44bc-9e5f-e5acf4be2558",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "b4161285-b133-46f3-845b-a62461cd266b",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/file_details",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "functional_profiles",
+                                    ":id",
+                                    "file_details"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"files\": [\n    {\n      \"filename\": \"<string>\",\n      \"filepath\": \"<string>\",\n      \"size\": \"<integer>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"filename\": \"<string>\",\n      \"filepath\": \"<string>\",\n      \"size\": \"<integer>\",\n      \"url\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-21T20:07:20.000Z",
+                              "updatedAt": "2026-10-21T20:07:20.000Z",
+                              "uid": "35240-b4161285-b133-46f3-845b-a62461cd266b"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:20.000Z",
+                          "updatedAt": "2026-10-21T20:07:20.000Z",
+                          "uid": "35240-f79aa311-308a-4cd4-b9b0-147b9d56047a"
+                        }
+                      ],
+                      "id": "ef0ac4bc-dbce-4bf9-8c33-83f80b56521e",
+                      "createdAt": "2026-10-21T20:07:20.000Z",
+                      "updatedAt": "2026-10-21T20:07:20.000Z",
+                      "uid": "35240-ef0ac4bc-dbce-4bf9-8c33-83f80b56521e"
+                    },
+                    {
+                      "name": "files",
+                      "item": [
+                        {
+                          "name": "DELETE functional_profiles files",
+                          "id": "1b180606-088e-4908-a326-9bd0ceff7676",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/files",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "functional_profiles",
+                                ":id",
+                                "files"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "39ab407b-31b1-4428-8a50-37236f067cdd",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "d8eaaf8e-04dd-4eb6-8650-1fcb1ea9b4f5",
+                              "name": "No Content",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/files",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "functional_profiles",
+                                    ":id",
+                                    "files"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:07:20.000Z",
+                              "updatedAt": "2026-10-21T20:07:20.000Z",
+                              "uid": "35240-d8eaaf8e-04dd-4eb6-8650-1fcb1ea9b4f5"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:20.000Z",
+                          "updatedAt": "2026-10-21T20:07:20.000Z",
+                          "uid": "35240-1b180606-088e-4908-a326-9bd0ceff7676"
+                        },
+                        {
+                          "name": "GET functional_profiles files",
+                          "id": "d907ec84-af4b-4157-af17-ddf8dba35176",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/files",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "functional_profiles",
+                                ":id",
+                                "files"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "22b4593b-f17e-42ab-b8f6-354fa36f06de",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "cc819227-cb47-499b-a282-782453163848",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/files",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "functional_profiles",
+                                    ":id",
+                                    "files"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-21T20:07:20.000Z",
+                              "updatedAt": "2026-10-21T20:07:20.000Z",
+                              "uid": "35240-cc819227-cb47-499b-a282-782453163848"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:20.000Z",
+                          "updatedAt": "2026-10-21T20:07:20.000Z",
+                          "uid": "35240-d907ec84-af4b-4157-af17-ddf8dba35176"
+                        }
+                      ],
+                      "id": "3e4d75b5-9d27-4671-8b2e-fe082a07e3d4",
+                      "createdAt": "2026-10-21T20:07:20.000Z",
+                      "updatedAt": "2026-10-21T20:07:20.000Z",
+                      "uid": "35240-3e4d75b5-9d27-4671-8b2e-fe082a07e3d4"
+                    },
+                    {
+                      "name": "filtered_results",
+                      "item": [
+                        {
+                          "name": "GET functional_profiles filtered_results",
+                          "id": "daf98b8c-6ebf-423f-88de-edc777ec3b12",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/filtered_results?functional_group=ec&metric=abundance&taxa_stratified=false",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "functional_profiles",
+                                ":id",
+                                "filtered_results"
+                              ],
+                              "query": [
+                                {
+                                  "description": "(Required) ",
+                                  "key": "functional_group",
+                                  "value": "ec"
+                                },
+                                {
+                                  "description": "(Required) ",
+                                  "key": "metric",
+                                  "value": "abundance"
+                                },
+                                {
+                                  "key": "taxa_stratified",
+                                  "value": "false"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4d933091-4b63-4807-b985-33dc2d00419a",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "7ef30788-deea-4082-9918-7d4537573c15",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/filtered_results?functional_group=ec&metric=abundance&taxa_stratified=false",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "functional_profiles",
+                                    ":id",
+                                    "filtered_results"
+                                  ],
+                                  "query": [
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "functional_group",
+                                      "value": "ec"
+                                    },
+                                    {
+                                      "description": "(Required) ",
+                                      "key": "metric",
+                                      "value": "abundance"
+                                    },
+                                    {
+                                      "key": "taxa_stratified",
+                                      "value": "false"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"n_mapped\": \"<integer>\",\n  \"n_reads\": \"<integer>\",\n  \"table\": [\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<number>\",\n      \"name\": \"<string>\",\n      \"taxon_id\": \"<string>\",\n      \"taxon_name\": \"<string>\"\n    },\n    {\n      \"id\": \"<string>\",\n      \"value\": \"<number>\",\n      \"name\": \"<string>\",\n      \"taxon_id\": \"<string>\",\n      \"taxon_name\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-21T20:07:20.000Z",
+                              "updatedAt": "2026-10-21T20:07:20.000Z",
+                              "uid": "35240-7ef30788-deea-4082-9918-7d4537573c15"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:20.000Z",
+                          "updatedAt": "2026-10-21T20:07:20.000Z",
+                          "uid": "35240-daf98b8c-6ebf-423f-88de-edc777ec3b12"
+                        }
+                      ],
+                      "id": "65df37f1-ef69-477e-bde0-1c2b450a0c73",
+                      "createdAt": "2026-10-21T20:07:20.000Z",
+                      "updatedAt": "2026-10-21T20:07:20.000Z",
+                      "uid": "35240-65df37f1-ef69-477e-bde0-1c2b450a0c73"
+                    },
+                    {
+                      "name": "logs",
+                      "item": [
+                        {
+                          "name": "GET functional_profiles logs",
+                          "id": "53ada8bd-cff0-450d-8d23-24bb5ea699f5",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/logs?tail=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "functional_profiles",
+                                ":id",
+                                "logs"
+                              ],
+                              "query": [
+                                {
+                                  "key": "tail",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "728c266e-8847-4d1a-ac32-516ff3338b75",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "a5e330bd-34ef-42c7-86fc-ca0e89f495de",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/logs?tail=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "functional_profiles",
+                                    ":id",
+                                    "logs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "tail",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:07:20.000Z",
+                              "updatedAt": "2026-10-21T20:07:20.000Z",
+                              "uid": "35240-a5e330bd-34ef-42c7-86fc-ca0e89f495de"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:20.000Z",
+                          "updatedAt": "2026-10-21T20:07:20.000Z",
+                          "uid": "35240-53ada8bd-cff0-450d-8d23-24bb5ea699f5"
+                        }
+                      ],
+                      "id": "8d1b66e5-e9e5-4888-905f-9883db39dce4",
+                      "createdAt": "2026-10-21T20:07:20.000Z",
+                      "updatedAt": "2026-10-21T20:07:20.000Z",
+                      "uid": "35240-8d1b66e5-e9e5-4888-905f-9883db39dce4"
+                    },
+                    {
+                      "name": "rerun",
+                      "item": [
+                        {
+                          "name": "POST functional_profiles rerun",
+                          "id": "000bfb23-f28f-4dc3-b41d-730731a552c3",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/rerun",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "functional_profiles",
+                                ":id",
+                                "rerun"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "74d78196-8397-4ae0-8ba4-63f0e24d004c",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "f133f3c7-cb13-498f-bf47-afb029c5d4c6",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/rerun",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "functional_profiles",
+                                    ":id",
+                                    "rerun"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/functional_profiles/b1b0c1916ccdf94a\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/cacc097eb4a4c0e5\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/9d98aa0dd0be3a47\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-21T20:07:20.000Z",
+                              "updatedAt": "2026-10-21T20:07:20.000Z",
+                              "uid": "35240-f133f3c7-cb13-498f-bf47-afb029c5d4c6"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:20.000Z",
+                          "updatedAt": "2026-10-21T20:07:20.000Z",
+                          "uid": "35240-000bfb23-f28f-4dc3-b41d-730731a552c3"
+                        }
+                      ],
+                      "id": "8ffdc958-e9b8-4b13-a762-39a5356b43e2",
+                      "createdAt": "2026-10-21T20:07:20.000Z",
+                      "updatedAt": "2026-10-21T20:07:20.000Z",
+                      "uid": "35240-8ffdc958-e9b8-4b13-a762-39a5356b43e2"
+                    },
+                    {
+                      "name": "results",
+                      "item": [
+                        {
+                          "name": "GET functional_profiles results",
+                          "id": "8915040f-a0a6-4c2f-92cd-ee42030f3620",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/results",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "functional_profiles",
+                                ":id",
+                                "results"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d1f48bfa-b70e-40ff-bf35-6da8eaa788d6",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "662aa410-4689-47b7-95d6-5f4b0d512502",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/functional_profiles/:id/results",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "functional_profiles",
+                                    ":id",
+                                    "results"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:07:20.000Z",
+                              "updatedAt": "2026-10-21T20:07:20.000Z",
+                              "uid": "35240-662aa410-4689-47b7-95d6-5f4b0d512502"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:20.000Z",
+                          "updatedAt": "2026-10-21T20:07:20.000Z",
+                          "uid": "35240-8915040f-a0a6-4c2f-92cd-ee42030f3620"
+                        }
+                      ],
+                      "id": "ee5ff23f-d737-4c39-acf3-714d40266f0b",
+                      "createdAt": "2026-10-21T20:07:20.000Z",
+                      "updatedAt": "2026-10-21T20:07:20.000Z",
+                      "uid": "35240-ee5ff23f-d737-4c39-acf3-714d40266f0b"
+                    },
+                    {
+                      "name": "GET functional_profiles",
+                      "id": "3edd085a-492b-49a9-bbd7-ef56dc8b91f3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/functional_profiles/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "functional_profiles",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "78cffed8-071c-4816-8bad-fc2b24d68a5f",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1edc4b25-9b2a-4e17-95ee-9c697ebd2353",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/functional_profiles/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "functional_profiles",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/functional_profiles/b1b0c1916ccdf94a\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/cacc097eb4a4c0e5\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/9d98aa0dd0be3a47\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T20:07:20.000Z",
+                          "updatedAt": "2026-10-21T20:07:20.000Z",
+                          "uid": "35240-1edc4b25-9b2a-4e17-95ee-9c697ebd2353"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:20.000Z",
+                      "updatedAt": "2026-10-21T20:07:20.000Z",
+                      "uid": "35240-3edd085a-492b-49a9-bbd7-ef56dc8b91f3"
+                    }
+                  ],
+                  "id": "e8b682db-f368-4840-a354-d5977a4c7fd5",
+                  "createdAt": "2026-10-21T20:07:20.000Z",
+                  "updatedAt": "2026-10-21T20:07:20.000Z",
+                  "uid": "35240-e8b682db-f368-4840-a354-d5977a4c7fd5"
+                },
+                {
+                  "name": "GET functional_profiles instances",
+                  "id": "3f493661-b749-4f70-ad75-553dbb966565",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/functional_profiles/0d77065796f8d173\",\n    \"created_at\": \"2013-03-16T17:16:33.738Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1999-12-22T00:25:19.559Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/functional_profiles/0d77065796f8d173\",\n    \"created_at\": \"1960-07-18T15:54:32.500Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1986-03-27T19:54:18.600Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "b4d75b07-7c4d-4f09-86fd-bcb54f905c8e",
-          "name": "GET functional_profiles instances_public",
-          "request": {
-            "name": "GET functional_profiles instances_public",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "functional_profiles",
-                "public"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "bf0757dc-6b8c-434a-8851-757fd3bc2da5",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "functional_profiles",
-                    "public"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/functional_profiles?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "functional_profiles"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "response": [
+                    {
+                      "id": "bdc7c2f4-6131-49f3-9f56-ac27ea13436e",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/functional_profiles?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "functional_profiles"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/functional_profiles/22c20c7fa8abec8b\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/c180ea29c85ff697\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/2a7cc1645a7cea09\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"$uri\": \"/api/v1/functional_profiles/2fead68e5262b35f\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/2dcf34608624cc99\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/90c3e02dc24a6924\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-10-21T20:07:20.000Z",
+                      "updatedAt": "2026-10-21T20:07:20.000Z",
+                      "uid": "35240-bdc7c2f4-6131-49f3-9f56-ac27ea13436e"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:07:20.000Z",
+                  "updatedAt": "2026-10-21T20:07:20.000Z",
+                  "uid": "35240-3f493661-b749-4f70-ad75-553dbb966565"
                 }
               ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/functional_profiles/0d77065796f8d173\",\n    \"created_at\": \"2013-03-16T17:16:33.738Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1999-12-22T00:25:19.559Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/functional_profiles/0d77065796f8d173\",\n    \"created_at\": \"1960-07-18T15:54:32.500Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1986-03-27T19:54:18.600Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "9f1b2541-ba5f-41f6-8cd0-ccf15df7803e",
+              "createdAt": "2026-10-21T20:07:20.000Z",
+              "updatedAt": "2026-10-21T20:07:20.000Z",
+              "uid": "35240-9f1b2541-ba5f-41f6-8cd0-ccf15df7803e"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ea7506fc-3b5d-43ab-80a4-f8c2f1e67246",
-          "name": "GET functional_profiles",
-          "request": {
-            "name": "GET functional_profiles",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "functional_profiles",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "9789894f-bee8-499b-9f47-debdce75d00d",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "functional_profiles",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/functional_profiles/0d77065796f8d173\",\n  \"created_at\": \"1992-07-11T17:51:28.530Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"1994-10-30T12:10:54.584Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4055e7d0-6a2b-4139-99a9-cfa31caed0f8",
-          "name": "POST functional_profiles cancel",
-          "request": {
-            "name": "POST functional_profiles cancel",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "functional_profiles",
-                ":id",
-                "cancel"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "a88cd617-25c2-457d-be1e-90b603aac1eb",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "functional_profiles",
-                    ":id",
-                    "cancel"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/functional_profiles/0d77065796f8d173\",\n  \"created_at\": \"1992-07-11T17:51:28.530Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"1994-10-30T12:10:54.584Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "18767b6a-d4ec-47a0-bcbf-578c93028c5f",
-          "name": "GET functional_profiles file_details",
-          "request": {
-            "name": "GET functional_profiles file_details",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "functional_profiles",
-                ":id",
-                "file_details"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "73246b06-3572-49b8-aa18-d4c6f99a2c6b",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "functional_profiles",
-                    ":id",
-                    "file_details"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"files\": [\n    {\n      \"filename\": \"string\",\n      \"filepath\": \"string\",\n      \"size\": 5914,\n      \"url\": \"string\"\n    },\n    {\n      \"filename\": \"string\",\n      \"filepath\": \"string\",\n      \"size\": 1707,\n      \"url\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5649762a-4f12-40e5-a094-6c4fb4c5111b",
-          "name": "DELETE functional_profiles files",
-          "request": {
-            "name": "DELETE functional_profiles files",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "functional_profiles",
-                ":id",
-                "files"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7f944a79-1b61-4541-b6c2-ba1a7a5d9f2f",
-              "name": "No Content",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "functional_profiles",
-                    ":id",
-                    "files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "61c19481-d9aa-4f4f-99d4-c743ce0fd286",
-          "name": "GET functional_profiles files",
-          "request": {
-            "name": "GET functional_profiles files",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "functional_profiles",
-                ":id",
-                "files"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1345beca-e70e-4709-ae4e-531f349d0b95",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "functional_profiles",
-                    ":id",
-                    "files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3292bff6-edb1-400e-b7c3-2f547dd1511d",
-          "name": "GET functional_profiles filtered_results",
-          "request": {
-            "name": "GET functional_profiles filtered_results",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "functional_profiles",
-                ":id",
-                "filtered_results"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "functional_group",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "metric",
-                  "value": "<string>",
-                  "description": "(Required) "
-                },
-                {
-                  "disabled": false,
-                  "key": "taxa_stratified",
-                  "value": "false"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "58566f12-e621-41a8-acb3-1f3ea80bdd6b",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "functional_profiles",
-                    ":id",
-                    "filtered_results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "functional_group",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "metric",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "taxa_stratified",
-                      "value": "false"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"n_mapped\": 557,\n  \"n_reads\": 8436,\n  \"table\": [\n    {\n      \"id\": \"string\",\n      \"value\": 1695.2920836977548,\n      \"name\": \"string\",\n      \"taxon_id\": \"string\",\n      \"taxon_name\": \"string\"\n    },\n    {\n      \"id\": \"string\",\n      \"value\": 576.2662914654137,\n      \"name\": \"string\",\n      \"taxon_id\": \"string\",\n      \"taxon_name\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5b20f60a-0171-4439-ad55-1282cbf503e0",
-          "name": "GET functional_profiles logs",
-          "request": {
-            "name": "GET functional_profiles logs",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "functional_profiles",
-                ":id",
-                "logs"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "tail",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "fb18aa18-c39e-4af0-ad6d-f33ee58ef5fb",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "functional_profiles",
-                    ":id",
-                    "logs"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "tail",
-                      "value": "<integer>"
-                    }
-                  ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "7dba42a7-5783-40b6-8496-04e2d2a05743",
-          "name": "POST functional_profiles rerun",
-          "request": {
-            "name": "POST functional_profiles rerun",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "functional_profiles",
-                ":id",
-                "rerun"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "48fd7395-74a0-49be-aea8-5a1aaf56d1ce",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "functional_profiles",
-                    ":id",
-                    "rerun"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/functional_profiles/0d77065796f8d173\",\n  \"created_at\": \"1992-07-11T17:51:28.530Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"1994-10-30T12:10:54.584Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ee893d4f-8bdb-4758-846d-05bf57d14fcc",
-          "name": "GET functional_profiles results",
-          "request": {
-            "name": "GET functional_profiles results",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "functional_profiles",
-                ":id",
-                "results"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d4e905ff-933f-4bcf-be56-1db206f3c9b8",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "functional_profiles",
-                    ":id",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "7be5e446-fb57-443e-842f-19c45993840c",
+          "createdAt": "2026-10-21T20:07:20.000Z",
+          "updatedAt": "2026-10-21T20:07:20.000Z",
+          "uid": "35240-7be5e446-fb57-443e-842f-19c45993840c"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "9ba5fb4d-65e7-46e5-976b-4b42331e6837",
+      "createdAt": "2026-10-21T20:07:20.000Z",
+      "updatedAt": "2026-10-21T20:07:20.000Z",
+      "uid": "35240-9ba5fb4d-65e7-46e5-976b-4b42331e6837"
     }
   ],
   "auth": {
@@ -1170,25 +1203,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "fbf09ae4-723e-4927-a1c8-8a3abe66302e",
-    "name": "One Codex API (v1) Account Functional Profiles API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

@@ -1,538 +1,567 @@
 {
+  "info": {
+    "_postman_id": "d975465f-1744-40e6-8ad8-12648b1a6925",
+    "name": "One Codex API (v1) Taxa API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:08:35.000Z",
+    "updatedAt": "2026-10-21T20:08:36.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d975465f-1744-40e6-8ad8-12648b1a6925"
+  },
   "item": [
     {
-      "id": "93b2e47e-8a71-41c0-ba0b-d996dd708212",
-      "name": "Taxa",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "9ce0cc43-1695-49ea-9782-6b53b2768042",
-          "name": "GET taxa instances",
-          "request": {
-            "name": "GET taxa instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "taxa"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "cf939de6-bbee-4ca5-acfe-1b49cbe3406f",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "taxa"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "taxa",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
+                      "name": "genomes",
+                      "item": [
+                        {
+                          "name": "GET taxa genomes",
+                          "id": "7f2223eb-7442-4059-8472-eb2479569d35",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/taxa/:id/genomes",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "taxa",
+                                ":id",
+                                "genomes"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "5db82dbb-f31d-471e-90f9-5b88ceea8ebb",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "f7ef2a41-8737-4759-8c0c-9fbe6ea8bd2f",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/taxa/:id/genomes",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "taxa",
+                                    ":id",
+                                    "genomes"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"$uri\": \"/api/v1/genomes/fe4eaf8365c7e05f\",\n    \"assemblies\": [\n      {\n        \"$ref\": \"/api/v1/assemblies/e07d0d7d055e538c\"\n      },\n      {\n        \"$ref\": \"/api/v1/assemblies/f5f0377e6ab4cc17\"\n      }\n    ],\n    \"created_at\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"primary_assembly\": {\n      \"$ref\": \"/api/v1/assemblies/96402eafd0687295\"\n    },\n    \"tags\": [\n      {\n        \"$ref\": \"/api/v1/tags/0123661203bec714\"\n      },\n      {\n        \"$ref\": \"/api/v1/tags/e41ea76418b7147e\"\n      }\n    ],\n    \"taxon\": {\n      \"$ref\": \"/api/v1/taxa/e391952057c4e18a\"\n    }\n  },\n  {\n    \"$uri\": \"/api/v1/genomes/0e890d9ad210cdb8\",\n    \"assemblies\": [\n      {\n        \"$ref\": \"/api/v1/assemblies/add07197c66d0e25\"\n      },\n      {\n        \"$ref\": \"/api/v1/assemblies/f6a4018c48ecb52c\"\n      }\n    ],\n    \"created_at\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"name\": \"<string>\",\n    \"primary_assembly\": {\n      \"$ref\": \"/api/v1/assemblies/5ee74a6e0870609f\"\n    },\n    \"tags\": [\n      {\n        \"$ref\": \"/api/v1/tags/ca6bce5bd975364c\"\n      },\n      {\n        \"$ref\": \"/api/v1/tags/30e31b10e7643fa3\"\n      }\n    ],\n    \"taxon\": {\n      \"$ref\": \"/api/v1/taxa/d4f1327e45687692\"\n    }\n  }\n]",
+                              "createdAt": "2026-10-21T20:08:36.000Z",
+                              "updatedAt": "2026-10-21T20:08:36.000Z",
+                              "uid": "35240-f7ef2a41-8737-4759-8c0c-9fbe6ea8bd2f"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:08:36.000Z",
+                          "updatedAt": "2026-10-21T20:08:36.000Z",
+                          "uid": "35240-7f2223eb-7442-4059-8472-eb2479569d35"
+                        }
+                      ],
+                      "id": "0f93419d-f564-4401-9ae0-312b383487cf",
+                      "createdAt": "2026-10-21T20:08:36.000Z",
+                      "updatedAt": "2026-10-21T20:08:36.000Z",
+                      "uid": "35240-0f93419d-f564-4401-9ae0-312b383487cf"
                     },
                     {
-                      "key": "per_page",
-                      "value": "50"
+                      "name": "parents",
+                      "item": [
+                        {
+                          "name": "GET taxa parents",
+                          "id": "6c1c82b2-8b0b-4254-bc29-5bc6153824af",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/taxa/:id/parents",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "taxa",
+                                ":id",
+                                "parents"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "5a08019f-5f84-4bc4-9883-de4074da87de",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "d1c8afb7-e525-468e-b1ee-e7073f3b2cc1",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/taxa/:id/parents",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "taxa",
+                                    ":id",
+                                    "parents"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"$uri\": \"/api/v1/taxa/52071e69b65ae4cf\",\n    \"created_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"parent\": {\n      \"$ref\": \"/api/v1/taxa/aeee3b2928209fc0\"\n    },\n    \"rank\": \"<string>\",\n    \"taxon_id\": \"<string>\"\n  },\n  {\n    \"$uri\": \"/api/v1/taxa/73223e2fff9a007e\",\n    \"created_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"parent\": {\n      \"$ref\": \"/api/v1/taxa/e6fdf0f264ded0ea\"\n    },\n    \"rank\": \"<string>\",\n    \"taxon_id\": \"<string>\"\n  }\n]",
+                              "createdAt": "2026-10-21T20:08:36.000Z",
+                              "updatedAt": "2026-10-21T20:08:36.000Z",
+                              "uid": "35240-d1c8afb7-e525-468e-b1ee-e7073f3b2cc1"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:08:36.000Z",
+                          "updatedAt": "2026-10-21T20:08:36.000Z",
+                          "uid": "35240-6c1c82b2-8b0b-4254-bc29-5bc6153824af"
+                        }
+                      ],
+                      "id": "d3d504c4-433d-4221-94a4-910c107d7ded",
+                      "createdAt": "2026-10-21T20:08:36.000Z",
+                      "updatedAt": "2026-10-21T20:08:36.000Z",
+                      "uid": "35240-d3d504c4-433d-4221-94a4-910c107d7ded"
                     },
                     {
-                      "key": "sort",
-                      "value": "<string>"
+                      "name": "reference_assembly",
+                      "item": [
+                        {
+                          "name": "GET taxa reference_assembly",
+                          "id": "2f05b110-3ffe-4021-85e2-826cbadbfa5b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/taxa/:id/reference_assembly",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "taxa",
+                                ":id",
+                                "reference_assembly"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "212c8d9b-d2d5-46b9-904c-c47e9c3882b8",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "0c5d538d-2352-4cd5-aac8-430da6b85a16",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/taxa/:id/reference_assembly",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "taxa",
+                                    ":id",
+                                    "reference_assembly"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/assemblies/2a84ee0ad7688cbe\",\n  \"created_at\": \"<dateTime>\",\n  \"filename\": \"<string>\",\n  \"genome\": {\n    \"$ref\": \"/api/v1/genomes/8fa179657980d41b\"\n  },\n  \"input_samples\": [\n    {\n      \"$ref\": \"/api/v1/samples/3865934da389397a\"\n    },\n    {\n      \"$ref\": \"/api/v1/samples/a71fb46c1f78f4db\"\n    }\n  ],\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/1773379976bb2550\"\n  },\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/5bbf4dd8d2339273\"\n  },\n  \"primary_annotation_set\": {\n    \"$ref\": \"/api/v1/annotation_sets/74d7eb1897a595e3\"\n  },\n  \"size\": \"<integer>\",\n  \"visibility\": \"awaiting data\"\n}",
+                              "createdAt": "2026-10-21T20:08:36.000Z",
+                              "updatedAt": "2026-10-21T20:08:36.000Z",
+                              "uid": "35240-0c5d538d-2352-4cd5-aac8-430da6b85a16"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:08:36.000Z",
+                          "updatedAt": "2026-10-21T20:08:36.000Z",
+                          "uid": "35240-2f05b110-3ffe-4021-85e2-826cbadbfa5b"
+                        }
+                      ],
+                      "id": "f0835296-acb4-4451-820b-f226fa20b35b",
+                      "createdAt": "2026-10-21T20:08:36.000Z",
+                      "updatedAt": "2026-10-21T20:08:36.000Z",
+                      "uid": "35240-f0835296-acb4-4451-820b-f226fa20b35b"
                     },
                     {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "GET taxa",
+                      "id": "f493e86a-31c8-4bd8-bd76-e74cf4d1b252",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/taxa/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "taxa",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "0c09bf70-5c8d-455b-bce3-0ca0b3633412",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "42472c10-d4a1-413c-87b0-44099dbb43fb",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/taxa/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "taxa",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/taxa/c413a0ef2cf93c02\",\n  \"created_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"parent\": {\n    \"$ref\": \"/api/v1/taxa/b054bb369561c5ec\"\n  },\n  \"rank\": \"<string>\",\n  \"taxon_id\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:08:36.000Z",
+                          "updatedAt": "2026-10-21T20:08:36.000Z",
+                          "uid": "35240-42472c10-d4a1-413c-87b0-44099dbb43fb"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:08:36.000Z",
+                      "updatedAt": "2026-10-21T20:08:36.000Z",
+                      "uid": "35240-f493e86a-31c8-4bd8-bd76-e74cf4d1b252"
                     }
                   ],
-                  "variable": []
+                  "id": "97cb92da-c4db-4446-b0d5-cb0998402a27",
+                  "createdAt": "2026-10-21T20:08:36.000Z",
+                  "updatedAt": "2026-10-21T20:08:36.000Z",
+                  "uid": "35240-97cb92da-c4db-4446-b0d5-cb0998402a27"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                {
+                  "name": "GET taxa instances",
+                  "id": "1d7260b4-dbca-4db8-a08c-dbd2ea22345c",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/taxa/0d77065796f8d173\",\n    \"created_at\": \"1965-01-13T17:39:04.504Z\",\n    \"name\": \"string\",\n    \"parent\": {\n      \"$ref\": \"/api/v1/taxa/a1b2c3d4e5f67890\"\n    },\n    \"rank\": \"string\",\n    \"taxon_id\": \"string\"\n  },\n  {\n    \"$uri\": \"/api/v1/taxa/0d77065796f8d173\",\n    \"created_at\": \"1971-06-13T06:54:10.182Z\",\n    \"name\": \"string\",\n    \"parent\": {\n      \"$ref\": \"/api/v1/taxa/a1b2c3d4e5f67890\"\n    },\n    \"rank\": \"string\",\n    \"taxon_id\": \"string\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f4c310e0-285b-4cc6-b8b0-3c7405d4331d",
-          "name": "GET taxa",
-          "request": {
-            "name": "GET taxa",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "taxa",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "e8980a27-c256-46a8-9814-7151dcebb171",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "taxa",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/taxa?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "taxa"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/taxa/0d77065796f8d173\",\n  \"created_at\": \"2016-02-09T21:32:27.353Z\",\n  \"name\": \"string\",\n  \"parent\": {\n    \"$ref\": \"/api/v1/taxa/a1b2c3d4e5f67890\"\n  },\n  \"rank\": \"string\",\n  \"taxon_id\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3585d6ff-47bf-4619-b8c4-ba239817884e",
-          "name": "GET taxa genomes",
-          "request": {
-            "name": "GET taxa genomes",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "taxa",
-                ":id",
-                "genomes"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "72558e5f-7c0f-421d-82cc-89582c223775",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "taxa",
-                    ":id",
-                    "genomes"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                      "id": "f76e755d-aadd-412b-8ab6-2461ce29e2ae",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/taxa?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "taxa"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/taxa/52071e69b65ae4cf\",\n    \"created_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"parent\": {\n      \"$ref\": \"/api/v1/taxa/aeee3b2928209fc0\"\n    },\n    \"rank\": \"<string>\",\n    \"taxon_id\": \"<string>\"\n  },\n  {\n    \"$uri\": \"/api/v1/taxa/73223e2fff9a007e\",\n    \"created_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"parent\": {\n      \"$ref\": \"/api/v1/taxa/e6fdf0f264ded0ea\"\n    },\n    \"rank\": \"<string>\",\n    \"taxon_id\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-10-21T20:08:36.000Z",
+                      "updatedAt": "2026-10-21T20:08:36.000Z",
+                      "uid": "35240-f76e755d-aadd-412b-8ab6-2461ce29e2ae"
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  ],
+                  "createdAt": "2026-10-21T20:08:36.000Z",
+                  "updatedAt": "2026-10-21T20:08:36.000Z",
+                  "uid": "35240-1d7260b4-dbca-4db8-a08c-dbd2ea22345c"
                 }
               ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/genomes/0d77065796f8d173\",\n    \"assemblies\": [\n      {\n        \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n      },\n      {\n        \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n      }\n    ],\n    \"created_at\": \"1961-04-24T01:12:52.022Z\",\n    \"description\": \"string\",\n    \"name\": \"string\",\n    \"primary_assembly\": {\n      \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n    },\n    \"tags\": [\n      {\n        \"$ref\": \"/api/v1/tags/a1b2c3d4e5f67890\"\n      },\n      {\n        \"$ref\": \"/api/v1/tags/a1b2c3d4e5f67890\"\n      }\n    ],\n    \"taxon\": {\n      \"$ref\": \"/api/v1/taxa/a1b2c3d4e5f67890\"\n    }\n  },\n  {\n    \"$uri\": \"/api/v1/genomes/0d77065796f8d173\",\n    \"assemblies\": [\n      {\n        \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n      },\n      {\n        \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n      }\n    ],\n    \"created_at\": \"1981-07-14T23:34:15.682Z\",\n    \"description\": \"string\",\n    \"name\": \"string\",\n    \"primary_assembly\": {\n      \"$ref\": \"/api/v1/assemblies/a1b2c3d4e5f67890\"\n    },\n    \"tags\": [\n      {\n        \"$ref\": \"/api/v1/tags/a1b2c3d4e5f67890\"\n      },\n      {\n        \"$ref\": \"/api/v1/tags/a1b2c3d4e5f67890\"\n      }\n    ],\n    \"taxon\": {\n      \"$ref\": \"/api/v1/taxa/a1b2c3d4e5f67890\"\n    }\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "66bd527f-18fa-4beb-bf29-21026761c594",
+              "createdAt": "2026-10-21T20:08:36.000Z",
+              "updatedAt": "2026-10-21T20:08:36.000Z",
+              "uid": "35240-66bd527f-18fa-4beb-bf29-21026761c594"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5ca5b800-fd57-43d4-9515-ff5b9bb0b6d5",
-          "name": "GET taxa parents",
-          "request": {
-            "name": "GET taxa parents",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "taxa",
-                ":id",
-                "parents"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1a164408-7533-41b4-9be4-1dc2ca12e890",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "taxa",
-                    ":id",
-                    "parents"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/taxa/0d77065796f8d173\",\n    \"created_at\": \"1965-01-13T17:39:04.504Z\",\n    \"name\": \"string\",\n    \"parent\": {\n      \"$ref\": \"/api/v1/taxa/a1b2c3d4e5f67890\"\n    },\n    \"rank\": \"string\",\n    \"taxon_id\": \"string\"\n  },\n  {\n    \"$uri\": \"/api/v1/taxa/0d77065796f8d173\",\n    \"created_at\": \"1971-06-13T06:54:10.182Z\",\n    \"name\": \"string\",\n    \"parent\": {\n      \"$ref\": \"/api/v1/taxa/a1b2c3d4e5f67890\"\n    },\n    \"rank\": \"string\",\n    \"taxon_id\": \"string\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a48bc6ad-5758-4888-bb6d-2da0aae1f0b9",
-          "name": "GET taxa reference_assembly",
-          "request": {
-            "name": "GET taxa reference_assembly",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "taxa",
-                ":id",
-                "reference_assembly"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "09e85b54-8bc6-4495-abfd-c3bf15bb57e9",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "taxa",
-                    ":id",
-                    "reference_assembly"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/assemblies/0d77065796f8d173\",\n  \"created_at\": \"1980-11-25T16:55:02.305Z\",\n  \"filename\": \"string\",\n  \"genome\": {\n    \"$ref\": \"/api/v1/genomes/a1b2c3d4e5f67890\"\n  },\n  \"input_samples\": [\n    {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    }\n  ],\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  },\n  \"primary_annotation_set\": {\n    \"$ref\": \"/api/v1/annotation_sets/a1b2c3d4e5f67890\"\n  },\n  \"size\": 6293,\n  \"visibility\": \"awaiting data\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "4bbeac4b-b6b5-40bd-89d6-ed5a0ff17f85",
+          "createdAt": "2026-10-21T20:08:36.000Z",
+          "updatedAt": "2026-10-21T20:08:36.000Z",
+          "uid": "35240-4bbeac4b-b6b5-40bd-89d6-ed5a0ff17f85"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "382ce5ed-fbe7-4cd9-80d0-9168424af952",
+      "createdAt": "2026-10-21T20:08:36.000Z",
+      "updatedAt": "2026-10-21T20:08:36.000Z",
+      "uid": "35240-382ce5ed-fbe7-4cd9-80d0-9168424af952"
     }
   ],
   "auth": {
@@ -540,25 +569,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "5ae4895a-9dfa-4ed6-8762-fb7663ce3824",
-    "name": "One Codex API (v1) Account Taxa API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

@@ -1,450 +1,495 @@
 {
+  "info": {
+    "_postman_id": "fcb08b3a-1851-4590-84d0-b812992f5f6b",
+    "name": "One Codex API (v1) Sequencing API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:08:26.000Z",
+    "updatedAt": "2026-10-21T20:08:26.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-fcb08b3a-1851-4590-84d0-b812992f5f6b"
+  },
   "item": [
     {
-      "id": "a6ad7334-e104-47c6-97a5-7313cc381257",
-      "name": "Sequencing",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "5c8bd7c1-9bb2-4cdb-a243-578da9f33ace",
-          "name": "GET sequencing instances_batches",
-          "request": {
-            "name": "GET sequencing instances_batches",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "sequencing",
-                "batches"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "6dd42be4-8ef8-4eee-86e6-ce125bbac31b",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "sequencing",
-                    "batches"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "sequencing",
+              "item": [
+                {
+                  "name": "batches",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
+                      "name": "register",
+                      "item": [
+                        {
+                          "name": "POST sequencing instances_batches_register",
+                          "id": "3bcc1e22-9b6e-47c2-9f8d-d1ed6e358602",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"batch_name\": \"<string>\",\n  \"return_tracking_numbers\": [\n    \"<string>\"\n  ],\n  \"samples\": [\n    {\n      \"sequencing_depth\": \"Standard\",\n      \"specimen_type\": \"Human stool\",\n      \"tube_barcode\": \"<string>\"\n    }\n  ]\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/sequencing/batches/register",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "sequencing",
+                                "batches",
+                                "register"
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "406d29fb-972b-4c98-9f46-8ccf79bd39bd",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"batch_name\": \"<string>\",\n  \"return_tracking_numbers\": [\n    \"<string>\"\n  ],\n  \"samples\": [\n    {\n      \"sequencing_depth\": \"Standard\",\n      \"specimen_type\": \"Human stool\",\n      \"tube_barcode\": \"<string>\"\n    }\n  ]\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/sequencing/batches/register",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "sequencing",
+                                    "batches",
+                                    "register"
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"batch\": {\n    \"$uri\": \"/api/v1/sequencing/batches/1a9d191a9236537a\",\n    \"batch_number\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/e4eedbddc6ad1169\"\n    },\n    \"status\": \"shipped_to_lab\"\n  },\n  \"samples\": [\n    {\n      \"sample\": {\n        \"$ref\": \"/api/v1/samples/5260e4031a1b3fd3\"\n      },\n      \"tube_barcode\": \"<string>\"\n    },\n    {\n      \"sample\": {\n        \"$ref\": \"/api/v1/samples/f625a52d75c29b31\"\n      },\n      \"tube_barcode\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-21T20:08:27.000Z",
+                              "updatedAt": "2026-10-21T20:08:27.000Z",
+                              "uid": "35240-406d29fb-972b-4c98-9f46-8ccf79bd39bd"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:08:27.000Z",
+                          "updatedAt": "2026-10-21T20:08:27.000Z",
+                          "uid": "35240-3bcc1e22-9b6e-47c2-9f8d-d1ed6e358602"
+                        }
+                      ],
+                      "id": "587335f0-e799-47c2-886e-b986f9ce6e58",
+                      "createdAt": "2026-10-21T20:08:27.000Z",
+                      "updatedAt": "2026-10-21T20:08:27.000Z",
+                      "uid": "35240-587335f0-e799-47c2-886e-b986f9ce6e58"
                     },
                     {
-                      "key": "per_page",
-                      "value": "50"
+                      "name": "{id}",
+                      "item": [
+                        {
+                          "name": "samples",
+                          "item": [
+                            {
+                              "name": "GET sequencing batches_samples",
+                              "id": "68fd49d7-d16d-49dc-add6-e2e02014b38d",
+                              "protocolProfileBehavior": {
+                                "disableBodyPruning": true
+                              },
+                              "request": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/sequencing/batches/:id/samples",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "sequencing",
+                                    "batches",
+                                    ":id",
+                                    "samples"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "id": "d72afd69-d999-4a20-9678-e9a118b1fc29",
+                                      "key": "id",
+                                      "value": "<string>",
+                                      "description": "(Required) "
+                                    }
+                                  ]
+                                }
+                              },
+                              "response": [
+                                {
+                                  "id": "a6dd53f3-b7d8-4705-92bd-651d0a487d52",
+                                  "name": "OK",
+                                  "originalRequest": {
+                                    "method": "GET",
+                                    "header": [
+                                      {
+                                        "key": "Accept",
+                                        "value": "application/json"
+                                      },
+                                      {
+                                        "description": "Added as a part of security scheme: apikey",
+                                        "key": "X-API-Key",
+                                        "value": "<API Key>"
+                                      }
+                                    ],
+                                    "url": {
+                                      "raw": "{{baseUrl}}/api/v1/sequencing/batches/:id/samples",
+                                      "host": [
+                                        "{{baseUrl}}"
+                                      ],
+                                      "path": [
+                                        "api",
+                                        "v1",
+                                        "sequencing",
+                                        "batches",
+                                        ":id",
+                                        "samples"
+                                      ],
+                                      "variable": [
+                                        {
+                                          "key": "id"
+                                        }
+                                      ]
+                                    }
+                                  },
+                                  "status": "OK",
+                                  "code": 200,
+                                  "_postman_previewlanguage": "json",
+                                  "header": [
+                                    {
+                                      "key": "Content-Type",
+                                      "value": "application/json"
+                                    }
+                                  ],
+                                  "cookie": [],
+                                  "responseTime": null,
+                                  "body": "[\n  {\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/2f12891a4b5c9ba8\"\n    },\n    \"tube_barcode\": \"<string>\"\n  },\n  {\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/e56b2224f9055cf4\"\n    },\n    \"tube_barcode\": \"<string>\"\n  }\n]",
+                                  "createdAt": "2026-10-21T20:08:27.000Z",
+                                  "updatedAt": "2026-10-21T20:08:27.000Z",
+                                  "uid": "35240-a6dd53f3-b7d8-4705-92bd-651d0a487d52"
+                                }
+                              ],
+                              "createdAt": "2026-10-21T20:08:27.000Z",
+                              "updatedAt": "2026-10-21T20:08:27.000Z",
+                              "uid": "35240-68fd49d7-d16d-49dc-add6-e2e02014b38d"
+                            }
+                          ],
+                          "id": "b45a608e-d7d0-49b6-a398-384719d0a1bd",
+                          "createdAt": "2026-10-21T20:08:27.000Z",
+                          "updatedAt": "2026-10-21T20:08:27.000Z",
+                          "uid": "35240-b45a608e-d7d0-49b6-a398-384719d0a1bd"
+                        },
+                        {
+                          "name": "GET sequencing batches",
+                          "id": "2010bb08-cef9-4dee-9c2d-e8f6f6c9bb0e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/sequencing/batches/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "sequencing",
+                                "batches",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "0336d58a-86f5-4f32-b4ae-644970a36056",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "df054013-9741-4e17-a9c2-4d94f36cc9d4",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/sequencing/batches/:id",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "sequencing",
+                                    "batches",
+                                    ":id"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/sequencing/batches/8ab201e4acf45527\",\n  \"batch_number\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"name\": \"<string>\",\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/35d06bb459911b54\"\n  },\n  \"status\": \"shipped_to_lab\"\n}",
+                              "createdAt": "2026-10-21T20:08:27.000Z",
+                              "updatedAt": "2026-10-21T20:08:27.000Z",
+                              "uid": "35240-df054013-9741-4e17-a9c2-4d94f36cc9d4"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:08:27.000Z",
+                          "updatedAt": "2026-10-21T20:08:27.000Z",
+                          "uid": "35240-2010bb08-cef9-4dee-9c2d-e8f6f6c9bb0e"
+                        }
+                      ],
+                      "id": "bece8863-f8d2-4be3-a033-025ff3d12b99",
+                      "createdAt": "2026-10-21T20:08:27.000Z",
+                      "updatedAt": "2026-10-21T20:08:27.000Z",
+                      "uid": "35240-bece8863-f8d2-4be3-a033-025ff3d12b99"
                     },
                     {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "GET sequencing instances_batches",
+                      "id": "442d6aa0-f2c4-44e1-88cb-80f577b789ac",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/sequencing/batches?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "sequencing",
+                            "batches"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "dd899c4c-cec4-4099-988e-d284001426b0",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/sequencing/batches?page=1&per_page=50&sort=<string>&where=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "sequencing",
+                                "batches"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Page number. Defaults to 1. See Pagination for more details.",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                                  "key": "per_page",
+                                  "value": "50"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                                  "key": "sort",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                                  "key": "where",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"$uri\": \"/api/v1/sequencing/batches/331da2720be420a9\",\n    \"batch_number\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/25d42b7b08b294c9\"\n    },\n    \"status\": \"sequencing\"\n  },\n  {\n    \"$uri\": \"/api/v1/sequencing/batches/022a132c1289ca63\",\n    \"batch_number\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"name\": \"<string>\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/56864c27b1879afa\"\n    },\n    \"status\": \"preparing_library\"\n  }\n]",
+                          "createdAt": "2026-10-21T20:08:27.000Z",
+                          "updatedAt": "2026-10-21T20:08:27.000Z",
+                          "uid": "35240-dd899c4c-cec4-4099-988e-d284001426b0"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:08:27.000Z",
+                      "updatedAt": "2026-10-21T20:08:27.000Z",
+                      "uid": "35240-442d6aa0-f2c4-44e1-88cb-80f577b789ac"
                     }
                   ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "id": "272242e6-a700-4605-be09-f78261598a19",
+                  "createdAt": "2026-10-21T20:08:27.000Z",
+                  "updatedAt": "2026-10-21T20:08:27.000Z",
+                  "uid": "35240-272242e6-a700-4605-be09-f78261598a19"
                 }
               ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/sequencing/batches/0d77065796f8d173\",\n    \"batch_number\": \"string\",\n    \"created_at\": \"2013-01-06T21:12:45.766Z\",\n    \"name\": \"string\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"status\": \"received_at_lab\"\n  },\n  {\n    \"$uri\": \"/api/v1/sequencing/batches/0d77065796f8d173\",\n    \"batch_number\": \"string\",\n    \"created_at\": \"1998-01-19T02:07:39.980Z\",\n    \"name\": \"string\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"status\": \"canceled\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "0c8965f5-c9c0-4cef-96cb-b78517d33940",
+              "createdAt": "2026-10-21T20:08:27.000Z",
+              "updatedAt": "2026-10-21T20:08:27.000Z",
+              "uid": "35240-0c8965f5-c9c0-4cef-96cb-b78517d33940"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f25b6f82-3932-4312-a2b0-5606df8d913f",
-          "name": "POST sequencing instances_batches_register",
-          "request": {
-            "name": "POST sequencing instances_batches_register",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "sequencing",
-                "batches",
-                "register"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"batch_name\": \"<string>\",\n  \"return_tracking_numbers\": [\n    \"<string>\"\n  ],\n  \"samples\": [\n    {\n      \"sequencing_depth\": \"<string>\",\n      \"specimen_type\": \"<string>\",\n      \"tube_barcode\": \"<string>\"\n    }\n  ]\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "22c1dfe2-9cb9-42de-afad-be0ca2ea15f7",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "sequencing",
-                    "batches",
-                    "register"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"batch_name\": \"<string>\",\n  \"return_tracking_numbers\": [\n    \"<string>\"\n  ],\n  \"samples\": [\n    {\n      \"sequencing_depth\": \"<string>\",\n      \"specimen_type\": \"<string>\",\n      \"tube_barcode\": \"<string>\"\n    }\n  ]\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"batch\": {\n    \"$uri\": \"/api/v1/sequencing/batches/0d77065796f8d173\",\n    \"batch_number\": \"string\",\n    \"created_at\": \"1978-06-02T08:53:46.055Z\",\n    \"name\": \"string\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"status\": \"received_at_lab\"\n  },\n  \"samples\": [\n    {\n      \"sample\": {\n        \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n      },\n      \"tube_barcode\": \"string\"\n    },\n    {\n      \"sample\": {\n        \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n      },\n      \"tube_barcode\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "170c5f54-49e7-449c-b0a1-0ce4817d40e5",
-          "name": "GET sequencing batches",
-          "request": {
-            "name": "GET sequencing batches",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "sequencing",
-                "batches",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "34319a51-7270-42de-bae8-6595162e4190",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "sequencing",
-                    "batches",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/sequencing/batches/0d77065796f8d173\",\n  \"batch_number\": \"string\",\n  \"created_at\": \"1975-12-31T05:29:07.733Z\",\n  \"name\": \"string\",\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  },\n  \"status\": \"sequencing\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "df7db1d4-d85e-43aa-9a93-eff8bfa824ff",
-          "name": "GET sequencing batches_samples",
-          "request": {
-            "name": "GET sequencing batches_samples",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "sequencing",
-                "batches",
-                ":id",
-                "samples"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "352d52d1-fdf7-4500-b348-9c580a0e96b0",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "sequencing",
-                    "batches",
-                    ":id",
-                    "samples"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"tube_barcode\": \"string\"\n  },\n  {\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"tube_barcode\": \"string\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "4a6fedb1-cf5d-45ea-a3a2-208413a25d4f",
+          "createdAt": "2026-10-21T20:08:27.000Z",
+          "updatedAt": "2026-10-21T20:08:27.000Z",
+          "uid": "35240-4a6fedb1-cf5d-45ea-a3a2-208413a25d4f"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "b7c5c7b7-2465-414d-ba88-e7ef588e776c",
+      "createdAt": "2026-10-21T20:08:27.000Z",
+      "updatedAt": "2026-10-21T20:08:27.000Z",
+      "uid": "35240-b7c5c7b7-2465-414d-ba88-e7ef588e776c"
     }
   ],
   "auth": {
@@ -452,25 +497,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "f82dccf0-063f-48c0-930c-ad9876144adc",
-    "name": "One Codex API (v1) Account Sequencing API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

@@ -1,1048 +1,1081 @@
 {
+  "info": {
+    "_postman_id": "6d6976e3-3411-4bcc-8aef-73f09d582e67",
+    "name": "One Codex API (v1) Alignments API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:06:08.000Z",
+    "updatedAt": "2026-10-21T20:06:09.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-6d6976e3-3411-4bcc-8aef-73f09d582e67"
+  },
   "item": [
     {
-      "id": "f3a869e6-13e4-4f06-b909-b014fa3ff09a",
-      "name": "Alignments",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "b5776a12-9b35-4489-b0cf-08d6f2aa731d",
-          "name": "GET alignments instances",
-          "request": {
-            "name": "GET alignments instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "alignments"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "1ef571e2-9581-470f-9dbc-622f126db489",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "alignments"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "alignments",
+              "item": [
+                {
+                  "name": "public",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "GET alignments instances_public",
+                      "id": "0b58557a-80b3-4c96-9d1d-4516278b2d19",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/alignments/public?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "alignments",
+                            "public"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "c02f6533-dcfc-42cd-ab7a-4a4a468419e4",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/alignments/public?page=1&per_page=50&sort=<string>&where=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "alignments",
+                                "public"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Page number. Defaults to 1. See Pagination for more details.",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                                  "key": "per_page",
+                                  "value": "50"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                                  "key": "sort",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                                  "key": "where",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"$uri\": \"/api/v1/alignments/cadc9bf16d8cccfb\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/b8c6abdcd8c7e610\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/ec863478227063e8\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"$uri\": \"/api/v1/alignments/6afa585d3d1efb78\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/55731250c02f4d2a\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/9d3f2994e93750bb\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-c02f6533-dcfc-42cd-ab7a-4a4a468419e4"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-0b58557a-80b3-4c96-9d1d-4516278b2d19"
                     }
                   ],
-                  "variable": []
+                  "id": "ec84bdbc-ccac-47d9-88da-df26f71a376f",
+                  "createdAt": "2026-10-21T20:06:09.000Z",
+                  "updatedAt": "2026-10-21T20:06:09.000Z",
+                  "uid": "35240-ec84bdbc-ccac-47d9-88da-df26f71a376f"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "cancel",
+                      "item": [
+                        {
+                          "name": "POST alignments cancel",
+                          "id": "f3c7c235-4f13-403b-9f8c-4a2ac90bef66",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/alignments/:id/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "alignments",
+                                ":id",
+                                "cancel"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "3c2fa595-fdf5-4f2d-b35c-6a9801b0079c",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "2425bcce-c831-4144-9b77-d07a7db229d1",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/alignments/:id/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "alignments",
+                                    ":id",
+                                    "cancel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/alignments/381717d4ffdf92ea\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/0f6fd88bb6f973b8\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a4a1c13b4e6fa7c1\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-21T20:06:09.000Z",
+                              "updatedAt": "2026-10-21T20:06:09.000Z",
+                              "uid": "35240-2425bcce-c831-4144-9b77-d07a7db229d1"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-f3c7c235-4f13-403b-9f8c-4a2ac90bef66"
+                        }
+                      ],
+                      "id": "bafab4d4-cbb1-47f9-b126-23b7db62e08f",
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-bafab4d4-cbb1-47f9-b126-23b7db62e08f"
                     },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                    {
+                      "name": "file_details",
+                      "item": [
+                        {
+                          "name": "GET alignments file_details",
+                          "id": "fc39e89b-68d8-44a2-9fcb-6efb52c922c8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/alignments/:id/file_details",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "alignments",
+                                ":id",
+                                "file_details"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "bab349c0-7cb3-4881-8deb-ad331acda6ab",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "3625f3e4-043e-4e4b-b2c9-1f66b2a34846",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/alignments/:id/file_details",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "alignments",
+                                    ":id",
+                                    "file_details"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"files\": [\n    {\n      \"filename\": \"<string>\",\n      \"filepath\": \"<string>\",\n      \"size\": \"<integer>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"filename\": \"<string>\",\n      \"filepath\": \"<string>\",\n      \"size\": \"<integer>\",\n      \"url\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-21T20:06:09.000Z",
+                              "updatedAt": "2026-10-21T20:06:09.000Z",
+                              "uid": "35240-3625f3e4-043e-4e4b-b2c9-1f66b2a34846"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-fc39e89b-68d8-44a2-9fcb-6efb52c922c8"
+                        }
+                      ],
+                      "id": "b98b8ff5-3c3e-4303-b761-f577d2c7e37f",
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-b98b8ff5-3c3e-4303-b761-f577d2c7e37f"
+                    },
+                    {
+                      "name": "files",
+                      "item": [
+                        {
+                          "name": "DELETE alignments files",
+                          "id": "1d4c1d4e-35f7-4a04-9e36-91c0e08a0f14",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/alignments/:id/files",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "alignments",
+                                ":id",
+                                "files"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e6a95028-7946-4bfc-b9b2-dc79d825f77c",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "e68e785a-47c3-48a8-9cc9-54e0c96b2804",
+                              "name": "No Content",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/alignments/:id/files",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "alignments",
+                                    ":id",
+                                    "files"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:06:09.000Z",
+                              "updatedAt": "2026-10-21T20:06:09.000Z",
+                              "uid": "35240-e68e785a-47c3-48a8-9cc9-54e0c96b2804"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-1d4c1d4e-35f7-4a04-9e36-91c0e08a0f14"
+                        },
+                        {
+                          "name": "GET alignments files",
+                          "id": "04237211-de1a-4eca-a241-1f46ce3bd3e8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/alignments/:id/files",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "alignments",
+                                ":id",
+                                "files"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "193fbcbf-a096-4fd3-ba99-db3d3329d257",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "c308cbfe-cddc-4e33-816a-9f1c1b1e622a",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/alignments/:id/files",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "alignments",
+                                    ":id",
+                                    "files"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-21T20:06:09.000Z",
+                              "updatedAt": "2026-10-21T20:06:09.000Z",
+                              "uid": "35240-c308cbfe-cddc-4e33-816a-9f1c1b1e622a"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-04237211-de1a-4eca-a241-1f46ce3bd3e8"
+                        }
+                      ],
+                      "id": "c9170d9c-7df9-47b6-9f81-0725b99d14ea",
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-c9170d9c-7df9-47b6-9f81-0725b99d14ea"
+                    },
+                    {
+                      "name": "logs",
+                      "item": [
+                        {
+                          "name": "GET alignments logs",
+                          "id": "6bbd0a7e-8289-4f67-b952-e21912405e53",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/alignments/:id/logs?tail=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "alignments",
+                                ":id",
+                                "logs"
+                              ],
+                              "query": [
+                                {
+                                  "key": "tail",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "83e4390c-5e49-413f-98b6-dea6e1bb8825",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "5fc61dfa-60ef-4c32-a357-af8d46352e95",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/alignments/:id/logs?tail=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "alignments",
+                                    ":id",
+                                    "logs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "tail",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:06:09.000Z",
+                              "updatedAt": "2026-10-21T20:06:09.000Z",
+                              "uid": "35240-5fc61dfa-60ef-4c32-a357-af8d46352e95"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-6bbd0a7e-8289-4f67-b952-e21912405e53"
+                        }
+                      ],
+                      "id": "9d316837-b5c0-4aa8-b3e5-ce3e95430f30",
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-9d316837-b5c0-4aa8-b3e5-ce3e95430f30"
+                    },
+                    {
+                      "name": "rerun",
+                      "item": [
+                        {
+                          "name": "POST alignments rerun",
+                          "id": "9c53de00-61e5-4ac5-8b71-9f1727a89ed8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/alignments/:id/rerun",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "alignments",
+                                ":id",
+                                "rerun"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "94ada1d7-e7fd-452a-8f11-5aaff4e665ab",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "364d0310-760c-4ee7-9d0e-87941a84957f",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/alignments/:id/rerun",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "alignments",
+                                    ":id",
+                                    "rerun"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/alignments/381717d4ffdf92ea\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/0f6fd88bb6f973b8\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a4a1c13b4e6fa7c1\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-21T20:06:09.000Z",
+                              "updatedAt": "2026-10-21T20:06:09.000Z",
+                              "uid": "35240-364d0310-760c-4ee7-9d0e-87941a84957f"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-9c53de00-61e5-4ac5-8b71-9f1727a89ed8"
+                        }
+                      ],
+                      "id": "fa6b32a0-aafe-4105-abe4-8d42766e7956",
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-fa6b32a0-aafe-4105-abe4-8d42766e7956"
+                    },
+                    {
+                      "name": "results",
+                      "item": [
+                        {
+                          "name": "GET alignments results",
+                          "id": "3d4a0091-aa79-48f2-806e-4d85780fb535",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/alignments/:id/results",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "alignments",
+                                ":id",
+                                "results"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f0078a5e-efa9-4590-89bf-328d498c6085",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "76f8a1ff-51d4-4566-a835-e8935b9cb1b3",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/alignments/:id/results",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "alignments",
+                                    ":id",
+                                    "results"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"assembly_id\": \"<string>\",\n  \"average_coverage\": \"<number>\",\n  \"average_identity\": \"<number>\",\n  \"coverage\": {\n    \"binned_depths\": [\n      {\n        \"contig_id\": \"<string>\",\n        \"depths\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"length\": \"<integer>\"\n      },\n      {\n        \"contig_id\": \"<string>\",\n        \"depths\": [\n          \"<integer>\",\n          \"<integer>\"\n        ],\n        \"length\": \"<integer>\"\n      }\n    ],\n    \"binned_window_width\": \"<string>\"\n  },\n  \"median_depth\": \"<number>\",\n  \"assembly_accession\": \"<string>\",\n  \"genome_id\": \"<string>\",\n  \"genome_name\": \"<string>\",\n  \"genome_taxon_id\": \"<string>\",\n  \"genome_taxon_name\": \"<string>\",\n  \"n_mapped\": \"<integer>\",\n  \"n_reads\": \"<integer>\"\n}",
+                              "createdAt": "2026-10-21T20:06:09.000Z",
+                              "updatedAt": "2026-10-21T20:06:09.000Z",
+                              "uid": "35240-76f8a1ff-51d4-4566-a835-e8935b9cb1b3"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-3d4a0091-aa79-48f2-806e-4d85780fb535"
+                        }
+                      ],
+                      "id": "8926fe30-eea7-4839-9360-fc4a06f706e1",
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-8926fe30-eea7-4839-9360-fc4a06f706e1"
+                    },
+                    {
+                      "name": "GET alignments",
+                      "id": "c47bf326-8cff-4c8a-a717-e7a7870a9b59",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/alignments/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "alignments",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "064b3aba-a4f2-4709-b18b-a72cde521d6c",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "6165e7d4-5220-41a8-af99-40f677ba7ae1",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/alignments/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "alignments",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/alignments/381717d4ffdf92ea\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/0f6fd88bb6f973b8\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a4a1c13b4e6fa7c1\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T20:06:09.000Z",
+                          "updatedAt": "2026-10-21T20:06:09.000Z",
+                          "uid": "35240-6165e7d4-5220-41a8-af99-40f677ba7ae1"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-c47bf326-8cff-4c8a-a717-e7a7870a9b59"
+                    }
+                  ],
+                  "id": "f39a0adf-f74f-417c-a6d6-a4e2c464af15",
+                  "createdAt": "2026-10-21T20:06:09.000Z",
+                  "updatedAt": "2026-10-21T20:06:09.000Z",
+                  "uid": "35240-f39a0adf-f74f-417c-a6d6-a4e2c464af15"
+                },
+                {
+                  "name": "GET alignments instances",
+                  "id": "8342cdb0-2f24-41ec-8674-129292492ba5",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/alignments/0d77065796f8d173\",\n    \"created_at\": \"1993-02-22T02:02:37.449Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1991-09-02T09:38:10.053Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/alignments/0d77065796f8d173\",\n    \"created_at\": \"1981-07-11T09:35:58.599Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1957-02-12T20:44:03.697Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ab4a81a4-9877-4753-ac39-e25127195c44",
-          "name": "GET alignments instances_public",
-          "request": {
-            "name": "GET alignments instances_public",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "alignments",
-                "public"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "2a66826f-6e96-43dd-b8be-e50dd1d3480e",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "alignments",
-                    "public"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/alignments?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "alignments"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/alignments/0d77065796f8d173\",\n    \"created_at\": \"1993-02-22T02:02:37.449Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1991-09-02T09:38:10.053Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/alignments/0d77065796f8d173\",\n    \"created_at\": \"1981-07-11T09:35:58.599Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1957-02-12T20:44:03.697Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "49a90a8b-8a27-438a-9ffa-44c7b7e420bb",
-          "name": "GET alignments",
-          "request": {
-            "name": "GET alignments",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "alignments",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "34407275-57a8-4ade-8646-815e1f2248c0",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "alignments",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/alignments/0d77065796f8d173\",\n  \"created_at\": \"2015-12-15T06:15:25.730Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"1970-04-09T17:55:14.593Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a868be63-c965-4ea0-89c5-05c6ea9e51c4",
-          "name": "POST alignments cancel",
-          "request": {
-            "name": "POST alignments cancel",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "alignments",
-                ":id",
-                "cancel"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "99776238-022e-4b64-a0c2-fe5560bf84d0",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "alignments",
-                    ":id",
-                    "cancel"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/alignments/0d77065796f8d173\",\n  \"created_at\": \"2015-12-15T06:15:25.730Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"1970-04-09T17:55:14.593Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d446a29d-ec79-4b9c-ad16-85be405a328d",
-          "name": "GET alignments file_details",
-          "request": {
-            "name": "GET alignments file_details",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "alignments",
-                ":id",
-                "file_details"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d02fe056-db0c-40dc-b2fd-2d21457927f1",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "alignments",
-                    ":id",
-                    "file_details"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"files\": [\n    {\n      \"filename\": \"string\",\n      \"filepath\": \"string\",\n      \"size\": 1251,\n      \"url\": \"string\"\n    },\n    {\n      \"filename\": \"string\",\n      \"filepath\": \"string\",\n      \"size\": 1537,\n      \"url\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "eb4074dc-543f-4dd5-8a9e-feda26d51386",
-          "name": "DELETE alignments files",
-          "request": {
-            "name": "DELETE alignments files",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "alignments",
-                ":id",
-                "files"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "e0ba3060-9510-481c-8284-2a78a3338178",
-              "name": "No Content",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "alignments",
-                    ":id",
-                    "files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "bb397d7a-eff8-4dc4-ba0c-66e91b2c7b0b",
-          "name": "GET alignments files",
-          "request": {
-            "name": "GET alignments files",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "alignments",
-                ":id",
-                "files"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "73505a7f-64bc-488d-b193-a6a385d199ab",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "alignments",
-                    ":id",
-                    "files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0cb595c8-ef78-40cf-a69d-d22bd41d37c5",
-          "name": "GET alignments logs",
-          "request": {
-            "name": "GET alignments logs",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "alignments",
-                ":id",
-                "logs"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "tail",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b88b7b3b-9840-4067-9886-d1a97cb669f5",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "alignments",
-                    ":id",
-                    "logs"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "tail",
-                      "value": "<integer>"
+                      "id": "995084cb-f7c3-4a66-b0d2-13145c8cf351",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/alignments?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "alignments"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/alignments/cadc9bf16d8cccfb\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/b8c6abdcd8c7e610\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/ec863478227063e8\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"$uri\": \"/api/v1/alignments/6afa585d3d1efb78\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/55731250c02f4d2a\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/9d3f2994e93750bb\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-10-21T20:06:09.000Z",
+                      "updatedAt": "2026-10-21T20:06:09.000Z",
+                      "uid": "35240-995084cb-f7c3-4a66-b0d2-13145c8cf351"
                     }
                   ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "createdAt": "2026-10-21T20:06:09.000Z",
+                  "updatedAt": "2026-10-21T20:06:09.000Z",
+                  "uid": "35240-8342cdb0-2f24-41ec-8674-129292492ba5"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "e513618c-0f8d-4b51-b366-fa87bd9ed78d",
+              "createdAt": "2026-10-21T20:06:09.000Z",
+              "updatedAt": "2026-10-21T20:06:09.000Z",
+              "uid": "35240-e513618c-0f8d-4b51-b366-fa87bd9ed78d"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "faf47dd0-7fea-43e2-924f-ec675746c696",
-          "name": "POST alignments rerun",
-          "request": {
-            "name": "POST alignments rerun",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "alignments",
-                ":id",
-                "rerun"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "862b5b0b-56bc-45a1-a3ce-0deb2ff96b7c",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "alignments",
-                    ":id",
-                    "rerun"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/alignments/0d77065796f8d173\",\n  \"created_at\": \"2015-12-15T06:15:25.730Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"1970-04-09T17:55:14.593Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c4d77ffc-299f-48d9-8c31-24aafc8fd5cd",
-          "name": "GET alignments results",
-          "request": {
-            "name": "GET alignments results",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "alignments",
-                ":id",
-                "results"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "bf2a36f6-33cd-4b51-a41b-101b46cd8be7",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "alignments",
-                    ":id",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"assembly_id\": \"string\",\n  \"average_coverage\": 5122.361430378294,\n  \"average_identity\": 1517.6838925278457,\n  \"coverage\": {\n    \"binned_depths\": [\n      {\n        \"contig_id\": \"string\",\n        \"depths\": [\n          234,\n          2079\n        ],\n        \"length\": 5273\n      },\n      {\n        \"contig_id\": \"string\",\n        \"depths\": [\n          495,\n          6210\n        ],\n        \"length\": 8614\n      }\n    ],\n    \"binned_window_width\": \"string\"\n  },\n  \"median_depth\": 2150.53891422074,\n  \"assembly_accession\": \"string\",\n  \"genome_id\": \"string\",\n  \"genome_name\": \"string\",\n  \"genome_taxon_id\": \"string\",\n  \"genome_taxon_name\": \"string\",\n  \"n_mapped\": 649,\n  \"n_reads\": 2051\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "c9786c12-8f13-4a5b-90f6-299bb743c0cc",
+          "createdAt": "2026-10-21T20:06:09.000Z",
+          "updatedAt": "2026-10-21T20:06:09.000Z",
+          "uid": "35240-c9786c12-8f13-4a5b-90f6-299bb743c0cc"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "9e3320ce-5e99-490d-a854-8dbd74338ea0",
+      "createdAt": "2026-10-21T20:06:09.000Z",
+      "updatedAt": "2026-10-21T20:06:09.000Z",
+      "uid": "35240-9e3320ce-5e99-490d-a854-8dbd74338ea0"
     }
   ],
   "auth": {
@@ -1050,25 +1083,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "5c2f7fbd-6246-4750-ac92-a7f5b0709394",
-    "name": "One Codex API (v1) Account Alignments API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

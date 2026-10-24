@@ -1,678 +1,716 @@
 {
+  "info": {
+    "_postman_id": "35348d73-0544-4aaf-8921-2fe1cba45475",
+    "name": "One Codex API (v1) Jobs API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:07:34.000Z",
+    "updatedAt": "2026-10-21T20:07:35.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-35348d73-0544-4aaf-8921-2fe1cba45475"
+  },
   "item": [
     {
-      "id": "ca673142-d14b-4b93-b1bf-49af8cd80ac4",
-      "name": "Jobs",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "222c6b26-136e-4230-8819-6f5fc4f64e9b",
-          "name": "GET jobs instances",
-          "request": {
-            "name": "GET jobs instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "jobs"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "07086c13-e251-4256-b3a4-ebfa07a61f2e",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "jobs"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "jobs",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
+                      "name": "details",
+                      "item": [
+                        {
+                          "name": "GET jobs details",
+                          "id": "ea98fb47-8489-4900-8e64-1d8986627c5e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/jobs/:id/details",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "jobs",
+                                ":id",
+                                "details"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "80d0f4a4-3205-4ef5-b8c3-73d7e69f3160",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "3e70a4a1-06e0-49bf-8983-4cf002b63c83",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/jobs/:id/details",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "jobs",
+                                    ":id",
+                                    "details"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"autorun_on_org_sample_upload\": \"<boolean>\",\n  \"image_uri\": \"<string>\",\n  \"inject_bearer_token\": \"<boolean>\",\n  \"job_type\": \"nextflow\",\n  \"script\": \"<string>\",\n  \"arguments_schema\": [\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"assets\": [\n    {\n      \"$ref\": \"/api/v1/assets/e298509ddb81dec0\"\n    },\n    {\n      \"$ref\": \"/api/v1/assets/28cdbf26375fa3eb\"\n    }\n  ],\n  \"cpu\": \"<number>\",\n  \"dependencies\": [\n    {\n      \"job\": {\n        \"$ref\": \"/api/v1/jobs/5c8dfb05ada0d941\"\n      },\n      \"output_dir\": \"<string>\"\n    },\n    {\n      \"job\": {\n        \"$ref\": \"/api/v1/jobs/ee5c1ff7e5c5a008\"\n      },\n      \"output_dir\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"ram_gb\": \"<number>\",\n  \"repository\": {\n    \"url\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  \"storage_gb\": \"<number>\"\n}",
+                              "createdAt": "2026-10-21T20:07:35.000Z",
+                              "updatedAt": "2026-10-21T20:07:35.000Z",
+                              "uid": "35240-3e70a4a1-06e0-49bf-8983-4cf002b63c83"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:35.000Z",
+                          "updatedAt": "2026-10-21T20:07:35.000Z",
+                          "uid": "35240-ea98fb47-8489-4900-8e64-1d8986627c5e"
+                        }
+                      ],
+                      "id": "e677aed0-19d5-48d2-9c02-0e7eec19e3fb",
+                      "createdAt": "2026-10-21T20:07:35.000Z",
+                      "updatedAt": "2026-10-21T20:07:35.000Z",
+                      "uid": "35240-e677aed0-19d5-48d2-9c02-0e7eec19e3fb"
                     },
                     {
-                      "key": "per_page",
-                      "value": "50"
+                      "name": "run",
+                      "item": [
+                        {
+                          "name": "POST jobs run",
+                          "id": "eb1d9020-abc1-4d48-9baf-46ed093b0a87",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"job_args\": {\n    \"elit1\": -88208361.3253713\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/784c056783919dbf\"\n  },\n  \"dependencies\": [\n    {\n      \"analysis\": {\n        \"$ref\": \"/api/v1/analyses/eafe183077c88cf1\"\n      },\n      \"download_path\": \"~(4's?vU-\"\n    },\n    {\n      \"analysis\": {\n        \"$ref\": \"/api/v1/analyses/eb21870acaac956c\"\n      },\n      \"download_path\": \"[`Zh *G\"\n    }\n  ],\n  \"populate_default_arguments\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/jobs/:id/run",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "jobs",
+                                ":id",
+                                "run"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "2e08d2ae-b265-4378-bea4-d7665023a13b",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "3a1f2f4c-f5c7-4d91-9bc0-75953fed73ee",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"job_args\": {\n    \"elit1\": -88208361.3253713\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/784c056783919dbf\"\n  },\n  \"dependencies\": [\n    {\n      \"analysis\": {\n        \"$ref\": \"/api/v1/analyses/eafe183077c88cf1\"\n      },\n      \"download_path\": \"~(4's?vU-\"\n    },\n    {\n      \"analysis\": {\n        \"$ref\": \"/api/v1/analyses/eb21870acaac956c\"\n      },\n      \"download_path\": \"[`Zh *G\"\n    }\n  ],\n  \"populate_default_arguments\": \"<boolean>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/jobs/:id/run",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "jobs",
+                                    ":id",
+                                    "run"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$ref\": \"/api/v1/analyses/4d3944ec4fecb9ee\"\n}",
+                              "createdAt": "2026-10-21T20:07:35.000Z",
+                              "updatedAt": "2026-10-21T20:07:35.000Z",
+                              "uid": "35240-3a1f2f4c-f5c7-4d91-9bc0-75953fed73ee"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:35.000Z",
+                          "updatedAt": "2026-10-21T20:07:35.000Z",
+                          "uid": "35240-eb1d9020-abc1-4d48-9baf-46ed093b0a87"
+                        }
+                      ],
+                      "id": "41a43beb-10ba-4cd0-b95c-8c4e7721ad22",
+                      "createdAt": "2026-10-21T20:07:35.000Z",
+                      "updatedAt": "2026-10-21T20:07:35.000Z",
+                      "uid": "35240-41a43beb-10ba-4cd0-b95c-8c4e7721ad22"
                     },
                     {
-                      "key": "sort",
-                      "value": "<string>"
+                      "name": "GET jobs",
+                      "id": "f2520cb9-684f-4598-a632-2a920808d06d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/jobs/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "jobs",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "3dc3aaeb-1804-4a7e-a588-48718b000208",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "533df2f3-0ae3-4c6c-9751-53c9ed433fd6",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/jobs/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "jobs",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/jobs/a81d5ad9117100be\",\n  \"analysis_type\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"job_args_schema\": {\n    \"dolorea0\": \"velit \",\n    \"elit_6\": 66990681.33231729,\n    \"deserunt_2_7\": \"amet adipisicing ad\",\n    \"dolore_c3\": 58623975\n  },\n  \"name\": \"<string>\",\n  \"public\": \"<boolean>\"\n}",
+                          "createdAt": "2026-10-21T20:07:35.000Z",
+                          "updatedAt": "2026-10-21T20:07:35.000Z",
+                          "uid": "35240-533df2f3-0ae3-4c6c-9751-53c9ed433fd6"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:35.000Z",
+                      "updatedAt": "2026-10-21T20:07:35.000Z",
+                      "uid": "35240-f2520cb9-684f-4598-a632-2a920808d06d"
                     },
                     {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "PATCH jobs",
+                      "id": "d0e58e13-136e-43fc-8e5e-dfacbc7fcb00",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"arguments_schema\": [\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"assets\": [\n    {\n      \"$ref\": \"/api/v1/assets/55ccd595081dd9c5\"\n    },\n    {\n      \"$ref\": \"/api/v1/assets/156b5d9d06001819\"\n    }\n  ],\n  \"autorun_on_org_sample_upload\": \"<boolean>\",\n  \"cpu\": \"<number>\",\n  \"dependencies\": [\n    {\n      \"job\": {\n        \"$ref\": \"/api/v1/jobs/eef57955a8b112c7\"\n      },\n      \"output_dir\": \"<string>\"\n    },\n    {\n      \"job\": {\n        \"$ref\": \"/api/v1/jobs/0edb113fc49449cf\"\n      },\n      \"output_dir\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"image_uri\": \"<string>\",\n  \"inject_bearer_token\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"ram_gb\": \"<number>\",\n  \"repository\": {\n    \"url\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  \"script\": \"<string>\",\n  \"storage_gb\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/jobs/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "jobs",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "01855f23-9bbf-4330-bf06-b97f216329fd",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "b455f929-dcd8-416f-bc15-eb76ef82b7a8",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"arguments_schema\": [\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"assets\": [\n    {\n      \"$ref\": \"/api/v1/assets/55ccd595081dd9c5\"\n    },\n    {\n      \"$ref\": \"/api/v1/assets/156b5d9d06001819\"\n    }\n  ],\n  \"autorun_on_org_sample_upload\": \"<boolean>\",\n  \"cpu\": \"<number>\",\n  \"dependencies\": [\n    {\n      \"job\": {\n        \"$ref\": \"/api/v1/jobs/eef57955a8b112c7\"\n      },\n      \"output_dir\": \"<string>\"\n    },\n    {\n      \"job\": {\n        \"$ref\": \"/api/v1/jobs/0edb113fc49449cf\"\n      },\n      \"output_dir\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"image_uri\": \"<string>\",\n  \"inject_bearer_token\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"ram_gb\": \"<number>\",\n  \"repository\": {\n    \"url\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  \"script\": \"<string>\",\n  \"storage_gb\": \"<number>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/jobs/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "jobs",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/jobs/a81d5ad9117100be\",\n  \"analysis_type\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"job_args_schema\": {\n    \"dolorea0\": \"velit \",\n    \"elit_6\": 66990681.33231729,\n    \"deserunt_2_7\": \"amet adipisicing ad\",\n    \"dolore_c3\": 58623975\n  },\n  \"name\": \"<string>\",\n  \"public\": \"<boolean>\"\n}",
+                          "createdAt": "2026-10-21T20:07:35.000Z",
+                          "updatedAt": "2026-10-21T20:07:35.000Z",
+                          "uid": "35240-b455f929-dcd8-416f-bc15-eb76ef82b7a8"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:35.000Z",
+                      "updatedAt": "2026-10-21T20:07:35.000Z",
+                      "uid": "35240-d0e58e13-136e-43fc-8e5e-dfacbc7fcb00"
                     }
                   ],
-                  "variable": []
+                  "id": "aff6e2e9-f51b-460f-af59-d9ca91524bd1",
+                  "createdAt": "2026-10-21T20:07:35.000Z",
+                  "updatedAt": "2026-10-21T20:07:35.000Z",
+                  "uid": "35240-aff6e2e9-f51b-460f-af59-d9ca91524bd1"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "GET jobs instances",
+                  "id": "3d12af27-e74c-4788-a528-cf875001f455",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/jobs?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "jobs"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "51e004bb-1002-495f-aa94-4782a71e85e6",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/jobs?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "jobs"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/jobs/dba43355e93c2b13\",\n    \"analysis_type\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"job_args_schema\": {\n      \"dolor3d\": \"Duis sed consequat\",\n      \"eiusmod_6\": \"nostrud aliquip\"\n    },\n    \"name\": \"<string>\",\n    \"public\": \"<boolean>\"\n  },\n  {\n    \"$uri\": \"/api/v1/jobs/c4956fe1827c1065\",\n    \"analysis_type\": \"<string>\",\n    \"created_at\": \"<dateTime>\",\n    \"job_args_schema\": {\n      \"Excepteur_\": false,\n      \"Excepteur_3_9\": true,\n      \"enim3d_\": false,\n      \"dolore01\": \"ullamco eiusmod dolor\"\n    },\n    \"name\": \"<string>\",\n    \"public\": \"<boolean>\"\n  }\n]",
+                      "createdAt": "2026-10-21T20:07:35.000Z",
+                      "updatedAt": "2026-10-21T20:07:35.000Z",
+                      "uid": "35240-51e004bb-1002-495f-aa94-4782a71e85e6"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:07:35.000Z",
+                  "updatedAt": "2026-10-21T20:07:35.000Z",
+                  "uid": "35240-3d12af27-e74c-4788-a528-cf875001f455"
+                },
+                {
+                  "name": "POST jobs instances",
+                  "id": "dd56df03-2dfa-4b78-a5e4-b3b3b2864cab",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"image_uri\": \"<string>\",\n  \"name\": \"<string>\",\n  \"script\": \"<string>\",\n  \"arguments_schema\": [\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"assets\": [\n    {\n      \"$ref\": \"/api/v1/assets/3e4a8601b38775ea\"\n    },\n    {\n      \"$ref\": \"/api/v1/assets/46cc2238593d41dc\"\n    }\n  ],\n  \"cpu\": \"<number>\",\n  \"dependencies\": [\n    {\n      \"job\": {\n        \"$ref\": \"/api/v1/jobs/51152a1bb527ba53\"\n      },\n      \"output_dir\": \"<string>\"\n    },\n    {\n      \"job\": {\n        \"$ref\": \"/api/v1/jobs/65ffb5397d96a570\"\n      },\n      \"output_dir\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"inject_bearer_token\": false,\n  \"job_type\": \"shell_script\",\n  \"ram_gb\": \"<number>\",\n  \"repository\": {\n    \"url\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  \"storage_gb\": \"<number>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/jobs",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "jobs"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "1c4566bd-7ba0-4045-b874-967fe9861ba6",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"image_uri\": \"<string>\",\n  \"name\": \"<string>\",\n  \"script\": \"<string>\",\n  \"arguments_schema\": [\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"title\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"title\": \"<string>\"\n    }\n  ],\n  \"assets\": [\n    {\n      \"$ref\": \"/api/v1/assets/3e4a8601b38775ea\"\n    },\n    {\n      \"$ref\": \"/api/v1/assets/46cc2238593d41dc\"\n    }\n  ],\n  \"cpu\": \"<number>\",\n  \"dependencies\": [\n    {\n      \"job\": {\n        \"$ref\": \"/api/v1/jobs/51152a1bb527ba53\"\n      },\n      \"output_dir\": \"<string>\"\n    },\n    {\n      \"job\": {\n        \"$ref\": \"/api/v1/jobs/65ffb5397d96a570\"\n      },\n      \"output_dir\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"inject_bearer_token\": false,\n  \"job_type\": \"shell_script\",\n  \"ram_gb\": \"<number>\",\n  \"repository\": {\n    \"url\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  \"storage_gb\": \"<number>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/jobs",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "jobs"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"$uri\": \"/api/v1/jobs/a81d5ad9117100be\",\n  \"analysis_type\": \"<string>\",\n  \"created_at\": \"<dateTime>\",\n  \"job_args_schema\": {\n    \"dolorea0\": \"velit \",\n    \"elit_6\": 66990681.33231729,\n    \"deserunt_2_7\": \"amet adipisicing ad\",\n    \"dolore_c3\": 58623975\n  },\n  \"name\": \"<string>\",\n  \"public\": \"<boolean>\"\n}",
+                      "createdAt": "2026-10-21T20:07:35.000Z",
+                      "updatedAt": "2026-10-21T20:07:35.000Z",
+                      "uid": "35240-1c4566bd-7ba0-4045-b874-967fe9861ba6"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:07:35.000Z",
+                  "updatedAt": "2026-10-21T20:07:35.000Z",
+                  "uid": "35240-dd56df03-2dfa-4b78-a5e4-b3b3b2864cab"
                 }
               ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/jobs/0d77065796f8d173\",\n    \"analysis_type\": \"string\",\n    \"created_at\": \"2022-09-15T23:00:47.908Z\",\n    \"job_args_schema\": {\n      \"key_0\": 4278.028537920175,\n      \"key_1\": false\n    },\n    \"name\": \"string\",\n    \"public\": false\n  },\n  {\n    \"$uri\": \"/api/v1/jobs/0d77065796f8d173\",\n    \"analysis_type\": \"string\",\n    \"created_at\": \"1974-12-22T17:24:47.142Z\",\n    \"job_args_schema\": {\n      \"key_0\": 2293.4675767934464,\n      \"key_1\": 5303.266528190221\n    },\n    \"name\": \"string\",\n    \"public\": false\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "39d08789-1555-4f79-9aa5-f4613efb5ee3",
+              "createdAt": "2026-10-21T20:07:35.000Z",
+              "updatedAt": "2026-10-21T20:07:35.000Z",
+              "uid": "35240-39d08789-1555-4f79-9aa5-f4613efb5ee3"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "72ee4690-eba2-4699-9026-5c5b149f0352",
-          "name": "POST jobs instances",
-          "request": {
-            "name": "POST jobs instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "jobs"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"image_uri\": \"<string>\",\n  \"name\": \"<string>\",\n  \"script\": \"<string>\",\n  \"arguments_schema\": [\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"fields\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        }\n      ],\n      \"title\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"fields\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        }\n      ],\n      \"title\": \"<string>\"\n    }\n  ],\n  \"assets\": [\n    {\n      \"$ref\": \"<uri>\"\n    },\n    {\n      \"$ref\": \"<uri>\"\n    }\n  ],\n  \"cpu\": \"<number>\",\n  \"dependencies\": [\n    {\n      \"job\": {\n        \"$ref\": \"<uri>\"\n      },\n      \"output_dir\": \"<string>\"\n    },\n    {\n      \"job\": {\n        \"$ref\": \"<uri>\"\n      },\n      \"output_dir\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"inject_bearer_token\": false,\n  \"job_type\": \"shell_script\",\n  \"ram_gb\": \"<number>\",\n  \"repository\": {\n    \"url\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  \"storage_gb\": \"<number>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "49a6bdef-bd8d-4de7-9edc-5ac2dd482923",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "jobs"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"image_uri\": \"<string>\",\n  \"name\": \"<string>\",\n  \"script\": \"<string>\",\n  \"arguments_schema\": [\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"fields\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        }\n      ],\n      \"title\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"fields\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        }\n      ],\n      \"title\": \"<string>\"\n    }\n  ],\n  \"assets\": [\n    {\n      \"$ref\": \"<uri>\"\n    },\n    {\n      \"$ref\": \"<uri>\"\n    }\n  ],\n  \"cpu\": \"<number>\",\n  \"dependencies\": [\n    {\n      \"job\": {\n        \"$ref\": \"<uri>\"\n      },\n      \"output_dir\": \"<string>\"\n    },\n    {\n      \"job\": {\n        \"$ref\": \"<uri>\"\n      },\n      \"output_dir\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"inject_bearer_token\": false,\n  \"job_type\": \"shell_script\",\n  \"ram_gb\": \"<number>\",\n  \"repository\": {\n    \"url\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  \"storage_gb\": \"<number>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/jobs/0d77065796f8d173\",\n  \"analysis_type\": \"string\",\n  \"created_at\": \"2017-02-15T00:08:27.197Z\",\n  \"job_args_schema\": {\n    \"key_0\": 8564.154072815762,\n    \"key_1\": 2590\n  },\n  \"name\": \"string\",\n  \"public\": false\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a88b5fa1-ddbd-41e0-ad14-8ec74b1ade36",
-          "name": "GET jobs",
-          "request": {
-            "name": "GET jobs",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "jobs",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b57570fc-2691-4120-b291-e70e08555e2f",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "jobs",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/jobs/0d77065796f8d173\",\n  \"analysis_type\": \"string\",\n  \"created_at\": \"2017-02-15T00:08:27.197Z\",\n  \"job_args_schema\": {\n    \"key_0\": 8564.154072815762,\n    \"key_1\": 2590\n  },\n  \"name\": \"string\",\n  \"public\": false\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f36b9573-395f-41b1-b528-26a331649f14",
-          "name": "PATCH jobs",
-          "request": {
-            "name": "PATCH jobs",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "jobs",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"arguments_schema\": [\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"fields\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        }\n      ],\n      \"title\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"fields\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        }\n      ],\n      \"title\": \"<string>\"\n    }\n  ],\n  \"assets\": [\n    {\n      \"$ref\": \"<uri>\"\n    },\n    {\n      \"$ref\": \"<uri>\"\n    }\n  ],\n  \"autorun_on_org_sample_upload\": \"<boolean>\",\n  \"cpu\": \"<number>\",\n  \"dependencies\": [\n    {\n      \"job\": {\n        \"$ref\": \"<uri>\"\n      },\n      \"output_dir\": \"<string>\"\n    },\n    {\n      \"job\": {\n        \"$ref\": \"<uri>\"\n      },\n      \"output_dir\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"image_uri\": \"<string>\",\n  \"inject_bearer_token\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"ram_gb\": \"<number>\",\n  \"repository\": {\n    \"url\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  \"script\": \"<string>\",\n  \"storage_gb\": \"<number>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "e89066c6-eb1d-4a79-93a3-3c1128937006",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "jobs",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"arguments_schema\": [\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"fields\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        }\n      ],\n      \"title\": \"<string>\"\n    },\n    {\n      \"description\": \"<string>\",\n      \"fa_icon\": \"<string>\",\n      \"fields\": [\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        },\n        {\n          \"name\": \"<string>\",\n          \"type\": \"<string>\",\n          \"choices\": [\n            \"<string>\",\n            \"<string>\"\n          ],\n          \"default\": {},\n          \"description\": \"<string>\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"<string>\",\n          \"help_text\": \"<string>\",\n          \"pattern\": \"<string>\",\n          \"required\": false\n        }\n      ],\n      \"title\": \"<string>\"\n    }\n  ],\n  \"assets\": [\n    {\n      \"$ref\": \"<uri>\"\n    },\n    {\n      \"$ref\": \"<uri>\"\n    }\n  ],\n  \"autorun_on_org_sample_upload\": \"<boolean>\",\n  \"cpu\": \"<number>\",\n  \"dependencies\": [\n    {\n      \"job\": {\n        \"$ref\": \"<uri>\"\n      },\n      \"output_dir\": \"<string>\"\n    },\n    {\n      \"job\": {\n        \"$ref\": \"<uri>\"\n      },\n      \"output_dir\": \"<string>\"\n    }\n  ],\n  \"description\": \"<string>\",\n  \"image_uri\": \"<string>\",\n  \"inject_bearer_token\": \"<boolean>\",\n  \"name\": \"<string>\",\n  \"ram_gb\": \"<number>\",\n  \"repository\": {\n    \"url\": \"<string>\",\n    \"tag\": \"<string>\"\n  },\n  \"script\": \"<string>\",\n  \"storage_gb\": \"<number>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/jobs/0d77065796f8d173\",\n  \"analysis_type\": \"string\",\n  \"created_at\": \"2017-02-15T00:08:27.197Z\",\n  \"job_args_schema\": {\n    \"key_0\": 8564.154072815762,\n    \"key_1\": 2590\n  },\n  \"name\": \"string\",\n  \"public\": false\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6ef39463-a8c0-48d6-974f-c38235d98a85",
-          "name": "GET jobs details",
-          "request": {
-            "name": "GET jobs details",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "jobs",
-                ":id",
-                "details"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "efedbf5a-bb46-40b8-9d02-103ad86e8fcd",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "jobs",
-                    ":id",
-                    "details"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"autorun_on_org_sample_upload\": true,\n  \"image_uri\": \"string\",\n  \"inject_bearer_token\": false,\n  \"job_type\": \"nextflow\",\n  \"script\": \"string\",\n  \"arguments_schema\": [\n    {\n      \"description\": \"string\",\n      \"fa_icon\": \"string\",\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"type\": \"ref_assembly_by_tax_id\",\n          \"choices\": [\n            \"string\",\n            \"string\"\n          ],\n          \"default\": {},\n          \"description\": \"string\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"string\",\n          \"help_text\": \"string\",\n          \"pattern\": \"string\",\n          \"required\": false\n        },\n        {\n          \"name\": \"string\",\n          \"type\": \"genome_tax_id\",\n          \"choices\": [\n            \"string\",\n            \"string\"\n          ],\n          \"default\": {},\n          \"description\": \"string\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"string\",\n          \"help_text\": \"string\",\n          \"pattern\": \"string\",\n          \"required\": false\n        }\n      ],\n      \"title\": \"string\"\n    },\n    {\n      \"description\": \"string\",\n      \"fa_icon\": \"string\",\n      \"fields\": [\n        {\n          \"name\": \"string\",\n          \"type\": \"regex\",\n          \"choices\": [\n            \"string\",\n            \"string\"\n          ],\n          \"default\": {},\n          \"description\": \"string\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"string\",\n          \"help_text\": \"string\",\n          \"pattern\": \"string\",\n          \"required\": false\n        },\n        {\n          \"name\": \"string\",\n          \"type\": \"genome_tax_id\",\n          \"choices\": [\n            \"string\",\n            \"string\"\n          ],\n          \"default\": {},\n          \"description\": \"string\",\n          \"env_name\": \"\",\n          \"fa_icon\": \"string\",\n          \"help_text\": \"string\",\n          \"pattern\": \"string\",\n          \"required\": false\n        }\n      ],\n      \"title\": \"string\"\n    }\n  ],\n  \"assets\": [\n    {\n      \"$ref\": \"/api/v1/assets/a1b2c3d4e5f67890\"\n    },\n    {\n      \"$ref\": \"/api/v1/assets/a1b2c3d4e5f67890\"\n    }\n  ],\n  \"cpu\": 6697.570060760809,\n  \"dependencies\": [\n    {\n      \"job\": {\n        \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n      },\n      \"output_dir\": \"string\"\n    },\n    {\n      \"job\": {\n        \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n      },\n      \"output_dir\": \"string\"\n    }\n  ],\n  \"description\": \"string\",\n  \"ram_gb\": 489.8411677109116,\n  \"repository\": {\n    \"url\": \"string\",\n    \"tag\": \"string\"\n  },\n  \"storage_gb\": 8751.67405969943\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5e7a0200-d5d7-4931-94fd-e911521faf0a",
-          "name": "POST jobs run",
-          "request": {
-            "name": "POST jobs run",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "jobs",
-                ":id",
-                "run"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"job_args\": {\n    \"key_0\": 2983.927849707906,\n    \"key_1\": true\n  },\n  \"sample\": {\n    \"$ref\": \"<uri>\"\n  },\n  \"dependencies\": [\n    {\n      \"analysis\": {\n        \"$ref\": \"<uri>\"\n      },\n      \"download_path\": \"<string>\"\n    },\n    {\n      \"analysis\": {\n        \"$ref\": \"<uri>\"\n      },\n      \"download_path\": \"<string>\"\n    }\n  ],\n  \"populate_default_arguments\": \"<boolean>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "6b41c86c-dc86-4eb7-8944-c4b04cfccd59",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "jobs",
-                    ":id",
-                    "run"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"job_args\": {\n    \"key_0\": 8888.384337753949\n  },\n  \"sample\": {\n    \"$ref\": \"<uri>\"\n  },\n  \"dependencies\": [\n    {\n      \"analysis\": {\n        \"$ref\": \"<uri>\"\n      },\n      \"download_path\": \"<string>\"\n    },\n    {\n      \"analysis\": {\n        \"$ref\": \"<uri>\"\n      },\n      \"download_path\": \"<string>\"\n    }\n  ],\n  \"populate_default_arguments\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$ref\": \"/api/v1/analyses/a1b2c3d4e5f67890\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "b95a77f1-fda2-4184-a9bc-4cf6b55b5e9e",
+          "createdAt": "2026-10-21T20:07:35.000Z",
+          "updatedAt": "2026-10-21T20:07:35.000Z",
+          "uid": "35240-b95a77f1-fda2-4184-a9bc-4cf6b55b5e9e"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "0e436d3d-8c8c-42de-a987-049061d0615d",
+      "createdAt": "2026-10-21T20:07:35.000Z",
+      "updatedAt": "2026-10-21T20:07:35.000Z",
+      "uid": "35240-0e436d3d-8c8c-42de-a987-049061d0615d"
     }
   ],
   "auth": {
@@ -680,25 +718,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "1d7761b5-126d-44b4-b7d0-a561bf9e079f",
-    "name": "One Codex API (v1) Account Jobs API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

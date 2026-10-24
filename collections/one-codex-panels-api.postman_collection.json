@@ -1,1048 +1,1081 @@
 {
+  "info": {
+    "_postman_id": "bc41db5d-f0b0-4b5d-90fc-d2fda92df36b",
+    "name": "One Codex API (v1) Panels API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:07:52.000Z",
+    "updatedAt": "2026-10-21T20:07:53.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bc41db5d-f0b0-4b5d-90fc-d2fda92df36b"
+  },
   "item": [
     {
-      "id": "dbeb5f43-8400-4f6f-a534-bcc3ac944838",
-      "name": "Panels",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "319f1ef3-370c-4005-84a4-5f526a143209",
-          "name": "GET panels instances",
-          "request": {
-            "name": "GET panels instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "panels"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "9e473ca7-f312-4c7f-ba72-b8a7cc6237dd",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "panels"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "panels",
+              "item": [
+                {
+                  "name": "public",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "GET panels instances_public",
+                      "id": "0095ec9b-fc2c-429c-ae1d-34cbfa31f673",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/panels/public?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "panels",
+                            "public"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "0cd7e1b4-df46-49f9-a819-9c2a2b5ead3e",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/panels/public?page=1&per_page=50&sort=<string>&where=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "panels",
+                                "public"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Page number. Defaults to 1. See Pagination for more details.",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                                  "key": "per_page",
+                                  "value": "50"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                                  "key": "sort",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                                  "key": "where",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"$uri\": \"/api/v1/panels/fc89f382d85c183b\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/e0606bffc737da86\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/db96347b89fad8a8\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"$uri\": \"/api/v1/panels/62865a69719943b7\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/dc51e2a22ea0122a\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/e1221de44a36fbf3\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                          "createdAt": "2026-10-21T20:07:53.000Z",
+                          "updatedAt": "2026-10-21T20:07:53.000Z",
+                          "uid": "35240-0cd7e1b4-df46-49f9-a819-9c2a2b5ead3e"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:53.000Z",
+                      "updatedAt": "2026-10-21T20:07:53.000Z",
+                      "uid": "35240-0095ec9b-fc2c-429c-ae1d-34cbfa31f673"
                     }
                   ],
-                  "variable": []
+                  "id": "5a5b0ca8-6dc1-4517-a483-fd1b8bb91ea0",
+                  "createdAt": "2026-10-21T20:07:53.000Z",
+                  "updatedAt": "2026-10-21T20:07:53.000Z",
+                  "uid": "35240-5a5b0ca8-6dc1-4517-a483-fd1b8bb91ea0"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "cancel",
+                      "item": [
+                        {
+                          "name": "POST panels cancel",
+                          "id": "67ff193f-d706-4211-a7ac-f5b930620f00",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/panels/:id/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "panels",
+                                ":id",
+                                "cancel"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "cbe2ca33-79a4-4bfe-8ea9-f73ab95af768",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "380f6e98-8b52-447a-ae18-e3115a9d4326",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/panels/:id/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "panels",
+                                    ":id",
+                                    "cancel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/panels/7c149df22382c46b\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/92c4a361e408e72d\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/14d6634c8bccf0be\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-21T20:07:53.000Z",
+                              "updatedAt": "2026-10-21T20:07:53.000Z",
+                              "uid": "35240-380f6e98-8b52-447a-ae18-e3115a9d4326"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:53.000Z",
+                          "updatedAt": "2026-10-21T20:07:53.000Z",
+                          "uid": "35240-67ff193f-d706-4211-a7ac-f5b930620f00"
+                        }
+                      ],
+                      "id": "cbffeb7b-3d53-4fd5-86f6-6cf6eddbc503",
+                      "createdAt": "2026-10-21T20:07:53.000Z",
+                      "updatedAt": "2026-10-21T20:07:53.000Z",
+                      "uid": "35240-cbffeb7b-3d53-4fd5-86f6-6cf6eddbc503"
                     },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                    {
+                      "name": "file_details",
+                      "item": [
+                        {
+                          "name": "GET panels file_details",
+                          "id": "1042ec18-e135-44a4-a54a-3b811bdcf093",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/panels/:id/file_details",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "panels",
+                                ":id",
+                                "file_details"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "3ba59243-1770-4f6d-9127-968fc782d008",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "65c546e0-2066-4628-9d5e-105c7d358404",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/panels/:id/file_details",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "panels",
+                                    ":id",
+                                    "file_details"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"files\": [\n    {\n      \"filename\": \"<string>\",\n      \"filepath\": \"<string>\",\n      \"size\": \"<integer>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"filename\": \"<string>\",\n      \"filepath\": \"<string>\",\n      \"size\": \"<integer>\",\n      \"url\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-21T20:07:53.000Z",
+                              "updatedAt": "2026-10-21T20:07:53.000Z",
+                              "uid": "35240-65c546e0-2066-4628-9d5e-105c7d358404"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:53.000Z",
+                          "updatedAt": "2026-10-21T20:07:53.000Z",
+                          "uid": "35240-1042ec18-e135-44a4-a54a-3b811bdcf093"
+                        }
+                      ],
+                      "id": "8604b90e-6286-423b-9e91-20a545777e3b",
+                      "createdAt": "2026-10-21T20:07:53.000Z",
+                      "updatedAt": "2026-10-21T20:07:53.000Z",
+                      "uid": "35240-8604b90e-6286-423b-9e91-20a545777e3b"
+                    },
+                    {
+                      "name": "files",
+                      "item": [
+                        {
+                          "name": "DELETE panels files",
+                          "id": "fed8294e-a587-4095-abab-07eca9cdd949",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/panels/:id/files",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "panels",
+                                ":id",
+                                "files"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "603bf11b-9d31-471e-a5dc-f514e6e4d102",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "aebae004-440b-4900-a008-d8b6021cb4ef",
+                              "name": "No Content",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/panels/:id/files",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "panels",
+                                    ":id",
+                                    "files"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:07:53.000Z",
+                              "updatedAt": "2026-10-21T20:07:53.000Z",
+                              "uid": "35240-aebae004-440b-4900-a008-d8b6021cb4ef"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:53.000Z",
+                          "updatedAt": "2026-10-21T20:07:53.000Z",
+                          "uid": "35240-fed8294e-a587-4095-abab-07eca9cdd949"
+                        },
+                        {
+                          "name": "GET panels files",
+                          "id": "de3d906c-2624-4728-8f14-66a8733bec41",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/panels/:id/files",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "panels",
+                                ":id",
+                                "files"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "2da1d0d3-9390-4267-aaaf-7be72d5c98a7",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "58a7ef9c-8195-4126-8aab-e44fcda57501",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/panels/:id/files",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "panels",
+                                    ":id",
+                                    "files"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-21T20:07:53.000Z",
+                              "updatedAt": "2026-10-21T20:07:53.000Z",
+                              "uid": "35240-58a7ef9c-8195-4126-8aab-e44fcda57501"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:53.000Z",
+                          "updatedAt": "2026-10-21T20:07:53.000Z",
+                          "uid": "35240-de3d906c-2624-4728-8f14-66a8733bec41"
+                        }
+                      ],
+                      "id": "7f396b2c-8dbf-4fed-8000-332141464326",
+                      "createdAt": "2026-10-21T20:07:53.000Z",
+                      "updatedAt": "2026-10-21T20:07:53.000Z",
+                      "uid": "35240-7f396b2c-8dbf-4fed-8000-332141464326"
+                    },
+                    {
+                      "name": "logs",
+                      "item": [
+                        {
+                          "name": "GET panels logs",
+                          "id": "f57fd350-5584-4901-ac67-54ec6c4fb9ed",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/panels/:id/logs?tail=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "panels",
+                                ":id",
+                                "logs"
+                              ],
+                              "query": [
+                                {
+                                  "key": "tail",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "4da8a4a1-dd42-4228-a51d-fc7ee6899288",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "48a141fe-73b7-4425-97df-ec94a83f695f",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/panels/:id/logs?tail=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "panels",
+                                    ":id",
+                                    "logs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "tail",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:07:53.000Z",
+                              "updatedAt": "2026-10-21T20:07:53.000Z",
+                              "uid": "35240-48a141fe-73b7-4425-97df-ec94a83f695f"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:53.000Z",
+                          "updatedAt": "2026-10-21T20:07:53.000Z",
+                          "uid": "35240-f57fd350-5584-4901-ac67-54ec6c4fb9ed"
+                        }
+                      ],
+                      "id": "5009dad3-e7ca-41e6-a3cf-d89b59ef8c44",
+                      "createdAt": "2026-10-21T20:07:53.000Z",
+                      "updatedAt": "2026-10-21T20:07:53.000Z",
+                      "uid": "35240-5009dad3-e7ca-41e6-a3cf-d89b59ef8c44"
+                    },
+                    {
+                      "name": "rerun",
+                      "item": [
+                        {
+                          "name": "POST panels rerun",
+                          "id": "a4bf74de-6162-40bd-b0ab-ba9092898a2b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/panels/:id/rerun",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "panels",
+                                ":id",
+                                "rerun"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b1ceb24e-c84b-4393-a2ed-40deb0fa2911",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "5169ba03-bf2b-42c1-be09-d99e2a038861",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/panels/:id/rerun",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "panels",
+                                    ":id",
+                                    "rerun"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/panels/7c149df22382c46b\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/92c4a361e408e72d\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/14d6634c8bccf0be\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-21T20:07:53.000Z",
+                              "updatedAt": "2026-10-21T20:07:53.000Z",
+                              "uid": "35240-5169ba03-bf2b-42c1-be09-d99e2a038861"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:53.000Z",
+                          "updatedAt": "2026-10-21T20:07:53.000Z",
+                          "uid": "35240-a4bf74de-6162-40bd-b0ab-ba9092898a2b"
+                        }
+                      ],
+                      "id": "8520f745-3caf-49c4-98a6-362ab5f54471",
+                      "createdAt": "2026-10-21T20:07:53.000Z",
+                      "updatedAt": "2026-10-21T20:07:53.000Z",
+                      "uid": "35240-8520f745-3caf-49c4-98a6-362ab5f54471"
+                    },
+                    {
+                      "name": "results",
+                      "item": [
+                        {
+                          "name": "GET panels results",
+                          "id": "ecea8896-5721-4025-a3f0-c971be8f199a",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/panels/:id/results",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "panels",
+                                ":id",
+                                "results"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "76f91893-4c8e-4ec7-b86b-6ea8fa501d87",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "1c9786e3-1ee0-4dd6-8f85-84cab1f194a2",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/panels/:id/results",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "panels",
+                                    ":id",
+                                    "results"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"panel_name\": \"<string>\",\n  \"panel_results\": {\n    \"title\": \"Panel Results\"\n  }\n}",
+                              "createdAt": "2026-10-21T20:07:53.000Z",
+                              "updatedAt": "2026-10-21T20:07:53.000Z",
+                              "uid": "35240-1c9786e3-1ee0-4dd6-8f85-84cab1f194a2"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:53.000Z",
+                          "updatedAt": "2026-10-21T20:07:53.000Z",
+                          "uid": "35240-ecea8896-5721-4025-a3f0-c971be8f199a"
+                        }
+                      ],
+                      "id": "609e8235-ab87-4448-b22b-ea8d645b2a0f",
+                      "createdAt": "2026-10-21T20:07:53.000Z",
+                      "updatedAt": "2026-10-21T20:07:53.000Z",
+                      "uid": "35240-609e8235-ab87-4448-b22b-ea8d645b2a0f"
+                    },
+                    {
+                      "name": "GET panels",
+                      "id": "a61cfbc8-400b-432f-a8c2-4489ca8d64be",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/panels/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "panels",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c4efc893-99ae-4e30-afa1-8171fd8018db",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "f7c864cc-10da-4de8-8ac9-fd34810e4312",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/panels/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "panels",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/panels/7c149df22382c46b\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/92c4a361e408e72d\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/14d6634c8bccf0be\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T20:07:53.000Z",
+                          "updatedAt": "2026-10-21T20:07:53.000Z",
+                          "uid": "35240-f7c864cc-10da-4de8-8ac9-fd34810e4312"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:53.000Z",
+                      "updatedAt": "2026-10-21T20:07:53.000Z",
+                      "uid": "35240-a61cfbc8-400b-432f-a8c2-4489ca8d64be"
+                    }
+                  ],
+                  "id": "a2e49ea9-1522-456d-8fba-502827f11dfd",
+                  "createdAt": "2026-10-21T20:07:53.000Z",
+                  "updatedAt": "2026-10-21T20:07:53.000Z",
+                  "uid": "35240-a2e49ea9-1522-456d-8fba-502827f11dfd"
+                },
+                {
+                  "name": "GET panels instances",
+                  "id": "ec9952b3-f52f-41cd-ba7a-fc0d78f2c5f6",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/panels/0d77065796f8d173\",\n    \"created_at\": \"1988-06-19T08:49:42.904Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1979-09-12T15:14:47.461Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/panels/0d77065796f8d173\",\n    \"created_at\": \"1950-06-06T18:35:28.629Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1949-10-01T06:15:28.151Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "bbfb51f5-1029-4840-8738-8d244e10e729",
-          "name": "GET panels instances_public",
-          "request": {
-            "name": "GET panels instances_public",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "panels",
-                "public"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7d0e0bf4-9f6f-46c1-bd07-c2f56d3f1a2e",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "panels",
-                    "public"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/panels?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "panels"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/panels/0d77065796f8d173\",\n    \"created_at\": \"1988-06-19T08:49:42.904Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1979-09-12T15:14:47.461Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/panels/0d77065796f8d173\",\n    \"created_at\": \"1950-06-06T18:35:28.629Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1949-10-01T06:15:28.151Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "011462b6-7619-422e-8e43-c8be7c600668",
-          "name": "GET panels",
-          "request": {
-            "name": "GET panels",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "panels",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "a7747456-9261-457f-ba85-e27a3a346d45",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "panels",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/panels/0d77065796f8d173\",\n  \"created_at\": \"2001-03-10T17:10:32.261Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"1976-05-03T12:17:43.390Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5499a073-12a7-45e4-9691-fe34e8ed86ce",
-          "name": "POST panels cancel",
-          "request": {
-            "name": "POST panels cancel",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "panels",
-                ":id",
-                "cancel"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "60fa4a42-43b4-4860-a4eb-d784af0b24fb",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "panels",
-                    ":id",
-                    "cancel"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/panels/0d77065796f8d173\",\n  \"created_at\": \"2001-03-10T17:10:32.261Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"1976-05-03T12:17:43.390Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3878f1d7-8185-463d-9e9f-af2905ca6bbc",
-          "name": "GET panels file_details",
-          "request": {
-            "name": "GET panels file_details",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "panels",
-                ":id",
-                "file_details"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f25412bf-34fb-448b-839a-31b3b3b33edd",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "panels",
-                    ":id",
-                    "file_details"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"files\": [\n    {\n      \"filename\": \"string\",\n      \"filepath\": \"string\",\n      \"size\": 5526,\n      \"url\": \"string\"\n    },\n    {\n      \"filename\": \"string\",\n      \"filepath\": \"string\",\n      \"size\": 8973,\n      \"url\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "58de7fbb-a5dc-4596-8d0e-0edb898e7f43",
-          "name": "DELETE panels files",
-          "request": {
-            "name": "DELETE panels files",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "panels",
-                ":id",
-                "files"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f24dbc51-0246-47b9-a5c3-2c34d4900615",
-              "name": "No Content",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "panels",
-                    ":id",
-                    "files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "19580b28-d5b5-4579-96c7-f1e0009aa1e5",
-          "name": "GET panels files",
-          "request": {
-            "name": "GET panels files",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "panels",
-                ":id",
-                "files"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "c56ae0f0-e704-41f1-b235-1fcb984cabc0",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "panels",
-                    ":id",
-                    "files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "61f8796a-f156-4825-a8a3-3b442ffdebfe",
-          "name": "GET panels logs",
-          "request": {
-            "name": "GET panels logs",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "panels",
-                ":id",
-                "logs"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "tail",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "19098486-ea0e-40f0-bd15-c5c435829484",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "panels",
-                    ":id",
-                    "logs"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "tail",
-                      "value": "<integer>"
+                      "id": "17c5c1f7-bb77-4c02-9742-6f98c9784587",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/panels?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "panels"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/panels/fc89f382d85c183b\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/e0606bffc737da86\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/db96347b89fad8a8\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"$uri\": \"/api/v1/panels/62865a69719943b7\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/dc51e2a22ea0122a\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/e1221de44a36fbf3\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-10-21T20:07:53.000Z",
+                      "updatedAt": "2026-10-21T20:07:53.000Z",
+                      "uid": "35240-17c5c1f7-bb77-4c02-9742-6f98c9784587"
                     }
                   ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "createdAt": "2026-10-21T20:07:53.000Z",
+                  "updatedAt": "2026-10-21T20:07:53.000Z",
+                  "uid": "35240-ec9952b3-f52f-41cd-ba7a-fc0d78f2c5f6"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "3f6573e3-5077-4f13-a91f-f2f9e4974f79",
+              "createdAt": "2026-10-21T20:07:53.000Z",
+              "updatedAt": "2026-10-21T20:07:53.000Z",
+              "uid": "35240-3f6573e3-5077-4f13-a91f-f2f9e4974f79"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "9d2e0a74-5b04-4f8c-8fe4-37317cd34046",
-          "name": "POST panels rerun",
-          "request": {
-            "name": "POST panels rerun",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "panels",
-                ":id",
-                "rerun"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "e4a2d164-442c-4cf0-a036-e25d051c3555",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "panels",
-                    ":id",
-                    "rerun"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/panels/0d77065796f8d173\",\n  \"created_at\": \"2001-03-10T17:10:32.261Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"1976-05-03T12:17:43.390Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "22c57b38-ecbe-4a65-8cf4-48225336e424",
-          "name": "GET panels results",
-          "request": {
-            "name": "GET panels results",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "panels",
-                ":id",
-                "results"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "2071e4d5-e80c-4a69-b963-e5356fa40ca1",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "panels",
-                    ":id",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"panel_name\": \"string\",\n  \"panel_results\": {}\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "7363a3a2-49e8-44a7-8035-7b36ed24b39e",
+          "createdAt": "2026-10-21T20:07:53.000Z",
+          "updatedAt": "2026-10-21T20:07:53.000Z",
+          "uid": "35240-7363a3a2-49e8-44a7-8035-7b36ed24b39e"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "0387c6ce-6f77-4f89-bd45-8c342c2c3166",
+      "createdAt": "2026-10-21T20:07:53.000Z",
+      "updatedAt": "2026-10-21T20:07:53.000Z",
+      "uid": "35240-0387c6ce-6f77-4f89-bd45-8c342c2c3166"
     }
   ],
   "auth": {
@@ -1050,25 +1083,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "ce123eda-3bc4-418d-99f4-88bd4bea84f8",
-    "name": "One Codex API (v1) Account Panels API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

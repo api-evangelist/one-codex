@@ -1,1048 +1,1081 @@
 {
+  "info": {
+    "_postman_id": "9631bed2-42fa-40fb-8fd3-ba81758045e9",
+    "name": "One Codex API (v1) Analyses API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:06:19.000Z",
+    "updatedAt": "2026-10-21T20:06:20.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-9631bed2-42fa-40fb-8fd3-ba81758045e9"
+  },
   "item": [
     {
-      "id": "236f04ba-1e40-49c8-b928-0c858ad8e861",
-      "name": "Analyses",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "821581bd-e80f-4f36-a799-c0bad7fdf94c",
-          "name": "GET analyses instances",
-          "request": {
-            "name": "GET analyses instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "analyses"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "6ea15ab1-ee2c-4c70-af4b-8d2c0885ef0d",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "analyses"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "analyses",
+              "item": [
+                {
+                  "name": "public",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "GET analyses instances_public",
+                      "id": "d745a810-f0f1-4433-a19b-486039ac3526",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/analyses/public?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "analyses",
+                            "public"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "709ff388-88f7-4e8d-bb1f-d8ac8c038b42",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/analyses/public?page=1&per_page=50&sort=<string>&where=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "analyses",
+                                "public"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Page number. Defaults to 1. See Pagination for more details.",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                                  "key": "per_page",
+                                  "value": "50"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                                  "key": "sort",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                                  "key": "where",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"$uri\": \"/api/v1/analyses/c31533e4c9091618\",\n    \"analysis_type\": \"report\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/fee0180be5ece243\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/c0906b191250cceb\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"$uri\": \"/api/v1/analyses/ddace85a1fb7beb0\",\n    \"analysis_type\": \"control\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/461df28b85e139fc\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/3e93aa42439877bc\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                          "createdAt": "2026-10-21T20:06:20.000Z",
+                          "updatedAt": "2026-10-21T20:06:20.000Z",
+                          "uid": "35240-709ff388-88f7-4e8d-bb1f-d8ac8c038b42"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:20.000Z",
+                      "updatedAt": "2026-10-21T20:06:20.000Z",
+                      "uid": "35240-d745a810-f0f1-4433-a19b-486039ac3526"
                     }
                   ],
-                  "variable": []
+                  "id": "b6052298-2a4d-479d-8606-126ac2e297cf",
+                  "createdAt": "2026-10-21T20:06:20.000Z",
+                  "updatedAt": "2026-10-21T20:06:20.000Z",
+                  "uid": "35240-b6052298-2a4d-479d-8606-126ac2e297cf"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "cancel",
+                      "item": [
+                        {
+                          "name": "POST analyses cancel",
+                          "id": "ebd81a88-1615-4ec5-8777-9575bec601b1",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/analyses/:id/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "analyses",
+                                ":id",
+                                "cancel"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "418187bb-3eb7-4642-aab6-f748daf7d6c2",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "03e63353-24b3-413c-8dda-bf600f8f66f4",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/analyses/:id/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "analyses",
+                                    ":id",
+                                    "cancel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/analyses/83f88490c4536c43\",\n  \"analysis_type\": \"control\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/cd88befeb31a86a2\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/1b4484ad2650faab\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-21T20:06:20.000Z",
+                              "updatedAt": "2026-10-21T20:06:20.000Z",
+                              "uid": "35240-03e63353-24b3-413c-8dda-bf600f8f66f4"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:20.000Z",
+                          "updatedAt": "2026-10-21T20:06:20.000Z",
+                          "uid": "35240-ebd81a88-1615-4ec5-8777-9575bec601b1"
+                        }
+                      ],
+                      "id": "3b1073d7-1636-40b8-8f91-105736f94e3b",
+                      "createdAt": "2026-10-21T20:06:20.000Z",
+                      "updatedAt": "2026-10-21T20:06:20.000Z",
+                      "uid": "35240-3b1073d7-1636-40b8-8f91-105736f94e3b"
                     },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                    {
+                      "name": "file_details",
+                      "item": [
+                        {
+                          "name": "GET analyses file_details",
+                          "id": "329f570d-07ed-422d-b4be-2d3021d0632f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/analyses/:id/file_details",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "analyses",
+                                ":id",
+                                "file_details"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "d27d26ee-d4e1-4051-978b-d6f25ea18556",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "f0554dbf-430a-4a1f-b261-fc6329af07e1",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/analyses/:id/file_details",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "analyses",
+                                    ":id",
+                                    "file_details"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"files\": [\n    {\n      \"filename\": \"<string>\",\n      \"filepath\": \"<string>\",\n      \"size\": \"<integer>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"filename\": \"<string>\",\n      \"filepath\": \"<string>\",\n      \"size\": \"<integer>\",\n      \"url\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-21T20:06:20.000Z",
+                              "updatedAt": "2026-10-21T20:06:20.000Z",
+                              "uid": "35240-f0554dbf-430a-4a1f-b261-fc6329af07e1"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:20.000Z",
+                          "updatedAt": "2026-10-21T20:06:20.000Z",
+                          "uid": "35240-329f570d-07ed-422d-b4be-2d3021d0632f"
+                        }
+                      ],
+                      "id": "d19fc843-8c80-428d-a320-db5355235f84",
+                      "createdAt": "2026-10-21T20:06:20.000Z",
+                      "updatedAt": "2026-10-21T20:06:20.000Z",
+                      "uid": "35240-d19fc843-8c80-428d-a320-db5355235f84"
+                    },
+                    {
+                      "name": "files",
+                      "item": [
+                        {
+                          "name": "DELETE analyses files",
+                          "id": "99e2a934-e53f-4038-a646-b1141c1a820d",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/analyses/:id/files",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "analyses",
+                                ":id",
+                                "files"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "920ea971-3917-43d6-b1fa-bc06309d1442",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "bfd6102a-8f5e-42fb-b2ed-951c0c8ee0d5",
+                              "name": "No Content",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/analyses/:id/files",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "analyses",
+                                    ":id",
+                                    "files"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:06:20.000Z",
+                              "updatedAt": "2026-10-21T20:06:20.000Z",
+                              "uid": "35240-bfd6102a-8f5e-42fb-b2ed-951c0c8ee0d5"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:20.000Z",
+                          "updatedAt": "2026-10-21T20:06:20.000Z",
+                          "uid": "35240-99e2a934-e53f-4038-a646-b1141c1a820d"
+                        },
+                        {
+                          "name": "GET analyses files",
+                          "id": "16a6a235-a2b5-48e6-9629-88c86c3a2490",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/analyses/:id/files",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "analyses",
+                                ":id",
+                                "files"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "747407cd-4b76-4fc2-bd37-cde0de657a93",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "5cbc9937-1e31-4bb4-a784-d81bfb0e02dc",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/analyses/:id/files",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "analyses",
+                                    ":id",
+                                    "files"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-21T20:06:20.000Z",
+                              "updatedAt": "2026-10-21T20:06:20.000Z",
+                              "uid": "35240-5cbc9937-1e31-4bb4-a784-d81bfb0e02dc"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:20.000Z",
+                          "updatedAt": "2026-10-21T20:06:20.000Z",
+                          "uid": "35240-16a6a235-a2b5-48e6-9629-88c86c3a2490"
+                        }
+                      ],
+                      "id": "fc7b3221-e43e-4142-9034-21b2c0e3ac33",
+                      "createdAt": "2026-10-21T20:06:20.000Z",
+                      "updatedAt": "2026-10-21T20:06:20.000Z",
+                      "uid": "35240-fc7b3221-e43e-4142-9034-21b2c0e3ac33"
+                    },
+                    {
+                      "name": "logs",
+                      "item": [
+                        {
+                          "name": "GET analyses logs",
+                          "id": "a8a24e0e-e025-4a26-87ce-593b70608eae",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/analyses/:id/logs?tail=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "analyses",
+                                ":id",
+                                "logs"
+                              ],
+                              "query": [
+                                {
+                                  "key": "tail",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "872d2f60-a78f-4a64-a65a-73ef0f4b4796",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "23b5516c-b0bf-46f0-b0a3-7fc17f5d8633",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/analyses/:id/logs?tail=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "analyses",
+                                    ":id",
+                                    "logs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "tail",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:06:20.000Z",
+                              "updatedAt": "2026-10-21T20:06:20.000Z",
+                              "uid": "35240-23b5516c-b0bf-46f0-b0a3-7fc17f5d8633"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:20.000Z",
+                          "updatedAt": "2026-10-21T20:06:20.000Z",
+                          "uid": "35240-a8a24e0e-e025-4a26-87ce-593b70608eae"
+                        }
+                      ],
+                      "id": "57cd3c7b-d84c-4087-9349-bcc669398a97",
+                      "createdAt": "2026-10-21T20:06:20.000Z",
+                      "updatedAt": "2026-10-21T20:06:20.000Z",
+                      "uid": "35240-57cd3c7b-d84c-4087-9349-bcc669398a97"
+                    },
+                    {
+                      "name": "rerun",
+                      "item": [
+                        {
+                          "name": "POST analyses rerun",
+                          "id": "07128e70-e165-4051-91ca-823ef982537b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/analyses/:id/rerun",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "analyses",
+                                ":id",
+                                "rerun"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "b8e6876d-aa57-4b9f-b442-39073a7094d2",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "cf3a55ee-95d4-4394-9fb9-e662de172599",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/analyses/:id/rerun",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "analyses",
+                                    ":id",
+                                    "rerun"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/analyses/83f88490c4536c43\",\n  \"analysis_type\": \"control\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/cd88befeb31a86a2\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/1b4484ad2650faab\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-21T20:06:20.000Z",
+                              "updatedAt": "2026-10-21T20:06:20.000Z",
+                              "uid": "35240-cf3a55ee-95d4-4394-9fb9-e662de172599"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:20.000Z",
+                          "updatedAt": "2026-10-21T20:06:20.000Z",
+                          "uid": "35240-07128e70-e165-4051-91ca-823ef982537b"
+                        }
+                      ],
+                      "id": "f92fdfb7-1971-46ff-a4b5-f31ee1e3d16f",
+                      "createdAt": "2026-10-21T20:06:20.000Z",
+                      "updatedAt": "2026-10-21T20:06:20.000Z",
+                      "uid": "35240-f92fdfb7-1971-46ff-a4b5-f31ee1e3d16f"
+                    },
+                    {
+                      "name": "results",
+                      "item": [
+                        {
+                          "name": "GET analyses results",
+                          "id": "bb9964ee-e48e-4998-9d93-cb7a24c00cba",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/analyses/:id/results",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "analyses",
+                                ":id",
+                                "results"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "7c6159f3-19a5-4c0c-98f1-5511f03bb995",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "20d34d10-bd66-4a7e-a994-e61fd83e9bd4",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/analyses/:id/results",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "analyses",
+                                    ":id",
+                                    "results"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-21T20:06:20.000Z",
+                              "updatedAt": "2026-10-21T20:06:20.000Z",
+                              "uid": "35240-20d34d10-bd66-4a7e-a994-e61fd83e9bd4"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:20.000Z",
+                          "updatedAt": "2026-10-21T20:06:20.000Z",
+                          "uid": "35240-bb9964ee-e48e-4998-9d93-cb7a24c00cba"
+                        }
+                      ],
+                      "id": "aa5e4282-15f5-4401-8082-f27a896135d8",
+                      "createdAt": "2026-10-21T20:06:20.000Z",
+                      "updatedAt": "2026-10-21T20:06:20.000Z",
+                      "uid": "35240-aa5e4282-15f5-4401-8082-f27a896135d8"
+                    },
+                    {
+                      "name": "GET analyses",
+                      "id": "cef8193d-f475-435c-ad11-8e1bcf08854e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/analyses/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "analyses",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "920ca5be-b8ff-4a3b-85ff-b8b91f99b080",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "19748a38-5f49-4fd4-8221-c608b5e51ac6",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/analyses/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "analyses",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/analyses/83f88490c4536c43\",\n  \"analysis_type\": \"control\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/cd88befeb31a86a2\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/1b4484ad2650faab\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T20:06:20.000Z",
+                          "updatedAt": "2026-10-21T20:06:20.000Z",
+                          "uid": "35240-19748a38-5f49-4fd4-8221-c608b5e51ac6"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:20.000Z",
+                      "updatedAt": "2026-10-21T20:06:20.000Z",
+                      "uid": "35240-cef8193d-f475-435c-ad11-8e1bcf08854e"
+                    }
+                  ],
+                  "id": "052fef4d-f00d-4b5d-b1ac-13cfc1d435c6",
+                  "createdAt": "2026-10-21T20:06:20.000Z",
+                  "updatedAt": "2026-10-21T20:06:20.000Z",
+                  "uid": "35240-052fef4d-f00d-4b5d-b1ac-13cfc1d435c6"
+                },
+                {
+                  "name": "GET analyses instances",
+                  "id": "3b9c542f-c8ac-416c-9c3e-f2184e7b1b9a",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/analyses/0d77065796f8d173\",\n    \"analysis_type\": \"assembly_run\",\n    \"created_at\": \"1989-03-03T21:42:35.134Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"2014-05-07T06:59:10.557Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/analyses/0d77065796f8d173\",\n    \"analysis_type\": \"alignment\",\n    \"created_at\": \"1972-01-19T05:28:07.976Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1980-08-28T16:13:11.777Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "a222cc7c-b08c-4c4d-a841-a86f155a1ff9",
-          "name": "GET analyses instances_public",
-          "request": {
-            "name": "GET analyses instances_public",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "analyses",
-                "public"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "ffad5594-ea17-4be2-9315-5dd404265fac",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "analyses",
-                    "public"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/analyses?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "analyses"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/analyses/0d77065796f8d173\",\n    \"analysis_type\": \"assembly_run\",\n    \"created_at\": \"1989-03-03T21:42:35.134Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"2014-05-07T06:59:10.557Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/analyses/0d77065796f8d173\",\n    \"analysis_type\": \"alignment\",\n    \"created_at\": \"1972-01-19T05:28:07.976Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1980-08-28T16:13:11.777Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ca7e4a72-d016-4a30-b50a-2d4428c19c73",
-          "name": "GET analyses",
-          "request": {
-            "name": "GET analyses",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "analyses",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "0ce3d426-f53f-477b-ad7e-d94d9d62167f",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "analyses",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/analyses/0d77065796f8d173\",\n  \"analysis_type\": \"alignment\",\n  \"created_at\": \"2003-04-01T16:53:47.144Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"2017-02-15T18:52:56.812Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "3e07f9d0-9d5a-449f-8b45-856feef99296",
-          "name": "POST analyses cancel",
-          "request": {
-            "name": "POST analyses cancel",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "analyses",
-                ":id",
-                "cancel"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b653e7c6-555a-4557-a970-464d7b428379",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "analyses",
-                    ":id",
-                    "cancel"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/analyses/0d77065796f8d173\",\n  \"analysis_type\": \"alignment\",\n  \"created_at\": \"2003-04-01T16:53:47.144Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"2017-02-15T18:52:56.812Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "901a1db2-4447-4274-8e8e-72b0f9d2a579",
-          "name": "GET analyses file_details",
-          "request": {
-            "name": "GET analyses file_details",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "analyses",
-                ":id",
-                "file_details"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7f0ce7d1-327b-4b2c-8e89-66eb8b4baad5",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "analyses",
-                    ":id",
-                    "file_details"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"files\": [\n    {\n      \"filename\": \"string\",\n      \"filepath\": \"string\",\n      \"size\": 5848,\n      \"url\": \"string\"\n    },\n    {\n      \"filename\": \"string\",\n      \"filepath\": \"string\",\n      \"size\": 5256,\n      \"url\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0cdf81ca-6897-4866-bb63-89604e2b0a82",
-          "name": "DELETE analyses files",
-          "request": {
-            "name": "DELETE analyses files",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "analyses",
-                ":id",
-                "files"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "29433b05-87c2-4776-8891-c0e9991a319d",
-              "name": "No Content",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "analyses",
-                    ":id",
-                    "files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ed84c3ce-be90-49ee-a13e-8cd0e82cd9ab",
-          "name": "GET analyses files",
-          "request": {
-            "name": "GET analyses files",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "analyses",
-                ":id",
-                "files"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "302b2e94-aa42-4cf2-a633-681350c25c2d",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "analyses",
-                    ":id",
-                    "files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "cbc00fba-49b5-47a5-8614-2cc7fbbe4438",
-          "name": "GET analyses logs",
-          "request": {
-            "name": "GET analyses logs",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "analyses",
-                ":id",
-                "logs"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "tail",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "e8e40222-5907-4f00-a0c3-9131e37f81c1",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "analyses",
-                    ":id",
-                    "logs"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "tail",
-                      "value": "<integer>"
+                      "id": "11fa7f8e-7723-46e0-a8d3-b0d2604d1884",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/analyses?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "analyses"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/analyses/c31533e4c9091618\",\n    \"analysis_type\": \"report\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/fee0180be5ece243\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/c0906b191250cceb\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"$uri\": \"/api/v1/analyses/ddace85a1fb7beb0\",\n    \"analysis_type\": \"control\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/461df28b85e139fc\"\n    },\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/3e93aa42439877bc\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-10-21T20:06:20.000Z",
+                      "updatedAt": "2026-10-21T20:06:20.000Z",
+                      "uid": "35240-11fa7f8e-7723-46e0-a8d3-b0d2604d1884"
                     }
                   ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "createdAt": "2026-10-21T20:06:20.000Z",
+                  "updatedAt": "2026-10-21T20:06:20.000Z",
+                  "uid": "35240-3b9c542f-c8ac-416c-9c3e-f2184e7b1b9a"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "eed120a5-45a2-463e-be2d-571cf5fc1929",
+              "createdAt": "2026-10-21T20:06:20.000Z",
+              "updatedAt": "2026-10-21T20:06:20.000Z",
+              "uid": "35240-eed120a5-45a2-463e-be2d-571cf5fc1929"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "cf1585c7-96df-4406-83e3-a0129e05ebdc",
-          "name": "POST analyses rerun",
-          "request": {
-            "name": "POST analyses rerun",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "analyses",
-                ":id",
-                "rerun"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "0feafdaf-16cc-402e-817d-a79aadd5ace6",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "analyses",
-                    ":id",
-                    "rerun"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/analyses/0d77065796f8d173\",\n  \"analysis_type\": \"alignment\",\n  \"created_at\": \"2003-04-01T16:53:47.144Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"2017-02-15T18:52:56.812Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "979cd89d-95e8-4392-b8a4-2d65626a276d",
-          "name": "GET analyses results",
-          "request": {
-            "name": "GET analyses results",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "analyses",
-                ":id",
-                "results"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "c3d4d52e-927c-43d6-9acd-5738a4443bb7",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "analyses",
-                    ":id",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "a39fc8bb-0e8c-45f0-9d48-684a4488f4ab",
+          "createdAt": "2026-10-21T20:06:20.000Z",
+          "updatedAt": "2026-10-21T20:06:20.000Z",
+          "uid": "35240-a39fc8bb-0e8c-45f0-9d48-684a4488f4ab"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "c74033bd-1b3a-4b6a-972d-2ff71ea3e35a",
+      "createdAt": "2026-10-21T20:06:20.000Z",
+      "updatedAt": "2026-10-21T20:06:20.000Z",
+      "uid": "35240-c74033bd-1b3a-4b6a-972d-2ff71ea3e35a"
     }
   ],
   "auth": {
@@ -1050,25 +1083,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "f1fa6063-ab5b-4406-ac84-249fb6adfc82",
-    "name": "One Codex API (v1) Account Analyses API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

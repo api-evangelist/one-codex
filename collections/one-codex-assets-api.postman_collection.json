@@ -1,728 +1,761 @@
 {
+  "info": {
+    "_postman_id": "b8e92481-1612-48ff-a8fb-408fede00834",
+    "name": "One Codex API (v1) Assets API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:06:40.000Z",
+    "updatedAt": "2026-10-21T20:06:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-b8e92481-1612-48ff-a8fb-408fede00834"
+  },
   "item": [
     {
-      "id": "ac62178e-b5fe-41b1-b444-bb64cba4de79",
-      "name": "Assets",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "a13249c5-dba8-4512-85f0-b064fbdbd17c",
-          "name": "GET assets instances",
-          "request": {
-            "name": "GET assets instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "assets"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "55f1a4fe-3923-45eb-a204-f44505669c9a",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "assets"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "assets",
+              "item": [
+                {
+                  "name": "confirm_multipart_upload",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "POST assets instances_confirm_multipart_upload",
+                      "id": "624237a7-798c-4d36-8f98-15bab75f9a73",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"filename\": \"<string>\",\n  \"s3_path\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/assets/confirm_multipart_upload",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "assets",
+                            "confirm_multipart_upload"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "e72cd75c-0386-4d48-8f75-2d44f5b6dbef",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"filename\": \"<string>\",\n  \"s3_path\": \"<string>\",\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/assets/confirm_multipart_upload",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "assets",
+                                "confirm_multipart_upload"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"asset_id\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:06:41.000Z",
+                          "updatedAt": "2026-10-21T20:06:41.000Z",
+                          "uid": "35240-e72cd75c-0386-4d48-8f75-2d44f5b6dbef"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:41.000Z",
+                      "updatedAt": "2026-10-21T20:06:41.000Z",
+                      "uid": "35240-624237a7-798c-4d36-8f98-15bab75f9a73"
                     }
                   ],
-                  "variable": []
+                  "id": "5a1ac24c-f12b-490d-a785-9011a136e170",
+                  "createdAt": "2026-10-21T20:06:41.000Z",
+                  "updatedAt": "2026-10-21T20:06:41.000Z",
+                  "uid": "35240-5a1ac24c-f12b-490d-a785-9011a136e170"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                {
+                  "name": "init_multipart_upload",
+                  "item": [
+                    {
+                      "name": "POST assets instances_init_multipart_upload",
+                      "id": "58d8d040-9ff1-40c9-8eec-75436b25536f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/assets/init_multipart_upload",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "assets",
+                            "init_multipart_upload"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "8564eeb8-5648-4b5d-b9a2-3262729a4dae",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/assets/init_multipart_upload",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "assets",
+                                "init_multipart_upload"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"callback_url\": \"<string>\",\n  \"file_id\": \"<string>\",\n  \"s3_bucket\": \"<string>\",\n  \"upload_aws_access_key_id\": \"<string>\",\n  \"upload_aws_secret_access_key\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:06:41.000Z",
+                          "updatedAt": "2026-10-21T20:06:41.000Z",
+                          "uid": "35240-8564eeb8-5648-4b5d-b9a2-3262729a4dae"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:41.000Z",
+                      "updatedAt": "2026-10-21T20:06:41.000Z",
+                      "uid": "35240-58d8d040-9ff1-40c9-8eec-75436b25536f"
+                    }
+                  ],
+                  "id": "d602cb59-3711-4da9-b813-b848705f8c30",
+                  "createdAt": "2026-10-21T20:06:41.000Z",
+                  "updatedAt": "2026-10-21T20:06:41.000Z",
+                  "uid": "35240-d602cb59-3711-4da9-b813-b848705f8c30"
+                },
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "download_uri",
+                      "item": [
+                        {
+                          "name": "POST assets download_uri",
+                          "id": "59177fa0-9201-4ff4-bd6d-d1a0992ce01e",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/assets/:id/download_uri",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "assets",
+                                ":id",
+                                "download_uri"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c7bd4d8e-7dc1-4042-85f3-6e1f1e6ed683",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "4024f3d1-7e3b-4ac5-9d3d-03a6aedab7d5",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/assets/:id/download_uri",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "assets",
+                                    ":id",
+                                    "download_uri"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"download_uri\": \"<string>\",\n  \"expires_at\": \"<dateTime>\",\n  \"expires_in_hours\": \"<integer>\"\n}",
+                              "createdAt": "2026-10-21T20:06:41.000Z",
+                              "updatedAt": "2026-10-21T20:06:41.000Z",
+                              "uid": "35240-4024f3d1-7e3b-4ac5-9d3d-03a6aedab7d5"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:41.000Z",
+                          "updatedAt": "2026-10-21T20:06:41.000Z",
+                          "uid": "35240-59177fa0-9201-4ff4-bd6d-d1a0992ce01e"
+                        }
+                      ],
+                      "id": "c1a2be34-a930-41c3-856f-818714d3897a",
+                      "createdAt": "2026-10-21T20:06:41.000Z",
+                      "updatedAt": "2026-10-21T20:06:41.000Z",
+                      "uid": "35240-c1a2be34-a930-41c3-856f-818714d3897a"
                     },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                    {
+                      "name": "DELETE assets",
+                      "id": "fbe52897-cf56-483a-a89b-c82ef637b33c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/assets/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "assets",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "22e74015-55af-4734-9824-35a2f81d64fc",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "d7c10948-b9bf-473c-9416-ca85aca4fc17",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/assets/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "assets",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:06:41.000Z",
+                          "updatedAt": "2026-10-21T20:06:41.000Z",
+                          "uid": "35240-d7c10948-b9bf-473c-9416-ca85aca4fc17"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:41.000Z",
+                      "updatedAt": "2026-10-21T20:06:41.000Z",
+                      "uid": "35240-fbe52897-cf56-483a-a89b-c82ef637b33c"
+                    },
+                    {
+                      "name": "GET assets",
+                      "id": "2f0a309a-49d0-4498-9908-ef91d38915cb",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/assets/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "assets",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "9e013a32-0040-4095-8119-391df1a12e50",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "e7edfae9-b566-4297-b51f-12ec2ea560c1",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/assets/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "assets",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/assets/e3901a7fd8a7b242\",\n  \"created_at\": \"<dateTime>\",\n  \"filename\": \"<string>\",\n  \"name\": \"<string>\",\n  \"status\": \"failed\",\n  \"uploader\": {\n    \"$ref\": \"/api/v1/users/afae9e9f7a360a59\"\n  },\n  \"size\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-21T20:06:41.000Z",
+                          "updatedAt": "2026-10-21T20:06:41.000Z",
+                          "uid": "35240-e7edfae9-b566-4297-b51f-12ec2ea560c1"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:41.000Z",
+                      "updatedAt": "2026-10-21T20:06:41.000Z",
+                      "uid": "35240-2f0a309a-49d0-4498-9908-ef91d38915cb"
+                    },
+                    {
+                      "name": "PATCH assets",
+                      "id": "4831bbf9-ff83-43c4-acb7-fae6f4afdfda",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/assets/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "assets",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "720d0bf1-374b-40a0-b7f6-8dcd473588ed",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "f0d0e6f0-caf0-4416-8e11-57eda030ce16",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/assets/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "assets",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/assets/e3901a7fd8a7b242\",\n  \"created_at\": \"<dateTime>\",\n  \"filename\": \"<string>\",\n  \"name\": \"<string>\",\n  \"status\": \"failed\",\n  \"uploader\": {\n    \"$ref\": \"/api/v1/users/afae9e9f7a360a59\"\n  },\n  \"size\": \"<integer>\"\n}",
+                          "createdAt": "2026-10-21T20:06:41.000Z",
+                          "updatedAt": "2026-10-21T20:06:41.000Z",
+                          "uid": "35240-f0d0e6f0-caf0-4416-8e11-57eda030ce16"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:41.000Z",
+                      "updatedAt": "2026-10-21T20:06:41.000Z",
+                      "uid": "35240-4831bbf9-ff83-43c4-acb7-fae6f4afdfda"
+                    }
+                  ],
+                  "id": "2d0f15ce-4b71-40f1-acbe-59b77bc6fac9",
+                  "createdAt": "2026-10-21T20:06:41.000Z",
+                  "updatedAt": "2026-10-21T20:06:41.000Z",
+                  "uid": "35240-2d0f15ce-4b71-40f1-acbe-59b77bc6fac9"
+                },
+                {
+                  "name": "GET assets instances",
+                  "id": "4dab2c98-db77-4105-b39e-b965f0ae299f",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/assets/0d77065796f8d173\",\n    \"created_at\": \"1987-01-16T08:00:45.708Z\",\n    \"filename\": \"string\",\n    \"name\": \"string\",\n    \"status\": \"importing\",\n    \"uploader\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"size\": 2822\n  },\n  {\n    \"$uri\": \"/api/v1/assets/0d77065796f8d173\",\n    \"created_at\": \"2002-05-03T21:02:39.075Z\",\n    \"filename\": \"string\",\n    \"name\": \"string\",\n    \"status\": \"failed\",\n    \"uploader\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"size\": 2538\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "8e657f07-0925-43c7-9937-b6e5c3da89f2",
-          "name": "POST assets instances_confirm_multipart_upload",
-          "request": {
-            "name": "POST assets instances_confirm_multipart_upload",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "assets",
-                "confirm_multipart_upload"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"filename\": \"<string>\",\n  \"s3_path\": \"<string>\",\n  \"name\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "f36a738f-4824-4a9c-9d13-b3894c3e612f",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "assets",
-                    "confirm_multipart_upload"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"filename\": \"<string>\",\n  \"s3_path\": \"<string>\",\n  \"name\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/assets?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "assets"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"asset_id\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e2f42f68-c170-41d6-a3a4-488f40040648",
-          "name": "POST assets instances_init_multipart_upload",
-          "request": {
-            "name": "POST assets instances_init_multipart_upload",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "assets",
-                "init_multipart_upload"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "22181dd2-9551-49dc-92d4-305c1a56c800",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "assets",
-                    "init_multipart_upload"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"callback_url\": \"string\",\n  \"file_id\": \"string\",\n  \"s3_bucket\": \"string\",\n  \"upload_aws_access_key_id\": \"string\",\n  \"upload_aws_secret_access_key\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c93f54d9-97b8-48cd-af25-c9d3b2e4439b",
-          "name": "DELETE assets",
-          "request": {
-            "name": "DELETE assets",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "assets",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "95ee47f9-22f0-48c9-a93e-048393c067a9",
-              "name": "No Content",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "assets",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                      "id": "4d2f4662-1b28-430f-95fb-7d9ad860fe9d",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/assets?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "assets"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/assets/a767b065e0bff9be\",\n    \"created_at\": \"<dateTime>\",\n    \"filename\": \"<string>\",\n    \"name\": \"<string>\",\n    \"status\": \"failed\",\n    \"uploader\": {\n      \"$ref\": \"/api/v1/users/33eaf96de7af7e51\"\n    },\n    \"size\": \"<integer>\"\n  },\n  {\n    \"$uri\": \"/api/v1/assets/34aaa985fa1616a2\",\n    \"created_at\": \"<dateTime>\",\n    \"filename\": \"<string>\",\n    \"name\": \"<string>\",\n    \"status\": \"importing\",\n    \"uploader\": {\n      \"$ref\": \"/api/v1/users/666f2ecf50d3cbe0\"\n    },\n    \"size\": \"<integer>\"\n  }\n]",
+                      "createdAt": "2026-10-21T20:06:41.000Z",
+                      "updatedAt": "2026-10-21T20:06:41.000Z",
+                      "uid": "35240-4d2f4662-1b28-430f-95fb-7d9ad860fe9d"
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  ],
+                  "createdAt": "2026-10-21T20:06:41.000Z",
+                  "updatedAt": "2026-10-21T20:06:41.000Z",
+                  "uid": "35240-4dab2c98-db77-4105-b39e-b965f0ae299f"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "19fe70de-0d70-4af0-bd1d-d5cced8fe42c",
+              "createdAt": "2026-10-21T20:06:41.000Z",
+              "updatedAt": "2026-10-21T20:06:41.000Z",
+              "uid": "35240-19fe70de-0d70-4af0-bd1d-d5cced8fe42c"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f0694a8b-6a4e-416c-b1ac-bf69d4487575",
-          "name": "GET assets",
-          "request": {
-            "name": "GET assets",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "assets",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b684c100-ced3-4ece-8bec-76e7bcf52592",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "assets",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/assets/0d77065796f8d173\",\n  \"created_at\": \"1962-12-07T20:25:31.394Z\",\n  \"filename\": \"string\",\n  \"name\": \"string\",\n  \"status\": \"available\",\n  \"uploader\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  },\n  \"size\": 9988\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "df813260-9177-4e56-880a-862320321e8c",
-          "name": "PATCH assets",
-          "request": {
-            "name": "PATCH assets",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "assets",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "30bd9bd4-3e28-4c87-bd29-e9da2eed91ac",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "assets",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/assets/0d77065796f8d173\",\n  \"created_at\": \"1962-12-07T20:25:31.394Z\",\n  \"filename\": \"string\",\n  \"name\": \"string\",\n  \"status\": \"available\",\n  \"uploader\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  },\n  \"size\": 9988\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "13609cc0-92b1-4dd4-87c3-68fe3d02841b",
-          "name": "POST assets download_uri",
-          "request": {
-            "name": "POST assets download_uri",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "assets",
-                ":id",
-                "download_uri"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "da65acbc-93ba-4559-b464-924411a5de01",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "assets",
-                    ":id",
-                    "download_uri"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"download_uri\": \"string\",\n  \"expires_at\": \"1975-09-13T05:51:44.137Z\",\n  \"expires_in_hours\": 7797\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "dbb1d152-882a-4e75-a2fd-22a7ccfd21b3",
+          "createdAt": "2026-10-21T20:06:41.000Z",
+          "updatedAt": "2026-10-21T20:06:41.000Z",
+          "uid": "35240-dbb1d152-882a-4e75-a2fd-22a7ccfd21b3"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "04ba037d-7c13-4ec8-9ea7-8cd5efe96f92",
+      "createdAt": "2026-10-21T20:06:41.000Z",
+      "updatedAt": "2026-10-21T20:06:41.000Z",
+      "uid": "35240-04ba037d-7c13-4ec8-9ea7-8cd5efe96f92"
     }
   ],
   "auth": {
@@ -730,25 +763,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "f60dd109-4960-4a95-9944-c48cbe626f12",
-    "name": "One Codex API (v1) Account Assets API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

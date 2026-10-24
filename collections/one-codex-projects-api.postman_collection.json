@@ -1,1112 +1,1158 @@
 {
+  "info": {
+    "_postman_id": "97acd402-2377-4ca3-8141-9591223db3d2",
+    "name": "One Codex API (v1) Projects API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:07:58.000Z",
+    "updatedAt": "2026-10-21T20:07:59.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-97acd402-2377-4ca3-8141-9591223db3d2"
+  },
   "item": [
     {
-      "id": "4e817d37-2675-4c72-b9c3-2452259b60f7",
-      "name": "Projects",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "79348b05-f980-4c79-b3a1-d49915949039",
-          "name": "GET projects instances",
-          "request": {
-            "name": "GET projects instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "projects"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "4fe9614b-8c02-46e5-bb28-d17dc4a8e20f",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "projects"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "projects",
+              "item": [
+                {
+                  "name": "public",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "GET projects instances_public",
+                      "id": "2b0c4c54-15a1-40ea-a079-2cc3acca5656",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/projects/public?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "projects",
+                            "public"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "2c9fdad8-7535-47af-bf6e-55ec3e8a07e5",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/projects/public?page=1&per_page=50&sort=<string>&where=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "projects",
+                                "public"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Page number. Defaults to 1. See Pagination for more details.",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                                  "key": "per_page",
+                                  "value": "50"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                                  "key": "sort",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                                  "key": "where",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"$uri\": \"/api/v1/projects/5edff6e911895509\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/8392aacce29e2d7a\"\n    },\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_name\": \"kCOLgu5t\",\n    \"description\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"public\": false\n  },\n  {\n    \"$uri\": \"/api/v1/projects/60b2da1cfbf960ec\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/719834ef486d4cab\"\n    },\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_name\": \"pKLU\",\n    \"description\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"public\": false\n  }\n]",
+                          "createdAt": "2026-10-21T20:07:59.000Z",
+                          "updatedAt": "2026-10-21T20:07:59.000Z",
+                          "uid": "35240-2c9fdad8-7535-47af-bf6e-55ec3e8a07e5"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:59.000Z",
+                      "updatedAt": "2026-10-21T20:07:59.000Z",
+                      "uid": "35240-2b0c4c54-15a1-40ea-a079-2cc3acca5656"
                     }
                   ],
-                  "variable": []
+                  "id": "602aa8f8-ced2-4930-92d7-84072e99be95",
+                  "createdAt": "2026-10-21T20:07:59.000Z",
+                  "updatedAt": "2026-10-21T20:07:59.000Z",
+                  "uid": "35240-602aa8f8-ced2-4930-92d7-84072e99be95"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "add_user",
+                      "item": [
+                        {
+                          "name": "POST projects add_user",
+                          "id": "f7e61f31-50d5-437d-9f0c-913179c84935",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"user\": {\n    \"$ref\": \"/api/v1/users/c0ea9b57d1d25c63\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/projects/:id/add_user",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "projects",
+                                ":id",
+                                "add_user"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "24c21019-fdae-47af-b47c-a7fab3387b46",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "2ce4908c-ef00-4e0d-b1a9-937918614d8e",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"user\": {\n    \"$ref\": \"/api/v1/users/c0ea9b57d1d25c63\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/projects/:id/add_user",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "projects",
+                                    ":id",
+                                    "add_user"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:07:59.000Z",
+                              "updatedAt": "2026-10-21T20:07:59.000Z",
+                              "uid": "35240-2ce4908c-ef00-4e0d-b1a9-937918614d8e"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:59.000Z",
+                          "updatedAt": "2026-10-21T20:07:59.000Z",
+                          "uid": "35240-f7e61f31-50d5-437d-9f0c-913179c84935"
+                        }
+                      ],
+                      "id": "3a1577f4-dea2-4692-a3c3-68f7ac816e7f",
+                      "createdAt": "2026-10-21T20:07:59.000Z",
+                      "updatedAt": "2026-10-21T20:07:59.000Z",
+                      "uid": "35240-3a1577f4-dea2-4692-a3c3-68f7ac816e7f"
                     },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                    {
+                      "name": "change_sharing",
+                      "item": [
+                        {
+                          "name": "POST projects change_sharing",
+                          "id": "7b0c5b6d-5b74-45a2-8f6f-1a145720867f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"public\": false\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/projects/:id/change_sharing",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "projects",
+                                ":id",
+                                "change_sharing"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ab7327e5-b031-4f1d-bb33-d9e3834ce3a6",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "74decf9a-25b3-4f79-88f0-69916b026dcf",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"public\": false\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/projects/:id/change_sharing",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "projects",
+                                    ":id",
+                                    "change_sharing"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/projects/7cd1af0103a8e0bd\",\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/489917f4fe3bcf37\"\n  },\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"project_name\": \"GH6wNkMOlA\",\n  \"description\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"public\": false\n}",
+                              "createdAt": "2026-10-21T20:07:59.000Z",
+                              "updatedAt": "2026-10-21T20:07:59.000Z",
+                              "uid": "35240-74decf9a-25b3-4f79-88f0-69916b026dcf"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:59.000Z",
+                          "updatedAt": "2026-10-21T20:07:59.000Z",
+                          "uid": "35240-7b0c5b6d-5b74-45a2-8f6f-1a145720867f"
+                        }
+                      ],
+                      "id": "86670d26-27f9-485e-9bcb-18908d57acb8",
+                      "createdAt": "2026-10-21T20:07:59.000Z",
+                      "updatedAt": "2026-10-21T20:07:59.000Z",
+                      "uid": "35240-86670d26-27f9-485e-9bcb-18908d57acb8"
+                    },
+                    {
+                      "name": "members",
+                      "item": [
+                        {
+                          "name": "GET projects members",
+                          "id": "1ffb93b7-4209-43cf-8f59-32434cddc4c2",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/projects/:id/members",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "projects",
+                                ":id",
+                                "members"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "94935a8f-de0a-42e1-9bae-cf43e3f12e41",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "2d149abb-0ea4-4ed9-8662-83fd65370ad4",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/projects/:id/members",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "projects",
+                                    ":id",
+                                    "members"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "[\n  {\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"user\": {\n      \"$ref\": \"/api/v1/users/651df173bd839409\"\n    }\n  },\n  {\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"user\": {\n      \"$ref\": \"/api/v1/users/3b0cb309385235d5\"\n    }\n  }\n]",
+                              "createdAt": "2026-10-21T20:07:59.000Z",
+                              "updatedAt": "2026-10-21T20:07:59.000Z",
+                              "uid": "35240-2d149abb-0ea4-4ed9-8662-83fd65370ad4"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:59.000Z",
+                          "updatedAt": "2026-10-21T20:07:59.000Z",
+                          "uid": "35240-1ffb93b7-4209-43cf-8f59-32434cddc4c2"
+                        }
+                      ],
+                      "id": "ba14a07e-debf-4827-a41a-62245061ddf5",
+                      "createdAt": "2026-10-21T20:07:59.000Z",
+                      "updatedAt": "2026-10-21T20:07:59.000Z",
+                      "uid": "35240-ba14a07e-debf-4827-a41a-62245061ddf5"
+                    },
+                    {
+                      "name": "remove_user",
+                      "item": [
+                        {
+                          "name": "POST projects remove_user",
+                          "id": "c4e56522-3a17-4cc5-95f8-891c270f2351",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"user\": {\n    \"$ref\": \"/api/v1/users/ee0e4e92f7d0608e\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/projects/:id/remove_user",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "projects",
+                                ":id",
+                                "remove_user"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "19a0e0d4-1dad-4f48-9c85-77b8d93789df",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "d79c6cc6-8b3e-4780-9883-f5ce638dbac5",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"user\": {\n    \"$ref\": \"/api/v1/users/ee0e4e92f7d0608e\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/projects/:id/remove_user",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "projects",
+                                    ":id",
+                                    "remove_user"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:07:59.000Z",
+                              "updatedAt": "2026-10-21T20:07:59.000Z",
+                              "uid": "35240-d79c6cc6-8b3e-4780-9883-f5ce638dbac5"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:59.000Z",
+                          "updatedAt": "2026-10-21T20:07:59.000Z",
+                          "uid": "35240-c4e56522-3a17-4cc5-95f8-891c270f2351"
+                        }
+                      ],
+                      "id": "5a41e75a-012a-4f91-8cfd-8eeff27472a6",
+                      "createdAt": "2026-10-21T20:07:59.000Z",
+                      "updatedAt": "2026-10-21T20:07:59.000Z",
+                      "uid": "35240-5a41e75a-012a-4f91-8cfd-8eeff27472a6"
+                    },
+                    {
+                      "name": "DELETE projects",
+                      "id": "62b3db91-e434-4a05-9840-3d1cca59f5c7",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/projects/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "projects",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "25467c03-99fb-4a56-bfd8-fd031a76cb56",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "77a0b695-8767-4dfb-a0ba-4a56b52323a6",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/projects/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "projects",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:07:59.000Z",
+                          "updatedAt": "2026-10-21T20:07:59.000Z",
+                          "uid": "35240-77a0b695-8767-4dfb-a0ba-4a56b52323a6"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:59.000Z",
+                      "updatedAt": "2026-10-21T20:07:59.000Z",
+                      "uid": "35240-62b3db91-e434-4a05-9840-3d1cca59f5c7"
+                    },
+                    {
+                      "name": "GET projects",
+                      "id": "ba764d53-0f94-42db-938a-e6154eece24d",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/projects/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "projects",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "6965442e-32f6-49e3-a90b-995224ba6942",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "a10e4c96-4a5c-4819-b485-784284e3b244",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/projects/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "projects",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/projects/7cd1af0103a8e0bd\",\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/489917f4fe3bcf37\"\n  },\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"project_name\": \"GH6wNkMOlA\",\n  \"description\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"public\": false\n}",
+                          "createdAt": "2026-10-21T20:07:59.000Z",
+                          "updatedAt": "2026-10-21T20:07:59.000Z",
+                          "uid": "35240-a10e4c96-4a5c-4819-b485-784284e3b244"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:59.000Z",
+                      "updatedAt": "2026-10-21T20:07:59.000Z",
+                      "uid": "35240-ba764d53-0f94-42db-938a-e6154eece24d"
+                    },
+                    {
+                      "name": "PATCH projects",
+                      "id": "bd34e3f6-d755-4888-901e-257c59f1e96f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"project_name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/projects/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "projects",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "c113d1dd-c187-498c-80ff-06028ba11a7e",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "51d65c30-a166-4ce0-a5df-1601476b544c",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"project_name\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/projects/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "projects",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/projects/7cd1af0103a8e0bd\",\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/489917f4fe3bcf37\"\n  },\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"project_name\": \"GH6wNkMOlA\",\n  \"description\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"public\": false\n}",
+                          "createdAt": "2026-10-21T20:07:59.000Z",
+                          "updatedAt": "2026-10-21T20:07:59.000Z",
+                          "uid": "35240-51d65c30-a166-4ce0-a5df-1601476b544c"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:59.000Z",
+                      "updatedAt": "2026-10-21T20:07:59.000Z",
+                      "uid": "35240-bd34e3f6-d755-4888-901e-257c59f1e96f"
+                    }
+                  ],
+                  "id": "1eecf604-afad-460e-8f11-90e77d3e2b04",
+                  "createdAt": "2026-10-21T20:07:59.000Z",
+                  "updatedAt": "2026-10-21T20:07:59.000Z",
+                  "uid": "35240-1eecf604-afad-460e-8f11-90e77d3e2b04"
+                },
+                {
+                  "name": "GET projects instances",
+                  "id": "2db02c37-a794-469c-9372-d941909c73f8",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/projects/0d77065796f8d173\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"permissions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"project_name\": \"Oe8IxVd\",\n    \"description\": \"string\",\n    \"external_id\": \"string\",\n    \"name\": \"string\",\n    \"public\": false\n  },\n  {\n    \"$uri\": \"/api/v1/projects/0d77065796f8d173\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"permissions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"project_name\": \"glUHe-L\",\n    \"description\": \"string\",\n    \"external_id\": \"string\",\n    \"name\": \"string\",\n    \"public\": false\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5917c53b-6d9a-48b5-97a4-5ff7db6a0dae",
-          "name": "POST projects instances",
-          "request": {
-            "name": "POST projects instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "projects"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"project_name\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "5c0aef1d-315d-40fe-acdb-1f3c4e6dcf69",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "projects"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/projects?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "projects"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"project_name\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/projects/0d77065796f8d173\",\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  },\n  \"permissions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"project_name\": \"OYgFr\",\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"name\": \"string\",\n  \"public\": false\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "664e3e6b-376a-4067-95a4-df7a4ab22361",
-          "name": "GET projects instances_public",
-          "request": {
-            "name": "GET projects instances_public",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "projects",
-                "public"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "a1bca965-a66a-45f2-aaae-f8408920568b",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "projects",
-                    "public"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+                  "response": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "id": "c7078020-fd4f-43cb-8f56-e688ba91c782",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/projects?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "projects"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/projects/5edff6e911895509\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/8392aacce29e2d7a\"\n    },\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_name\": \"kCOLgu5t\",\n    \"description\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"public\": false\n  },\n  {\n    \"$uri\": \"/api/v1/projects/60b2da1cfbf960ec\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/719834ef486d4cab\"\n    },\n    \"permissions\": [\n      \"<string>\",\n      \"<string>\"\n    ],\n    \"project_name\": \"pKLU\",\n    \"description\": \"<string>\",\n    \"external_id\": \"<string>\",\n    \"name\": \"<string>\",\n    \"public\": false\n  }\n]",
+                      "createdAt": "2026-10-21T20:07:59.000Z",
+                      "updatedAt": "2026-10-21T20:07:59.000Z",
+                      "uid": "35240-c7078020-fd4f-43cb-8f56-e688ba91c782"
                     }
                   ],
-                  "variable": []
+                  "createdAt": "2026-10-21T20:07:59.000Z",
+                  "updatedAt": "2026-10-21T20:07:59.000Z",
+                  "uid": "35240-2db02c37-a794-469c-9372-d941909c73f8"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                {
+                  "name": "POST projects instances",
+                  "id": "0cfd2db9-a2ac-4aa0-90b2-2a85930dcf27",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/projects/0d77065796f8d173\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"permissions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"project_name\": \"Oe8IxVd\",\n    \"description\": \"string\",\n    \"external_id\": \"string\",\n    \"name\": \"string\",\n    \"public\": false\n  },\n  {\n    \"$uri\": \"/api/v1/projects/0d77065796f8d173\",\n    \"owner\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    \"permissions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"project_name\": \"glUHe-L\",\n    \"description\": \"string\",\n    \"external_id\": \"string\",\n    \"name\": \"string\",\n    \"public\": false\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c7fd786c-7888-4ef3-8c13-8c274b98973a",
-          "name": "DELETE projects",
-          "request": {
-            "name": "DELETE projects",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "projects",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "ae4473ec-56e7-41dd-807a-8e1f1e10a5d6",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "projects",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"project_name\": \"<string>\"\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
                     },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5c43a0d0-9b9a-43a2-bef4-18cca5dae75d",
-          "name": "GET projects",
-          "request": {
-            "name": "GET projects",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "projects",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "7441b30c-e37c-45f2-97ae-eb3cbd3baf0c",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "projects",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/projects",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "projects"
+                      ]
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/projects/0d77065796f8d173\",\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  },\n  \"permissions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"project_name\": \"OYgFr\",\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"name\": \"string\",\n  \"public\": false\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "1d210698-af2e-4b42-9c02-0d5072c8ee9d",
-          "name": "PATCH projects",
-          "request": {
-            "name": "PATCH projects",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "projects",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"project_name\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "09d3aa29-d0e1-47e5-9b35-a4c2fd3a5551",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "projects",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                      "id": "6e8940a8-2d7d-43e2-8e02-f356c37b5551",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"project_name\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/projects",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "projects"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"$uri\": \"/api/v1/projects/7cd1af0103a8e0bd\",\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/489917f4fe3bcf37\"\n  },\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"project_name\": \"GH6wNkMOlA\",\n  \"description\": \"<string>\",\n  \"external_id\": \"<string>\",\n  \"name\": \"<string>\",\n  \"public\": false\n}",
+                      "createdAt": "2026-10-21T20:07:59.000Z",
+                      "updatedAt": "2026-10-21T20:07:59.000Z",
+                      "uid": "35240-6e8940a8-2d7d-43e2-8e02-f356c37b5551"
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"description\": \"<string>\",\n  \"name\": \"<string>\",\n  \"project_name\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  ],
+                  "createdAt": "2026-10-21T20:07:59.000Z",
+                  "updatedAt": "2026-10-21T20:07:59.000Z",
+                  "uid": "35240-0cfd2db9-a2ac-4aa0-90b2-2a85930dcf27"
                 }
               ],
-              "body": "{\n  \"$uri\": \"/api/v1/projects/0d77065796f8d173\",\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  },\n  \"permissions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"project_name\": \"OYgFr\",\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"name\": \"string\",\n  \"public\": false\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "b56ebe88-46f5-4010-9c00-31e25b396fb5",
+              "createdAt": "2026-10-21T20:07:59.000Z",
+              "updatedAt": "2026-10-21T20:07:59.000Z",
+              "uid": "35240-b56ebe88-46f5-4010-9c00-31e25b396fb5"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "08657122-9629-4034-8148-506929bc4b85",
-          "name": "POST projects add_user",
-          "request": {
-            "name": "POST projects add_user",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "projects",
-                ":id",
-                "add_user"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"user\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "b7ee40a2-8580-45bd-be7d-08bf5919b54e",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "projects",
-                    ":id",
-                    "add_user"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"permissions\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"user\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5ae491bb-7249-44cd-9e76-5b5c344e9ce7",
-          "name": "POST projects change_sharing",
-          "request": {
-            "name": "POST projects change_sharing",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "projects",
-                ":id",
-                "change_sharing"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"public\": false\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "04ed75d0-7094-45a4-b647-88559f2c4e8d",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "projects",
-                    ":id",
-                    "change_sharing"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"public\": false\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/projects/0d77065796f8d173\",\n  \"owner\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  },\n  \"permissions\": [\n    \"string\",\n    \"string\"\n  ],\n  \"project_name\": \"OYgFr\",\n  \"description\": \"string\",\n  \"external_id\": \"string\",\n  \"name\": \"string\",\n  \"public\": false\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "711fbf0a-723b-493d-868f-a7b7f77cdff0",
-          "name": "GET projects members",
-          "request": {
-            "name": "GET projects members",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "projects",
-                ":id",
-                "members"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "792ac30c-11ff-4e54-8b9f-badd3a88aaab",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "projects",
-                    ":id",
-                    "members"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"permissions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"user\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    }\n  },\n  {\n    \"permissions\": [\n      \"string\",\n      \"string\"\n    ],\n    \"user\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    }\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "f13d6e73-dfd6-4cc4-acfd-0c32114b3d47",
-          "name": "POST projects remove_user",
-          "request": {
-            "name": "POST projects remove_user",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "projects",
-                ":id",
-                "remove_user"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"user\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "f9528357-ad9e-463c-bb1c-fb86b7719a21",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "projects",
-                    ":id",
-                    "remove_user"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"user\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "cc8fe4f9-c5a9-48c5-a3ec-a5b4eccd3eb8",
+          "createdAt": "2026-10-21T20:07:59.000Z",
+          "updatedAt": "2026-10-21T20:07:59.000Z",
+          "uid": "35240-cc8fe4f9-c5a9-48c5-a3ec-a5b4eccd3eb8"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "3c4ee414-d9bf-4033-b1d0-ad9ce2701b97",
+      "createdAt": "2026-10-21T20:07:59.000Z",
+      "updatedAt": "2026-10-21T20:07:59.000Z",
+      "uid": "35240-3c4ee414-d9bf-4033-b1d0-ad9ce2701b97"
     }
   ],
   "auth": {
@@ -1114,25 +1160,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "d0bd9fe7-afff-4ca1-9406-9f5989fc4cec",
-    "name": "One Codex API (v1) Account Projects API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

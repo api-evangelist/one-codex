@@ -1,1246 +1,1285 @@
 {
+  "info": {
+    "_postman_id": "bda7b1e9-e40f-49a0-b132-da0f32b867de",
+    "name": "One Codex API (v1) Classifications API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:06:49.000Z",
+    "updatedAt": "2026-10-21T20:06:49.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-bda7b1e9-e40f-49a0-b132-da0f32b867de"
+  },
   "item": [
     {
-      "id": "4a8654e5-ca45-41ea-9866-0d74cdbfb909",
-      "name": "Classifications",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "15853091-f68a-4932-910c-cda05c19288a",
-          "name": "GET classifications instances",
-          "request": {
-            "name": "GET classifications instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "classifications"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "bd85420f-d929-42af-b937-8495a79dcb7a",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "classifications"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "classifications",
+              "item": [
+                {
+                  "name": "public",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "GET classifications instances_public",
+                      "id": "f9a2a2a2-cfe4-4421-9bcc-b00a3cf03a6f",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/classifications/public?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "classifications",
+                            "public"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "82e8fc94-d09e-4b9d-9c03-df076bb6511d",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/classifications/public?page=1&per_page=50&sort=<string>&where=<string>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "classifications",
+                                "public"
+                              ],
+                              "query": [
+                                {
+                                  "description": "Page number. Defaults to 1. See Pagination for more details.",
+                                  "key": "page",
+                                  "value": "1"
+                                },
+                                {
+                                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                                  "key": "per_page",
+                                  "value": "50"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                                  "key": "sort",
+                                  "value": "<string>"
+                                },
+                                {
+                                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                                  "key": "where",
+                                  "value": "<string>"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"$uri\": \"/api/v1/classifications/c1224100b65d1323\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/72c3dc10c1bd82e7\"\n    },\n    \"results_uri\": \"<string>\",\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/52c740cfb11fc7ca\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"$uri\": \"/api/v1/classifications/6094a1312b9069b3\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/b8201e47436db59d\"\n    },\n    \"results_uri\": \"<string>\",\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/4327a787f9d9a973\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                          "createdAt": "2026-10-21T20:06:50.000Z",
+                          "updatedAt": "2026-10-21T20:06:50.000Z",
+                          "uid": "35240-82e8fc94-d09e-4b9d-9c03-df076bb6511d"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:50.000Z",
+                      "updatedAt": "2026-10-21T20:06:50.000Z",
+                      "uid": "35240-f9a2a2a2-cfe4-4421-9bcc-b00a3cf03a6f"
                     }
                   ],
-                  "variable": []
+                  "id": "9cd06f14-da13-4722-ae83-fc4279b4757a",
+                  "createdAt": "2026-10-21T20:06:50.000Z",
+                  "updatedAt": "2026-10-21T20:06:50.000Z",
+                  "uid": "35240-9cd06f14-da13-4722-ae83-fc4279b4757a"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "cancel",
+                      "item": [
+                        {
+                          "name": "POST classifications cancel",
+                          "id": "f134a9f9-4072-484a-9f51-37026744c1c7",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/classifications/:id/cancel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "classifications",
+                                ":id",
+                                "cancel"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "9d42556f-1de2-40a2-a395-2587a6da408e",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "6312825d-1f2f-47e6-8ace-fef15b5f3343",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/classifications/:id/cancel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "classifications",
+                                    ":id",
+                                    "cancel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/classifications/901b7e35ad71bc6d\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/cbb89e15d26a8cf4\"\n  },\n  \"results_uri\": \"<string>\",\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/e1e6d415303d3a82\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-21T20:06:50.000Z",
+                              "updatedAt": "2026-10-21T20:06:50.000Z",
+                              "uid": "35240-6312825d-1f2f-47e6-8ace-fef15b5f3343"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:50.000Z",
+                          "updatedAt": "2026-10-21T20:06:50.000Z",
+                          "uid": "35240-f134a9f9-4072-484a-9f51-37026744c1c7"
+                        }
+                      ],
+                      "id": "18f8d878-82e4-4ca3-ae95-c342566cee75",
+                      "createdAt": "2026-10-21T20:06:50.000Z",
+                      "updatedAt": "2026-10-21T20:06:50.000Z",
+                      "uid": "35240-18f8d878-82e4-4ca3-ae95-c342566cee75"
                     },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                    {
+                      "name": "file_details",
+                      "item": [
+                        {
+                          "name": "GET classifications file_details",
+                          "id": "cfc64da1-45cc-43a2-9ac1-626298adc5c8",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/classifications/:id/file_details",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "classifications",
+                                ":id",
+                                "file_details"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "739628b0-f2f7-4db7-89ef-a6947aa08e30",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "24214937-d913-493c-ad3b-10f3fd43fe3e",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/classifications/:id/file_details",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "classifications",
+                                    ":id",
+                                    "file_details"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"files\": [\n    {\n      \"filename\": \"<string>\",\n      \"filepath\": \"<string>\",\n      \"size\": \"<integer>\",\n      \"url\": \"<string>\"\n    },\n    {\n      \"filename\": \"<string>\",\n      \"filepath\": \"<string>\",\n      \"size\": \"<integer>\",\n      \"url\": \"<string>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-21T20:06:50.000Z",
+                              "updatedAt": "2026-10-21T20:06:50.000Z",
+                              "uid": "35240-24214937-d913-493c-ad3b-10f3fd43fe3e"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:50.000Z",
+                          "updatedAt": "2026-10-21T20:06:50.000Z",
+                          "uid": "35240-cfc64da1-45cc-43a2-9ac1-626298adc5c8"
+                        }
+                      ],
+                      "id": "1ffbdb06-60fd-419e-8b70-9d43bbf5251d",
+                      "createdAt": "2026-10-21T20:06:50.000Z",
+                      "updatedAt": "2026-10-21T20:06:50.000Z",
+                      "uid": "35240-1ffbdb06-60fd-419e-8b70-9d43bbf5251d"
+                    },
+                    {
+                      "name": "files",
+                      "item": [
+                        {
+                          "name": "DELETE classifications files",
+                          "id": "bf3486b0-9606-41c1-b097-74c4d610319c",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "DELETE",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/classifications/:id/files",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "classifications",
+                                ":id",
+                                "files"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "01dbc9c8-a022-4a3f-b330-d7ac5ba613c4",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "51c75686-74af-48a2-b947-bf128fec0e07",
+                              "name": "No Content",
+                              "originalRequest": {
+                                "method": "DELETE",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/classifications/:id/files",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "classifications",
+                                    ":id",
+                                    "files"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "No Content",
+                              "code": 204,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:06:50.000Z",
+                              "updatedAt": "2026-10-21T20:06:50.000Z",
+                              "uid": "35240-51c75686-74af-48a2-b947-bf128fec0e07"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:50.000Z",
+                          "updatedAt": "2026-10-21T20:06:50.000Z",
+                          "uid": "35240-bf3486b0-9606-41c1-b097-74c4d610319c"
+                        },
+                        {
+                          "name": "GET classifications files",
+                          "id": "4c14f028-86aa-4c85-acab-f4ba856c63f9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/classifications/:id/files",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "classifications",
+                                ":id",
+                                "files"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "e6624e4e-cefa-4c2e-bc85-ee983d815e03",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "2d3a31ba-1dd7-498a-8909-5cbe5c805eb4",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/classifications/:id/files",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "classifications",
+                                    ":id",
+                                    "files"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{}",
+                              "createdAt": "2026-10-21T20:06:50.000Z",
+                              "updatedAt": "2026-10-21T20:06:50.000Z",
+                              "uid": "35240-2d3a31ba-1dd7-498a-8909-5cbe5c805eb4"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:50.000Z",
+                          "updatedAt": "2026-10-21T20:06:50.000Z",
+                          "uid": "35240-4c14f028-86aa-4c85-acab-f4ba856c63f9"
+                        }
+                      ],
+                      "id": "46369a19-9fbe-4393-93b5-a4784f651e86",
+                      "createdAt": "2026-10-21T20:06:50.000Z",
+                      "updatedAt": "2026-10-21T20:06:50.000Z",
+                      "uid": "35240-46369a19-9fbe-4393-93b5-a4784f651e86"
+                    },
+                    {
+                      "name": "logs",
+                      "item": [
+                        {
+                          "name": "GET classifications logs",
+                          "id": "7e739f4a-6cce-4d01-84df-956dfd5e3cb0",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/classifications/:id/logs?tail=<integer>",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "classifications",
+                                ":id",
+                                "logs"
+                              ],
+                              "query": [
+                                {
+                                  "key": "tail",
+                                  "value": "<integer>"
+                                }
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ad04aee2-e22a-45c6-988b-16a3f470aaa8",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "3a769ef1-869f-44c7-8b2a-5fc1304734c5",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/classifications/:id/logs?tail=<integer>",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "classifications",
+                                    ":id",
+                                    "logs"
+                                  ],
+                                  "query": [
+                                    {
+                                      "key": "tail",
+                                      "value": "<integer>"
+                                    }
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "text",
+                              "header": [],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": null,
+                              "createdAt": "2026-10-21T20:06:50.000Z",
+                              "updatedAt": "2026-10-21T20:06:50.000Z",
+                              "uid": "35240-3a769ef1-869f-44c7-8b2a-5fc1304734c5"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:50.000Z",
+                          "updatedAt": "2026-10-21T20:06:50.000Z",
+                          "uid": "35240-7e739f4a-6cce-4d01-84df-956dfd5e3cb0"
+                        }
+                      ],
+                      "id": "8fe8e3ed-a11e-4c2d-bd35-5292de9dc11c",
+                      "createdAt": "2026-10-21T20:06:50.000Z",
+                      "updatedAt": "2026-10-21T20:06:50.000Z",
+                      "uid": "35240-8fe8e3ed-a11e-4c2d-bd35-5292de9dc11c"
+                    },
+                    {
+                      "name": "raw_results",
+                      "item": [
+                        {
+                          "name": "GET classifications raw_results",
+                          "id": "fc5e802b-e8ca-4eab-812b-dddc882c3cb7",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/classifications/:id/raw_results",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "classifications",
+                                ":id",
+                                "raw_results"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "ba531b99-844f-49a1-95e9-7987ff4bb39e",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "c2c5d4b9-c038-4f24-a65e-026dd5f9ff01",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/classifications/:id/raw_results",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "classifications",
+                                    ":id",
+                                    "raw_results"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"host_tax_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"n_reads\": \"<integer>\",\n  \"table\": [\n    {\n      \"abundance\": \"<number>\",\n      \"abundance_w_children\": \"<number>\",\n      \"n_kmers\": \"<integer>\",\n      \"n_unique_kmers\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"parent_tax_id\": \"<string>\",\n      \"rank\": \"<string>\",\n      \"readcount\": \"<integer>\",\n      \"readcount_w_children\": \"<integer>\",\n      \"tax_id\": \"<string>\",\n      \"unfiltered_readcount\": \"<integer>\",\n      \"unfiltered_readcount_w_children\": \"<integer>\"\n    },\n    {\n      \"abundance\": \"<number>\",\n      \"abundance_w_children\": \"<number>\",\n      \"n_kmers\": \"<integer>\",\n      \"n_unique_kmers\": \"<integer>\",\n      \"name\": \"<string>\",\n      \"parent_tax_id\": \"<string>\",\n      \"rank\": \"<string>\",\n      \"readcount\": \"<integer>\",\n      \"readcount_w_children\": \"<integer>\",\n      \"tax_id\": \"<string>\",\n      \"unfiltered_readcount\": \"<integer>\",\n      \"unfiltered_readcount_w_children\": \"<integer>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-21T20:06:50.000Z",
+                              "updatedAt": "2026-10-21T20:06:50.000Z",
+                              "uid": "35240-c2c5d4b9-c038-4f24-a65e-026dd5f9ff01"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:50.000Z",
+                          "updatedAt": "2026-10-21T20:06:50.000Z",
+                          "uid": "35240-fc5e802b-e8ca-4eab-812b-dddc882c3cb7"
+                        }
+                      ],
+                      "id": "9d0cdb56-1b87-4331-9590-5ae500f480c3",
+                      "createdAt": "2026-10-21T20:06:50.000Z",
+                      "updatedAt": "2026-10-21T20:06:50.000Z",
+                      "uid": "35240-9d0cdb56-1b87-4331-9590-5ae500f480c3"
+                    },
+                    {
+                      "name": "readlevel",
+                      "item": [
+                        {
+                          "name": "GET classifications readlevel",
+                          "id": "8e316d07-fa98-4aef-acee-1380c783ee89",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/classifications/:id/readlevel",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "classifications",
+                                ":id",
+                                "readlevel"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "6bea404c-b928-4520-8afa-42b72a2c2b64",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "61cb56fa-b0a9-41ce-9677-3bae78cf8e6d",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/classifications/:id/readlevel",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "classifications",
+                                    ":id",
+                                    "readlevel"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"url\": \"<string>\"\n}",
+                              "createdAt": "2026-10-21T20:06:50.000Z",
+                              "updatedAt": "2026-10-21T20:06:50.000Z",
+                              "uid": "35240-61cb56fa-b0a9-41ce-9677-3bae78cf8e6d"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:50.000Z",
+                          "updatedAt": "2026-10-21T20:06:50.000Z",
+                          "uid": "35240-8e316d07-fa98-4aef-acee-1380c783ee89"
+                        }
+                      ],
+                      "id": "ed6be013-7c5d-4966-a964-65cd984ea54a",
+                      "createdAt": "2026-10-21T20:06:50.000Z",
+                      "updatedAt": "2026-10-21T20:06:50.000Z",
+                      "uid": "35240-ed6be013-7c5d-4966-a964-65cd984ea54a"
+                    },
+                    {
+                      "name": "rerun",
+                      "item": [
+                        {
+                          "name": "POST classifications rerun",
+                          "id": "64724ff4-bfd1-4c35-ac58-c089637af5b9",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/classifications/:id/rerun",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "classifications",
+                                ":id",
+                                "rerun"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "275da049-3609-417f-b8f7-6952003dff05",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "3bf7abf2-de3e-4b0a-8ba2-e6e7d01164dc",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/classifications/:id/rerun",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "classifications",
+                                    ":id",
+                                    "rerun"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/classifications/901b7e35ad71bc6d\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/cbb89e15d26a8cf4\"\n  },\n  \"results_uri\": \"<string>\",\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/e1e6d415303d3a82\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                              "createdAt": "2026-10-21T20:06:50.000Z",
+                              "updatedAt": "2026-10-21T20:06:50.000Z",
+                              "uid": "35240-3bf7abf2-de3e-4b0a-8ba2-e6e7d01164dc"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:50.000Z",
+                          "updatedAt": "2026-10-21T20:06:50.000Z",
+                          "uid": "35240-64724ff4-bfd1-4c35-ac58-c089637af5b9"
+                        }
+                      ],
+                      "id": "b1ccd29a-f604-4629-b582-110d1feb8b6c",
+                      "createdAt": "2026-10-21T20:06:50.000Z",
+                      "updatedAt": "2026-10-21T20:06:50.000Z",
+                      "uid": "35240-b1ccd29a-f604-4629-b582-110d1feb8b6c"
+                    },
+                    {
+                      "name": "results",
+                      "item": [
+                        {
+                          "name": "GET classifications results",
+                          "id": "adadd780-abb3-4344-8c49-82af561da737",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/classifications/:id/results",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "classifications",
+                                ":id",
+                                "results"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "c8140023-5035-413b-9c95-b647c0813105",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "6993c197-ad42-4130-aae8-57a0d0108f17",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "GET",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/classifications/:id/results",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "classifications",
+                                    ":id",
+                                    "results"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"host_tax_ids\": [\n    \"<string>\",\n    \"<string>\"\n  ],\n  \"n_reads\": \"<integer>\",\n  \"table\": [\n    {\n      \"abundance\": \"<number>\",\n      \"abundance_w_children\": \"<number>\",\n      \"name\": \"<string>\",\n      \"parent_tax_id\": \"<string>\",\n      \"rank\": \"<string>\",\n      \"readcount\": \"<integer>\",\n      \"readcount_w_children\": \"<integer>\",\n      \"tax_id\": \"<string>\",\n      \"unfiltered_readcount\": \"<integer>\",\n      \"unfiltered_readcount_w_children\": \"<integer>\"\n    },\n    {\n      \"abundance\": \"<number>\",\n      \"abundance_w_children\": \"<number>\",\n      \"name\": \"<string>\",\n      \"parent_tax_id\": \"<string>\",\n      \"rank\": \"<string>\",\n      \"readcount\": \"<integer>\",\n      \"readcount_w_children\": \"<integer>\",\n      \"tax_id\": \"<string>\",\n      \"unfiltered_readcount\": \"<integer>\",\n      \"unfiltered_readcount_w_children\": \"<integer>\"\n    }\n  ]\n}",
+                              "createdAt": "2026-10-21T20:06:50.000Z",
+                              "updatedAt": "2026-10-21T20:06:50.000Z",
+                              "uid": "35240-6993c197-ad42-4130-aae8-57a0d0108f17"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:06:50.000Z",
+                          "updatedAt": "2026-10-21T20:06:50.000Z",
+                          "uid": "35240-adadd780-abb3-4344-8c49-82af561da737"
+                        }
+                      ],
+                      "id": "57d45ca0-07ae-459c-a330-02481fa7560e",
+                      "createdAt": "2026-10-21T20:06:50.000Z",
+                      "updatedAt": "2026-10-21T20:06:50.000Z",
+                      "uid": "35240-57d45ca0-07ae-459c-a330-02481fa7560e"
+                    },
+                    {
+                      "name": "GET classifications",
+                      "id": "2e184ad7-4eb6-4b80-b774-4d4136f5936e",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/classifications/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "classifications",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "11dd8be2-2b7a-45e1-9db5-41b379dbb57d",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "8a5ac250-45f6-47c8-916f-6e673b965a2a",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/classifications/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "classifications",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/classifications/901b7e35ad71bc6d\",\n  \"created_at\": \"<dateTime>\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/cbb89e15d26a8cf4\"\n  },\n  \"results_uri\": \"<string>\",\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/e1e6d415303d3a82\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"<string>\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T20:06:50.000Z",
+                          "updatedAt": "2026-10-21T20:06:50.000Z",
+                          "uid": "35240-8a5ac250-45f6-47c8-916f-6e673b965a2a"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:06:50.000Z",
+                      "updatedAt": "2026-10-21T20:06:50.000Z",
+                      "uid": "35240-2e184ad7-4eb6-4b80-b774-4d4136f5936e"
+                    }
+                  ],
+                  "id": "ec4a8cf6-9e3d-4aa8-884a-14f5075c665d",
+                  "createdAt": "2026-10-21T20:06:50.000Z",
+                  "updatedAt": "2026-10-21T20:06:50.000Z",
+                  "uid": "35240-ec4a8cf6-9e3d-4aa8-884a-14f5075c665d"
+                },
+                {
+                  "name": "GET classifications instances",
+                  "id": "7166e5b4-8b9a-481c-8c3e-b50df6f39815",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/classifications/0d77065796f8d173\",\n    \"created_at\": \"1992-07-22T00:29:10.588Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"results_uri\": \"string\",\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1988-09-09T09:28:20.339Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/classifications/0d77065796f8d173\",\n    \"created_at\": \"1966-06-13T14:20:41.676Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"results_uri\": \"string\",\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"2024-08-20T09:03:29.791Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "73114633-7849-44a8-92cc-013f929ff3a8",
-          "name": "GET classifications instances_public",
-          "request": {
-            "name": "GET classifications instances_public",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "classifications",
-                "public"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "4f8024f8-4808-45be-9ee4-b663d1d509bb",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "classifications",
-                    "public"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/classifications?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "classifications"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  ],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/classifications/0d77065796f8d173\",\n    \"created_at\": \"1992-07-22T00:29:10.588Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"results_uri\": \"string\",\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"1988-09-09T09:28:20.339Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/classifications/0d77065796f8d173\",\n    \"created_at\": \"1966-06-13T14:20:41.676Z\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n    },\n    \"results_uri\": \"string\",\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"string\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"2024-08-20T09:03:29.791Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "4cf528ba-1009-4b0b-982a-f425d10432e6",
-          "name": "GET classifications",
-          "request": {
-            "name": "GET classifications",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "classifications",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1c867678-4ea8-474e-98ac-5bb9b227b200",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "classifications",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/classifications/0d77065796f8d173\",\n  \"created_at\": \"1947-11-10T01:22:03.797Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"results_uri\": \"string\",\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"1953-10-20T07:16:53.100Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "22d755c8-de48-4041-a836-b93b97cb8c82",
-          "name": "POST classifications cancel",
-          "request": {
-            "name": "POST classifications cancel",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "classifications",
-                ":id",
-                "cancel"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "22fd5d1b-e0a5-4fa7-9cf0-8167ec041318",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "classifications",
-                    ":id",
-                    "cancel"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/classifications/0d77065796f8d173\",\n  \"created_at\": \"1947-11-10T01:22:03.797Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"results_uri\": \"string\",\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"1953-10-20T07:16:53.100Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "e97fae10-146d-44d1-8c8b-d7195f75b9e0",
-          "name": "GET classifications file_details",
-          "request": {
-            "name": "GET classifications file_details",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "classifications",
-                ":id",
-                "file_details"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "a97265d2-b26f-4d06-9b0b-6914375e4a23",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "classifications",
-                    ":id",
-                    "file_details"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"files\": [\n    {\n      \"filename\": \"string\",\n      \"filepath\": \"string\",\n      \"size\": 2528,\n      \"url\": \"string\"\n    },\n    {\n      \"filename\": \"string\",\n      \"filepath\": \"string\",\n      \"size\": 9723,\n      \"url\": \"string\"\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fc9be02a-61d3-42d1-9b42-1ca222e215b0",
-          "name": "DELETE classifications files",
-          "request": {
-            "name": "DELETE classifications files",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "classifications",
-                ":id",
-                "files"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "f841dffe-1084-42a2-a26b-85557eeb33c7",
-              "name": "No Content",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "classifications",
-                    ":id",
-                    "files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
-                }
-              ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "712f2df4-da7a-492e-b748-c755a10045c5",
-          "name": "GET classifications files",
-          "request": {
-            "name": "GET classifications files",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "classifications",
-                ":id",
-                "files"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "72921fe8-4087-4769-9e65-c5a8deff18d6",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "classifications",
-                    ":id",
-                    "files"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "ab0e189b-888f-479f-8063-7bbb5ac386e9",
-          "name": "GET classifications logs",
-          "request": {
-            "name": "GET classifications logs",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "classifications",
-                ":id",
-                "logs"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "tail",
-                  "value": "<integer>"
-                }
-              ],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1bd2be97-134f-4bbd-af0d-bfacce082afa",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "classifications",
-                    ":id",
-                    "logs"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
-                    {
-                      "key": "tail",
-                      "value": "<integer>"
+                      "id": "a0a01f60-5f0f-4491-b067-4af1b8cd1b13",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/classifications?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "classifications"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/classifications/c1224100b65d1323\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/72c3dc10c1bd82e7\"\n    },\n    \"results_uri\": \"<string>\",\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/52c740cfb11fc7ca\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"$uri\": \"/api/v1/classifications/6094a1312b9069b3\",\n    \"created_at\": \"<dateTime>\",\n    \"job\": {\n      \"$ref\": \"/api/v1/jobs/b8201e47436db59d\"\n    },\n    \"results_uri\": \"<string>\",\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/4327a787f9d9a973\"\n    },\n    \"complete\": false,\n    \"error_msg\": \"<string>\",\n    \"job_args\": {},\n    \"success\": false,\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-10-21T20:06:50.000Z",
+                      "updatedAt": "2026-10-21T20:06:50.000Z",
+                      "uid": "35240-a0a01f60-5f0f-4491-b067-4af1b8cd1b13"
                     }
                   ],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  "createdAt": "2026-10-21T20:06:50.000Z",
+                  "updatedAt": "2026-10-21T20:06:50.000Z",
+                  "uid": "35240-7166e5b4-8b9a-481c-8c3e-b50df6f39815"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "3ab5de2e-fb7e-436a-8764-750057eece4f",
+              "createdAt": "2026-10-21T20:06:50.000Z",
+              "updatedAt": "2026-10-21T20:06:50.000Z",
+              "uid": "35240-3ab5de2e-fb7e-436a-8764-750057eece4f"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "45ed8a90-08f5-432b-a942-2614ff25e833",
-          "name": "GET classifications raw_results",
-          "request": {
-            "name": "GET classifications raw_results",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "classifications",
-                ":id",
-                "raw_results"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1f092544-3f14-4e87-8032-b3a5bcfb5a59",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "classifications",
-                    ":id",
-                    "raw_results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"host_tax_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"n_reads\": 5059,\n  \"table\": [\n    {\n      \"abundance\": 0.5259533566973144,\n      \"abundance_w_children\": 0.5355613132384867,\n      \"n_kmers\": 8441,\n      \"n_unique_kmers\": 8723,\n      \"name\": \"string\",\n      \"parent_tax_id\": \"string\",\n      \"rank\": \"string\",\n      \"readcount\": 7271,\n      \"readcount_w_children\": 8992,\n      \"tax_id\": \"string\",\n      \"unfiltered_readcount\": 569,\n      \"unfiltered_readcount_w_children\": 4321\n    },\n    {\n      \"abundance\": 0.41802073709257537,\n      \"abundance_w_children\": 0.3252877137414499,\n      \"n_kmers\": 8322,\n      \"n_unique_kmers\": 4842,\n      \"name\": \"string\",\n      \"parent_tax_id\": \"string\",\n      \"rank\": \"string\",\n      \"readcount\": 9461,\n      \"readcount_w_children\": 6035,\n      \"tax_id\": \"string\",\n      \"unfiltered_readcount\": 3637,\n      \"unfiltered_readcount_w_children\": 9418\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "fd664659-9315-4584-a732-4d8209e9513d",
-          "name": "GET classifications readlevel",
-          "request": {
-            "name": "GET classifications readlevel",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "classifications",
-                ":id",
-                "readlevel"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "b0da4e19-248b-4532-8f0b-614c3be366ac",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "classifications",
-                    ":id",
-                    "readlevel"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"url\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d9b23cca-35bc-41fd-a673-5277c9dfd29d",
-          "name": "POST classifications rerun",
-          "request": {
-            "name": "POST classifications rerun",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "classifications",
-                ":id",
-                "rerun"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "58d2caf3-767d-46b9-bea5-cea31be85682",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "classifications",
-                    ":id",
-                    "rerun"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/classifications/0d77065796f8d173\",\n  \"created_at\": \"1947-11-10T01:22:03.797Z\",\n  \"job\": {\n    \"$ref\": \"/api/v1/jobs/a1b2c3d4e5f67890\"\n  },\n  \"results_uri\": \"string\",\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"complete\": false,\n  \"error_msg\": \"string\",\n  \"job_args\": {},\n  \"success\": false,\n  \"updated_at\": \"1953-10-20T07:16:53.100Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "c62bc63a-7f86-4c94-9485-e2488da026be",
-          "name": "GET classifications results",
-          "request": {
-            "name": "GET classifications results",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "classifications",
-                ":id",
-                "results"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "2e486460-3b34-4bd0-ac1f-15bae843f014",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "classifications",
-                    ":id",
-                    "results"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"host_tax_ids\": [\n    \"string\",\n    \"string\"\n  ],\n  \"n_reads\": 1480,\n  \"table\": [\n    {\n      \"abundance\": 0.2953588765998529,\n      \"abundance_w_children\": 0.6276829723772435,\n      \"name\": \"string\",\n      \"parent_tax_id\": \"string\",\n      \"rank\": \"string\",\n      \"readcount\": 4330,\n      \"readcount_w_children\": 1744,\n      \"tax_id\": \"string\",\n      \"unfiltered_readcount\": 8328,\n      \"unfiltered_readcount_w_children\": 4083\n    },\n    {\n      \"abundance\": 0.47921242781998513,\n      \"abundance_w_children\": 0.051048457307468764,\n      \"name\": \"string\",\n      \"parent_tax_id\": \"string\",\n      \"rank\": \"string\",\n      \"readcount\": 981,\n      \"readcount_w_children\": 2800,\n      \"tax_id\": \"string\",\n      \"unfiltered_readcount\": 4829,\n      \"unfiltered_readcount_w_children\": 7955\n    }\n  ]\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "37a09100-9f2d-41cb-8760-2d34d7450e96",
+          "createdAt": "2026-10-21T20:06:50.000Z",
+          "updatedAt": "2026-10-21T20:06:50.000Z",
+          "uid": "35240-37a09100-9f2d-41cb-8760-2d34d7450e96"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "4bda9779-fb17-4b02-82e2-80832ba93ca2",
+      "createdAt": "2026-10-21T20:06:50.000Z",
+      "updatedAt": "2026-10-21T20:06:50.000Z",
+      "uid": "35240-4bda9779-fb17-4b02-82e2-80832ba93ca2"
     }
   ],
   "auth": {
@@ -1248,25 +1287,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "e82ba1d5-eea1-42e1-9700-5bbc691e0d42",
-    "name": "One Codex API (v1) Account Classifications API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

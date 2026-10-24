@@ -1,341 +1,365 @@
 {
+  "info": {
+    "_postman_id": "e2aa6361-27a5-4941-92c8-7e1244aa4e25",
+    "name": "One Codex API (v1) Tags API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:08:31.000Z",
+    "updatedAt": "2026-10-21T20:08:31.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-e2aa6361-27a5-4941-92c8-7e1244aa4e25"
+  },
   "item": [
     {
-      "id": "5db4c01f-cd96-494c-8fc6-56ba1437081f",
-      "name": "Tags",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "52da35f0-9f0b-479d-939a-c16c23981a46",
-          "name": "GET tags instances",
-          "request": {
-            "name": "GET tags instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "tags"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "4ac5d6a9-4d96-4d50-aa3b-4fc775572fcc",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "tags"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "tags",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "GET tags",
+                      "id": "7938ca7f-4617-428f-bce5-15c823552be5",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/tags/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "tags",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "6c7b9ef2-5cb7-4967-af6a-a7bbc47e0624",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1b79f536-ed87-4b65-829b-b1ffe83ca4e4",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/tags/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "tags",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "[\n  {\n    \"$uri\": \"/api/v1/tags/c834854211ea1de6\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"$uri\": \"/api/v1/tags/739875359f5b9c92\",\n    \"name\": \"<string>\"\n  }\n]",
+                          "createdAt": "2026-10-21T20:08:31.000Z",
+                          "updatedAt": "2026-10-21T20:08:31.000Z",
+                          "uid": "35240-1b79f536-ed87-4b65-829b-b1ffe83ca4e4"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:08:31.000Z",
+                      "updatedAt": "2026-10-21T20:08:31.000Z",
+                      "uid": "35240-7938ca7f-4617-428f-bce5-15c823552be5"
                     }
                   ],
-                  "variable": []
+                  "id": "cd5039a4-e5ca-4dba-8152-042965f3d35c",
+                  "createdAt": "2026-10-21T20:08:31.000Z",
+                  "updatedAt": "2026-10-21T20:08:31.000Z",
+                  "uid": "35240-cd5039a4-e5ca-4dba-8152-042965f3d35c"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/tags/0d77065796f8d173\",\n    \"name\": \"string\"\n  },\n  {\n    \"$uri\": \"/api/v1/tags/0d77065796f8d173\",\n    \"name\": \"string\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "5e8ad592-42dd-4537-b2f8-53bf226add55",
-          "name": "POST tags instances",
-          "request": {
-            "name": "POST tags instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "tags"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"name\": \"<string>\",\n  \"sample\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "0e6ca77a-5944-4e87-81d3-de9193d6b4dc",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "tags"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                  "name": "GET tags instances",
+                  "id": "593f228c-e5d8-4a23-b87f-2f28ccd26703",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"name\": \"<string>\",\n  \"sample\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/tags?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "tags"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/tags/0d77065796f8d173\",\n  \"name\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "8373c329-066f-4fcd-badf-27ff86f369b6",
-          "name": "GET tags",
-          "request": {
-            "name": "GET tags",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "tags",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "d72d1a41-467e-4fc7-b468-1442b4c33d46",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "tags",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  },
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                      "id": "7dba697d-1899-4687-b7cb-63896d91d4f3",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/tags?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "tags"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/tags/c834854211ea1de6\",\n    \"name\": \"<string>\"\n  },\n  {\n    \"$uri\": \"/api/v1/tags/739875359f5b9c92\",\n    \"name\": \"<string>\"\n  }\n]",
+                      "createdAt": "2026-10-21T20:08:31.000Z",
+                      "updatedAt": "2026-10-21T20:08:31.000Z",
+                      "uid": "35240-7dba697d-1899-4687-b7cb-63896d91d4f3"
                     }
-                  ]
+                  ],
+                  "createdAt": "2026-10-21T20:08:31.000Z",
+                  "updatedAt": "2026-10-21T20:08:31.000Z",
+                  "uid": "35240-593f228c-e5d8-4a23-b87f-2f28ccd26703"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "POST tags instances",
+                  "id": "720ab679-96c8-4496-abfa-4916cfedb6ef",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "POST",
+                    "header": [
+                      {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                      },
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "body": {
+                      "mode": "raw",
+                      "raw": "{\n  \"name\": \"<string>\",\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/9658b3d542bcce0f\"\n  }\n}",
+                      "options": {
+                        "raw": {
+                          "headerFamily": "json",
+                          "language": "json"
+                        }
+                      }
+                    },
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/tags",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "tags"
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "c6385792-89b1-40fd-838a-197d5d2373ea",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"name\": \"<string>\",\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/9658b3d542bcce0f\"\n  }\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/tags",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "tags"
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "{\n  \"$uri\": \"/api/v1/tags/88f490cdf08ab7dd\",\n  \"name\": \"<string>\"\n}",
+                      "createdAt": "2026-10-21T20:08:31.000Z",
+                      "updatedAt": "2026-10-21T20:08:31.000Z",
+                      "uid": "35240-c6385792-89b1-40fd-838a-197d5d2373ea"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:08:31.000Z",
+                  "updatedAt": "2026-10-21T20:08:31.000Z",
+                  "uid": "35240-720ab679-96c8-4496-abfa-4916cfedb6ef"
                 }
               ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/tags/0d77065796f8d173\",\n    \"name\": \"string\"\n  },\n  {\n    \"$uri\": \"/api/v1/tags/0d77065796f8d173\",\n    \"name\": \"string\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "1c2c46a2-3efb-45c6-9bbd-c7d54933e10b",
+              "createdAt": "2026-10-21T20:08:31.000Z",
+              "updatedAt": "2026-10-21T20:08:31.000Z",
+              "uid": "35240-1c2c46a2-3efb-45c6-9bbd-c7d54933e10b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "1fff48d9-0e9b-449e-b0cc-13106113a92b",
+          "createdAt": "2026-10-21T20:08:31.000Z",
+          "updatedAt": "2026-10-21T20:08:31.000Z",
+          "uid": "35240-1fff48d9-0e9b-449e-b0cc-13106113a92b"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "cef943c6-626a-45e7-95da-b9bb7d332be8",
+      "createdAt": "2026-10-21T20:08:31.000Z",
+      "updatedAt": "2026-10-21T20:08:31.000Z",
+      "uid": "35240-cef943c6-626a-45e7-95da-b9bb7d332be8"
     }
   ],
   "auth": {
@@ -343,25 +367,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "5c4611b7-0d4c-47e2-becb-ddb89e717875",
-    "name": "One Codex API (v1) Account Tags API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

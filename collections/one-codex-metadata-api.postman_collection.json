@@ -1,359 +1,380 @@
 {
+  "info": {
+    "_postman_id": "d2fe8c2f-9341-4288-bd97-e90e5a7d5aba",
+    "name": "One Codex API (v1) Metadata API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:07:41.000Z",
+    "updatedAt": "2026-10-21T20:07:41.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-d2fe8c2f-9341-4288-bd97-e90e5a7d5aba"
+  },
   "item": [
     {
-      "id": "f871085a-5ed8-4ba0-b364-5bbb3e26d9d2",
-      "name": "Metadata",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "b99a4479-9d94-42d1-af7d-d66756c54970",
-          "name": "GET metadata instances",
-          "request": {
-            "name": "GET metadata instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "metadata"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "015721ca-cb34-41df-ba23-5f3d12bc7f18",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "metadata"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "metadata",
+              "item": [
+                {
+                  "name": "{id}",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
+                      "name": "GET metadata",
+                      "id": "26044dc8-fac7-4026-8ad3-3febcc9d3d87",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/metadata/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "metadata",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "e798e83d-8d00-4926-b851-cbed10b82476",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "1df210cc-a8b7-4020-a1d8-64a2af27dbec",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/metadata/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "metadata",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/metadata/4a6a8714cefe6f89\",\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/84749f426eb06e1b\"\n  },\n  \"custom\": {\n    \"non96\": true,\n    \"cillum2b5\": \"Lorem ad et Excepteur laborum\",\n    \"mollite\": -93892390\n  },\n  \"date_collected\": \"<dateTime>\",\n  \"date_sequenced\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"external_sample_id\": \"<string>\",\n  \"library_type\": \"Targeted/16S\",\n  \"location_lat\": \"<number>\",\n  \"location_lon\": \"<number>\",\n  \"location_string\": \"<string>\",\n  \"name\": \"<string>\",\n  \"platform\": \"Illumina NovaSeq 5000\",\n  \"sample_type\": \"Metagenomic\",\n  \"starred\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T20:07:42.000Z",
+                          "updatedAt": "2026-10-21T20:07:42.000Z",
+                          "uid": "35240-1df210cc-a8b7-4020-a1d8-64a2af27dbec"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:42.000Z",
+                      "updatedAt": "2026-10-21T20:07:42.000Z",
+                      "uid": "35240-26044dc8-fac7-4026-8ad3-3febcc9d3d87"
                     },
                     {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "PATCH metadata",
+                      "id": "2260bb21-d12f-4a2b-be85-c4948d3ae034",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "PATCH",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"custom\": {\n    \"voluptatee\": -79603620\n  },\n  \"date_collected\": \"<dateTime>\",\n  \"date_sequenced\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"external_sample_id\": \"<string>\",\n  \"library_type\": \"Other\",\n  \"location_lat\": \"<number>\",\n  \"location_lon\": \"<number>\",\n  \"location_string\": \"<string>\",\n  \"name\": \"<string>\",\n  \"platform\": \"Illumina NovaSeq\",\n  \"sample_type\": \"Other\",\n  \"starred\": \"<boolean>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/metadata/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "metadata",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "93fa9b6d-fa33-47fb-bfc9-3f6512a60adb",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "d59a8f9e-94fc-440c-977b-09f6de298948",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"custom\": {\n    \"voluptatee\": -79603620\n  },\n  \"date_collected\": \"<dateTime>\",\n  \"date_sequenced\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"external_sample_id\": \"<string>\",\n  \"library_type\": \"Other\",\n  \"location_lat\": \"<number>\",\n  \"location_lon\": \"<number>\",\n  \"location_string\": \"<string>\",\n  \"name\": \"<string>\",\n  \"platform\": \"Illumina NovaSeq\",\n  \"sample_type\": \"Other\",\n  \"starred\": \"<boolean>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/metadata/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "metadata",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/metadata/4a6a8714cefe6f89\",\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/84749f426eb06e1b\"\n  },\n  \"custom\": {\n    \"non96\": true,\n    \"cillum2b5\": \"Lorem ad et Excepteur laborum\",\n    \"mollite\": -93892390\n  },\n  \"date_collected\": \"<dateTime>\",\n  \"date_sequenced\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"external_sample_id\": \"<string>\",\n  \"library_type\": \"Targeted/16S\",\n  \"location_lat\": \"<number>\",\n  \"location_lon\": \"<number>\",\n  \"location_string\": \"<string>\",\n  \"name\": \"<string>\",\n  \"platform\": \"Illumina NovaSeq 5000\",\n  \"sample_type\": \"Metagenomic\",\n  \"starred\": false,\n  \"updated_at\": \"<dateTime>\"\n}",
+                          "createdAt": "2026-10-21T20:07:42.000Z",
+                          "updatedAt": "2026-10-21T20:07:42.000Z",
+                          "uid": "35240-d59a8f9e-94fc-440c-977b-09f6de298948"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:42.000Z",
+                      "updatedAt": "2026-10-21T20:07:42.000Z",
+                      "uid": "35240-2260bb21-d12f-4a2b-be85-c4948d3ae034"
                     }
                   ],
-                  "variable": []
+                  "id": "43cad0bc-94f0-4898-b79d-508353bea1e8",
+                  "createdAt": "2026-10-21T20:07:42.000Z",
+                  "updatedAt": "2026-10-21T20:07:42.000Z",
+                  "uid": "35240-43cad0bc-94f0-4898-b79d-508353bea1e8"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
                 {
-                  "key": "Content-Type",
-                  "value": "application/json"
+                  "name": "GET metadata instances",
+                  "id": "268d5e0e-d163-4c22-af97-07bcb6417741",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
+                  },
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/metadata?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "metadata"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
+                    }
+                  },
+                  "response": [
+                    {
+                      "id": "b536da50-f1ad-4360-8497-2823bd05470b",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/metadata?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "metadata"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/metadata/18f10f9557142d58\",\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/7fd941b31ab1d1f8\"\n    },\n    \"custom\": {\n      \"ipsum_c42\": \"elit Duis\",\n      \"dolore_03\": 8904472,\n      \"consequat_d\": 72894098.85355598\n    },\n    \"date_collected\": \"<dateTime>\",\n    \"date_sequenced\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"external_sample_id\": \"<string>\",\n    \"library_type\": \"WGS\",\n    \"location_lat\": \"<number>\",\n    \"location_lon\": \"<number>\",\n    \"location_string\": \"<string>\",\n    \"name\": \"<string>\",\n    \"platform\": \"Illumina iSeq 100\",\n    \"sample_type\": \"Other\",\n    \"starred\": false,\n    \"updated_at\": \"<dateTime>\"\n  },\n  {\n    \"$uri\": \"/api/v1/metadata/c8552fba3478e2e7\",\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/e72edb8428022346\"\n    },\n    \"custom\": {\n      \"non6\": true\n    },\n    \"date_collected\": \"<dateTime>\",\n    \"date_sequenced\": \"<dateTime>\",\n    \"description\": \"<string>\",\n    \"external_sample_id\": \"<string>\",\n    \"library_type\": \"WGS\",\n    \"location_lat\": \"<number>\",\n    \"location_lon\": \"<number>\",\n    \"location_string\": \"<string>\",\n    \"name\": \"<string>\",\n    \"platform\": \"PacBio RS II\",\n    \"sample_type\": \"Metagenomic\",\n    \"starred\": false,\n    \"updated_at\": \"<dateTime>\"\n  }\n]",
+                      "createdAt": "2026-10-21T20:07:42.000Z",
+                      "updatedAt": "2026-10-21T20:07:42.000Z",
+                      "uid": "35240-b536da50-f1ad-4360-8497-2823bd05470b"
+                    }
+                  ],
+                  "createdAt": "2026-10-21T20:07:42.000Z",
+                  "updatedAt": "2026-10-21T20:07:42.000Z",
+                  "uid": "35240-268d5e0e-d163-4c22-af97-07bcb6417741"
                 }
               ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/metadata/0d77065796f8d173\",\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"custom\": {\n      \"key_0\": 2044.3601444435333,\n      \"key_1\": false\n    },\n    \"date_collected\": \"1976-02-17T10:48:16.431Z\",\n    \"date_sequenced\": \"2017-11-15T16:27:59.709Z\",\n    \"description\": \"string\",\n    \"external_sample_id\": \"string\",\n    \"library_type\": \"Targeted/16S\",\n    \"location_lat\": -18.4697788034065,\n    \"location_lon\": -174.1269291350768,\n    \"location_string\": \"string\",\n    \"name\": \"string\",\n    \"platform\": \"454 sequencing\",\n    \"sample_type\": \"Other\",\n    \"starred\": false,\n    \"updated_at\": \"1952-12-19T00:13:04.456Z\"\n  },\n  {\n    \"$uri\": \"/api/v1/metadata/0d77065796f8d173\",\n    \"sample\": {\n      \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n    },\n    \"custom\": {\n      \"key_0\": 1729\n    },\n    \"date_collected\": \"1958-03-23T05:37:07.183Z\",\n    \"date_sequenced\": \"1960-09-19T03:09:17.778Z\",\n    \"description\": \"string\",\n    \"external_sample_id\": \"string\",\n    \"library_type\": \"Other\",\n    \"location_lat\": 4.284339577174961,\n    \"location_lon\": 102.64904419187303,\n    \"location_string\": \"string\",\n    \"name\": \"string\",\n    \"platform\": \"Oxford Nanopore GridION X5\",\n    \"sample_type\": \"Metagenomic\",\n    \"starred\": false,\n    \"updated_at\": \"1969-11-06T10:10:12.222Z\"\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
+              "id": "aedfffcc-3fca-4080-8653-a81dfc0fff8e",
+              "createdAt": "2026-10-21T20:07:42.000Z",
+              "updatedAt": "2026-10-21T20:07:42.000Z",
+              "uid": "35240-aedfffcc-3fca-4080-8653-a81dfc0fff8e"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "42ad49b0-89a4-44cf-b3e0-5da2f3644b7e",
-          "name": "GET metadata",
-          "request": {
-            "name": "GET metadata",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "metadata",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "9cdde201-1375-4159-98e5-f719a049bf91",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "metadata",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/metadata/0d77065796f8d173\",\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"custom\": {\n    \"key_0\": 36\n  },\n  \"date_collected\": \"1973-12-24T21:46:21.459Z\",\n  \"date_sequenced\": \"1997-10-03T18:04:37.819Z\",\n  \"description\": \"string\",\n  \"external_sample_id\": \"string\",\n  \"library_type\": \"WGS\",\n  \"location_lat\": 1.3874091361033152,\n  \"location_lon\": -99.07620982047978,\n  \"location_string\": \"string\",\n  \"name\": \"string\",\n  \"platform\": \"Sanger\",\n  \"sample_type\": \"Other\",\n  \"starred\": false,\n  \"updated_at\": \"1996-04-16T18:51:39.374Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "000ad396-9666-4fd3-8907-ed1568bd7768",
-          "name": "PATCH metadata",
-          "request": {
-            "name": "PATCH metadata",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "metadata",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"custom\": {\n    \"key_0\": 5592,\n    \"key_1\": \"string\"\n  },\n  \"date_collected\": \"<dateTime>\",\n  \"date_sequenced\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"external_sample_id\": \"<string>\",\n  \"library_type\": \"<string>\",\n  \"location_lat\": \"<number>\",\n  \"location_lon\": \"<number>\",\n  \"location_string\": \"<string>\",\n  \"name\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"sample_type\": \"<string>\",\n  \"starred\": \"<boolean>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "fd0cbc7e-e06a-4997-bb2c-657274b65caa",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "metadata",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"custom\": {\n    \"key_0\": \"string\",\n    \"key_1\": 1210.0682904215764\n  },\n  \"date_collected\": \"<dateTime>\",\n  \"date_sequenced\": \"<dateTime>\",\n  \"description\": \"<string>\",\n  \"external_sample_id\": \"<string>\",\n  \"library_type\": \"<string>\",\n  \"location_lat\": \"<number>\",\n  \"location_lon\": \"<number>\",\n  \"location_string\": \"<string>\",\n  \"name\": \"<string>\",\n  \"platform\": \"<string>\",\n  \"sample_type\": \"<string>\",\n  \"starred\": \"<boolean>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/metadata/0d77065796f8d173\",\n  \"sample\": {\n    \"$ref\": \"/api/v1/samples/a1b2c3d4e5f67890\"\n  },\n  \"custom\": {\n    \"key_0\": 36\n  },\n  \"date_collected\": \"1973-12-24T21:46:21.459Z\",\n  \"date_sequenced\": \"1997-10-03T18:04:37.819Z\",\n  \"description\": \"string\",\n  \"external_sample_id\": \"string\",\n  \"library_type\": \"WGS\",\n  \"location_lat\": 1.3874091361033152,\n  \"location_lon\": -99.07620982047978,\n  \"location_string\": \"string\",\n  \"name\": \"string\",\n  \"platform\": \"Sanger\",\n  \"sample_type\": \"Other\",\n  \"starred\": false,\n  \"updated_at\": \"1996-04-16T18:51:39.374Z\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "5165ea2d-bdfe-4b13-bc50-d1e7150f5d49",
+          "createdAt": "2026-10-21T20:07:42.000Z",
+          "updatedAt": "2026-10-21T20:07:42.000Z",
+          "uid": "35240-5165ea2d-bdfe-4b13-bc50-d1e7150f5d49"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "3081183f-570e-4cc6-80f2-67658b430d3f",
+      "createdAt": "2026-10-21T20:07:42.000Z",
+      "updatedAt": "2026-10-21T20:07:42.000Z",
+      "uid": "35240-3081183f-570e-4cc6-80f2-67658b430d3f"
     }
   ],
   "auth": {
@@ -361,25 +382,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "d42913f3-cdb2-4fbc-8e4c-4aa08fba9897",
-    "name": "One Codex API (v1) Account Metadata API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }

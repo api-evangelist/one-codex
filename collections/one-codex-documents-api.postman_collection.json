@@ -1,1072 +1,1147 @@
 {
+  "info": {
+    "_postman_id": "baf7d0a7-ee73-48f7-94f2-b9ff2544c2c1",
+    "name": "One Codex API (v1) Documents API",
+    "description": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-10-21T20:07:07.000Z",
+    "updatedAt": "2026-10-21T20:07:07.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-baf7d0a7-ee73-48f7-94f2-b9ff2544c2c1"
+  },
   "item": [
     {
-      "id": "ae3888fd-2d64-405e-81fa-5deb40c702a7",
-      "name": "Documents",
-      "description": {
-        "content": "",
-        "type": "text/plain"
-      },
+      "name": "api",
       "item": [
         {
-          "id": "683f21e6-58be-4ccc-a4e8-73d464009072",
-          "name": "GET documents instances",
-          "request": {
-            "name": "GET documents instances",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "documents"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [
-                {
-                  "disabled": false,
-                  "key": "page",
-                  "value": "1",
-                  "description": "Page number. Defaults to 1. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "per_page",
-                  "value": "50",
-                  "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details."
-                },
-                {
-                  "disabled": false,
-                  "key": "sort",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)"
-                },
-                {
-                  "disabled": false,
-                  "key": "where",
-                  "value": "<string>",
-                  "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`"
-                }
-              ],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
+          "name": "v1",
+          "item": [
             {
-              "id": "8d5590c9-cff0-4e58-aa59-f2320bdeda26",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "documents"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [
+              "name": "documents",
+              "item": [
+                {
+                  "name": "confirm_upload",
+                  "item": [
                     {
-                      "key": "page",
-                      "value": "1"
-                    },
-                    {
-                      "key": "per_page",
-                      "value": "50"
-                    },
-                    {
-                      "key": "sort",
-                      "value": "<string>"
-                    },
-                    {
-                      "key": "where",
-                      "value": "<string>"
+                      "name": "POST documents instances_confirm_upload",
+                      "id": "4d378d13-1baa-43f8-afe9-a94693087a4c",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"document_id\": \"<string>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/documents/confirm_upload",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "documents",
+                            "confirm_upload"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "69fa3c2e-6eb4-4891-bd0b-29ae47fdf3b7",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"document_id\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/documents/confirm_upload",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "documents",
+                                "confirm_upload"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"document\": {\n    \"$ref\": \"/api/v1/documents/585571dda6ed3010\"\n  },\n  \"message\": \"<string>\",\n  \"success\": \"<boolean>\"\n}",
+                          "createdAt": "2026-10-21T20:07:07.000Z",
+                          "updatedAt": "2026-10-21T20:07:07.000Z",
+                          "uid": "35240-69fa3c2e-6eb4-4891-bd0b-29ae47fdf3b7"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:07.000Z",
+                      "updatedAt": "2026-10-21T20:07:07.000Z",
+                      "uid": "35240-4d378d13-1baa-43f8-afe9-a94693087a4c"
                     }
                   ],
-                  "variable": []
+                  "id": "8d8b5265-0935-4018-ba4b-81eca8ff8e5b",
+                  "createdAt": "2026-10-21T20:07:07.000Z",
+                  "updatedAt": "2026-10-21T20:07:07.000Z",
+                  "uid": "35240-8d8b5265-0935-4018-ba4b-81eca8ff8e5b"
                 },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
+                {
+                  "name": "init_multipart_upload",
+                  "item": [
+                    {
+                      "name": "Start a multipart upload directly to S3",
+                      "id": "24f61be2-2034-4a5d-a2ea-e3dccebd0d1b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/documents/init_multipart_upload",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "documents",
+                            "init_multipart_upload"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "794d25d3-99b5-4321-bf03-9a1b0a1470a6",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/documents/init_multipart_upload",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "documents",
+                                "init_multipart_upload"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"callback_url\": \"<string>\",\n  \"file_id\": \"<string>\",\n  \"import_as_document\": \"<boolean>\",\n  \"s3_bucket\": \"<string>\",\n  \"upload_aws_access_key_id\": \"<string>\",\n  \"upload_aws_secret_access_key\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:07:07.000Z",
+                          "updatedAt": "2026-10-21T20:07:07.000Z",
+                          "uid": "35240-794d25d3-99b5-4321-bf03-9a1b0a1470a6"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:07.000Z",
+                      "updatedAt": "2026-10-21T20:07:07.000Z",
+                      "uid": "35240-24f61be2-2034-4a5d-a2ea-e3dccebd0d1b"
+                    }
+                  ],
+                  "id": "015361d9-a467-42c3-a764-4e508262d437",
+                  "createdAt": "2026-10-21T20:07:07.000Z",
+                  "updatedAt": "2026-10-21T20:07:07.000Z",
+                  "uid": "35240-015361d9-a467-42c3-a764-4e508262d437"
+                },
+                {
+                  "name": "init_upload",
+                  "item": [
+                    {
+                      "name": "Deprecated in favour of init_multipart_upload",
+                      "id": "267dc6c6-9202-4eb7-b831-b7cdacff591b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "POST",
+                        "header": [
+                          {
+                            "key": "Content-Type",
+                            "value": "application/json"
+                          },
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "body": {
+                          "mode": "raw",
+                          "raw": "{\n  \"filename\": \"<string>\",\n  \"size\": \"<integer>\"\n}",
+                          "options": {
+                            "raw": {
+                              "headerFamily": "json",
+                              "language": "json"
+                            }
+                          }
+                        },
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/documents/init_upload",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "documents",
+                            "init_upload"
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "9c3dfe04-ab85-455c-8e7c-7fe5ebf7b4be",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"filename\": \"<string>\",\n  \"size\": \"<integer>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/documents/init_upload",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "documents",
+                                "init_upload"
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"additional_fields\": {\n    \"sit_a\": true,\n    \"cillum2ed\": \"eiusmod exercitation\"\n  },\n  \"document_id\": \"<string>\",\n  \"upload_url\": \"<string>\"\n}",
+                          "createdAt": "2026-10-21T20:07:07.000Z",
+                          "updatedAt": "2026-10-21T20:07:07.000Z",
+                          "uid": "35240-9c3dfe04-ab85-455c-8e7c-7fe5ebf7b4be"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:07.000Z",
+                      "updatedAt": "2026-10-21T20:07:07.000Z",
+                      "uid": "35240-267dc6c6-9202-4eb7-b831-b7cdacff591b"
+                    }
+                  ],
+                  "id": "1a487a55-f4c9-4225-b95c-1e9d074ee05f",
+                  "createdAt": "2026-10-21T20:07:07.000Z",
+                  "updatedAt": "2026-10-21T20:07:07.000Z",
+                  "uid": "35240-1a487a55-f4c9-4225-b95c-1e9d074ee05f"
+                },
+                {
+                  "name": "{id}",
+                  "item": [
+                    {
+                      "name": "add_user",
+                      "item": [
+                        {
+                          "name": "POST documents add_user",
+                          "id": "6479f5ed-54cb-4253-be4b-115d5e8d6c37",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"user\": {\n    \"$ref\": \"/api/v1/users/f3244c90fad25488\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/documents/:id/add_user",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "documents",
+                                ":id",
+                                "add_user"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "932e2856-d8ac-43a8-81b6-89d3b41568d9",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "9ab9b086-8189-4421-a1cf-873031930a69",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"user\": {\n    \"$ref\": \"/api/v1/users/f3244c90fad25488\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/documents/:id/add_user",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "documents",
+                                    ":id",
+                                    "add_user"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/documents/43cd86f5a767ee41\",\n  \"created_at\": \"<dateTime>\",\n  \"downloaders\": [\n    {\n      \"$ref\": \"/api/v1/users/346437fc7c84e8b3\"\n    },\n    {\n      \"$ref\": \"/api/v1/users/d94a09ea8038efd7\"\n    }\n  ],\n  \"filename\": \"<string>\",\n  \"size\": \"<integer>\",\n  \"uploader\": {\n    \"$ref\": \"/api/v1/users/7349ed3f8a4c1eee\"\n  }\n}",
+                              "createdAt": "2026-10-21T20:07:07.000Z",
+                              "updatedAt": "2026-10-21T20:07:07.000Z",
+                              "uid": "35240-9ab9b086-8189-4421-a1cf-873031930a69"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:07.000Z",
+                          "updatedAt": "2026-10-21T20:07:07.000Z",
+                          "uid": "35240-6479f5ed-54cb-4253-be4b-115d5e8d6c37"
+                        }
+                      ],
+                      "id": "66df69d2-4871-4177-adfa-009bf5ef2b20",
+                      "createdAt": "2026-10-21T20:07:07.000Z",
+                      "updatedAt": "2026-10-21T20:07:07.000Z",
+                      "uid": "35240-66df69d2-4871-4177-adfa-009bf5ef2b20"
                     },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
+                    {
+                      "name": "download_uri",
+                      "item": [
+                        {
+                          "name": "POST documents download_uri",
+                          "id": "0e13d87c-de33-4a1e-bc63-1493cfc7b60f",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/documents/:id/download_uri",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "documents",
+                                ":id",
+                                "download_uri"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "1513a518-78a1-40fc-816f-6e7012d53820",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "e403b6e0-1d90-49e2-88ea-15a1a6720e96",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/documents/:id/download_uri",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "documents",
+                                    ":id",
+                                    "download_uri"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"download_uri\": \"<string>\",\n  \"expires_in_hours\": \"<integer>\"\n}",
+                              "createdAt": "2026-10-21T20:07:07.000Z",
+                              "updatedAt": "2026-10-21T20:07:07.000Z",
+                              "uid": "35240-e403b6e0-1d90-49e2-88ea-15a1a6720e96"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:07.000Z",
+                          "updatedAt": "2026-10-21T20:07:07.000Z",
+                          "uid": "35240-0e13d87c-de33-4a1e-bc63-1493cfc7b60f"
+                        }
+                      ],
+                      "id": "17b37c02-6315-48fc-850e-295d169493cd",
+                      "createdAt": "2026-10-21T20:07:07.000Z",
+                      "updatedAt": "2026-10-21T20:07:07.000Z",
+                      "uid": "35240-17b37c02-6315-48fc-850e-295d169493cd"
+                    },
+                    {
+                      "name": "remove_user",
+                      "item": [
+                        {
+                          "name": "POST documents remove_user",
+                          "id": "95732c42-3aea-4d8b-acd7-5022130c9b1b",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "POST",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"user\": {\n    \"$ref\": \"/api/v1/users/f3244c90fad25488\"\n  }\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/documents/:id/remove_user",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "documents",
+                                ":id",
+                                "remove_user"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "f56f9b05-5c73-4856-9610-c1d650ec7ffe",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "307e8a23-fe06-406b-8211-c9c402fe57cf",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "POST",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"user\": {\n    \"$ref\": \"/api/v1/users/f3244c90fad25488\"\n  }\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/documents/:id/remove_user",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "documents",
+                                    ":id",
+                                    "remove_user"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/documents/43cd86f5a767ee41\",\n  \"created_at\": \"<dateTime>\",\n  \"downloaders\": [\n    {\n      \"$ref\": \"/api/v1/users/346437fc7c84e8b3\"\n    },\n    {\n      \"$ref\": \"/api/v1/users/d94a09ea8038efd7\"\n    }\n  ],\n  \"filename\": \"<string>\",\n  \"size\": \"<integer>\",\n  \"uploader\": {\n    \"$ref\": \"/api/v1/users/7349ed3f8a4c1eee\"\n  }\n}",
+                              "createdAt": "2026-10-21T20:07:07.000Z",
+                              "updatedAt": "2026-10-21T20:07:07.000Z",
+                              "uid": "35240-307e8a23-fe06-406b-8211-c9c402fe57cf"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:07.000Z",
+                          "updatedAt": "2026-10-21T20:07:07.000Z",
+                          "uid": "35240-95732c42-3aea-4d8b-acd7-5022130c9b1b"
+                        }
+                      ],
+                      "id": "6508c114-f02d-4d6a-a261-e9c91caee206",
+                      "createdAt": "2026-10-21T20:07:07.000Z",
+                      "updatedAt": "2026-10-21T20:07:07.000Z",
+                      "uid": "35240-6508c114-f02d-4d6a-a261-e9c91caee206"
+                    },
+                    {
+                      "name": "rename",
+                      "item": [
+                        {
+                          "name": "PATCH documents rename",
+                          "id": "d8487bd4-afff-4703-ab7d-57421c0691e4",
+                          "protocolProfileBehavior": {
+                            "disableBodyPruning": true
+                          },
+                          "request": {
+                            "method": "PATCH",
+                            "header": [
+                              {
+                                "key": "Content-Type",
+                                "value": "application/json"
+                              },
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              }
+                            ],
+                            "body": {
+                              "mode": "raw",
+                              "raw": "{\n  \"filename\": \"<string>\"\n}",
+                              "options": {
+                                "raw": {
+                                  "headerFamily": "json",
+                                  "language": "json"
+                                }
+                              }
+                            },
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/documents/:id/rename",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "documents",
+                                ":id",
+                                "rename"
+                              ],
+                              "variable": [
+                                {
+                                  "id": "8388fd3a-af8c-4402-af7d-236b23618b25",
+                                  "key": "id",
+                                  "value": "<string>",
+                                  "description": "(Required) "
+                                }
+                              ]
+                            }
+                          },
+                          "response": [
+                            {
+                              "id": "ea0ba37b-3f95-47dd-ac59-efa019d88d17",
+                              "name": "OK",
+                              "originalRequest": {
+                                "method": "PATCH",
+                                "header": [
+                                  {
+                                    "key": "Content-Type",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "key": "Accept",
+                                    "value": "application/json"
+                                  },
+                                  {
+                                    "description": "Added as a part of security scheme: apikey",
+                                    "key": "X-API-Key",
+                                    "value": "<API Key>"
+                                  }
+                                ],
+                                "body": {
+                                  "mode": "raw",
+                                  "raw": "{\n  \"filename\": \"<string>\"\n}",
+                                  "options": {
+                                    "raw": {
+                                      "headerFamily": "json",
+                                      "language": "json"
+                                    }
+                                  }
+                                },
+                                "url": {
+                                  "raw": "{{baseUrl}}/api/v1/documents/:id/rename",
+                                  "host": [
+                                    "{{baseUrl}}"
+                                  ],
+                                  "path": [
+                                    "api",
+                                    "v1",
+                                    "documents",
+                                    ":id",
+                                    "rename"
+                                  ],
+                                  "variable": [
+                                    {
+                                      "key": "id"
+                                    }
+                                  ]
+                                }
+                              },
+                              "status": "OK",
+                              "code": 200,
+                              "_postman_previewlanguage": "json",
+                              "header": [
+                                {
+                                  "key": "Content-Type",
+                                  "value": "application/json"
+                                }
+                              ],
+                              "cookie": [],
+                              "responseTime": null,
+                              "body": "{\n  \"$uri\": \"/api/v1/documents/43cd86f5a767ee41\",\n  \"created_at\": \"<dateTime>\",\n  \"downloaders\": [\n    {\n      \"$ref\": \"/api/v1/users/346437fc7c84e8b3\"\n    },\n    {\n      \"$ref\": \"/api/v1/users/d94a09ea8038efd7\"\n    }\n  ],\n  \"filename\": \"<string>\",\n  \"size\": \"<integer>\",\n  \"uploader\": {\n    \"$ref\": \"/api/v1/users/7349ed3f8a4c1eee\"\n  }\n}",
+                              "createdAt": "2026-10-21T20:07:07.000Z",
+                              "updatedAt": "2026-10-21T20:07:07.000Z",
+                              "uid": "35240-ea0ba37b-3f95-47dd-ac59-efa019d88d17"
+                            }
+                          ],
+                          "createdAt": "2026-10-21T20:07:07.000Z",
+                          "updatedAt": "2026-10-21T20:07:07.000Z",
+                          "uid": "35240-d8487bd4-afff-4703-ab7d-57421c0691e4"
+                        }
+                      ],
+                      "id": "b77329ba-6e15-414a-9c43-9ab52455a99a",
+                      "createdAt": "2026-10-21T20:07:07.000Z",
+                      "updatedAt": "2026-10-21T20:07:07.000Z",
+                      "uid": "35240-b77329ba-6e15-414a-9c43-9ab52455a99a"
+                    },
+                    {
+                      "name": "DELETE documents",
+                      "id": "e6a1911f-f601-4070-8ec0-1884abe299f3",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "DELETE",
+                        "header": [],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/documents/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "documents",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "35be59a1-f215-4fea-adef-5c6973179204",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "16d2c74f-fdb4-489f-8bd0-dd3d0a8cf199",
+                          "name": "No Content",
+                          "originalRequest": {
+                            "method": "DELETE",
+                            "header": [
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/documents/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "documents",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "No Content",
+                          "code": 204,
+                          "_postman_previewlanguage": "text",
+                          "header": [],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": null,
+                          "createdAt": "2026-10-21T20:07:07.000Z",
+                          "updatedAt": "2026-10-21T20:07:07.000Z",
+                          "uid": "35240-16d2c74f-fdb4-489f-8bd0-dd3d0a8cf199"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:07.000Z",
+                      "updatedAt": "2026-10-21T20:07:07.000Z",
+                      "uid": "35240-e6a1911f-f601-4070-8ec0-1884abe299f3"
+                    },
+                    {
+                      "name": "GET documents",
+                      "id": "c2a0ed71-274b-4d9a-85eb-01d17924b31b",
+                      "protocolProfileBehavior": {
+                        "disableBodyPruning": true
+                      },
+                      "request": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/documents/:id",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "documents",
+                            ":id"
+                          ],
+                          "variable": [
+                            {
+                              "id": "5199ce65-fc74-4277-85c6-003a3264e1e5",
+                              "key": "id",
+                              "value": "<string>",
+                              "description": "(Required) "
+                            }
+                          ]
+                        }
+                      },
+                      "response": [
+                        {
+                          "id": "f49d3a32-77a9-4c75-b3ef-0f2e2101721c",
+                          "name": "OK",
+                          "originalRequest": {
+                            "method": "GET",
+                            "header": [
+                              {
+                                "key": "Accept",
+                                "value": "application/json"
+                              },
+                              {
+                                "description": "Added as a part of security scheme: apikey",
+                                "key": "X-API-Key",
+                                "value": "<API Key>"
+                              }
+                            ],
+                            "url": {
+                              "raw": "{{baseUrl}}/api/v1/documents/:id",
+                              "host": [
+                                "{{baseUrl}}"
+                              ],
+                              "path": [
+                                "api",
+                                "v1",
+                                "documents",
+                                ":id"
+                              ],
+                              "variable": [
+                                {
+                                  "key": "id"
+                                }
+                              ]
+                            }
+                          },
+                          "status": "OK",
+                          "code": 200,
+                          "_postman_previewlanguage": "json",
+                          "header": [
+                            {
+                              "key": "Content-Type",
+                              "value": "application/json"
+                            }
+                          ],
+                          "cookie": [],
+                          "responseTime": null,
+                          "body": "{\n  \"$uri\": \"/api/v1/documents/43cd86f5a767ee41\",\n  \"created_at\": \"<dateTime>\",\n  \"downloaders\": [\n    {\n      \"$ref\": \"/api/v1/users/346437fc7c84e8b3\"\n    },\n    {\n      \"$ref\": \"/api/v1/users/d94a09ea8038efd7\"\n    }\n  ],\n  \"filename\": \"<string>\",\n  \"size\": \"<integer>\",\n  \"uploader\": {\n    \"$ref\": \"/api/v1/users/7349ed3f8a4c1eee\"\n  }\n}",
+                          "createdAt": "2026-10-21T20:07:07.000Z",
+                          "updatedAt": "2026-10-21T20:07:07.000Z",
+                          "uid": "35240-f49d3a32-77a9-4c75-b3ef-0f2e2101721c"
+                        }
+                      ],
+                      "createdAt": "2026-10-21T20:07:07.000Z",
+                      "updatedAt": "2026-10-21T20:07:07.000Z",
+                      "uid": "35240-c2a0ed71-274b-4d9a-85eb-01d17924b31b"
+                    }
+                  ],
+                  "id": "39e36b41-a5a8-435d-8cc4-a9ae44f3465a",
+                  "createdAt": "2026-10-21T20:07:07.000Z",
+                  "updatedAt": "2026-10-21T20:07:07.000Z",
+                  "uid": "35240-39e36b41-a5a8-435d-8cc4-a9ae44f3465a"
+                },
+                {
+                  "name": "GET documents instances",
+                  "id": "323a5d86-981f-43f8-82af-60efb78e111d",
+                  "protocolProfileBehavior": {
+                    "disableBodyPruning": true
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "[\n  {\n    \"$uri\": \"/api/v1/documents/0d77065796f8d173\",\n    \"created_at\": \"2022-02-13T05:36:57.650Z\",\n    \"downloaders\": [\n      {\n        \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n      },\n      {\n        \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n      }\n    ],\n    \"filename\": \"string\",\n    \"size\": 1899,\n    \"uploader\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    }\n  },\n  {\n    \"$uri\": \"/api/v1/documents/0d77065796f8d173\",\n    \"created_at\": \"1960-01-22T01:23:56.333Z\",\n    \"downloaders\": [\n      {\n        \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n      },\n      {\n        \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n      }\n    ],\n    \"filename\": \"string\",\n    \"size\": 9223,\n    \"uploader\": {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    }\n  }\n]",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "056f3b20-9b36-4441-b3bd-c6b80338fc30",
-          "name": "POST documents instances_confirm_upload",
-          "request": {
-            "name": "POST documents instances_confirm_upload",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "documents",
-                "confirm_upload"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"document_id\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "132e5246-0b50-481b-adfa-614868299ac6",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "documents",
-                    "confirm_upload"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"document_id\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
+                  "request": {
+                    "method": "GET",
+                    "header": [
+                      {
+                        "key": "Accept",
+                        "value": "application/json"
+                      }
+                    ],
+                    "url": {
+                      "raw": "{{baseUrl}}/api/v1/documents?page=1&per_page=50&sort=<string>&where=<string>",
+                      "host": [
+                        "{{baseUrl}}"
+                      ],
+                      "path": [
+                        "api",
+                        "v1",
+                        "documents"
+                      ],
+                      "query": [
+                        {
+                          "description": "Page number. Defaults to 1. See Pagination for more details.",
+                          "key": "page",
+                          "value": "1"
+                        },
+                        {
+                          "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                          "key": "per_page",
+                          "value": "50"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                          "key": "sort",
+                          "value": "<string>"
+                        },
+                        {
+                          "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                          "key": "where",
+                          "value": "<string>"
+                        }
+                      ]
                     }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"document\": {\n    \"$ref\": \"/api/v1/documents/a1b2c3d4e5f67890\"\n  },\n  \"message\": \"string\",\n  \"success\": false\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "0e498990-c696-4170-85c2-8816a1d0b292",
-          "name": "Start a multipart upload directly to S3.",
-          "request": {
-            "name": "Start a multipart upload directly to S3.",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "documents",
-                "init_multipart_upload"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "3a65ef07-60cf-4a3a-890a-44a825963898",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "documents",
-                    "init_multipart_upload"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
                   },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"callback_url\": \"string\",\n  \"file_id\": \"string\",\n  \"import_as_document\": false,\n  \"s3_bucket\": \"string\",\n  \"upload_aws_access_key_id\": \"string\",\n  \"upload_aws_secret_access_key\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "6aa3e532-b296-4139-a7e3-dde03c5446ef",
-          "name": "Deprecated in favour of init_multipart_upload",
-          "request": {
-            "name": "Deprecated in favour of init_multipart_upload",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "documents",
-                "init_upload"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": []
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"filename\": \"<string>\",\n  \"size\": \"<integer>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "ba6ea67b-f3b6-4349-912a-6f8ad782fb13",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "documents",
-                    "init_upload"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": []
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"filename\": \"<string>\",\n  \"size\": \"<integer>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"additional_fields\": {\n    \"key_0\": 878.6681400639106,\n    \"key_1\": \"string\"\n  },\n  \"document_id\": \"string\",\n  \"upload_url\": \"string\"\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "720dde77-20c6-470a-a90f-2bdff7452b0a",
-          "name": "DELETE documents",
-          "request": {
-            "name": "DELETE documents",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "documents",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "method": "DELETE",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "adb75e24-2282-48aa-8e68-cb9ae9556300",
-              "name": "No Content",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "documents",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
+                  "response": [
                     {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
+                      "id": "e70431ff-d53b-44c7-a7da-901bbbcefd1e",
+                      "name": "OK",
+                      "originalRequest": {
+                        "method": "GET",
+                        "header": [
+                          {
+                            "key": "Accept",
+                            "value": "application/json"
+                          },
+                          {
+                            "description": "Added as a part of security scheme: apikey",
+                            "key": "X-API-Key",
+                            "value": "<API Key>"
+                          }
+                        ],
+                        "url": {
+                          "raw": "{{baseUrl}}/api/v1/documents?page=1&per_page=50&sort=<string>&where=<string>",
+                          "host": [
+                            "{{baseUrl}}"
+                          ],
+                          "path": [
+                            "api",
+                            "v1",
+                            "documents"
+                          ],
+                          "query": [
+                            {
+                              "description": "Page number. Defaults to 1. See Pagination for more details.",
+                              "key": "page",
+                              "value": "1"
+                            },
+                            {
+                              "description": "Number of requested paginated records. Defaults to 50. See Pagination for more details.",
+                              "key": "per_page",
+                              "value": "50"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON sort clause, e.g., `sort={\"created_at\": true}` to sort by created_at (descending)",
+                              "key": "sort",
+                              "value": "<string>"
+                            },
+                            {
+                              "description": "Optional Mongo-style JSON filter clause, e.g., `where={\"$uri\": {\"$eq\": \"/api/v1/samples/0ee172af60e84f61\"}}`",
+                              "key": "where",
+                              "value": "<string>"
+                            }
+                          ]
+                        }
+                      },
+                      "status": "OK",
+                      "code": 200,
+                      "_postman_previewlanguage": "json",
+                      "header": [
+                        {
+                          "key": "Content-Type",
+                          "value": "application/json"
+                        }
+                      ],
+                      "cookie": [],
+                      "responseTime": null,
+                      "body": "[\n  {\n    \"$uri\": \"/api/v1/documents/0c5f183e8656d911\",\n    \"created_at\": \"<dateTime>\",\n    \"downloaders\": [\n      {\n        \"$ref\": \"/api/v1/users/59f882ee0c48fd0c\"\n      },\n      {\n        \"$ref\": \"/api/v1/users/f3285b2dc2acb75e\"\n      }\n    ],\n    \"filename\": \"<string>\",\n    \"size\": \"<integer>\",\n    \"uploader\": {\n      \"$ref\": \"/api/v1/users/b3ad61cbf40f11aa\"\n    }\n  },\n  {\n    \"$uri\": \"/api/v1/documents/1778010179d04c0c\",\n    \"created_at\": \"<dateTime>\",\n    \"downloaders\": [\n      {\n        \"$ref\": \"/api/v1/users/70b106d91721077c\"\n      },\n      {\n        \"$ref\": \"/api/v1/users/0dd333dd0ba6c017\"\n      }\n    ],\n    \"filename\": \"<string>\",\n    \"size\": \"<integer>\",\n    \"uploader\": {\n      \"$ref\": \"/api/v1/users/5108bb790793c4f0\"\n    }\n  }\n]",
+                      "createdAt": "2026-10-21T20:07:07.000Z",
+                      "updatedAt": "2026-10-21T20:07:07.000Z",
+                      "uid": "35240-e70431ff-d53b-44c7-a7da-901bbbcefd1e"
                     }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  }
-                ],
-                "method": "DELETE",
-                "body": {}
-              },
-              "status": "No Content",
-              "code": 204,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "text/plain"
+                  ],
+                  "createdAt": "2026-10-21T20:07:07.000Z",
+                  "updatedAt": "2026-10-21T20:07:07.000Z",
+                  "uid": "35240-323a5d86-981f-43f8-82af-60efb78e111d"
                 }
               ],
-              "body": "",
-              "cookie": [],
-              "_postman_previewlanguage": "text"
+              "id": "3fb58e6f-7486-4d8d-98c9-1b8d40b93b0b",
+              "createdAt": "2026-10-21T20:07:07.000Z",
+              "updatedAt": "2026-10-21T20:07:07.000Z",
+              "uid": "35240-3fb58e6f-7486-4d8d-98c9-1b8d40b93b0b"
             }
           ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d10c094a-ec8c-4066-9831-2fbf84c772ee",
-          "name": "GET documents",
-          "request": {
-            "name": "GET documents",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "documents",
-                ":id"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "GET",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "6aaa4203-4963-4b99-8159-d649ed9994f2",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "documents",
-                    ":id"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "GET",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/documents/0d77065796f8d173\",\n  \"created_at\": \"2016-05-30T12:36:54.004Z\",\n  \"downloaders\": [\n    {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    }\n  ],\n  \"filename\": \"string\",\n  \"size\": 6147,\n  \"uploader\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "58f0016b-7e64-4d41-a97a-f6be7848b408",
-          "name": "POST documents add_user",
-          "request": {
-            "name": "POST documents add_user",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "documents",
-                ":id",
-                "add_user"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"user\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "defe881c-c6dd-470c-a19f-ebaf9e12e85c",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "documents",
-                    ":id",
-                    "add_user"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"user\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/documents/0d77065796f8d173\",\n  \"created_at\": \"2016-05-30T12:36:54.004Z\",\n  \"downloaders\": [\n    {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    }\n  ],\n  \"filename\": \"string\",\n  \"size\": 6147,\n  \"uploader\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d159a002-6d30-4834-89ce-2a609bc32e24",
-          "name": "POST documents download_uri",
-          "request": {
-            "name": "POST documents download_uri",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "documents",
-                ":id",
-                "download_uri"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null
-          },
-          "response": [
-            {
-              "id": "1d3368a2-d0a7-4eae-9b34-d7c2c33e56b6",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "documents",
-                    ":id",
-                    "download_uri"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {}
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"download_uri\": \"string\",\n  \"expires_in_hours\": 1621\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "d1a202a6-e4fb-478d-8d2f-a64debb673bc",
-          "name": "POST documents remove_user",
-          "request": {
-            "name": "POST documents remove_user",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "documents",
-                ":id",
-                "remove_user"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "POST",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"user\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "153d912c-d2df-4b1b-825b-d47a0486eba8",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "documents",
-                    ":id",
-                    "remove_user"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "POST",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"user\": {\n    \"$ref\": \"<uri>\"\n  }\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/documents/0d77065796f8d173\",\n  \"created_at\": \"2016-05-30T12:36:54.004Z\",\n  \"downloaders\": [\n    {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    }\n  ],\n  \"filename\": \"string\",\n  \"size\": 6147,\n  \"uploader\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
-        },
-        {
-          "id": "beee5845-e0a9-4079-b8cb-ba9908a56c80",
-          "name": "PATCH documents rename",
-          "request": {
-            "name": "PATCH documents rename",
-            "description": {},
-            "url": {
-              "path": [
-                "api",
-                "v1",
-                "documents",
-                ":id",
-                "rename"
-              ],
-              "host": [
-                "{{baseUrl}}"
-              ],
-              "query": [],
-              "variable": [
-                {
-                  "disabled": false,
-                  "type": "any",
-                  "value": "<string>",
-                  "key": "id",
-                  "description": "(Required) "
-                }
-              ]
-            },
-            "header": [
-              {
-                "key": "Content-Type",
-                "value": "application/json"
-              },
-              {
-                "key": "Accept",
-                "value": "application/json"
-              }
-            ],
-            "method": "PATCH",
-            "auth": null,
-            "body": {
-              "mode": "raw",
-              "raw": "{\n  \"filename\": \"<string>\"\n}",
-              "options": {
-                "raw": {
-                  "language": "json"
-                }
-              }
-            }
-          },
-          "response": [
-            {
-              "id": "e7c4d814-3001-48c1-bcc1-ba5bd3373cfa",
-              "name": "OK",
-              "originalRequest": {
-                "url": {
-                  "path": [
-                    "api",
-                    "v1",
-                    "documents",
-                    ":id",
-                    "rename"
-                  ],
-                  "host": [
-                    "{{baseUrl}}"
-                  ],
-                  "query": [],
-                  "variable": [
-                    {
-                      "disabled": false,
-                      "type": "any",
-                      "value": "<string>",
-                      "key": "id",
-                      "description": "(Required) "
-                    }
-                  ]
-                },
-                "header": [
-                  {
-                    "description": {
-                      "content": "Added as a part of security scheme: apikey",
-                      "type": "text/plain"
-                    },
-                    "key": "X-API-Key",
-                    "value": "<API Key>"
-                  },
-                  {
-                    "key": "Accept",
-                    "value": "application/json"
-                  }
-                ],
-                "method": "PATCH",
-                "body": {
-                  "mode": "raw",
-                  "raw": "{\n  \"filename\": \"<string>\"\n}",
-                  "options": {
-                    "raw": {
-                      "language": "json"
-                    }
-                  }
-                }
-              },
-              "status": "OK",
-              "code": 200,
-              "header": [
-                {
-                  "key": "Content-Type",
-                  "value": "application/json"
-                }
-              ],
-              "body": "{\n  \"$uri\": \"/api/v1/documents/0d77065796f8d173\",\n  \"created_at\": \"2016-05-30T12:36:54.004Z\",\n  \"downloaders\": [\n    {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    },\n    {\n      \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n    }\n  ],\n  \"filename\": \"string\",\n  \"size\": 6147,\n  \"uploader\": {\n    \"$ref\": \"/api/v1/users/a1b2c3d4e5f67890\"\n  }\n}",
-              "cookie": [],
-              "_postman_previewlanguage": "json"
-            }
-          ],
-          "event": [],
-          "protocolProfileBehavior": {
-            "disableBodyPruning": true
-          }
+          "id": "91c7422f-ba91-4b0e-9c4d-b430ee693483",
+          "createdAt": "2026-10-21T20:07:07.000Z",
+          "updatedAt": "2026-10-21T20:07:07.000Z",
+          "uid": "35240-91c7422f-ba91-4b0e-9c4d-b430ee693483"
         }
       ],
-      "event": []
-    }
-  ],
-  "event": [],
-  "variable": [
-    {
-      "type": "string",
-      "value": "https://app.onecodex.com",
-      "key": "baseUrl"
+      "id": "2c64ceb7-7db5-43af-8ed0-288b03369c76",
+      "createdAt": "2026-10-21T20:07:07.000Z",
+      "updatedAt": "2026-10-21T20:07:07.000Z",
+      "uid": "35240-2c64ceb7-7db5-43af-8ed0-288b03369c76"
     }
   ],
   "auth": {
@@ -1074,25 +1149,25 @@
     "apikey": [
       {
         "key": "key",
-        "value": "X-API-Key"
+        "value": "X-API-Key",
+        "type": "string"
       },
       {
         "key": "value",
-        "value": "{{apiKey}}"
+        "value": "{{apiKey}}",
+        "type": "string"
       },
       {
         "key": "in",
-        "value": "header"
+        "value": "header",
+        "type": "string"
       }
     ]
   },
-  "info": {
-    "_postman_id": "9f3cae24-c46e-4c4e-95d1-e71fb214d7a1",
-    "name": "One Codex API (v1) Account Documents API",
-    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-    "description": {
-      "content": "The One Codex API (v1) -- programmatic access to One Codex's suite of microbial genomics data storage, analysis, and query tools.",
-      "type": "text/plain"
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://app.onecodex.com"
     }
-  }
+  ]
 }
